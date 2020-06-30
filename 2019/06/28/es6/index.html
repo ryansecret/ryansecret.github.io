@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>es6 | ryansecreat blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="reflect 修改某些Object方法的返回结果，让其变得更合理 1234567891011121314// 老写法try &amp;#123;  Object.defineProperty(target, property, attributes);  // success&amp;#125; catch (e) &amp;#123;  // failure&amp;#125;// 新写法if (Reflect.define">
+<meta name="keywords" content="es">
+<meta property="og:type" content="article">
+<meta property="og:title" content="es6">
+<meta property="og:url" content="http://yoursite.com/2019/06/28/es6/index.html">
+<meta property="og:site_name" content="ryansecreat blog">
+<meta property="og:description" content="reflect 修改某些Object方法的返回结果，让其变得更合理 1234567891011121314// 老写法try &amp;#123;  Object.defineProperty(target, property, attributes);  // success&amp;#125; catch (e) &amp;#123;  // failure&amp;#125;// 新写法if (Reflect.define">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-06-29T06:22:24.360Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="es6">
+<meta name="twitter:description" content="reflect 修改某些Object方法的返回结果，让其变得更合理 1234567891011121314// 老写法try &amp;#123;  Object.defineProperty(target, property, attributes);  // success&amp;#125; catch (e) &amp;#123;  // failure&amp;#125;// 新写法if (Reflect.define">
+  
+    <link rel="alternate" href="/atom.xml" title="ryansecreat blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ryansecreat blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">smile hard</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-es6" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/28/es6/" class="article-date">
+  <time datetime="2019-06-28T03:58:20.000Z" itemprop="datePublished">2019-06-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      es6
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="reflect"><a href="#reflect" class="headerlink" title="reflect"></a>reflect</h3><ol>
+<li><p>修改某些Object方法的返回结果，让其变得更合理</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 老写法</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(target, property, attributes);</span><br><span class="line">  <span class="comment">// success</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="comment">// failure</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 新写法</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">Reflect</span>.defineProperty(target, property, attributes)) &#123;</span><br><span class="line">  <span class="comment">// success</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// failure</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>命令式改为函数式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 老写法</span></span><br><span class="line"><span class="string">'assign'</span> <span class="keyword">in</span> <span class="built_in">Object</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 新写法</span></span><br><span class="line"><span class="built_in">Reflect</span>.has(<span class="built_in">Object</span>, <span class="string">'assign'</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Reflect对象的方法与Proxy对象的方法一一对应</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Proxy</span>(target, &#123;</span><br><span class="line">  <span class="keyword">set</span>: function(target, name, value, receiver) &#123;</span><br><span class="line">    <span class="keyword">var</span> success = <span class="built_in">Reflect</span>.set(target, name, value, receiver);</span><br><span class="line">    <span class="keyword">if</span> (success) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'property '</span> + name + <span class="string">' on '</span> + target + <span class="string">' set to '</span> + value);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> success;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>####async 函数是什么？一句话，它就是 Generator 函数的语法糖。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> readFile = <span class="function"><span class="keyword">function</span> (<span class="params">fileName</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    fs.readFile(fileName, <span class="function"><span class="keyword">function</span>(<span class="params">error, data</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (error) <span class="keyword">return</span> reject(error);</span><br><span class="line">      resolve(data);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> gen = <span class="function"><span class="keyword">function</span>* (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> f1 = <span class="keyword">yield</span> readFile(<span class="string">'/etc/fstab'</span>);</span><br><span class="line">  <span class="keyword">const</span> f2 = <span class="keyword">yield</span> readFile(<span class="string">'/etc/shells'</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(f1.toString());</span><br><span class="line">  <span class="built_in">console</span>.log(f2.toString());</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="module"><a href="#module" class="headerlink" title="module"></a>module</h3><ol>
+<li>CommonJS 模块输出的是值的拷贝，也就是说，一旦输出一个值，模块内部的变化就影响不到这个值。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> counter = <span class="number">3</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">incCounter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  counter++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  counter: counter,</span><br><span class="line">  incCounter: incCounter,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">var</span> mod = <span class="built_in">require</span>(<span class="string">'./lib'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(mod.counter);  <span class="comment">// 3</span></span><br><span class="line">mod.incCounter();</span><br><span class="line"><span class="built_in">console</span>.log(mod.counter); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>可以使用Es6 加载commonjs 模块。 CommonJS 模块的输出缓存机制，在 ES6 加载方式下依然有效。</p>
+<p>CommonJS 模块加载 ES6 模块，不能使用require命令，而要使用import()函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// es.mjs</span></span><br><span class="line"><span class="keyword">let</span> foo = &#123; <span class="attr">bar</span>: <span class="string">'my-default'</span> &#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> foo;</span><br><span class="line"></span><br><span class="line"><span class="comment">// cjs.js</span></span><br><span class="line"><span class="keyword">const</span> es_namespace = <span class="keyword">await</span> <span class="keyword">import</span>(<span class="string">'./es.mjs'</span>);</span><br><span class="line"><span class="comment">// es_namespace = &#123;</span></span><br><span class="line"><span class="comment">//   get default() &#123;</span></span><br><span class="line"><span class="comment">//     ...</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(es_namespace.default);</span><br><span class="line"><span class="comment">// &#123; bar:'my-default' &#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="lit"><a href="#lit" class="headerlink" title="lit"></a>lit</h3><ol>
+<li><p>数组的空位 [,,,]</p>
+</li>
+<li><p>parentheses to be omitted, as in</p>
+</li>
+</ol>
+<p>try {<br>  // …<br>} catch {<br>  // …<br>}</p>
+<h3 id="generator"><a href="#generator" class="headerlink" title="generator"></a>generator</h3><ol>
+<li><p>Generator  yield表达式后面的表达式，只有当调用next方法、内部指针指向该语句时才会执行，因此等于为 JavaScript 提供了手动的“惰性求值”（Lazy Evaluation）的语法功能。<br>yield表达式本身没有返回值，或者说总是返回undefined。next方法可以带一个参数，该参数就会被当作上一个yield表达式的返回值。</p>
+</li>
+<li><p>Co 模块相关于一个generator 的执行器。co 模块其实就是将两种自动执行器（Thunk 函数和 Promise 对象），包装成一个模块。使用 co 的前提条件是，Generator 函数的yield命令后面，只能是 Thunk 函数或 Promise 对象。</p>
+</li>
+<li><p>代码中，虽然map方法的参数是async函数，但它是并发执行的，因为只有async函数内部是继发执行，外部不受影响。后面的for..of循环内部使用了await，因此实现了按顺序输出</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">logInOrder</span>(<span class="params">urls</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 并发读取远程URL</span></span><br><span class="line">  <span class="keyword">const</span> textPromises = urls.map(<span class="keyword">async</span> url =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(url);</span><br><span class="line">    <span class="keyword">return</span> response.text();</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 按次序输出</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> textPromise <span class="keyword">of</span> textPromises) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">await</span> textPromise);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象的Symbol.iterator</p>
+<p>由于 Generator 函数就是遍历器生成函数，因此可以把 Generator 赋值给对象的Symbol.iterator属性，从而使得该对象具有 Iterator 接口。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myIterable = &#123;&#125;;</span><br><span class="line">myIterable[<span class="built_in">Symbol</span>.iterator] = <span class="function"><span class="keyword">function</span>* (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">3</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">[...myIterable]</span><br></pre></td></tr></table></figure>
+<p>Iterator 接口和generator 函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  * [<span class="built_in">Symbol</span>.iterator]() &#123;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">'hello'</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">'world'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>只要 Generator 函数内部部署了try…catch代码块，那么遍历器的throw方法抛出的错误，不影响下一次遍历。</p>
+<p>Gnerator 嵌套：</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">inner</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">yield</span> <span class="string">'hello!'</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="function"><span class="keyword">function</span>* <span class="title">outer1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">yield</span> <span class="string">'open'</span>;</span><br><span class="line">       <span class="keyword">yield</span> *inner();</span><br><span class="line">       <span class="keyword">yield</span> <span class="string">'close'</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>异步的同步表达：</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">main</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> result = <span class="keyword">yield</span> request(<span class="string">"http://some.url"</span>);</span><br><span class="line">  <span class="keyword">var</span> resp = <span class="built_in">JSON</span>.parse(result);</span><br><span class="line">    <span class="built_in">console</span>.log(resp.value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  makeAjaxCall(url, <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</span><br><span class="line">    it.next(response);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> it = main();</span><br><span class="line">it.next();</span><br></pre></td></tr></table></figure>
+<h3 id="proxy"><a href="#proxy" class="headerlink" title="proxy"></a>proxy</h3><ol>
+<li><p>Proxy 的 construct 用于拦截 new()<br>isExtensible方法拦截Object.isExtensible操作。<br>ownKeys方法用来拦截对象自身属性的读取操作。具体来说，拦截以下操作。</p>
+<p>Object.getOwnPropertyNames()<br>Object.getOwnPropertySymbols()<br>Object.keys()<br>for…in循环</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Proxy</span>(&#123;&#125;, &#123;</span><br><span class="line">     <span class="keyword">get</span>: function (target, key, receiver) &#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">`getting <span class="subst">$&#123;key&#125;</span>!`</span>);</span><br><span class="line">       <span class="keyword">return</span> <span class="built_in">Reflect</span>.get(target, key, receiver);</span><br><span class="line">     &#125;,</span><br><span class="line">     <span class="keyword">set</span>: function (target, key, value, receiver) &#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">`setting <span class="subst">$&#123;key&#125;</span>!`</span>);</span><br><span class="line">       <span class="keyword">return</span> <span class="built_in">Reflect</span>.set(target, key, value, receiver);</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Class 的generator :</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">     <span class="keyword">constructor</span>(...args) &#123;</span><br><span class="line">       <span class="keyword">this</span>.args = args;</span><br><span class="line">     &#125;</span><br><span class="line">     * [<span class="built_in">Symbol</span>.iterator]() &#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">let</span> arg <span class="keyword">of</span> <span class="keyword">this</span>.args) &#123;</span><br><span class="line">         <span class="keyword">yield</span> arg;</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>绑定上下文</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selfish</span> (<span class="params">target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> cache = <span class="keyword">new</span> <span class="built_in">WeakMap</span>();</span><br><span class="line">  <span class="keyword">const</span> handler = &#123;</span><br><span class="line">    <span class="keyword">get</span> (target, key) &#123;</span><br><span class="line">      <span class="keyword">const</span> value = <span class="built_in">Reflect</span>.get(target, key);</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> value !== <span class="string">'function'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (!cache.has(value)) &#123;</span><br><span class="line">        cache.set(value, value.bind(target));</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> cache.get(value);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler);</span><br><span class="line">  <span class="keyword">return</span> proxy;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> logger = selfish(<span class="keyword">new</span> Logger());</span><br><span class="line"><span class="string">``</span><span class="string">`   </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#### 类型转换 </span></span><br><span class="line"><span class="string">1. 转换为数字</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="keyword">let</span> int = <span class="string">"15"</span>;</span><br><span class="line">int = +int;</span><br><span class="line"><span class="built_in">console</span>.log(int); <span class="comment">// Result: 15</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> int); Result: <span class="string">"number"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//这也可以用于将布尔值转换为数字，如下所示</span></span><br><span class="line"> <span class="built_in">console</span>.log(+<span class="literal">true</span>);  <span class="comment">// Return: 1</span></span><br><span class="line"> <span class="built_in">console</span>.log(+<span class="literal">false</span>); <span class="comment">// Return: 0</span></span><br></pre></td></tr></table></figure>
+<h4 id="console"><a href="#console" class="headerlink" title="console"></a>console</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">console</span>.table()</span><br><span class="line"><span class="built_in">console</span>.dir()</span><br><span class="line"><span class="built_in">console</span>.count()</span><br><span class="line">Console.time() </span><br><span class="line">consoel.timeLog()</span><br><span class="line"> <span class="built_in">console</span>.time(<span class="string">"answer time"</span>);</span><br><span class="line">alert(<span class="string">"Click to continue"</span>);</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">"answer time”);</span></span><br></pre></td></tr></table></figure>
+<h4 id="对象的结构"><a href="#对象的结构" class="headerlink" title="对象的结构"></a>对象的结构</h4><ol>
+<li><p>对象的解构：let { x, y, …z } = { x: 1, y: 2, a: 3, b: 4 };</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;   <span class="attr">p</span>: [     <span class="string">'Hello'</span>,     &#123; <span class="attr">y</span>: <span class="string">'World'</span> &#125;   ] &#125;; </span><br><span class="line"><span class="keyword">let</span> &#123; <span class="attr">p</span>: [x, &#123; y &#125;] &#125; = obj; x <span class="comment">// "Hello"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>展开运算符的妙用 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//需要根据一个条件创建两个不同的对象，可以使用展开运算符号来处理。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> getUser = <span class="function">(<span class="params">emailIncluded</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    name: <span class="string">'John'</span>,</span><br><span class="line">    surname: <span class="string">'Doe'</span>,</span><br><span class="line">    ...emailIncluded &amp;&amp; &#123; <span class="attr">email</span> : <span class="string">'john@doe.com'</span> &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>####</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/28/es6/" data-id="ckc1cosgq000b7e8k5n99jdp1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es/">es</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/02/es8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          es8
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/06/24/cookies/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">cookies</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encode-decode/">encode decode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es/">es</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/">eslint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interview/">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/loadtest/">loadtest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ops/">ops</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pattern/">pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pm2/">pm2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgre/">postgre</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regex/">regex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ts/">ts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/useful-package/">useful package</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-eventloop-js/">vue eventloop js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-安全/">web 安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全/">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/零碎/">零碎</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/encode-decode/" style="font-size: 10px;">encode decode</a> <a href="/tags/es/" style="font-size: 20px;">es</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/loadtest/" style="font-size: 10px;">loadtest</a> <a href="/tags/ops/" style="font-size: 10px;">ops</a> <a href="/tags/pattern/" style="font-size: 10px;">pattern</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/postgre/" style="font-size: 10px;">postgre</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/ts/" style="font-size: 10px;">ts</a> <a href="/tags/useful-package/" style="font-size: 10px;">useful package</a> <a href="/tags/vue-eventloop-js/" style="font-size: 10px;">vue eventloop js</a> <a href="/tags/web-安全/" style="font-size: 10px;">web 安全</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a> <a href="/tags/零碎/" style="font-size: 10px;">零碎</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/04/fresh/">fresh</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/10/stringencode/">stringencode</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/09/security-1/">security</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/08/encoding/">encoding</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/23/graphql/">graphql</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 ryansecreat<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

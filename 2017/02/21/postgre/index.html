@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>postgre | ryansecreat blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="123456db.many(query, values); // expects one or more rowsdb.one(query, values); // expects a single rowdb.none(query, values); // expects no rowsdb.any(query, values); // expects anything, same as `ma">
+<meta name="keywords" content="postgre">
+<meta property="og:type" content="article">
+<meta property="og:title" content="postgre">
+<meta property="og:url" content="http://yoursite.com/2017/02/21/postgre/index.html">
+<meta property="og:site_name" content="ryansecreat blog">
+<meta property="og:description" content="123456db.many(query, values); // expects one or more rowsdb.one(query, values); // expects a single rowdb.none(query, values); // expects no rowsdb.any(query, values); // expects anything, same as `ma">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-06-29T06:22:24.362Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="postgre">
+<meta name="twitter:description" content="123456db.many(query, values); // expects one or more rowsdb.one(query, values); // expects a single rowdb.none(query, values); // expects no rowsdb.any(query, values); // expects anything, same as `ma">
+  
+    <link rel="alternate" href="/atom.xml" title="ryansecreat blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ryansecreat blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">smile hard</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-postgre" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/21/postgre/" class="article-date">
+  <time datetime="2017-02-21T03:18:37.000Z" itemprop="datePublished">2017-02-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      postgre
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db.many(query, values); // expects one or more rows</span><br><span class="line">db.one(query, values); // expects a single row</span><br><span class="line">db.none(query, values); // expects no rows</span><br><span class="line">db.any(query, values); // expects anything, same as `manyOrNone`</span><br><span class="line">db.oneOrNone(query, values); // expects 1 or 0 rows</span><br><span class="line">db.manyOrNone(query, values); // expects anything, same as `any`</span><br></pre></td></tr></table></figure>
+<p>The library supports named parameters in query formatting, with the syntax of $<em>propName</em>, where * is any of the following open-close pairs: {}, (), &lt;&gt;, [], //</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.query(&apos;SELECT * FROM users WHERE name=$&#123;name&#125; AND active=$/active/&apos;, &#123;</span><br><span class="line">    name: &apos;John&apos;,</span><br><span class="line">    active: true</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>this 的用法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var doc = &#123;</span><br><span class="line">    id: 123,</span><br><span class="line">    body: &quot;some text&quot;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">db.none(&quot;INSERT INTO documents(id, doc) VALUES($&#123;id&#125;, $&#123;this&#125;)&quot;, doc)</span><br><span class="line">    .then(function () &#123;</span><br><span class="line">        // success;</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(function (error) &#123;</span><br><span class="line">        // error;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>which will execute:</p>
+<p>INSERT INTO documents(id, doc) VALUES(123, ‘{“id”:123,”body”:”some text”}’)</p>
+<p>执行函数</p>
+<p>And when you are not expecting any return results, call db.proc instead. Both methods return a Promise object, but db.proc doesn’t take a qrm parameter, always assuming it is one|none.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">db.func(&apos;findAudit&apos;, [123, new Date()])</span><br><span class="line">    .then(function (data) &#123;</span><br><span class="line">        console.log(data); // printing the data returned </span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(function (error) &#123;</span><br><span class="line">        console.log(error); // printing the error </span><br><span class="line">    &#125;);</span><br><span class="line">db.proc();</span><br></pre></td></tr></table></figure></p>
+<p>公用一个连接：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">db.task(function (t) &#123;</span><br><span class="line">    // `t` and `this` here are the same;</span><br><span class="line">    // execute a chain of queries;</span><br><span class="line">&#125;)</span><br><span class="line">    .then(function (data) &#123;</span><br><span class="line">        // success;</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(function (error) &#123;</span><br><span class="line">        // failed;    </span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<p>事物：其中可以嵌套事物</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">db.tx(function (t) &#123;</span><br><span class="line">    // t = this;</span><br><span class="line">    return t.batch([</span><br><span class="line">        t.one(&quot;insert into users(name) values($1) returning id&quot;, &quot;John&quot;),</span><br><span class="line">        t.one(&quot;insert into events(code) values($1) returning id&quot;, 123)</span><br><span class="line">    ]);</span><br><span class="line">&#125;)</span><br><span class="line">    .spread(function (user, event) &#123;</span><br><span class="line">        // print new user id + new event id;</span><br><span class="line">        console.log(&quot;DATA:&quot;, user.id, event.id);</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(function (error) &#123;</span><br><span class="line">        console.log(&quot;ERROR:&quot;, error); // print the error;</span><br><span class="line">    &#125;)</span><br><span class="line">    .finally(function () &#123;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">        pgp.end(); // for immediate app exit, closing the connection pool.   关闭连接池，是的一般不需要</span><br><span class="line">        </span><br><span class="line">        If, however you normally exit your application by killing the NodeJS process, then you don&apos;t need to use it.</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<p>设置隔离级别：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var TransactionMode = pgp.txMode.TransactionMode;</span><br><span class="line">var isolationLevel = pgp.txMode.isolationLevel;</span><br><span class="line"></span><br><span class="line">// Create a reusable transaction mode (serializable + read-only + deferrable):</span><br><span class="line">var tmSRD = new TransactionMode(&#123;</span><br><span class="line">    tiLevel: isolationLevel.serializable,</span><br><span class="line">    readOnly: true,</span><br><span class="line">    deferrable: true</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">function myTransaction() &#123;</span><br><span class="line">    return this.query(&apos;SELECT * FROM table&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myTransaction.txMode = tmSRD; // assign transaction mode;</span><br><span class="line"></span><br><span class="line">db.tx(myTransaction)</span><br><span class="line">    .then(function()&#123;</span><br><span class="line">        // success;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<p>重置promise：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var promise = require(&apos;bluebird&apos;);</span><br><span class="line">var options = &#123;</span><br><span class="line">    promiseLib: promise</span><br><span class="line">&#125;;</span><br><span class="line">var pgp = require(&apos;pg-promise&apos;)(options);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/21/postgre/" data-id="ckc1cosh5000z7e8klwx21ac4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgre/">postgre</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/02/14/package/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          package
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/23/interview/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">interview</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encode-decode/">encode decode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es/">es</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/">eslint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interview/">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/loadtest/">loadtest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ops/">ops</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pattern/">pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pm2/">pm2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgre/">postgre</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regex/">regex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ts/">ts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/useful-package/">useful package</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-eventloop-js/">vue eventloop js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-安全/">web 安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全/">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/零碎/">零碎</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/encode-decode/" style="font-size: 10px;">encode decode</a> <a href="/tags/es/" style="font-size: 20px;">es</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/loadtest/" style="font-size: 10px;">loadtest</a> <a href="/tags/ops/" style="font-size: 10px;">ops</a> <a href="/tags/pattern/" style="font-size: 10px;">pattern</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/postgre/" style="font-size: 10px;">postgre</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/ts/" style="font-size: 10px;">ts</a> <a href="/tags/useful-package/" style="font-size: 10px;">useful package</a> <a href="/tags/vue-eventloop-js/" style="font-size: 10px;">vue eventloop js</a> <a href="/tags/web-安全/" style="font-size: 10px;">web 安全</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a> <a href="/tags/零碎/" style="font-size: 10px;">零碎</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/04/fresh/">fresh</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/10/stringencode/">stringencode</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/09/security-1/">security</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/08/encoding/">encoding</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/23/graphql/">graphql</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 ryansecreat<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
