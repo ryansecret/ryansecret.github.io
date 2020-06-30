@@ -92,6 +92,36 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ol>
+<li><p>indexedDB 的特点：存储空间大：存储空间可以达到几百兆甚至更多；</p>
+<pre><code>&gt;&gt; 支持二进制存储：它不仅可以存储字符串，而且还可以存储二进制数据；
+&gt;&gt; IndexedDB 有同源限制，每一个数据库只能在自身域名下能访问，不能跨域名访问；
+&gt;&gt; 支持事务型：IndexedDB 执行的操作会按照事务来分组的，在一个事务中，要么所有的操作都成功，要么所有的操作都失败；
+&gt;&gt; 键值对存储：IndexedDB 内部采用对象仓库（object store）存放数据。所有类型的数据都可以直接存入，包括 JavaScript 对象。对象仓库中，数据以 “键值对” 的形式保存，每一个数据记录都有对应的主键，主键是独一无二的，不能有重复，否则会抛出一个错误。
+&gt;&gt; 数据操作是异步的：使用 IndexedDB 执行的操作是异步执行的，以免阻塞应用程序。
+
+1. localForage 是一个快速简单的 JavaScript 存储库。 它通过使用类似于 localStorage 的简单 API 来使用异步存储（IndexedDB 或 WebSQL)），进而改善你的 Web 应用程序的离线体验。
+</code></pre></li>
+<li>ImmortalDB 是在浏览器中存储持久键值数据的最佳方法。保存到 ImmortalDB 的数据被冗余地存储在 Cookies，IndexedDB 和 localStorage 中，并且如果其中的任何数据被删除或损坏，它们将不断进行自我修复。</li>
+<li>web-storage-cache 对HTML5 localStorage 和sessionStorage 进行了扩展，添加了超时时间，序列化方法。可以直接存储json对象，同时可以非常简单的进行超时时间的设置。</li>
+<li>全局的components ，通过vue 的options merge 到组件上。 最后通过 extend(Vue.options.components, builtInComponents) 把一些内置组件扩展到 Vue.options.components 上，<br>Vue 的内置组件目前有 <keep-alive>、<transition> 和 <transition-group> 组件，这也就是为什么我们在其它组件中使用 <keep-alive> 组件不需要注册的原因</keep-alive></transition-group></transition></keep-alive></li>
+<li>首先通过 Vue.options = Object.create(null) 创建一个空对象，然后遍历 ASSET_TYPES:VuVue.options.components = {}<br>Vue.options.directives = {} Vue.options.filters = {}</li>
+<li>git config –global –edit</li>
+<li><p>对于渲染 watcher 而言，它在执行 this.get() 方法求值的时候，会执行 getter 方法： updateComponent = () =&gt; {<br>updateComponent = () =&gt; { vm._update(vm._render(), hydrating)</p>
+</li>
+<li><p>而对于作用域插槽，父组件在编译和渲染阶段并不会直接生成 vnodes，而是在父节点 vnode 的 data 中保留一个 scopedSlots 对象，存储着不同名称的插槽以及它们对应的渲染函数，<br>只有在编译和渲染子组件阶段才会执行这个渲染函数生成 vnodes，由于是在子组件环境执行的，所以对应的数据作用域是子组件实例。</p>
+</li>
+<li><p>这里对该vm注册一个Watcher实例，Watcher的getter为updateComponent函数，用于触发所有渲染所需要用到的数据的getter，进行依赖收集，就是在mounted的时候进行依赖收集。<br>用户的自定义 watcher 要优先于渲染 watcher 执行；因为用户自定义 watcher 是在渲染 watcher 之前创建的。Vm._watcher.update()</p>
+</li>
+<li><p>Dep 是一个 Class，它定义了一些属性和方法，这里需要特别注意的是它有一个静态属性 target，这是一个全局唯一 Watcher，这是一个非常巧妙的设计，<br>因为在同一时间只能有一个全局的 Watcher 被计算，另外它的自身属性 subs 也是 Watcher 的数组。</p>
+</li>
+<li><p>Observer 是一个类，它的作用是给对象的属性添加 getter 和 setter，用于依赖收集和派发更新。Render 时通过getter 进行依赖收集。</p>
+</li>
+<li><p>每次JavaScript对DOM的操作都会改变当前页面的呈现，并重新刷新整个页面，从而消耗了大量的时间。而createDocumentFragment()的作用，就是可以创建一个文档碎片，<br>把所有的新节点附加其上，然后把文档碎片的内容一次性添加到document中。</p>
+</li>
+<li><p>Service Worker 是运行在浏览器背后的独立线程，一般可以用来实现缓存功能。使用 Service Worker的话，传输协议必须为 HTTPS。</p>
+</li>
+<li>prune  修剪；减少；</li>
+<li>markdown-it :  markdown parser<br>cp-cli  copy 跨平台</li>
 <li><p>e<br>在Vue2.5之前，使用函数式组件只能通过JSX的方式，在之后，可以通过模板语法来生命函数式组件</p>
 <!--在template 上面添加 functional属性-->
 <p><template functional=""><br><img :src="avatar ? avatar : 'default-avatar.png'"><br></template></p>
@@ -251,7 +281,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/04/fresh/" data-id="ckc1cosgr000c7e8kgvh8zbnl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/04/fresh/" data-id="ckc1dig9v000gwv8kswimxwyr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -328,7 +358,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/10/stringencode/" data-id="ckc1cosha00197e8kggw719cr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/10/stringencode/" data-id="ckc1digaa0019wv8kbl0z203i" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/encode-decode/">encode decode</a></li></ul>
@@ -454,7 +484,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/09/security-1/" data-id="ckc1cosh700157e8ka4ee0631" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/09/security-1/" data-id="ckc1diga70015wv8k217m0wjp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web-安全/">web 安全</a></li></ul>
@@ -505,7 +535,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/08/encoding/" data-id="ckc1cosgo00077e8kvivizczw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/08/encoding/" data-id="ckc1dig9q000bwv8kscys8cpv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -549,7 +579,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/23/graphql/" data-id="ckc1cosgx000k7e8ke9va3xdv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/23/graphql/" data-id="ckc1dig9x000kwv8kkwmta7nf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -592,7 +622,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/02/linux/" data-id="ckc1cosh0000p7e8k8d3ow81x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/02/linux/" data-id="ckc1diga1000swv8k5p50bf70" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ops/">ops</a></li></ul>
@@ -639,7 +669,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/02/es8/" data-id="ckc1cosgu000e7e8ksqh26ajp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/02/es8/" data-id="ckc1dig9r000cwv8k8drqsbv7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es/">es</a></li></ul>
@@ -748,7 +778,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/28/es6/" data-id="ckc1cosgq000b7e8k5n99jdp1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/28/es6/" data-id="ckc1dig9p0008wv8k14zq8x0c" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es/">es</a></li></ul>
@@ -1002,7 +1032,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/24/cookies/" data-id="ckc1cosgp00087e8kcjo2079v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/24/cookies/" data-id="ckc1dig9i0002wv8k31jpp8rr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/零碎/">零碎</a></li></ul>
@@ -1062,7 +1092,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/24/regex/" data-id="ckc1cosh600137e8kl9yr89sq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/24/regex/" data-id="ckc1diga60013wv8k68o3o1r1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/regex/">regex</a></li></ul>
