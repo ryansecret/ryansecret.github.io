@@ -14,8 +14,9 @@
 <meta property="og:description" content="js1.1234567891011/*parse解析得到ast树*/      const ast = parse(template.trim(), options)    /*      将AST树进行优化      优化的目标：生成模板AST树，检测不需要进行DOM改变的静态子树。      一旦检测到这些静态树，我们就能做以下这些事情：      1.把它们变成常数，这样我们就再也不需要每次">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2017/01/19/vue/foo.png">
+<meta property="og:image" content="https://github.com/ryansecret/blog/blob/master/source/asset/eventloop.jpg">
 <meta property="og:image" content="https://ustbhuangyi.github.io/vue-analysis/assets/new-vue.png">
-<meta property="og:updated_time" content="2020-06-29T06:22:24.363Z">
+<meta property="og:updated_time" content="2020-07-02T08:31:54.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue">
 <meta name="twitter:description" content="js1.1234567891011/*parse解析得到ast树*/      const ast = parse(template.trim(), options)    /*      将AST树进行优化      优化的目标：生成模板AST树，检测不需要进行DOM改变的静态子树。      一旦检测到这些静态树，我们就能做以下这些事情：      1.把它们变成常数，这样我们就再也不需要每次">
@@ -130,7 +131,7 @@
 <li>Vue.config.errorHandler   </li>
 <li>v-pre  场景:vue 是响应式系统,但是有些静态的标签不需要多次编译,这样可以节省性能</li>
 <li>v-loader transformAssetUrls<br>在模板编译过程中，编译器可以将某些特性转换为 require 调用，例如 src 中的 URL。因此这些目标资源可以被 webpack 处理。例如 <img src="./foo.png"> 会找到你文件系统中的 ./foo.png 并将其作为一个依赖包含在你的包里</li>
-<li>view router加key  场景:由于 Vue 会复用相同组件, 即 /page/1 =&gt; /page/2 或者 /page?id=1 =&gt; /page?id=2 这类链接跳转时, 将不在执行created, mounted之类的钩子</li>
+<li>view router加key  场景:由于 Vue 会复用相同组件, 即 /page/1 =&gt; /page/2 或者 /page?id=1 =&gt; /page?id=2 这类链接跳转时, 将不在执行created, mounted之类的钩子<br>1.<img src="https://github.com/ryansecret/blog/blob/master/source/asset/eventloop.jpg" alt="事件循环"></li>
 <li><p>生命周期</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">beforeCreate阶段：vue实例的挂载元素el和数据对象data都是undefined，还没有初始化。</span><br><span class="line">created阶段：vue实例的数据对象data有了，可以访问里面的数据和方法，未挂载到DOM，el还没有</span><br><span class="line">beforeMount阶段：vue实例的el和data都初始化了，但是挂载之前为虚拟的dom节点</span><br><span class="line">mounted阶段：vue实例挂载到真实DOM上，就可以通过DOM获取DOM节点</span><br><span class="line">beforeUpdate阶段：响应式数据更新时调用，发生在虚拟DOM打补丁之前，适合在更新之前访问现有的DOM，比如手动移除已添加的事件监听器</span><br><span class="line">updated阶段：虚拟DOM重新渲染和打补丁之后调用，组成新的DOM已经更新，避免在这个钩子函数中操作数据，防止死循环</span><br><span class="line">beforeDestroy阶段：实例销毁前调用，实例还可以用，this能获取到实例，常用于销毁定时器，解绑事件</span><br><span class="line">destroyed阶段：实例销毁后调用，调用后所有事件监听器会被移除，所有的子实例都会被销毁  </span><br><span class="line">```         </span><br><span class="line">1. __proto__ 属性，这是历史遗留的非标准的语法，但在现代浏览器中广泛实现。获得原型的更可靠方法是使用 Object.getPrototypeOf(new Object())；例如：</span><br><span class="line"> ```javascript</span><br><span class="line">const car = &#123;&#125;</span><br><span class="line">const list = []</span><br><span class="line"> </span><br><span class="line">console.log(Object.getPrototypeOf(car));</span><br><span class="line">console.log(Object.getPrototypeOf(list));</span><br></pre></td></tr></table></figure>
 </li>
@@ -176,7 +177,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/19/vue/" data-id="ckc37wvpt001etd8k1c2aa8sz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/19/vue/" data-id="ckc4j6lko0017dh8ksx7b8nsv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-eventloop-js/">vue eventloop js</a></li></ul>
