@@ -92,6 +92,32 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ol>
+<li>vue-count-to  的数字滚动组件，vue-count-to是一个无依赖，轻量级的vue组件，可以自行覆盖easingFn。你可以设置 startVal 和 endVal，它会自动判断计数或倒计时</li>
+<li>匹配驼峰： ([\:-_]+(.))</li>
+<li>redirective  </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">binding：一个对象，包含以下 property：</span><br><span class="line">name：指令名，不包括 v- 前缀。</span><br><span class="line">value：指令的绑定值，例如：v-my-directive=&quot;1 + 1&quot; 中，绑定值为 2。</span><br><span class="line">oldValue：指令绑定的前一个值，仅在 update 和 componentUpdated 钩子中可用。无论值是否改变都可用。</span><br><span class="line">expression：字符串形式的指令表达式。例如 v-my-directive=&quot;1 + 1&quot; 中，表达式为 &quot;1 + 1&quot;。</span><br><span class="line">arg：传给指令的参数，可选。例如 v-my-directive:foo 中，参数为 &quot;foo&quot;。</span><br><span class="line">modifiers：一个包含修饰符的对象。例如：v-my-directive.foo.bar 中，修饰符对象为 &#123; foo: true, bar: true &#125;。</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Vue.config.optionMergeStrategies  </li>
+<li>inject 用法：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">inject: &#123;</span><br><span class="line"><span class="comment">// 注入的属性名称 parentForm: &#123;</span></span><br><span class="line"><span class="comment">// 通过 from 指定从哪个属性注入</span></span><br><span class="line"><span class="keyword">from</span>: <span class="string">'customForm'</span>,</span><br><span class="line"> <span class="keyword">default</span>: <span class="function"><span class="params">()</span> =&gt;</span> (&#123; <span class="attr">size</span>: <span class="string">'default'</span> &#125;) &#125; &#125;,</span><br></pre></td></tr></table></figure>
+<ol>
+<li>浏览器标签页被隐藏或显示的时候会触发visibilitychange事件.</li>
+<li>robotjs 控制键盘、鼠标、屏幕</li>
+<li>Textures.js  基于d3 生成纹理</li>
+<li>最主要最关键的原因是函数式组件不需要实例化，无状态，没有生命周期，所以渲染性能要好于普通组件<br>函数式组件结构比较简单，代码结构更清晰</li>
+<li>Usecapture:<br>true - 事件句柄在捕获阶段执行。事件捕获从父到子。<br>false- false- 默认。事件句柄在冒泡阶段执行</li>
+<li><p>Bem 是块（block）、元素（element）、修饰符（modifier）的简写，由 Yandex 团队提出的一种前端 CSS 命名方法论。</p>
+<ul>
+<li>中划线 ：仅作为连字符使用，表示某个块或者某个子元素的多单词之间的连接记号。</li>
+</ul>
+<p>__ 双下划线：双下划线用来连接块和块的子元素</p>
+<p>_ 单下划线：单下划线用来描述一个块或者块的子元素的一种状态</p>
+</li>
+<li>HTMLElement.offsetParent 是一个只读属性，返回一个指向最近的（指包含层级上的最近）包含该元素的定位元素或者最近的 table,td,th,body元素。当元素的 style.display 设置为 “none” 时，offsetParent 返回 null。offsetParent 很有用，因为 offsetTop 和 offsetLeft 都是相对于其内边距边界的。</li>
+<li>QUIC 基于 UDP，UDP 的数据包在接收端没有处理顺序，即使中间 丢失一个包，也不会阻塞整条连接，其他的资源会被正常处理。</li>
+<li>epoll是event poll的简写，是Linux内核提供的一种由事件驱动的I/O通知机制。</li>
 <li>jest.spyOn()方法同样创建一个mock函数，但是该mock函数不仅能够捕获函数的调用情况，还可以正常的执行被spy的函数。实际上，jest.spyOn()是jest.fn()的语法糖，它创建了一个和被spy的函数具有相同内部代码的mock函数。</li>
 <li>Node 高消耗任务：1. Regex 2. 加密、压缩、fs 同步操作 3.json.stringfy</li>
 <li>事件循环线程只负责协调客户端的请求，而不是独自执行完所有任务。 对一个复杂的任务，最好把它从事件循环线程转移到工作线程池上。</li>
@@ -301,7 +327,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/04/fresh/" data-id="ckc4j6lkg000qdh8knbwprcn1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/04/fresh/" data-id="ckc5vk5ox000dyo8kc0xjbtj2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -378,7 +404,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/10/stringencode/" data-id="ckc4j6lkn0015dh8k5t5y1znb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/10/stringencode/" data-id="ckc5vk5pd0016yo8k3r9tmqg1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/encode-decode/">encode decode</a></li></ul>
@@ -504,7 +530,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/09/security-1/" data-id="ckc4j6lkq0018dh8kmj57vtpv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/09/security-1/" data-id="ckc5vk5pb0012yo8k38kcht24" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web-安全/">web 安全</a></li></ul>
@@ -555,7 +581,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/08/encoding/" data-id="ckc4j6lk20005dh8kp01etnam" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/08/encoding/" data-id="ckc5vk5ot0005yo8kiri83lln" class="article-share-link">Share</a>
       
       
     </footer>
@@ -599,7 +625,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/23/graphql/" data-id="ckc4j6lkb000gdh8kwsqo4dk0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/23/graphql/" data-id="ckc5vk5p1000jyo8kg2ji892l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -642,7 +668,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/02/linux/" data-id="ckc4j6lke000mdh8klj19rwo3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/02/linux/" data-id="ckc5vk5p5000qyo8kmxvvfex4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ops/">ops</a></li></ul>
@@ -689,7 +715,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/02/es8/" data-id="ckc4j6lk8000cdh8k2i93t5pw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/02/es8/" data-id="ckc5vk5oy000fyo8kywlppfim" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es/">es</a></li></ul>
@@ -798,7 +824,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/28/es6/" data-id="ckc4j6lk50009dh8k1a8upr0n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/28/es6/" data-id="ckc5vk5ou0008yo8k2ry4gi8u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es/">es</a></li></ul>
@@ -1052,7 +1078,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/24/cookies/" data-id="ckc4j6ljy0002dh8k4sfyopg4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/24/cookies/" data-id="ckc5vk5op0001yo8kpal0rwdv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/零碎/">零碎</a></li></ul>
@@ -1112,7 +1138,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/24/regex/" data-id="ckc4j6lkm0011dh8kjv19vqlp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/24/regex/" data-id="ckc5vk5pa0010yo8kp0bmzkoa" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/regex/">regex</a></li></ul>
