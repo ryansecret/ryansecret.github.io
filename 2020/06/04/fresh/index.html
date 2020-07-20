@@ -5,17 +5,17 @@
   
   <title>fresh | ryansecreat blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="属性嵌套： 123456789div &amp;#123;    font: &amp;#123;      size: 10px;      weight: bold;    &amp;#125;  &amp;#125;  !default 声明赋值的变量赋值，此时，如果变量已经被赋值，不会再被重新赋值，但是如果变量还没有被赋值，则会被赋予新的值。  indeterminate  [ˌɪndɪˈtɜːrmɪnət] inli">
+  <meta name="description" content="css3 选择器 123456:first-of-type	p:first-of-type	选择属于其父元素的首个 &amp;lt;p&amp;gt; 元素的每个 &amp;lt;p&amp;gt; 元素。:last-of-type	p:last-of-type	选择属于其父元素的最后 &amp;lt;p&amp;gt; 元素的每个 &amp;lt;p&amp;gt; 元素。element element	div p	选择 &amp;lt;div&amp;gt; 元素内部的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="fresh">
 <meta property="og:url" content="http://yoursite.com/2020/06/04/fresh/index.html">
 <meta property="og:site_name" content="ryansecreat blog">
-<meta property="og:description" content="属性嵌套： 123456789div &amp;#123;    font: &amp;#123;      size: 10px;      weight: bold;    &amp;#125;  &amp;#125;  !default 声明赋值的变量赋值，此时，如果变量已经被赋值，不会再被重新赋值，但是如果变量还没有被赋值，则会被赋予新的值。  indeterminate  [ˌɪndɪˈtɜːrmɪnət] inli">
+<meta property="og:description" content="css3 选择器 123456:first-of-type	p:first-of-type	选择属于其父元素的首个 &amp;lt;p&amp;gt; 元素的每个 &amp;lt;p&amp;gt; 元素。:last-of-type	p:last-of-type	选择属于其父元素的最后 &amp;lt;p&amp;gt; 元素的每个 &amp;lt;p&amp;gt; 元素。element element	div p	选择 &amp;lt;div&amp;gt; 元素内部的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-16T06:45:39.838Z">
+<meta property="og:updated_time" content="2020-07-20T10:30:04.217Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="fresh">
-<meta name="twitter:description" content="属性嵌套： 123456789div &amp;#123;    font: &amp;#123;      size: 10px;      weight: bold;    &amp;#125;  &amp;#125;  !default 声明赋值的变量赋值，此时，如果变量已经被赋值，不会再被重新赋值，但是如果变量还没有被赋值，则会被赋予新的值。  indeterminate  [ˌɪndɪˈtɜːrmɪnət] inli">
+<meta name="twitter:description" content="css3 选择器 123456:first-of-type	p:first-of-type	选择属于其父元素的首个 &amp;lt;p&amp;gt; 元素的每个 &amp;lt;p&amp;gt; 元素。:last-of-type	p:last-of-type	选择属于其父元素的最后 &amp;lt;p&amp;gt; 元素的每个 &amp;lt;p&amp;gt; 元素。element element	div p	选择 &amp;lt;div&amp;gt; 元素内部的">
   
     <link rel="alternate" href="/atom.xml" title="ryansecreat blog" type="application/atom+xml">
   
@@ -91,6 +91,26 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ol>
+<li><p>css3 选择器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">:first-of-type	p:first-of-type	选择属于其父元素的首个 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。</span><br><span class="line">:last-of-type	p:last-of-type	选择属于其父元素的最后 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。</span><br><span class="line"></span><br><span class="line">element element	div p	选择 &lt;div&gt; 元素内部的所有 &lt;p&gt; 元素。	</span><br><span class="line">element&gt;element	div&gt;p	选择父元素为 &lt;div&gt; 元素的所有 &lt;p&gt; 元素。	</span><br><span class="line">element+element	div+p	选择紧接在 &lt;div&gt; 元素之后的所有 &lt;p&gt; 元素。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>scss </p>
+<blockquote>
+<p>@content</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   @mixin colors($color: blue) &#123;</span><br><span class="line">  background-color: $color;</span><br><span class="line">  @content;</span><br><span class="line">  border-color: $color;</span><br><span class="line">&#125;</span><br><span class="line">.colors &#123;</span><br><span class="line">  @include colors &#123; color: $color; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>支持布尔型的 and or 以及 not 运算。  @if  or or </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">$i: 6;</span><br><span class="line">@while $i &gt; 0 &#123;</span><br><span class="line">  .item-#&#123;$i&#125; &#123; width: 2em * $i; &#125;</span><br><span class="line">  $i: $i - 2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@for $i from 1 through 3 &#123;</span><br><span class="line">  .item-#&#123;$i&#125; &#123; width: 2em * $i; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@each $animal in puma, sea-slug, egret, salamander &#123;</span><br><span class="line">  .#&#123;$animal&#125;-icon &#123;</span><br><span class="line">    background-image: url(&apos;/images/#&#123;$animal&#125;.png&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@each $animal, $color, $cursor in (puma, black, default),</span><br><span class="line">                                  (sea-slug, blue, pointer),</span><br><span class="line">                                  (egret, white, move) &#123;</span><br><span class="line">  .#&#123;$animal&#125;-icon &#123;</span><br><span class="line">    background-image: url(&apos;/images/#&#123;$animal&#125;.png&apos;);</span><br><span class="line">    border: 2px solid $color;</span><br><span class="line">    cursor: $cursor;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Async validator</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">asyncValidator: <span class="function">(<span class="params">rule, value</span>) =&gt;</span> &#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">         <span class="keyword">if</span> (value &lt; <span class="number">18</span>) &#123;</span><br><span class="line">           reject(<span class="string">"too young"</span>);  <span class="comment">// reject with error message</span></span><br><span class="line">         &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           resolve();</span><br><span class="line">         &#125;</span><br><span class="line">       &#125;);</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>@minxin @include  @extend </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> @<span class="keyword">for</span> $i from <span class="number">1</span> through <span class="number">1000</span> &#123;</span><br><span class="line">    .#&#123;unique-id()&#125;-#&#123;$i&#125; &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 #{} (interpolation) 时，</p>
+</li>
 <li><p>属性嵌套：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;  </span><br><span class="line"></span><br><span class="line">  <span class="attribute">font</span>: &#123;  </span><br><span class="line"></span><br><span class="line">    size: <span class="number">10px</span>;  </span><br><span class="line"></span><br><span class="line">    <span class="attribute">weight</span>: bold;  </span><br><span class="line"></span><br><span class="line">  &#125;  &#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -100,7 +120,7 @@
 <li>inline-block的默认对齐方式是vertical-block：baseline，  vertical-align :middle</li>
 <li>:last-of-type CSS 伪类 表示了在（它父元素的）子元素列表中，最后一个给定类型的元素。当代码类似Parent tagName:last-of-type的作用区域包含父元素的所有子元素中的最后一个选定元素，也包括子元素的最后一个子元素并以此类推。</li>
 <li><p>只要出现多个插槽，请始终为所有的插槽使用完整的基于<code>&lt;template&gt;</code>  的语法</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   <span class="tag">&lt;<span class="name">current-user</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-slot:default</span>=<span class="string">"slotProps"</span>&gt;</span></span><br><span class="line">    &#123;&#123; slotProps.user.firstName &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-slot:other</span>=<span class="string">"otherSlotProps"</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">current-user</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   <span class="tag">&lt;<span class="name">current-user</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-slot:default</span>=<span class="string">"slotProps"</span>&gt;</span></span><br><span class="line">    &#123;&#123; slotProps.user.firstName &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-slot:other</span>=<span class="string">"otherSlotProps"</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">current-user</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>cursor: not-allowed;</p>
 </li>
@@ -351,7 +371,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/04/fresh/" data-id="ckcofnj38000hjp8kjwsyhqwr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/04/fresh/" data-id="ckcudcbmy001d3p8ky9qhr0m4" class="article-share-link">Share</a>
       
       
     </footer>
