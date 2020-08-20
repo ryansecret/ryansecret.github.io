@@ -5,17 +5,17 @@
   
   <title>fresh | ryansecreat blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Webpack会先用css-loader去解析这个文件，遇到@import等语句就将相应样式文件引入，最后所有的CSS将使用style-loader生成一个内容为最终解析完的CSS代码的Style标签，放到head标签里。  浏览器进程 1. 插件 2. 网络 3.Gpu 4.浏览器 5.渲染进程 浏览器为每个tab创建一个渲染进程，运行在沙箱模式下。包括 gui 线程等。    事件代理：1.">
+  <meta name="description" content="浏览器进程 1. 插件 2. 网络 3.Gpu 4.浏览器 5.渲染进程 浏览器为每个tab创建一个渲染进程，运行在沙箱模式下。包括 gui 线程等。  jest.spyOn()方法同样创建一个mock函数，但是该mock函数不仅能够捕获函数的调用情况，还可以正常的执行被spy的函数。实际上，jest.spyOn()是jest.fn()的语法糖，它创建了一个和被spy的函数具有相同内部代码的mo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="fresh">
 <meta property="og:url" content="http://yoursite.com/2020/06/04/fresh/index.html">
 <meta property="og:site_name" content="ryansecreat blog">
-<meta property="og:description" content="Webpack会先用css-loader去解析这个文件，遇到@import等语句就将相应样式文件引入，最后所有的CSS将使用style-loader生成一个内容为最终解析完的CSS代码的Style标签，放到head标签里。  浏览器进程 1. 插件 2. 网络 3.Gpu 4.浏览器 5.渲染进程 浏览器为每个tab创建一个渲染进程，运行在沙箱模式下。包括 gui 线程等。    事件代理：1.">
+<meta property="og:description" content="浏览器进程 1. 插件 2. 网络 3.Gpu 4.浏览器 5.渲染进程 浏览器为每个tab创建一个渲染进程，运行在沙箱模式下。包括 gui 线程等。  jest.spyOn()方法同样创建一个mock函数，但是该mock函数不仅能够捕获函数的调用情况，还可以正常的执行被spy的函数。实际上，jest.spyOn()是jest.fn()的语法糖，它创建了一个和被spy的函数具有相同内部代码的mo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-13T08:37:46.613Z">
+<meta property="og:updated_time" content="2020-08-18T10:30:15.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="fresh">
-<meta name="twitter:description" content="Webpack会先用css-loader去解析这个文件，遇到@import等语句就将相应样式文件引入，最后所有的CSS将使用style-loader生成一个内容为最终解析完的CSS代码的Style标签，放到head标签里。  浏览器进程 1. 插件 2. 网络 3.Gpu 4.浏览器 5.渲染进程 浏览器为每个tab创建一个渲染进程，运行在沙箱模式下。包括 gui 线程等。    事件代理：1.">
+<meta name="twitter:description" content="浏览器进程 1. 插件 2. 网络 3.Gpu 4.浏览器 5.渲染进程 浏览器为每个tab创建一个渲染进程，运行在沙箱模式下。包括 gui 线程等。  jest.spyOn()方法同样创建一个mock函数，但是该mock函数不仅能够捕获函数的调用情况，还可以正常的执行被spy的函数。实际上，jest.spyOn()是jest.fn()的语法糖，它创建了一个和被spy的函数具有相同内部代码的mo">
   
     <link rel="alternate" href="/atom.xml" title="ryansecreat blog" type="application/atom+xml">
   
@@ -90,93 +90,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol start="2">
-<li><p>Webpack会先用css-loader去解析这个文件，遇到@import等语句就将相应样式文件引入，最后所有的CSS将使用style-loader生成一个内容为最终解析完的CSS代码的Style标签，放到head标签里。</p>
-</li>
+        <ol start="4">
 <li><p>浏览器进程 1. 插件 2. 网络 3.Gpu 4.浏览器 5.渲染进程 浏览器为每个tab创建一个渲染进程，运行在沙箱模式下。包括 gui 线程等。</p>
-</li>
-</ol>
-<ol>
-<li>事件代理：1. 减少事件注册，节省内存。 2. 简化了dom更新时，上面的事件off与on 操作。focus，blur之类的，本身就没用冒泡的特性</li>
-<li>DefinePlugin  需要字段是json,stringfy</li>
-<li><p>对布局属性进行动画，浏览器需要为每一帧进行重绘并上传到 GPU 中<br>对合成属性进行动画，浏览器会为元素创建一个独立的复合层，当元素内容没有发生改变，该层就不会被重绘，浏览器会通过重新复合来创建动画帧</p>
-</li>
-<li><p>它的定位效果完全受限于父级元素们。如果父元素的overflow属性设置了scroll，auto,overlay值，那么，粘性定位将会失效</p>
-<p>当粘性约束矩形在可视范围内为relative，反之，则为fixed</p>
-</li>
-<li><p>Map 对象中的数据是根据用户set 的顺序排序的，object 先排数字开头的。</p>
-</li>
-<li><p>提高性能</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">压缩代码</span><br><span class="line">提取页面公共资源 基础包cdn\splitchunks</span><br><span class="line">Tree shaking </span><br><span class="line">scope hoisting</span><br><span class="line">图片压缩 </span><br><span class="line">动态polyfill</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>哪些操作会造成内存泄漏？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.意外的全局变量</span><br><span class="line">2.被遗忘的计时器或回调函数</span><br><span class="line">3.脱离 DOM 的引用</span><br><span class="line">4.闭包</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>jest.spyOn()方法同样创建一个mock函数，但是该mock函数不仅能够捕获函数的调用情况，还可以正常的执行被spy的函数。实际上，jest.spyOn()是jest.fn()的语法糖，它创建了一个和被spy的函数具有相同内部代码的mock函数。</p>
 </li>
 <li><p>Vue Test Utils 允许你通过 shallowMount 方法只挂载一个组件而不渲染其子组件 (即保留它们的存根)：</p>
 </li>
-<li><p>对于渲染 watcher 而言，它在执行 this.get() 方法求值的时候，会执行 getter 方法： updateComponent = () =&gt; {<br>updateComponent = () =&gt; { vm._update(vm._render(), hydrating)</p>
-</li>
-<li><p>而对于作用域插槽，父组件在编译和渲染阶段并不会直接生成 vnodes，而是在父节点 vnode 的 data 中保留一个 scopedSlots 对象，存储着不同名称的插槽以及它们对应的渲染函数，<br>只有在编译和渲染子组件阶段才会执行这个渲染函数生成 vnodes，由于是在子组件环境执行的，所以对应的数据作用域是子组件实例。</p>
-</li>
-<li><p>这里对该vm注册一个Watcher实例，Watcher的getter为updateComponent函数，用于触发所有渲染所需要用到的数据的getter，进行依赖收集，就是在mounted的时候进行依赖收集。</p>
-</li>
 </ol>
-<p>用户的自定义 watcher 要优先于渲染 watcher 执行；因为用户自定义 watcher 是在渲染 watcher 之前创建的。Vm._watcher.update()</p>
+<ol start="12">
+<li>而对于作用域插槽，父组件在编译和渲染阶段并不会直接生成 vnodes，而是在父节点 vnode 的 data 中保留一个 scopedSlots 对象，存储着不同名称的插槽以及它们对应的渲染函数，<br>只有在编译和渲染子组件阶段才会执行这个渲染函数生成 vnodes，由于是在子组件环境执行的，所以对应的数据作用域是子组件实例。</li>
+</ol>
 <ol>
-<li><p>函数式组件与普通组件的区别</p>
-<p>函数式组件需要在声明组件是指定functional<br>函数式组件不需要实例化，所以没有this,this通过render函数的第二个参数来代替<br>函数式组件没有生命周期钩子函数，不能使用计算属性，watch等等<br>函数式组件不能通过$emit对外暴露事件，调用事件只能通过context.listeners.click的方式调用外部传入的事件<br>因为函数式组件是没有实例化的，所以在外部通过ref去引用组件时，实际引用的是HTMLElement<br>函数式组件的props可以不用显示声明，所以没有在props里面声明的属性都会被自动隐式解析为prop,而普通组件所有未声明的属性都被解析到$attrs里面，并自动挂载到组件根元素上面(可以通过inheritAttrs属性禁止)</p>
-</li>
 <li><p>红黑树<br>其实红黑树和上面的平衡二叉树类似，本质上都是为了解决排序二叉树在极端情况下退化成链表导致检索效率大大降低的问题，</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.节点是红色或黑色。</span><br><span class="line"></span><br><span class="line">2.根节点是黑色。</span><br><span class="line"></span><br><span class="line">3.每个叶子节点都是黑色的空节点（NIL节点）。</span><br><span class="line"></span><br><span class="line">4 每个红色节点的两个子节点都是黑色。(从每个叶子到根的所有路径上不能有两个连续的红色节点)</span><br><span class="line"></span><br><span class="line">5.从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点。</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>「适合引入自动化测试的场景：」</p>
-</li>
-</ol>
-<p>公共库类的开发维护<br>中长期项目的迭代/重构<br>引用了不可控的第三方依赖</p>
-<ol>
-<li><p>BST 查询二叉树<br>若任意节点的左⼦子树不不空，则左⼦子树上所有结点的值均⼩小于它的 根结点的值;<br>若任意节点的右⼦子树不不空，则右⼦子树上所有结点的值均⼤大于它的 根结点的值;<br>任意节点的左、右⼦子树也分别为⼆二叉查找树。</p>
-</li>
-<li><p>管道符放到尾部：Hello(?:World|China|) 可以匹配 HelloWorld、HelloChina，也可以只匹配 Hello。</p>
-</li>
-</ol>
-<ol start="2">
 <li><p>这种可以并行执行、交换执行权的线程（或函数），就称为协程。</p>
 <p>从实现上看，在内存中，子例程只使用一个栈（stack），而协程是同时存在多个栈，但只有一个栈是在运行状态，也就是说，协程是以多占用内存为代价，实现多任务的并行。<br>普通的线程是抢先式的，到底哪个线程优先得到资源，必须由运行环境决定，但是协程是合作式的，执行权由协程自己分配。</p>
 </li>
-<li><p>块级元素垂直居中—-高度不固定：transform(0,-50%) 或者 display:table table-cell</p>
-</li>
-<li><p>vue diff 算法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//相同的话进行patch</span><br><span class="line">patchVnode (oldVnode, vnode) &#123;</span><br><span class="line">    const el = vnode.el = oldVnode.el</span><br><span class="line">    let i, oldCh = oldVnode.children, ch = vnode.children</span><br><span class="line">    if (oldVnode === vnode) return</span><br><span class="line">    if (oldVnode.text !== null &amp;&amp; vnode.text !== null &amp;&amp; oldVnode.text !== vnode.text) &#123;</span><br><span class="line">        api.setTextContent(el, vnode.text)</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        updateEle(el, vnode, oldVnode)</span><br><span class="line">    	if (oldCh &amp;&amp; ch &amp;&amp; oldCh !== ch) &#123;</span><br><span class="line">            updateChildren(el, oldCh, ch)</span><br><span class="line">    	&#125;else if (ch)&#123;</span><br><span class="line">            createEle(vnode) //create el&apos;s children dom</span><br><span class="line">    	&#125;else if (oldCh)&#123;</span><br><span class="line">            api.removeChildren(el)</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>V8 浏览器会自动执行垃圾回收，但由于 JavaScript 也是运行在主线程上的，一旦执行垃圾回收，就要打断 JavaScript 的运行，可能会或多或少的造成页面的卡顿，影响用户体验，所以 V8 决定采用增量 标记算法回收：<br>即把垃圾回收拆成一个个小任务，穿插在 JavaScript 中执行。</p>
-</li>
-<li><p>HTML5是HTML的新标准，其主要目标是无需任何额外的插件如Flash、Silverlight等，就可以传输所有内容。它囊括了动画、视频、丰富的图形用户界面等。</p>
-</li>
-<li><p>HTML5文档类型：&lt;!doctype html&gt;    HTML5使用的编码 <meta charset="”UTF-8”"></p>
-</li>
-<li><p>link属于HTML标签，而@import是css提供的；<br>页面被加载时，link会同时被加载，而 @import引用的css会等到页面被加载完再加载；<br>@import只在IE5以上才能识别，而link是XHTML标签，无兼容问题；<br>link方式的样式的权重高于@import的权重。</p>
-</li>
-<li><p>最新的HTML5标准中的API是什么</p>
-<p>Canvas ：Canvas由HTML代码中定义的具有高度和宽度属性的可绘制区域组成。JavaScript代码可以通过一组完整的绘图函数访问该区域，这与其他常见的2D API类似，因此允许动态生成图形。Canvas 的一些预期用途包括构建图形、动画、游戏和图像合成。<br>媒体定时回放；<br>离线存储数据库；<br>文档编辑；<br>拖放；<br>跨文档消息传递；<br>浏览器历史管理；<br>MIME类型和协议处理程序注册；</p>
-</li>
-<li><p>对HTML5有什么了解？</p>
-<p>良好的移动性，以移动设备为主；<br>响应式设计，以适应自动变化的屏幕尺寸；<br>支持离线缓存技术，webStorage本地缓存；<br>新增了canvas，video，audio等新标签元素；以及特殊内容元素：article，footer，header，nav，section等；以及表单控件：calendar，date，time，email，url，search等；<br>新增webSocket/webWork技术；<br>还有新增的地理位置等。</p>
-</li>
-<li><p>&lt;!doctype html&gt; 的作用就是让浏览器进入标准模式，使用最新的 HTML5标准来解析渲染页面；如果不写，浏览器就会进入混杂模式，我们需要避免此类情况发生。   </p>
-</li>
-<li><p>label 标签来定义表单控制间的关系，当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。     </p>
-</li>
-</ol>
-<ol start="14">
-<li>当用户输入关键字并键入回车之后，这意味着当前页面即将要被替换成新的页面，不过在这个流程继续之前，浏览器还给了当前页面一次执行 <code>beforeunload</code> 事件的机会，<code>beforeunload</code> 事件允许页面在退出之前执行一些数据清理操作，还可以询问用户是否要离开当前页面。</li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/04/fresh/" data-id="ckdsjxluy000gbu8kseq7a3af" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/04/fresh/" data-id="cke2o58et000bc78k2flu8u1k" class="article-share-link">Share</a>
       
       
     </footer>

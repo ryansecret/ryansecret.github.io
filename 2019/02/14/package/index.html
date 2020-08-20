@@ -5,18 +5,18 @@
   
   <title>package | ryansecreat blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="zebra-editor-core  富文本编辑器 lucky sheet 在线的excel编辑 generic-pool  资源池，可以reuse 和限制一些比较贵的资源比如数据库链接。 Mind elixir 浏览器思维导图js module cp-cli  copy 跨平台 markdown-it :  markdown parser web-storage-cache 对HTML5 lo">
+  <meta name="description" content="Vue-intro  新功能引导   zebra-editor-core  富文本编辑器 lucky sheet 在线的excel编辑 generic-pool  资源池，可以reuse 和限制一些比较贵的资源比如数据库链接。 Mind elixir 浏览器思维导图js module cp-cli  copy 跨平台 markdown-it :  markdown parser web-stor">
 <meta name="keywords" content="useful package">
 <meta property="og:type" content="article">
 <meta property="og:title" content="package">
 <meta property="og:url" content="http://yoursite.com/2019/02/14/package/index.html">
 <meta property="og:site_name" content="ryansecreat blog">
-<meta property="og:description" content="zebra-editor-core  富文本编辑器 lucky sheet 在线的excel编辑 generic-pool  资源池，可以reuse 和限制一些比较贵的资源比如数据库链接。 Mind elixir 浏览器思维导图js module cp-cli  copy 跨平台 markdown-it :  markdown parser web-storage-cache 对HTML5 lo">
+<meta property="og:description" content="Vue-intro  新功能引导   zebra-editor-core  富文本编辑器 lucky sheet 在线的excel编辑 generic-pool  资源池，可以reuse 和限制一些比较贵的资源比如数据库链接。 Mind elixir 浏览器思维导图js module cp-cli  copy 跨平台 markdown-it :  markdown parser web-stor">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-12T03:12:21.562Z">
+<meta property="og:updated_time" content="2020-08-20T02:00:03.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="package">
-<meta name="twitter:description" content="zebra-editor-core  富文本编辑器 lucky sheet 在线的excel编辑 generic-pool  资源池，可以reuse 和限制一些比较贵的资源比如数据库链接。 Mind elixir 浏览器思维导图js module cp-cli  copy 跨平台 markdown-it :  markdown parser web-storage-cache 对HTML5 lo">
+<meta name="twitter:description" content="Vue-intro  新功能引导   zebra-editor-core  富文本编辑器 lucky sheet 在线的excel编辑 generic-pool  资源池，可以reuse 和限制一些比较贵的资源比如数据库链接。 Mind elixir 浏览器思维导图js module cp-cli  copy 跨平台 markdown-it :  markdown parser web-stor">
   
     <link rel="alternate" href="/atom.xml" title="ryansecreat blog" type="application/atom+xml">
   
@@ -92,6 +92,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ol>
+<li>Vue-intro  新功能引导  </li>
 <li>zebra-editor-core  富文本编辑器</li>
 <li>lucky sheet 在线的excel编辑</li>
 <li>generic-pool  资源池，可以reuse 和限制一些比较贵的资源比如数据库链接。</li>
@@ -127,11 +128,11 @@
 </li>
 <li>is-type-of   node check 数据类型</li>
 <li>on-finished  Execute a callback when a HTTP request closes, finishes, or errors</li>
-<li><p>await-event  封装了promise </p>
+<li>await-event  封装了promise </li>
+</ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> PassThrough = <span class="built_in">require</span>(<span class="string">'stream'</span>).PassThrough</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> stream = <span class="keyword">new</span> PassThrough()</span><br><span class="line"><span class="comment">// you attach it directly on an event emitter</span></span><br><span class="line">stream.await = <span class="built_in">require</span>(<span class="string">'await-event'</span>)</span><br><span class="line"> </span><br><span class="line">co(<span class="function"><span class="keyword">function</span>* (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> chunk = <span class="keyword">yield</span> stream.await(<span class="string">'data'</span>)</span><br><span class="line">  <span class="keyword">var</span> chunk = <span class="keyword">yield</span> stream.await(<span class="string">'data'</span>)</span><br><span class="line">  <span class="keyword">var</span> chunk = <span class="keyword">yield</span> stream.await(<span class="string">'data'</span>)</span><br><span class="line">&#125;).catch(noop)</span><br><span class="line"> </span><br><span class="line">stream.write(<span class="string">'some chunk’)</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>get-ready  NodeJS mixin to add one-time ready event</p>
-</li>
+<ol>
+<li>get-ready  NodeJS mixin to add one-time ready event</li>
 <li>ShellJS 是Unix shell命令在Node.js API上的可移植实现</li>
 <li>graceful-process   graceful exit process even parent exit on SIGKILL.</li>
 <li>semver.gte(process.version, ‘7.0.0’)  版本的比对 </li>
@@ -202,7 +203,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/14/package/" data-id="ckdsjxlv90011bu8kjljxjfe9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/14/package/" data-id="cke2o58f4000wc78kvd9psewc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/useful-package/">useful package</a></li></ul>

@@ -95,21 +95,10 @@
 <li><p>修改某些Object方法的返回结果，让其变得更合理</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 老写法</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(target, property, attributes);</span><br><span class="line">  <span class="comment">// success</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="comment">// failure</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 新写法</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">Reflect</span>.defineProperty(target, property, attributes)) &#123;</span><br><span class="line">  <span class="comment">// success</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// failure</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>命令式改为函数式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 老写法</span></span><br><span class="line"><span class="string">'assign'</span> <span class="keyword">in</span> <span class="built_in">Object</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 新写法</span></span><br><span class="line"><span class="built_in">Reflect</span>.has(<span class="built_in">Object</span>, <span class="string">'assign'</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-</li>
 <li><p>Reflect对象的方法与Proxy对象的方法一一对应</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Proxy</span>(target, &#123;</span><br><span class="line">  <span class="keyword">set</span>: function(target, name, value, receiver) &#123;</span><br><span class="line">    <span class="keyword">var</span> success = <span class="built_in">Reflect</span>.set(target, name, value, receiver);</span><br><span class="line">    <span class="keyword">if</span> (success) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'property '</span> + name + <span class="string">' on '</span> + target + <span class="string">' set to '</span> + value);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> success;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>####async 函数是什么？一句话，它就是 Generator 函数的语法糖。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> readFile = <span class="function"><span class="keyword">function</span> (<span class="params">fileName</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    fs.readFile(fileName, <span class="function"><span class="keyword">function</span>(<span class="params">error, data</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (error) <span class="keyword">return</span> reject(error);</span><br><span class="line">      resolve(data);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> gen = <span class="function"><span class="keyword">function</span>* (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> f1 = <span class="keyword">yield</span> readFile(<span class="string">'/etc/fstab'</span>);</span><br><span class="line">  <span class="keyword">const</span> f2 = <span class="keyword">yield</span> readFile(<span class="string">'/etc/shells'</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(f1.toString());</span><br><span class="line">  <span class="built_in">console</span>.log(f2.toString());</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<h3 id="module"><a href="#module" class="headerlink" title="module"></a>module</h3><ol>
-<li>CommonJS 模块输出的是值的拷贝，也就是说，一旦输出一个值，模块内部的变化就影响不到这个值。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> counter = <span class="number">3</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">incCounter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  counter++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  counter: counter,</span><br><span class="line">  incCounter: incCounter,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">var</span> mod = <span class="built_in">require</span>(<span class="string">'./lib'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(mod.counter);  <span class="comment">// 3</span></span><br><span class="line">mod.incCounter();</span><br><span class="line"><span class="built_in">console</span>.log(mod.counter); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>可以使用Es6 加载commonjs 模块。 CommonJS 模块的输出缓存机制，在 ES6 加载方式下依然有效。</p>
-<p>CommonJS 模块加载 ES6 模块，不能使用require命令，而要使用import()函数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// es.mjs</span></span><br><span class="line"><span class="keyword">let</span> foo = &#123; <span class="attr">bar</span>: <span class="string">'my-default'</span> &#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> foo;</span><br><span class="line"></span><br><span class="line"><span class="comment">// cjs.js</span></span><br><span class="line"><span class="keyword">const</span> es_namespace = <span class="keyword">await</span> <span class="keyword">import</span>(<span class="string">'./es.mjs'</span>);</span><br><span class="line"><span class="comment">// es_namespace = &#123;</span></span><br><span class="line"><span class="comment">//   get default() &#123;</span></span><br><span class="line"><span class="comment">//     ...</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(es_namespace.default);</span><br><span class="line"><span class="comment">// &#123; bar:'my-default' &#125;</span></span><br></pre></td></tr></table></figure>
 <h3 id="lit"><a href="#lit" class="headerlink" title="lit"></a>lit</h3><ol>
 <li><p>数组的空位 [,,,]</p>
 </li>
@@ -117,56 +106,19 @@
 </li>
 </ol>
 <p>try {<br>  // …<br>} catch {<br>  // …<br>}</p>
-<h3 id="generator"><a href="#generator" class="headerlink" title="generator"></a>generator</h3><ol>
-<li><p>Generator  yield表达式后面的表达式，只有当调用next方法、内部指针指向该语句时才会执行，因此等于为 JavaScript 提供了手动的“惰性求值”（Lazy Evaluation）的语法功能。<br>yield表达式本身没有返回值，或者说总是返回undefined。next方法可以带一个参数，该参数就会被当作上一个yield表达式的返回值。</p>
-</li>
-<li><p>Co 模块相关于一个generator 的执行器。co 模块其实就是将两种自动执行器（Thunk 函数和 Promise 对象），包装成一个模块。使用 co 的前提条件是，Generator 函数的yield命令后面，只能是 Thunk 函数或 Promise 对象。</p>
-</li>
-<li><p>代码中，虽然map方法的参数是async函数，但它是并发执行的，因为只有async函数内部是继发执行，外部不受影响。后面的for..of循环内部使用了await，因此实现了按顺序输出</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">logInOrder</span>(<span class="params">urls</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 并发读取远程URL</span></span><br><span class="line">  <span class="keyword">const</span> textPromises = urls.map(<span class="keyword">async</span> url =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(url);</span><br><span class="line">    <span class="keyword">return</span> response.text();</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 按次序输出</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> textPromise <span class="keyword">of</span> textPromises) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">await</span> textPromise);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对象的Symbol.iterator</p>
-<p>由于 Generator 函数就是遍历器生成函数，因此可以把 Generator 赋值给对象的Symbol.iterator属性，从而使得该对象具有 Iterator 接口。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myIterable = &#123;&#125;;</span><br><span class="line">myIterable[<span class="built_in">Symbol</span>.iterator] = <span class="function"><span class="keyword">function</span>* (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">3</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">[...myIterable]</span><br></pre></td></tr></table></figure>
-<p>Iterator 接口和generator 函数：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  * [<span class="built_in">Symbol</span>.iterator]() &#123;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">'hello'</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">'world'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>只要 Generator 函数内部部署了try…catch代码块，那么遍历器的throw方法抛出的错误，不影响下一次遍历。</p>
-<p>Gnerator 嵌套：</p>
-</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">inner</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">yield</span> <span class="string">'hello!'</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="function"><span class="keyword">function</span>* <span class="title">outer1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">yield</span> <span class="string">'open'</span>;</span><br><span class="line">       <span class="keyword">yield</span> *inner();</span><br><span class="line">       <span class="keyword">yield</span> <span class="string">'close'</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>异步的同步表达：</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">main</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> result = <span class="keyword">yield</span> request(<span class="string">"http://some.url"</span>);</span><br><span class="line">  <span class="keyword">var</span> resp = <span class="built_in">JSON</span>.parse(result);</span><br><span class="line">    <span class="built_in">console</span>.log(resp.value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  makeAjaxCall(url, <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</span><br><span class="line">    it.next(response);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> it = main();</span><br><span class="line">it.next();</span><br></pre></td></tr></table></figure>
 <h3 id="proxy"><a href="#proxy" class="headerlink" title="proxy"></a>proxy</h3><ol>
 <li><p>Proxy 的 construct 用于拦截 new()<br>isExtensible方法拦截Object.isExtensible操作。<br>ownKeys方法用来拦截对象自身属性的读取操作。具体来说，拦截以下操作。</p>
 <p>Object.getOwnPropertyNames()<br>Object.getOwnPropertySymbols()<br>Object.keys()<br>for…in循环</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Proxy</span>(&#123;&#125;, &#123;</span><br><span class="line">     <span class="keyword">get</span>: function (target, key, receiver) &#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">`getting <span class="subst">$&#123;key&#125;</span>!`</span>);</span><br><span class="line">       <span class="keyword">return</span> <span class="built_in">Reflect</span>.get(target, key, receiver);</span><br><span class="line">     &#125;,</span><br><span class="line">     <span class="keyword">set</span>: function (target, key, value, receiver) &#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">`setting <span class="subst">$&#123;key&#125;</span>!`</span>);</span><br><span class="line">       <span class="keyword">return</span> <span class="built_in">Reflect</span>.set(target, key, value, receiver);</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Class 的generator :</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">     <span class="keyword">constructor</span>(...args) &#123;</span><br><span class="line">       <span class="keyword">this</span>.args = args;</span><br><span class="line">     &#125;</span><br><span class="line">     * [<span class="built_in">Symbol</span>.iterator]() &#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">let</span> arg <span class="keyword">of</span> <span class="keyword">this</span>.args) &#123;</span><br><span class="line">         <span class="keyword">yield</span> arg;</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-</li>
 <li><p>绑定上下文</p>
 </li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selfish</span> (<span class="params">target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> cache = <span class="keyword">new</span> <span class="built_in">WeakMap</span>();</span><br><span class="line">  <span class="keyword">const</span> handler = &#123;</span><br><span class="line">    <span class="keyword">get</span> (target, key) &#123;</span><br><span class="line">      <span class="keyword">const</span> value = <span class="built_in">Reflect</span>.get(target, key);</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> value !== <span class="string">'function'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (!cache.has(value)) &#123;</span><br><span class="line">        cache.set(value, value.bind(target));</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> cache.get(value);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler);</span><br><span class="line">  <span class="keyword">return</span> proxy;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> logger = selfish(<span class="keyword">new</span> Logger());</span><br><span class="line"><span class="string">``</span><span class="string">`   </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#### 类型转换 </span></span><br><span class="line"><span class="string">1. 转换为数字</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="keyword">let</span> int = <span class="string">"15"</span>;</span><br><span class="line">int = +int;</span><br><span class="line"><span class="built_in">console</span>.log(int); <span class="comment">// Result: 15</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> int); Result: <span class="string">"number"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//这也可以用于将布尔值转换为数字，如下所示</span></span><br><span class="line"> <span class="built_in">console</span>.log(+<span class="literal">true</span>);  <span class="comment">// Return: 1</span></span><br><span class="line"> <span class="built_in">console</span>.log(+<span class="literal">false</span>); <span class="comment">// Return: 0</span></span><br></pre></td></tr></table></figure>
-<h4 id="console"><a href="#console" class="headerlink" title="console"></a>console</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">console</span>.table()</span><br><span class="line"><span class="built_in">console</span>.dir()</span><br><span class="line"><span class="built_in">console</span>.count()</span><br><span class="line">Console.time() </span><br><span class="line">consoel.timeLog()</span><br><span class="line"> <span class="built_in">console</span>.time(<span class="string">"answer time"</span>);</span><br><span class="line">alert(<span class="string">"Click to continue"</span>);</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">"answer time”);</span></span><br></pre></td></tr></table></figure>
-<h4 id="对象的结构"><a href="#对象的结构" class="headerlink" title="对象的结构"></a>对象的结构</h4><ol>
-<li><p>对象的解构：let { x, y, …z } = { x: 1, y: 2, a: 3, b: 4 };</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;   <span class="attr">p</span>: [     <span class="string">'Hello'</span>,     &#123; <span class="attr">y</span>: <span class="string">'World'</span> &#125;   ] &#125;; </span><br><span class="line"><span class="keyword">let</span> &#123; <span class="attr">p</span>: [x, &#123; y &#125;] &#125; = obj; x <span class="comment">// "Hello"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>展开运算符的妙用 </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//需要根据一个条件创建两个不同的对象，可以使用展开运算符号来处理。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> getUser = <span class="function">(<span class="params">emailIncluded</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    name: <span class="string">'John'</span>,</span><br><span class="line">    surname: <span class="string">'Doe'</span>,</span><br><span class="line">    ...emailIncluded &amp;&amp; &#123; <span class="attr">email</span> : <span class="string">'john@doe.com'</span> &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>####</p>
-
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selfish</span> (<span class="params">target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> cache = <span class="keyword">new</span> <span class="built_in">WeakMap</span>();</span><br><span class="line">  <span class="keyword">const</span> handler = &#123;</span><br><span class="line">    <span class="keyword">get</span> (target, key) &#123;</span><br><span class="line">      <span class="keyword">const</span> value = <span class="built_in">Reflect</span>.get(target, key);</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> value !== <span class="string">'function'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (!cache.has(value)) &#123;</span><br><span class="line">        cache.set(value, value.bind(target));</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> cache.get(value);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler);</span><br><span class="line">  <span class="keyword">return</span> proxy;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> logger = selfish(<span class="keyword">new</span> Logger());</span><br><span class="line"><span class="string">``</span><span class="string">`   </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#### console </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.table()</span><br><span class="line"><span class="built_in">console</span>.dir()</span><br><span class="line"><span class="built_in">console</span>.count()</span><br><span class="line">Console.time() </span><br><span class="line">consoel.timeLog()</span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">"answer time"</span>);</span><br><span class="line">alert(<span class="string">"Click to continue"</span>);</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">"answer time”);</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/28/es6/" data-id="ckdsjxlut000bbu8k8bod5def" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/28/es6/" data-id="cke2o58ep0005c78k390n8d4o" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es/">es</a></li></ul>
@@ -216,10 +168,8 @@
 <li>archive [‘ɑːkaɪv]</li>
 <li>debt  [det]</li>
 <li>typical [‘tɪpɪkl]  </li>
-<li>resume [rɪ’zju:m]</li>
 <li>parameter [pə’ræmɪtə] </li>
 <li>integer  [‘ɪntɪdʒə]</li>
-<li>matrix [ˈmeɪtrɪks]</li>
 <li>height [haɪt]</li>
 <li>shallow  肤浅的 </li>
 <li>tenant  租户，房客</li>
@@ -229,13 +179,11 @@
 <li>crumb 面包屑   </li>
 <li>prune  修剪；减少；</li>
 <li>Unify 整合、统一 </li>
-<li>contiguous  kənˈtɪɡjuəs</li>
-</ol>
-<ol start="25">
-<li>无论你使用的是解释型语言(JavaScript、Python、Ruby)还是编译型语言(c#、Java、Rust)，都有一个共同的部分:将源代码作为纯文本解析为 抽象语法树(abstract syntax tree, AST) 的数据结构。</li>
-<li>AST 不仅以结构化的方式显示源代码，而且在语义分析中扮演着重要角色。在语义分析中，编译器验证程序和语言元素的语法使用是否正确。之后，使用 AST 来生成实际的字节码或者机器码。</li>
-<li><p>转义的过程：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">编写ES6代码</span><br><span class="line">babylon 进行解析</span><br><span class="line">解析得到 AST</span><br><span class="line">plugin 用 babel-traverse 对 AST 树进行遍历转译</span><br><span class="line">得到新的 AST树</span><br><span class="line">用 babel-generator 通过 AST 树生成 ES5 代码</span><br></pre></td></tr></table></figure>
+<li><p>contiguous  kənˈtɪɡjuəs</p>
+</li>
+<li><p>无论你使用的是解释型语言(JavaScript、Python、Ruby)还是编译型语言(c#、Java、Rust)，都有一个共同的部分:将源代码作为纯文本解析为 抽象语法树(abstract syntax tree, AST) 的数据结构。</p>
+</li>
+<li><p>AST 不仅以结构化的方式显示源代码，而且在语义分析中扮演着重要角色。在语义分析中，编译器验证程序和语言元素的语法使用是否正确。之后，使用 AST 来生成实际的字节码或者机器码。</p>
 </li>
 <li><p>要应用更新，Virtual DOM核心功能将发挥作用，即 协调算法，它的工作是提供最优的解决方案来解决以前和当前虚拟DOM 状态之间的差异。</p>
 </li>
@@ -283,7 +231,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/24/cookies/" data-id="ckdsjxlul0002bu8kkr6ak0s8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/24/cookies/" data-id="cke2o58eg0000c78km0cwqa15" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/零碎/">零碎</a></li></ul>
@@ -343,7 +291,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/24/regex/" data-id="ckdsjxlvd0019bu8kgdo2gvnc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/24/regex/" data-id="cke2o58f80017c78kg861wbj2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/regex/">regex</a></li></ul>
@@ -451,7 +399,8 @@ http 1.0中默认是关闭的，需要在http头加入&quot;Connection: Keep-Ali
 </li>
 <li><p>可用区（Availability Zone）是电力及网络之间互相独立的物理区域，相同可用区内的实例之间较之同地域不同可用区内实例之间的网络延时更小。同地域内不同可用区之间提供内网互通环境，可用区之间可做到故障隔离。<br>若您的业务要求有较低网络时延，建议将实例或者Pod部署在同一可用区内。</p>
 </li>
-<li>VPC：VPC是用户网络在京东云上的表现形式，包含了一系列的网络功能，与其他的VPC逻辑隔离。VPC有一个网络地址空间，用户可以在其中继续划分子网。</li>
+<li><p>VPC：VPC是用户网络在京东云上的表现形式，包含了一系列的网络功能，与其他的VPC逻辑隔离。VPC有一个网络地址空间，用户可以在其中继续划分子网。</p>
+</li>
 <li><p>NAT 地址网络转换，通过在路由器上安装 NAT 软件，它至少有一个有效的公网 IP 地址，通过 NAT 路由器将内部私有 IP 转换成公网 IP。它的问题在于 NAT 设备自动屏蔽了非内网主机主动发起的连接，也就是说，从外网发往内网的数据包将被 NAT 设备丢弃，这使得位于不同 NAT 设备之后的主机之间无法直接交换信息.</p>
 </li>
 <li><p>503 服务器资源不足问题导致的拒绝服务，比如熔断。</p>
@@ -470,7 +419,7 @@ Connection:Upgrade
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/14/http/" data-id="ckdsjxlv2000pbu8kog5qgmbn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/14/http/" data-id="cke2o58f0000pc78k5mw9wtw5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
@@ -505,6 +454,12 @@ Connection:Upgrade
     <div class="article-entry" itemprop="articleBody">
       
         <ol>
+<li><p>它的定位效果完全受限于父级元素们。如果父元素的overflow属性设置了scroll，auto,overlay值，那么，粘性定位将会失效</p>
+<p>当粘性约束矩形在可视范围内为relative，反之，则为fixed</p>
+</li>
+<li>Webpack会先用css-loader去解析这个文件，遇到@import等语句就将相应样式文件引入，最后所有的CSS将使用style-loader生成一个内容为最终解析完的CSS代码的Style标签，放到head标签里。</li>
+<li>link属于HTML标签，而@import是css提供的；<br>页面被加载时，link会同时被加载，而 @import引用的css会等到页面被加载完再加载；<br>@import只在IE5以上才能识别，而link是XHTML标签，无兼容问题；<br>link方式的样式的权重高于@import的权重。</li>
+<li>块级元素垂直居中—-高度不固定：transform(0,-50%) 或者 display:  table-cell vertical:middle</li>
 <li>flex-basis  可以设置比例</li>
 <li>内联 &gt; ID选择器 &gt; 类选择器 &gt; 标签选择器。</li>
 <li>transform 属于合成属性（composite property），对合成属性进行 transition/animation 动画将会创建一个合成层（composite layer），这使得被动画元素在一个独立的层中进行动画。通常情况下，浏览器会将一个层的内容先绘制进一个位图中，然后再作为纹理（texture）上传到 GPU，只要该层的内容不发生改变，就没必要进行重绘（repaint），浏览器会通过重新复合（recomposite）来形成一个新的帧。</li>
@@ -579,7 +534,9 @@ line-clamp: 3;
 <li>auto-fill 关键字：表示自动填充，让一行（或者一列）中尽可能的容纳更多的单元格。grid-template-columns: repeat(auto-fill, 200px) 表示列宽是 200 px，但列的数量是不固定的，只要浏览器能够容纳得下，就可以放置元素</li>
 <li>flex Flex-grow flex-shrink flex-basis</li>
 <li>Flex 主轴（x）、交叉轴(y)</li>
-<li><p>calc函数是css3新增的功能，可以使用calc()计算border、margin、pading、font-size和width等属性设置动态值。   width: calc(100% - 200px);<br>1.触发BFC条件  BFC（Block Formatting Context）格式化上下文，把它理解成是一个独立的容器，并且这个容器里box的布局与这个容器外的box毫不相干。</p>
+<li><p>calc函数是css3新增的功能，可以使用calc()计算border、margin、pading、font-size和width等属性设置动态值。   width: calc(100% - 200px);</p>
+</li>
+<li><p>触发BFC条件  BFC（Block Formatting Context）格式化上下文，把它理解成是一个独立的容器，并且这个容器里box的布局与这个容器外的box毫不相干。</p>
 </li>
 <li><p>递归 o(2**n)-》带备忘录 o(n),自顶向下-》动态规划（自底向上）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">根元素</span><br><span class="line">float的值不为none</span><br><span class="line">overflow的值不为visible</span><br><span class="line">display的值为inline-block、table-cell、table-caption</span><br><span class="line">position的值为absolute、fixed</span><br><span class="line">弹性盒（flex或inline-flex）</span><br><span class="line">display: flow-root</span><br></pre></td></tr></table></figure>
@@ -593,10 +550,10 @@ line-clamp: 3;
 </li>
 <li><p>使用vw设置，vw也是一个相对单位，100vw等于屏幕宽度</p>
 </li>
-<li>Flex-shrink、flex-grow   溢出空间和剩余空间</li>
-<li>max-width/min-width &gt; flex-basis &gt; width &gt; box</li>
-<li>&amp;:nth-child(odd)  选择器</li>
-<li>writing-mode: vertical-rl;  设置文字方向</li>
+<li><p>max-width/min-width &gt; flex-basis &gt; width &gt; box</p>
+</li>
+<li><p>writing-mode: vertical-rl;  设置文字方向</p>
+</li>
 <li>text-align-last  描述的是一段文本中最后一行在被强制换行之前的对齐规则<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">justify</span><br><span class="line"></span><br><span class="line">最后一行文字的开头与内容盒子的左侧对齐，末尾与右侧对齐</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -605,8 +562,8 @@ line-clamp: 3;
 <ol>
 <li>line-clamp 定义文字显示行数</li>
 <li>pointer-events: none; 禁用点击事件</li>
-<li>focus-within是一个伪类，现在已经被列入到CSS选择器中。当元素本身或其后代元素获得焦点时，:focus-within伪类的元素就会有效。 </li>
-<li>单冒号(:)用于 CSS3 伪类，双冒号(::)用于 CSS3 伪元素。</li>
+<li><p>focus-within是一个伪类，现在已经被列入到CSS选择器中。当元素本身或其后代元素获得焦点时，:focus-within伪类的元素就会有效。 </p>
+</li>
 <li><p>但是有个好处是当元素没有内容时候，设置height:100%该元素不会被撑开，</p>
 <p>但是设置height:100vh，该元素会被撑开屏幕高度一致。 </p>
 </li>
@@ -615,16 +572,17 @@ line-clamp: 3;
 <li><p>伪元素用于创建一些不在文档树中的元素，并为其添加样式。比如说，我们可以通过:before来在一个元素前增加一些文本，并为这些文本添加样式。虽然用户可以看到这些文本，但是这些文本实际上不在文档树中。常见的伪元素有：::before，::after，::first-line，::first-letter，::selection、::placeholder等. 伪类和伪元素的区别在于有没有创建一个文档书之外的元素。</p>
 </li>
 <li></li>
-<li>这是一个叫做@font-face 的CSS @规则 ，它允许网页开发者为其网页指定在线字体。 通过这种作者自备字体的方式，@font-face 可以消除对用户电脑字体的依赖。</li>
+<li><p>这是一个叫做@font-face 的CSS @规则 ，它允许网页开发者为其网页指定在线字体。 通过这种作者自备字体的方式，@font-face 可以消除对用户电脑字体的依赖。</p>
+</li>
 <li><p>overflow:<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow</a></p>
 </li>
 <li><p>Element.scrollTop 属性可以获取或设置一个元素的内容垂直滚动的像素数。</p>
+<p>offsetTop: 当前元素顶部距离最近父元素顶部的距离,和有没有滚动条没有关系。单位px，只读元素。</p>
+<p>scrollHeight: 因为子元素比父元素高，父元素不想被子元素撑的一样高就显示出了滚动条，在滚动的过程中本元素有部分被隐藏了，scrollHeight代表包括当前不可见部分的元素的高度。而可见部分的高度其实就是clientHeight，也就是scrollHeight&gt;=clientHeight恒成立。在有滚动条时讨论scrollHeight才有意义，在没有滚动条时scrollHeight==clientHeight恒成立。单位px，只读元素。</p>
+<p><a href="https://imweb.io/topic/57c5409e808fd2fb204eef52" target="_blank" rel="noopener">https://imweb.io/topic/57c5409e808fd2fb204eef52</a></p>
+<p>clientheight offsetheight </p>
 </li>
 </ol>
-<p>offsetTop: 当前元素顶部距离最近父元素顶部的距离,和有没有滚动条没有关系。单位px，只读元素。</p>
-<p>  scrollHeight: 因为子元素比父元素高，父元素不想被子元素撑的一样高就显示出了滚动条，在滚动的过程中本元素有部分被隐藏了，scrollHeight代表包括当前不可见部分的元素的高度。而可见部分的高度其实就是clientHeight，也就是scrollHeight&gt;=clientHeight恒成立。在有滚动条时讨论scrollHeight才有意义，在没有滚动条时scrollHeight==clientHeight恒成立。单位px，只读元素。</p>
-<p>   <a href="https://imweb.io/topic/57c5409e808fd2fb204eef52" target="_blank" rel="noopener">https://imweb.io/topic/57c5409e808fd2fb204eef52</a></p>
-<p>   clientheight offsetheight </p>
 <ol>
 <li><p>相对位置：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/position" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/position</a></p>
 </li>
@@ -632,7 +590,7 @@ line-clamp: 3;
 </li>
 </ol>
 <p>text-decoration 设置下划线等<br><a href="https://jsfiddle.net/ryansecreat/58um7k43/" target="_blank" rel="noopener">https://jsfiddle.net/ryansecreat/58um7k43/</a></p>
-<p>document​.active​Element</p>
+<p> document​.active​Element</p>
 <p> 返回当前页面中获得焦点的元素,也就是说,如果此时用户按下了键盘上某个键,会在该元素上触发键盘事件.该属性是只读的.</p>
 <h4 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h4><ol>
 <li>尽量使用 flexbox 而不是老的布局模型。它运行速度更快，可为你的应用程序创造巨大的性能优势。</li>
@@ -640,8 +598,8 @@ line-clamp: 3;
 <li>CSS动画有天然事件支持（TransitionEnd、AnimationEnd，但是它们都需要针对浏览器加前缀），JS则需要自己写事件。</li>
 <li>在实现一些小的交互动效的时候，就多考虑考虑 CSS 动画。对于一些复杂控制的动画，使用 javascript 比较可靠。</li>
 </ol>
-<h4 id="块元素是一个元素，占用了全部宽度，在前后都是换行符。"><a href="#块元素是一个元素，占用了全部宽度，在前后都是换行符。" class="headerlink" title="块元素是一个元素，占用了全部宽度，在前后都是换行符。"></a>块元素是一个元素，占用了全部宽度，在前后都是换行符。</h4>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">块元素的例子：</span><br><span class="line"></span><br><span class="line">&lt;h1&gt;</span><br><span class="line">&lt;p&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">内联元素只需要必要的宽度，不强制换行。</span><br><span class="line"></span><br><span class="line">内联元素的例子：</span><br><span class="line"></span><br><span class="line">&lt;span&gt;</span><br><span class="line">&lt;a&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="内容对齐（justify-content）属性应用在弹性容器上，把弹性项沿着弹性容器的主轴线（main-axis）对齐。"><a href="#内容对齐（justify-content）属性应用在弹性容器上，把弹性项沿着弹性容器的主轴线（main-axis）对齐。" class="headerlink" title="内容对齐（justify-content）属性应用在弹性容器上，把弹性项沿着弹性容器的主轴线（main axis）对齐。"></a>内容对齐（justify-content）属性应用在弹性容器上，把弹性项沿着弹性容器的主轴线（main axis）对齐。</h4><p>   align-items 设置或检索弹性盒子元素在侧轴（纵轴）方向上的对齐方式。<br>   设置”margin”值为”auto”值，自动获取弹性容器中剩余的空间。所以设置垂直方向margin值为”auto”，可以使弹性子元素在弹性容器的两上轴方向都完全居中。 当容器为flex时会自动居中。</p>
+<h4 id="内容对齐（justify-content）属性应用在弹性容器上，把弹性项沿着弹性容器的主轴线（main-axis）对齐。"><a href="#内容对齐（justify-content）属性应用在弹性容器上，把弹性项沿着弹性容器的主轴线（main-axis）对齐。" class="headerlink" title="内容对齐（justify-content）属性应用在弹性容器上，把弹性项沿着弹性容器的主轴线（main axis）对齐。"></a>内容对齐（justify-content）属性应用在弹性容器上，把弹性项沿着弹性容器的主轴线（main axis）对齐。</h4><p>   align-items 设置或检索弹性盒子元素在侧轴（纵轴）方向上的对齐方式。</p>
+<p>   设置”margin”值为”auto”值，自动获取弹性容器中剩余的空间。所以设置垂直方向margin值为”auto”，可以使弹性子元素在弹性容器的两上轴方向都完全居中。 当容器为flex时会自动居中。</p>
 <p>   如果在元素上设置了 box-sizing: border-box; 则 padding(内边距) 和 border(边框) 也包含在 width 和 height 中:</p>
 <p>   transform: rotateX(120deg);  x轴旋转 </p>
 <h4 id="不被选中"><a href="#不被选中" class="headerlink" title="不被选中"></a>不被选中</h4><p>body{</p>
@@ -672,7 +630,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/07/css/" data-id="ckdsjxlup0005bu8kgm1kb4pd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/07/css/" data-id="cke2o58el0002c78k1vrnmvzg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -711,7 +669,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/25/security/" data-id="ckdsjxlvf001dbu8kz605w3hb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/25/security/" data-id="cke2o58f9001ac78kzu786rr1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安全/">安全</a></li></ul>
@@ -770,7 +728,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/25/typescript/" data-id="ckdsjxlvh001gbu8kjl6g46oh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/25/typescript/" data-id="cke2o58fd001lc78kukgagglh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ts/">ts</a></li></ul>
@@ -833,7 +791,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/20/gitInfo/" data-id="ckdsjxluz000ibu8kmg3f2dhw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/20/gitInfo/" data-id="cke2o58f2000tc78khk784ij0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -868,6 +826,7 @@ line-clamp: 3;
     <div class="article-entry" itemprop="articleBody">
       
         <ol>
+<li>Vue-intro  新功能引导  </li>
 <li>zebra-editor-core  富文本编辑器</li>
 <li>lucky sheet 在线的excel编辑</li>
 <li>generic-pool  资源池，可以reuse 和限制一些比较贵的资源比如数据库链接。</li>
@@ -903,11 +862,11 @@ line-clamp: 3;
 </li>
 <li>is-type-of   node check 数据类型</li>
 <li>on-finished  Execute a callback when a HTTP request closes, finishes, or errors</li>
-<li><p>await-event  封装了promise </p>
+<li>await-event  封装了promise </li>
+</ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> PassThrough = <span class="built_in">require</span>(<span class="string">'stream'</span>).PassThrough</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> stream = <span class="keyword">new</span> PassThrough()</span><br><span class="line"><span class="comment">// you attach it directly on an event emitter</span></span><br><span class="line">stream.await = <span class="built_in">require</span>(<span class="string">'await-event'</span>)</span><br><span class="line"> </span><br><span class="line">co(<span class="function"><span class="keyword">function</span>* (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> chunk = <span class="keyword">yield</span> stream.await(<span class="string">'data'</span>)</span><br><span class="line">  <span class="keyword">var</span> chunk = <span class="keyword">yield</span> stream.await(<span class="string">'data'</span>)</span><br><span class="line">  <span class="keyword">var</span> chunk = <span class="keyword">yield</span> stream.await(<span class="string">'data'</span>)</span><br><span class="line">&#125;).catch(noop)</span><br><span class="line"> </span><br><span class="line">stream.write(<span class="string">'some chunk’)</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>get-ready  NodeJS mixin to add one-time ready event</p>
-</li>
+<ol>
+<li>get-ready  NodeJS mixin to add one-time ready event</li>
 <li>ShellJS 是Unix shell命令在Node.js API上的可移植实现</li>
 <li>graceful-process   graceful exit process even parent exit on SIGKILL.</li>
 <li>semver.gte(process.version, ‘7.0.0’)  版本的比对 </li>
@@ -978,7 +937,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/14/package/" data-id="ckdsjxlv90011bu8kjljxjfe9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/14/package/" data-id="cke2o58f4000wc78kvd9psewc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/useful-package/">useful package</a></li></ul>
@@ -1032,7 +991,7 @@ line-clamp: 3;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/21/postgre/" data-id="ckdsjxlvc0017bu8koeizwser" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/21/postgre/" data-id="cke2o58f70016c78ksqkrawjj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgre/">postgre</a></li></ul>

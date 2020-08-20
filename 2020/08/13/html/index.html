@@ -5,18 +5,18 @@
   
   <title>html | ryansecreat blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Service Worker 是运行在浏览器背后的独立线程，一般可以用来实现缓存功能。使用 Service Worker的话，传输协议必须为 HTTPS。 visibilitychange,可以用来判断浏览器页签是否显示。 WebP是一种新的图片格式，目标是减少文件大小但达到和JPEG格式相同的图片质量，能够减少网络上的请求时间。 DOMContentLoaded事件触发时：仅当DOM解析完成后">
+  <meta name="description" content="当用户输入关键字并键入回车之后，这意味着当前页面即将要被替换成新的页面，不过在这个流程继续之前，浏览器还给了当前页面一次执行 beforeunload 事件的机会，beforeunload 事件允许页面在退出之前执行一些数据清理操作，还可以询问用户是否要离开当前页面。  对HTML5有什么了解？ 良好的移动性，以移动设备为主；响应式设计，以适应自动变化的屏幕尺寸；支持离线缓存技术，webSto">
 <meta name="keywords" content="html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="html">
 <meta property="og:url" content="http://yoursite.com/2020/08/13/html/index.html">
 <meta property="og:site_name" content="ryansecreat blog">
-<meta property="og:description" content="Service Worker 是运行在浏览器背后的独立线程，一般可以用来实现缓存功能。使用 Service Worker的话，传输协议必须为 HTTPS。 visibilitychange,可以用来判断浏览器页签是否显示。 WebP是一种新的图片格式，目标是减少文件大小但达到和JPEG格式相同的图片质量，能够减少网络上的请求时间。 DOMContentLoaded事件触发时：仅当DOM解析完成后">
+<meta property="og:description" content="当用户输入关键字并键入回车之后，这意味着当前页面即将要被替换成新的页面，不过在这个流程继续之前，浏览器还给了当前页面一次执行 beforeunload 事件的机会，beforeunload 事件允许页面在退出之前执行一些数据清理操作，还可以询问用户是否要离开当前页面。  对HTML5有什么了解？ 良好的移动性，以移动设备为主；响应式设计，以适应自动变化的屏幕尺寸；支持离线缓存技术，webSto">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-13T08:35:30.212Z">
+<meta property="og:updated_time" content="2020-08-18T10:28:48.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html">
-<meta name="twitter:description" content="Service Worker 是运行在浏览器背后的独立线程，一般可以用来实现缓存功能。使用 Service Worker的话，传输协议必须为 HTTPS。 visibilitychange,可以用来判断浏览器页签是否显示。 WebP是一种新的图片格式，目标是减少文件大小但达到和JPEG格式相同的图片质量，能够减少网络上的请求时间。 DOMContentLoaded事件触发时：仅当DOM解析完成后">
+<meta name="twitter:description" content="当用户输入关键字并键入回车之后，这意味着当前页面即将要被替换成新的页面，不过在这个流程继续之前，浏览器还给了当前页面一次执行 beforeunload 事件的机会，beforeunload 事件允许页面在退出之前执行一些数据清理操作，还可以询问用户是否要离开当前页面。  对HTML5有什么了解？ 良好的移动性，以移动设备为主；响应式设计，以适应自动变化的屏幕尺寸；支持离线缓存技术，webSto">
   
     <link rel="alternate" href="/atom.xml" title="ryansecreat blog" type="application/atom+xml">
   
@@ -92,6 +92,18 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ol>
+<li></li>
+<li><p>当用户输入关键字并键入回车之后，这意味着当前页面即将要被替换成新的页面，不过在这个流程继续之前，浏览器还给了当前页面一次执行 <code>beforeunload</code> 事件的机会，<code>beforeunload</code> 事件允许页面在退出之前执行一些数据清理操作，还可以询问用户是否要离开当前页面。</p>
+</li>
+<li><p>对HTML5有什么了解？</p>
+<p>良好的移动性，以移动设备为主；<br>响应式设计，以适应自动变化的屏幕尺寸；<br>支持离线缓存技术，webStorage本地缓存；<br>新增了canvas，video，audio等新标签元素；以及特殊内容元素：article，footer，header，nav，section等；以及表单控件：calendar，date，time，email，url，search等；<br>新增webSocket/webWork技术；<br>还有新增的地理位置等。</p>
+</li>
+<li>label 标签来定义表单控制间的关系，当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。    </li>
+<li><p>最新的HTML5标准中的API是什么</p>
+<p>Canvas ：Canvas由HTML代码中定义的具有高度和宽度属性的可绘制区域组成。JavaScript代码可以通过一组完整的绘图函数访问该区域，这与其他常见的2D API类似，因此允许动态生成图形。Canvas 的一些预期用途包括构建图形、动画、游戏和图像合成。<br>媒体定时回放；<br>离线存储数据库；<br>文档编辑；<br>拖放；<br>跨文档消息传递；<br>浏览器历史管理；<br>MIME类型和协议处理程序注册；</p>
+</li>
+<li>对布局属性进行动画，浏览器需要为每一帧进行重绘并上传到 GPU 中<br>对合成属性进行动画，浏览器会为元素创建一个独立的复合层，当元素内容没有发生改变，该层就不会被重绘，浏览器会通过重新复合来创建动画帧</li>
+<li>HTML5文档类型：&lt;!doctype html&gt;    HTML5使用的编码 <meta charset="”UTF-8”"></li>
 <li>Service Worker 是运行在浏览器背后的独立线程，一般可以用来实现缓存功能。使用 Service Worker的话，传输协议必须为 HTTPS。</li>
 <li>visibilitychange,可以用来判断浏览器页签是否显示。</li>
 <li>WebP是一种新的图片格式，目标是减少文件大小但达到和JPEG格式相同的图片质量，能够减少网络上的请求时间。</li>
@@ -118,7 +130,7 @@
 <li>重绘 只是影响元素的外观和风格，不影响布局的  回流：元素的布局、隐藏等改变需要重新构建</li>
 <li>data-为前端开发者提供自定义属性，这些属性集可以通过对象的dataset属性获取，</li>
 <li>因为 DOM 是属于渲染引擎中的东西，而 JS 又是 JS 引擎中的东西。当我们通过 JS 操作 DOM 的时候，其实这个操作涉及到了两个线程之间的通信，那么势必会带来一些性能上的损耗。</li>
-<li>link属于HTML标签，而@import是CSS提供的页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载</li>
+<li>link属于HTML标签，而@import是CSS提供的页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载。</li>
 <li>Web quality  : alt</li>
 <li><p>该WindowEventHandlers.onstorage属性包含一个在storage事件触发时运行的事件处理程序。当更改存储区域时会发生这种情况（例如，存储新项目）。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onstorage = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'The '</span> + e.key + <span class="string">' key has been changed from '</span> + e.oldValue + <span class="string">' to '</span> + e.newValue + <span class="string">'.'</span>); &#125;;</span><br></pre></td></tr></table></figure>
@@ -148,7 +160,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/13/html/" data-id="ckdsjxlv2000obu8kfrg1wzww" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/13/html/" data-id="cke2o58ez000lc78kvbvwagl4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
