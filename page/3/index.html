@@ -69,6 +69,206 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-package" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/14/package/" class="article-date">
+  <time datetime="2019-02-14T09:19:12.000Z" itemprop="datePublished">2019-02-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/14/package/">package</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>Vue-intro  新功能引导  </li>
+<li>zebra-editor-core  富文本编辑器</li>
+<li>lucky sheet 在线的excel编辑</li>
+<li>generic-pool  资源池，可以reuse 和限制一些比较贵的资源比如数据库链接。</li>
+<li>Mind elixir 浏览器思维导图js module</li>
+<li>cp-cli  copy 跨平台</li>
+<li>markdown-it :  markdown parser</li>
+<li>web-storage-cache 对HTML5 localStorage 和sessionStorage 进行了扩展，添加了超时时间，序列化方法。可以直接存储json对象，同时可以非常简单的进行超时时间的设置。</li>
+<li>ImmortalDB 是在浏览器中存储持久键值数据的最佳方法。保存到 ImmortalDB 的数据被冗余地存储在 Cookies，IndexedDB 和 localStorage 中，并且如果其中的任何数据被删除或损坏，它们将不断进行自我修复。</li>
+<li>localForage 是一个快速简单的 JavaScript 存储库。 它通过使用类似于 localStorage 的简单 API 来使用异步存储（IndexedDB 或 WebSQL)），进而改善你的 Web 应用程序的离线体验。</li>
+<li>webworker-threads  node 多线程模块处理计算密集任务</li>
+<li>Textures.js  基于d3 生成纹理</li>
+<li>robotjs 控制键盘、鼠标、屏幕</li>
+<li>vue-count-to  的数字滚动组件，vue-count-to是一个无依赖，轻量级的vue组件，可以自行覆盖easingFn。你可以设置 startVal 和 endVal，它会自动判断计数或倒计时</li>
+<li>fullpagejs  通过调用本库可轻易创建全屏滚动网站(也称为单页网站)。 本库可创建全屏滚动网站，同时也可在网站中添加横向滚动条。</li>
+<li>Opn: A better node-open. Opens stuff like websites, files, executables. Cross-platform.</li>
+<li>Ora:进度条和文字。</li>
+<li>joi：数据验</li>
+<li>satisfies ：版本工具</li>
+<li>minimist：简单的参数处理</li>
+<li>read-pkg:规范化解析pkg</li>
+<li>inquirer:询问时可以给出选项</li>
+<li>Resovel:解析包的安装路径</li>
+<li>slash:Convert Windows backslash paths to slash paths: foo\bar ➔ foo/bar</li>
+<li>klaw-sync:回遍历出所有文件，并返回文件路径和文件夹</li>
+<li>mime-types content-type 工具：1. 可以根据文件后缀获取 2. 根据content-type获取charset 3. 根据content-type 获取默认的文件名</li>
+<li>CodeMirror是一个运行在浏览器中的在线代码编辑器，支持100多种语言，高度可定制。</li>
+<li>@typescript-eslint/eslint-plugin.  eslint 检测typescript </li>
+<li>nanoid  A tiny, secure, URL-friendly, unique string ID generator for JavaScript.</li>
+<li>mm 对mudule 中的方法mock</li>
+<li><p>numerify  用来格式化数字 </p>
+</li>
+<li><p>utils-lite  前端提供debounce、thorttling、clone、cloneDeep 等方法</p>
+</li>
+<li>is-type-of   node check 数据类型</li>
+<li>on-finished  Execute a callback when a HTTP request closes, finishes, or errors</li>
+<li>await-event  封装了promise </li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> PassThrough = <span class="built_in">require</span>(<span class="string">'stream'</span>).PassThrough</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> stream = <span class="keyword">new</span> PassThrough()</span><br><span class="line"><span class="comment">// you attach it directly on an event emitter</span></span><br><span class="line">stream.await = <span class="built_in">require</span>(<span class="string">'await-event'</span>)</span><br><span class="line"> </span><br><span class="line">co(<span class="function"><span class="keyword">function</span>* (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> chunk = <span class="keyword">yield</span> stream.await(<span class="string">'data'</span>)</span><br><span class="line">  <span class="keyword">var</span> chunk = <span class="keyword">yield</span> stream.await(<span class="string">'data'</span>)</span><br><span class="line">  <span class="keyword">var</span> chunk = <span class="keyword">yield</span> stream.await(<span class="string">'data'</span>)</span><br><span class="line">&#125;).catch(noop)</span><br><span class="line"> </span><br><span class="line">stream.write(<span class="string">'some chunk’)</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>get-ready  NodeJS mixin to add one-time ready event</li>
+<li>ShellJS 是Unix shell命令在Node.js API上的可移植实现</li>
+<li>graceful-process   graceful exit process even parent exit on SIGKILL.</li>
+<li>semver.gte(process.version, ‘7.0.0’)  版本的比对 </li>
+<li>pkgfiles  自动再package中添加 npm publish 文件</li>
+<li>depd  标注方法deprecating </li>
+<li>http-errors   http错误  </li>
+<li>Global-tunnel  http请求的全局代理  </li>
+<li><p>humanize-ms  转义为ms  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transform humanize time to ms  ms(&apos;1s&apos;) // 1000</span><br><span class="line">ms(1000) // 1000</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Exceljs 一个功能强大的excel 处理包</p>
+</li>
+<li>ready-callback 所有注册的事件完成后，才执行ready中方法</li>
+<li>Get-ready  NodeJS mixin to add one-time ready event，ready 后执行相关方法</li>
+<li>xml2js  将xml 转换为json </li>
+<li>debug  调试状态输出  debug=<em>  debug=work:</em>   </li>
+<li>delegates  node模块中代理proto中属性的方法、setter和getter</li>
+<li>chokidar filewatch </li>
+<li>Puppeteer  headless browser</li>
+<li>cross-env Run scripts that set and use environment variables across platforms</li>
+<li>simplemde  markdown editor </li>
+<li><p>serialize-javascript  Serialize JavaScript to a superset of JSON that includes regular expressions and functions.<br>1.route-cache  express router cache</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> routeCache = <span class="built_in">require</span>(<span class="string">'route-cache'</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// cache route for 20 seconds</span></span><br><span class="line">app.get(<span class="string">'/index'</span>, routeCache.cacheSeconds(<span class="number">20</span>), <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// do your dirty work here...</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'you will only see this every 20 seconds.'</span>);</span><br><span class="line">  res.send(<span class="string">'this response will be cached'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Ws server 端的websoket </p>
+</li>
+<li>fastclick  解决浏览器点击的延迟</li>
+<li>Qs  A querystring parsing and stringifying library with some added security.</li>
+<li>lru-cache  A cache object that deletes the least-recently-used items.</li>
+<li>memory-fs  A simple in-memory filesystem. Holds data in a javascript object</li>
+<li>faker.js  generate massive amounts of fake data in the browser and node.js</li>
+<li>parseurl 等同node url parse，加了cache</li>
+<li>vue-lazy-component   Vue.js 2.x 组件级懒加载方案-Vue.js 2.x component level lazy loading solution</li>
+<li>async-validator  数据验证</li>
+<li>fast-safe-stringify    Safe and fast serialization alternative to JSON.stringify.</li>
+<li>node-notifier   Send cross platform native notifications using Node.js.</li>
+<li>dateformat   node 时间处理函数</li>
+<li>agentkeepalive  defaut is keepalive</li>
+<li>copy-to   copy an object’s properties to another one, include propertiy, getter and setter.</li>
+<li><p>platform   A platform detection library that works on nearly all JavaScript platforms.</p>
+</li>
+<li><p>svg-captcha 验证码  </p>
+</li>
+<li>vue-virtual-scroller  加载大量数据</li>
+<li>FileSaver.js  保存大于 ram的文档</li>
+<li>vue-draggable-resizable  Vue2 Component for draggable and resizable elements.</li>
+<li>ScrollTrigger  根据滚动位置出发事件</li>
+<li>Vue Virtual Scroller   RecycleScroller 可以渲染列表中的可见项目。如果你不知道项目的大小，最好使用 DynamicScroller</li>
+<li>Vuetensils  没有样式的component,可定制自己样式</li>
+<li>v-calendar  日历插件</li>
+<li>vue-grid-layout 可以拖拽的布局控件</li>
+<li>Vue-content-loader  占位符控件</li>
+<li>Sinon   node 端监控方法执行、mock、spy</li>
+<li>figlet  控制台标题文字</li>
+<li>Cockatiel  是一个弹性和瞬态故障处理库，如重试，断路器，超时，隔板隔离和回退之类的策略。</li>
+<li>Signale  一个 Node 的日志格式库，自带16个级别，可以定制颜色和 Emoji。</li>
+<li>Wiki.js  构建wiki 文档管理 </li>
+<li>fast-xml-parser xml 和     json 转换</li>
+<li>js-cloudimage-360-view 360度查看</li>
+<li>crontab ui</li>
+<li>X-spreadsheet css 实现的sheet</li>
+<li>SitDown  <a href="http://domchristie.github.io/turndown/" target="_blank" rel="noopener">html to markdown</a></li>
+<li>Wekan 一个开源的看板软件</li>
+<li>droppy  提供web界面的可本地部署的文件管理</li>
+<li>uplot 渲染大量数据，占用资源少</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/14/package/" data-id="ckjnmzt5v001o998k5hc1eazg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/useful-package/">useful package</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-postgre" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/21/postgre/" class="article-date">
+  <time datetime="2017-02-21T03:18:37.000Z" itemprop="datePublished">2017-02-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/21/postgre/">postgre</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db.many(query, values); // expects one or more rows</span><br><span class="line">db.one(query, values); // expects a single row</span><br><span class="line">db.none(query, values); // expects no rows</span><br><span class="line">db.any(query, values); // expects anything, same as `manyOrNone`</span><br><span class="line">db.oneOrNone(query, values); // expects 1 or 0 rows</span><br><span class="line">db.manyOrNone(query, values); // expects anything, same as `any`</span><br></pre></td></tr></table></figure>
+<p>The library supports named parameters in query formatting, with the syntax of $<em>propName</em>, where * is any of the following open-close pairs: {}, (), &lt;&gt;, [], //</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.query(&apos;SELECT * FROM users WHERE name=$&#123;name&#125; AND active=$/active/&apos;, &#123;</span><br><span class="line">    name: &apos;John&apos;,</span><br><span class="line">    active: true</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>this 的用法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var doc = &#123;</span><br><span class="line">    id: 123,</span><br><span class="line">    body: &quot;some text&quot;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">db.none(&quot;INSERT INTO documents(id, doc) VALUES($&#123;id&#125;, $&#123;this&#125;)&quot;, doc)</span><br><span class="line">    .then(function () &#123;</span><br><span class="line">        // success;</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(function (error) &#123;</span><br><span class="line">        // error;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>which will execute:</p>
+<p>INSERT INTO documents(id, doc) VALUES(123, ‘{“id”:123,”body”:”some text”}’)</p>
+<p>执行函数</p>
+<p>And when you are not expecting any return results, call db.proc instead. Both methods return a Promise object, but db.proc doesn’t take a qrm parameter, always assuming it is one|none.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">db.func(&apos;findAudit&apos;, [123, new Date()])</span><br><span class="line">    .then(function (data) &#123;</span><br><span class="line">        console.log(data); // printing the data returned </span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(function (error) &#123;</span><br><span class="line">        console.log(error); // printing the error </span><br><span class="line">    &#125;);</span><br><span class="line">db.proc();</span><br></pre></td></tr></table></figure></p>
+<p>公用一个连接：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">db.task(function (t) &#123;</span><br><span class="line">    // `t` and `this` here are the same;</span><br><span class="line">    // execute a chain of queries;</span><br><span class="line">&#125;)</span><br><span class="line">    .then(function (data) &#123;</span><br><span class="line">        // success;</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(function (error) &#123;</span><br><span class="line">        // failed;    </span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<p>事物：其中可以嵌套事物</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">db.tx(function (t) &#123;</span><br><span class="line">    // t = this;</span><br><span class="line">    return t.batch([</span><br><span class="line">        t.one(&quot;insert into users(name) values($1) returning id&quot;, &quot;John&quot;),</span><br><span class="line">        t.one(&quot;insert into events(code) values($1) returning id&quot;, 123)</span><br><span class="line">    ]);</span><br><span class="line">&#125;)</span><br><span class="line">    .spread(function (user, event) &#123;</span><br><span class="line">        // print new user id + new event id;</span><br><span class="line">        console.log(&quot;DATA:&quot;, user.id, event.id);</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(function (error) &#123;</span><br><span class="line">        console.log(&quot;ERROR:&quot;, error); // print the error;</span><br><span class="line">    &#125;)</span><br><span class="line">    .finally(function () &#123;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">        pgp.end(); // for immediate app exit, closing the connection pool.   关闭连接池，是的一般不需要</span><br><span class="line">        </span><br><span class="line">        If, however you normally exit your application by killing the NodeJS process, then you don&apos;t need to use it.</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<p>设置隔离级别：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var TransactionMode = pgp.txMode.TransactionMode;</span><br><span class="line">var isolationLevel = pgp.txMode.isolationLevel;</span><br><span class="line"></span><br><span class="line">// Create a reusable transaction mode (serializable + read-only + deferrable):</span><br><span class="line">var tmSRD = new TransactionMode(&#123;</span><br><span class="line">    tiLevel: isolationLevel.serializable,</span><br><span class="line">    readOnly: true,</span><br><span class="line">    deferrable: true</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">function myTransaction() &#123;</span><br><span class="line">    return this.query(&apos;SELECT * FROM table&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myTransaction.txMode = tmSRD; // assign transaction mode;</span><br><span class="line"></span><br><span class="line">db.tx(myTransaction)</span><br><span class="line">    .then(function()&#123;</span><br><span class="line">        // success;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<p>重置promise：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var promise = require(&apos;bluebird&apos;);</span><br><span class="line">var options = &#123;</span><br><span class="line">    promiseLib: promise</span><br><span class="line">&#125;;</span><br><span class="line">var pgp = require(&apos;pg-promise&apos;)(options);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/21/postgre/" data-id="ckjnmzt5u001l998kk4njosx0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgre/">postgre</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-interview" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/01/23/interview/" class="article-date">
@@ -143,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/23/interview/" data-id="cke2o58f0000nc78k5ni7wf51" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/23/interview/" data-id="ckjnmzt4y000m998k0gzzt3j1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interview/">interview</a></li></ul>
@@ -308,7 +508,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/19/vue/" data-id="cke2o58fc001hc78kcdydbzal" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/19/vue/" data-id="ckjnmzt630021998k3173w4w5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-eventloop-js/">vue eventloop js</a></li></ul>
@@ -383,7 +583,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/17/webpack/" data-id="cke2o58fb001fc78k0am5spsv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/17/webpack/" data-id="ckjnmzt62001z998ksm2twua0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
@@ -434,7 +634,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/17/loadtest/" data-id="cke2o58f50010c78kzsm5uafz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/17/loadtest/" data-id="ckjnmzt55000w998kufrflbun" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/loadtest/">loadtest</a></li></ul>
@@ -482,7 +682,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/29/pm2/" data-id="cke2o58f70014c78kexfcedcb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/29/pm2/" data-id="ckjnmzt5p001i998k4mjnej9o" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pm2/">pm2</a></li></ul>
@@ -525,7 +725,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/26/pattern/" data-id="cke2o58f60012c78ka1clv9dv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/26/pattern/" data-id="ckjnmzt5l001d998kzx1spbna" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pattern/">pattern</a></li></ul>
@@ -570,7 +770,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/25/eslint/" data-id="cke2o58f3000uc78k30mjhzh8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/25/eslint/" data-id="ckjnmzt4q000d998khuj6a34a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eslint/">eslint</a></li></ul>
@@ -641,7 +841,7 @@ location /.well-known {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/21/Let's Encrypt SSL/" data-id="cke2o58eq0007c78ki9uijb0z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/21/Let's Encrypt SSL/" data-id="ckjnmzt490000998k5tr5ddmj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/https/">https</a></li></ul>
@@ -653,200 +853,10 @@ location /.well-known {
 
 
   
-    <article id="post-hexo" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/21/hexo/" class="article-date">
-  <time datetime="2016-12-21T03:47:39.000Z" itemprop="datePublished">2016-12-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/21/hexo/">hexo</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="install"><a href="#install" class="headerlink" title="install"></a>install</h1><p>Node和Git都安装好后,首先创建一个文件夹,如blog,用户存放hexo的配置文件,然后进入blog里安装Hexo。</p>
-<p>执行如下命令安装Hexo：</p>
-<p>sudo npm install -g hexo</p>
-<p>初始化然后，执行init命令初始化hexo,命令：</p>
-<p>hexo init</p>
-<p>好啦，至此，全部安装工作已经完成！blog就是你的博客根目录，所有的操作都在里面进行。</p>
-<p>生成静态页面</p>
-<p>hexo generate（hexo g也可以）</p>
-<p>本地启动</p>
-<p>启动本地服务，进行文章预览调试，命令：</p>
-<p>hexo server</p>
-<p>浏览器输入<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></p>
-<p>我不知道你们能不能，反正我不能，因为我还有环境没配置好</p>
-<h1 id="配置Github"><a href="#配置Github" class="headerlink" title="配置Github"></a>配置Github</h1><p>建立Repository</p>
-<p>建立与你用户名对应的仓库，仓库名必须为【your_user_name.github.io】，固定写法</p>
-<p>然后建立关联，我的blog在本地/Users/leopard/blog，blog是我之前建的东西也全在这里面，有：</p>
-<pre><code>_config.yml    node_modules    public      source
-
-db.json        package.json    scaffolds  themes
-</code></pre><p>现在我们需要_config.yml文件，来建立关联，命令：</p>
-<p>vim _config.yml</p>
-<p>翻到最下面，改成我这样子的</p>
-<p>deploy:</p>
-<pre><code>type: git
-
-repo: https://github.com/leopardpan/leopardpan.github.io.git
-
-branch: master
-</code></pre><p>然后执行命令：</p>
-<p>npm install hexo-deployer-git –save</p>
-<h1 id="一些常用命令："><a href="#一些常用命令：" class="headerlink" title="一些常用命令："></a>一些常用命令：</h1><p>hexo new”postName” #新建文章</p>
-<p>hexo new page”pageName” #新建页面</p>
-<p>hexo generate #生成静态页面至public目录</p>
-<p>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）</p>
-<p>hexo deploy #将.deploy目录部署到GitHub</p>
-<p>hexo help # 查看帮助</p>
-<p>hexo version #查看Hexo的版本</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/21/hexo/" data-id="cke2o58ey000jc78kv45ce8iw" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-docker" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/14/docker/" class="article-date">
-  <time datetime="2016-12-14T09:56:03.000Z" itemprop="datePublished">2016-12-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/14/docker/">docker 常用命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>总结一下常用命令:</p>
-<p>其中&lt;&gt;阔起来的参数为必选，[]阔起来为可选</p>
-<p>docker version 查看docker的版本号，包括客户端、服务端、依赖的Go等<br>docker info 查看系统(docker)层面信息，包括管理的images, containers数等<br>docker search <image> 在docker index中搜索image<br>docker pull <image> 从docker registry server 中下拉image<br>docker push &lt;image|repository&gt; 推送一个image或repository到registry<br>docker push &lt;image|repository&gt;:TAG 同上，指定tag<br>docker inspect &lt;image|container&gt; 查看image或container的底层信息<br>docker images TODO filter out the intermediate image layers (intermediate image layers 是什么)<br>docker images -a 列出所有的images<br>docker ps 默认显示正在运行中的container<br>docker ps -l 显示最后一次创建的container，包括未运行的<br>docker ps -a 显示所有的container，包括未运行的<br>docker logs <container> 查看container的日志，也就是执行命令的一些输出<br>docker rm &lt;container…&gt; 删除一个或多个container<br>docker rm <code>docker ps -a -q</code> 删除所有的container<br>docker ps -a -q | xargs docker rm 同上, 删除所有的container<br>docker rmi &lt;image…&gt; 删除一个或多个image<br>docker start/stop/restart <container> 开启/停止/重启container<br>docker start -i <container> 启动一个container并进入交互模式<br>docker attach <container> attach一个运行中的container<br>docker run <image> <command> 使用image创建container并执行相应命令，然后停止<br>docker run -i -t <image> /bin/bash 使用image创建container并进入交互模式, login shell是/bin/bash<br>docker run -i -t -p &lt;host_port:contain_port&gt; 将container的端口映射到宿主机的端口<br>docker commit <container> [repo:tag] 将一个container固化为一个新的image，后面的repo:tag可选<br>docker build <path> 寻找path路径下名为的Dockerfile的配置文件，使用此配置生成新的image<br>docker build -t repo[:tag] 同上，可以指定repo和可选的tag<br>docker build - &lt; <dockerfile> 使用指定的dockerfile配置文件，docker以stdin方式获取内容，使用此配置生成新的image<br>docker port <container> <container port=""> 查看本地哪个端口映射到container的指定端口，其实用docker ps 也可以看到</container></container></dockerfile></path></container></image></image></container></container></container></container></image></image></p>
-<h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><ol>
-<li>利用官方脚本：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum update</span><br><span class="line">$ sudo curl -sSL https://get.docker.com/ | sh</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>用黄狗安装：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum update</span><br><span class="line">$ sudo yum -y install docker</span><br><span class="line">$ sudo systemctl start docker</span><br></pre></td></tr></table></figure>
-<h3 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h3><h5 id="删除所有已经停止的continer-q-列出所有id"><a href="#删除所有已经停止的continer-q-列出所有id" class="headerlink" title="删除所有已经停止的continer  -q 列出所有id"></a>删除所有已经停止的continer  -q 列出所有id</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm $(docker ps -a -q)</span><br></pre></td></tr></table></figure>
-<h5 id="删除所有镜像"><a href="#删除所有镜像" class="headerlink" title="删除所有镜像"></a>删除所有镜像</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi $(docker images | grep none | awk &apos;&#123;print $3&#125;&apos; | sort -r)</span><br></pre></td></tr></table></figure>
-<h3 id="命令说明"><a href="#命令说明" class="headerlink" title="命令说明"></a>命令说明</h3><ol>
-<li>其中go的语法模板</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker images --format &quot;&#123;&#123;.ID&#125;&#125;: &#123;&#123;.Repository&#125;&#125;&quot;</span><br><span class="line">docker images --format &quot;table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Repository&#125;&#125;\t&#123;&#123;.Tag&#125;&#125;&quot;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>filter 过滤参数</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images -f since=mongo:3.2</span><br></pre></td></tr></table></figure>
-<p> 表示自从3.2 版本以来所有的镜像。</p>
-<ol start="3">
-<li><p>docker run -it –rm –name ryanserver ubuntu:14.04 bash </p>
-<p>it 表示交互终端<br>rm 推出后删除<br>ubuntu  镜像名称<br>bash bash命令<br>naem 指定container名称</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name webserver -d -p 85:80 nginx</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]</p>
-</li>
-</ol>
-<ul>
-<li>-a :提交的镜像作者；</li>
-<li>-c :使用Dockerfile指令来创建镜像；</li>
-<li>-m :提交时的说明文字；</li>
-<li>-p :在commit时，将容器暂停。<br>如：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ docker commit \</span><br><span class="line">    --author &quot;Tao Wang &lt;twang2218@gmail.com&gt;&quot; \</span><br><span class="line">    --message &quot;修改了默认网页&quot; \</span><br><span class="line">    webserver \</span><br><span class="line">    nginx:v2</span><br></pre></td></tr></table></figure>
-<p>5.通过dockfile制作镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FROM nginx</span><br><span class="line">RUN echo &apos;&lt;h1&gt;Hello, Docker!&lt;/h1&gt;&apos; &gt; /usr/share/nginx/html/index.html</span><br></pre></td></tr></table></figure>
-<p>from 指定基础镜像 </p>
-<p>Dockerfile中每次运行run 都执行了一层。&amp;&amp; 将各个所需命令串联起来</p>
-<p>Dockerfile 支持 Shell 类的行尾添加 \ 的命令换行方式，以及行首# 进行注释的格式<br>一定要确保每一层只添加真正需要添加的东西，任何无关的东西都应该清理掉。</p>
-<p>copy 文件时可使用通配符，其通配符规则要满足 Go 的 filepath.Match 规则，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">COPY hom* /mydir/</span><br><span class="line">COPY hom?.txt /mydir/</span><br></pre></td></tr></table></figure>
-<p>Add 功能和copy 类似，不过自带解压功能：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FROM scratch</span><br><span class="line">ADD ubuntu-xenial-core-cloudimg-amd64-root.tar.gz /</span><br></pre></td></tr></table></figure>
-<h6 id="环境变量的配置"><a href="#环境变量的配置" class="headerlink" title="环境变量的配置"></a>环境变量的配置</h6><p>格式有两种：<br>  ● ENV <key> <value><br>  ● ENV <key1>=<value1> <key2>=<value2>…<br>例如 ENV VERSION=1.0 DEBUG=on \<br>     NAME=”Happy Feet</value2></key2></value1></key1></value></key></p>
-<h6 id="匿名卷"><a href="#匿名卷" class="headerlink" title="匿名卷"></a>匿名卷</h6><p>在 Dockerfile 中，我们可以事先指定某些目录挂载为匿名卷，<br>任何向 /data 中写入的信息都不会记录进容器存储层，从而保证了容器存储层的无状态化。当然，运行时可以覆盖这个挂载设置。比如：<br>docker run -d -v mydata:/data xxxx</p>
-<h6 id="挂载host目录"><a href="#挂载host目录" class="headerlink" title="挂载host目录"></a>挂载host目录</h6><p>将host机中的文件挂载到container中：<br>docker可以支持把一个宿主机上的目录挂载到镜像里。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -v /home/dock/Downloads:/usr/Downloads ubuntu64 /bin/bash</span><br></pre></td></tr></table></figure>
-<p>通过-v参数，冒号前为宿主机目录，必须为绝对路径，冒号后为镜像内挂载的路径。</p>
-<p>一个dockfile:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">MAINTAINER Anna Doe &lt;anna@example.com&gt;</span><br><span class="line">nodejs pm2:</span><br><span class="line">FROM node:0.11.13</span><br><span class="line"># or just node, without tag</span><br><span class="line"></span><br><span class="line">RUN npm install -g pm2</span><br><span class="line">RUN pm2 dump</span><br><span class="line"># dump will start pm2 daemon and create everything needed</span><br><span class="line"></span><br><span class="line">VOLUME [&quot;/srv/apps&quot;, &quot;/srv/logs&quot;, &quot;/srv/server.json&quot;]</span><br><span class="line"># don&apos;t put the files in docker container, user -v</span><br><span class="line"></span><br><span class="line">EXPOSE 3000</span><br><span class="line"></span><br><span class="line">CMD [&quot;pm2&quot;, &quot;start&quot;, &quot;/srv/server.json&quot;, &quot;--no-daemon&quot;]</span><br><span class="line"># no daemon mode for docker</span><br></pre></td></tr></table></figure>
-<ol start="6">
-<li>docker build -t repo[:tag] . </li>
-</ol>
-<p>可以指定repo和可选的tag<br>如果注意，会看到 docker build 命令最后有一个 .。. 表示当前目录<br>copy命令只有在当前上下文有有效</p>
-<ol start="7">
-<li>从container中导出<br>导出(Export)<br>Export命令用于持久化容器（不是镜像）<br>接着执行导出：<br>sudo docker export <container id=""> &gt; /home/export.tar</container></li>
-</ol>
-<p>导出后，可以通过docker import   导入，如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat busy.tar | sudo docker import - busy:v1.0</span><br></pre></td></tr></table></figure>
-<ol start="8">
-<li>保存镜像<br>sudo docker save busybox-1 &gt; /home/save.tar</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户既可以使用 docker load 来导入镜像存储文件到本地镜像库，也可以使用 docker import 来导入一个容器快照到本地镜像库。这两者的区别在于容器快照文件将丢弃所有的历史记录和元数据信息（即仅保存容器当时的快照状态），而镜像存储文件将保存完整记录，体积也要大。此外，从容器快照文件导入时可以重新指定标签等元数据信息。</span><br></pre></td></tr></table></figure>
-<ol start="9">
-<li>docker 自启动配置</li>
-</ol>
-<p>自动启动container 如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -ti --restart=on-failure:3   </span><br><span class="line">失败后会启动三次</span><br></pre></td></tr></table></figure>
-<ol start="10">
-<li>用非root用户操作docker<br>下面是使用非root用户操作的步骤</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">创建docker组</span><br><span class="line">sudo groupadd docker</span><br><span class="line">将当前用户加入docker组</span><br><span class="line">sudo gpasswd -a $&#123;USER&#125; docker</span><br><span class="line">重新启动docker服务（下面是CentOS7的命令）</span><br><span class="line">sudo systemctl restart docker</span><br><span class="line">当前用户退出系统重新登陆</span><br><span class="line">运行docker命令</span><br><span class="line">docker ps</span><br></pre></td></tr></table></figure>
-<p>11.用docker 启动zookeeper </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -aux | grep docker</span><br><span class="line">docker run  --name alizookeeper --restart always -d -P zookeeper</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/14/docker/" data-id="cke2o58er0008c78k01spptx3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -859,7 +869,7 @@ branch: master
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encode-decode/">encode decode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es/">es</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/">eslint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interview/">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/loadtest/">loadtest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node、egg/">node、egg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ops/">ops</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pattern/">pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pm2/">pm2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgre/">postgre</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regex/">regex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ts/">ts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/useful-package/">useful package</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-eventloop-js/">vue eventloop js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-安全/">web 安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全/">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/零碎/">零碎</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encode-decode/">encode decode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es/">es</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/">eslint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interview/">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/loadtest/">loadtest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node、egg/">node、egg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ops/">ops</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pattern/">pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pm2/">pm2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgre/">postgre</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regex/">regex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stock/">stock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ts/">ts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/useful-package/">useful package</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-eventloop-js/">vue eventloop js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-安全/">web 安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全/">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/零碎/">零碎</a></li></ul>
     </div>
   </div>
 
@@ -869,7 +879,7 @@ branch: master
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/encode-decode/" style="font-size: 10px;">encode decode</a> <a href="/tags/es/" style="font-size: 20px;">es</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/loadtest/" style="font-size: 10px;">loadtest</a> <a href="/tags/node、egg/" style="font-size: 10px;">node、egg</a> <a href="/tags/ops/" style="font-size: 10px;">ops</a> <a href="/tags/pattern/" style="font-size: 10px;">pattern</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/postgre/" style="font-size: 10px;">postgre</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/ts/" style="font-size: 10px;">ts</a> <a href="/tags/useful-package/" style="font-size: 10px;">useful package</a> <a href="/tags/vue-eventloop-js/" style="font-size: 10px;">vue eventloop js</a> <a href="/tags/web-安全/" style="font-size: 10px;">web 安全</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a> <a href="/tags/零碎/" style="font-size: 10px;">零碎</a>
+      <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/encode-decode/" style="font-size: 10px;">encode decode</a> <a href="/tags/es/" style="font-size: 20px;">es</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/loadtest/" style="font-size: 10px;">loadtest</a> <a href="/tags/node、egg/" style="font-size: 10px;">node、egg</a> <a href="/tags/ops/" style="font-size: 10px;">ops</a> <a href="/tags/pattern/" style="font-size: 10px;">pattern</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/postgre/" style="font-size: 10px;">postgre</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/stock/" style="font-size: 10px;">stock</a> <a href="/tags/ts/" style="font-size: 10px;">ts</a> <a href="/tags/useful-package/" style="font-size: 10px;">useful package</a> <a href="/tags/vue-eventloop-js/" style="font-size: 10px;">vue eventloop js</a> <a href="/tags/web-安全/" style="font-size: 10px;">web 安全</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a> <a href="/tags/零碎/" style="font-size: 10px;">零碎</a>
     </div>
   </div>
 
@@ -878,7 +888,7 @@ branch: master
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
     </div>
   </div>
 
@@ -891,6 +901,14 @@ branch: master
       <ul>
         
           <li>
+            <a href="/2021/01/08/investment/">investment</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/10/cloud/">cloud</a>
+          </li>
+        
+          <li>
             <a href="/2020/08/13/node/">node</a>
           </li>
         
@@ -900,14 +918,6 @@ branch: master
         
           <li>
             <a href="/2020/08/13/js/">js</a>
-          </li>
-        
-          <li>
-            <a href="/2020/06/04/fresh/">fresh</a>
-          </li>
-        
-          <li>
-            <a href="/2019/12/10/stringencode/">stringencode</a>
           </li>
         
       </ul>
@@ -922,7 +932,7 @@ branch: master
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 ryansecreat<br>
+      &copy; 2021 ryansecreat<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
