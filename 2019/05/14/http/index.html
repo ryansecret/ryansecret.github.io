@@ -5,18 +5,18 @@
   
   <title>http | ryansecreat blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Quic 多路复用，避免队头阻塞 减少 RTT，请求更快速 快速迭代，广泛支持  传统的 HTTP2 + SSL + TCP 协议栈有哪些缺点？1.SSL 的会话恢复依然需要一个 RTT，而且难以合并到 TCP 层  TCP 的滑动窗口存在队头阻塞问题 TCP 的重传纠错会浪费一个 RTT  网络请求中一个常见的名词是 RTT(Round Trip Time)，表示客户端从发出一个请求数据，到接收">
+  <meta name="description" content="Origin:scheme, host, and port. same origin 更加严格 Quic 多路复用，避免队头阻塞 减少 RTT，请求更快速 快速迭代，广泛支持  传统的 HTTP2 + SSL + TCP 协议栈有哪些缺点？1.SSL 的会话恢复依然需要一个 RTT，而且难以合并到 TCP 层  TCP 的滑动窗口存在队头阻塞问题 TCP 的重传纠错会浪费一个 RTT  网络请求">
 <meta name="keywords" content="http">
 <meta property="og:type" content="article">
 <meta property="og:title" content="http">
 <meta property="og:url" content="http://yoursite.com/2019/05/14/http/index.html">
 <meta property="og:site_name" content="ryansecreat blog">
-<meta property="og:description" content="Quic 多路复用，避免队头阻塞 减少 RTT，请求更快速 快速迭代，广泛支持  传统的 HTTP2 + SSL + TCP 协议栈有哪些缺点？1.SSL 的会话恢复依然需要一个 RTT，而且难以合并到 TCP 层  TCP 的滑动窗口存在队头阻塞问题 TCP 的重传纠错会浪费一个 RTT  网络请求中一个常见的名词是 RTT(Round Trip Time)，表示客户端从发出一个请求数据，到接收">
+<meta property="og:description" content="Origin:scheme, host, and port. same origin 更加严格 Quic 多路复用，避免队头阻塞 减少 RTT，请求更快速 快速迭代，广泛支持  传统的 HTTP2 + SSL + TCP 协议栈有哪些缺点？1.SSL 的会话恢复依然需要一个 RTT，而且难以合并到 TCP 层  TCP 的滑动窗口存在队头阻塞问题 TCP 的重传纠错会浪费一个 RTT  网络请求">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-14T08:31:15.907Z">
+<meta property="og:updated_time" content="2021-04-30T11:14:48.275Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http">
-<meta name="twitter:description" content="Quic 多路复用，避免队头阻塞 减少 RTT，请求更快速 快速迭代，广泛支持  传统的 HTTP2 + SSL + TCP 协议栈有哪些缺点？1.SSL 的会话恢复依然需要一个 RTT，而且难以合并到 TCP 层  TCP 的滑动窗口存在队头阻塞问题 TCP 的重传纠错会浪费一个 RTT  网络请求中一个常见的名词是 RTT(Round Trip Time)，表示客户端从发出一个请求数据，到接收">
+<meta name="twitter:description" content="Origin:scheme, host, and port. same origin 更加严格 Quic 多路复用，避免队头阻塞 减少 RTT，请求更快速 快速迭代，广泛支持  传统的 HTTP2 + SSL + TCP 协议栈有哪些缺点？1.SSL 的会话恢复依然需要一个 RTT，而且难以合并到 TCP 层  TCP 的滑动窗口存在队头阻塞问题 TCP 的重传纠错会浪费一个 RTT  网络请求">
   
     <link rel="alternate" href="/atom.xml" title="ryansecreat blog" type="application/atom+xml">
   
@@ -91,7 +91,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Quic"><a href="#Quic" class="headerlink" title="Quic"></a>Quic</h4><ol>
+        <ol>
+<li>Origin:scheme, host, and port.<br> same origin 更加严格 <h4 id="Quic"><a href="#Quic" class="headerlink" title="Quic"></a>Quic</h4></li>
 <li>多路复用，避免队头阻塞</li>
 <li>减少 RTT，请求更快速</li>
 <li>快速迭代，广泛支持</li>
@@ -185,7 +186,7 @@ Connection:Upgrade
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/14/http/" data-id="ckjnmzt4z000p998knnm6thcc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/14/http/" data-id="cko47yzjk000j1f8kmq4vb7f4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
@@ -246,7 +247,7 @@ Connection:Upgrade
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
     </div>
   </div>
 
@@ -257,6 +258,10 @@ Connection:Upgrade
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/04/30/manage/">manage</a>
+          </li>
         
           <li>
             <a href="/2021/01/08/investment/">investment</a>
@@ -272,10 +277,6 @@ Connection:Upgrade
         
           <li>
             <a href="/2020/08/13/html/">html</a>
-          </li>
-        
-          <li>
-            <a href="/2020/08/13/js/">js</a>
           </li>
         
       </ul>
