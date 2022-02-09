@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>ryansecreat blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="保持积极昂扬的状态，避免成为别人眼中的傻子">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ryansecreat blog">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="ryansecreat blog">
+<meta property="og:description" content="保持积极昂扬的状态，避免成为别人眼中的傻子">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ryansecreat blog">
+<meta name="twitter:description" content="保持积极昂扬的状态，避免成为别人眼中的傻子">
+  
+    <link rel="alternate" href="/atom.xml" title="ryansecreat blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ryansecreat blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">smile hard</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-overview" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/12/13/overview/" class="article-date">
+  <time datetime="2021-12-13T09:38:48.000Z" itemprop="datePublished">2021-12-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/13/overview/">overview</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>临时安全令牌（Security Token Service，STS）</li>
+<li><strong><em> 获取文本px宽度</em> @param font{String}: 字体样式</strong></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">String.prototype.pxWidth = function(font) &#123;</span><br><span class="line">  // re-use canvas object for better performance</span><br><span class="line">  var canvas = String.prototype.pxWidth.canvas || (String.prototype.pxWidth.canvas = document.createElement(&quot;canvas&quot;)),</span><br><span class="line">      context = canvas.getContext(&quot;2d&quot;); 3</span><br><span class="line"></span><br><span class="line">  font &amp;&amp; (context.font = font);</span><br><span class="line">  var metrics = context.measureText(this);</span><br><span class="line"></span><br><span class="line">  return metrics.width;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>先保存各个实例的values信息， helm get values [release] &gt; xxx.yaml</li>
+</ol>
+<ol>
+<li><p>HTTP协议中用头部字段Accept-Encoding 和 Content-Encoding对「采用何种编码格式传输正文」进行了协定，请求头的Accept-Encoding会列出客户端支持的编码格式。当响应头的 Content-Encoding指定了gzip时，浏览器则会进行对应解压</p>
+</li>
+<li><p>Transfer-Encoding，是一个 HTTP 头部字段，字面意思是「传输编码」。实际上，HTTP 协议中还有另外一个头部与编码有关：Content-Encoding（内容编码）。Content-Encoding 通常用于对实体内容进行压缩编码，目的是优化传输，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Transfer-Encoding: chunked</span><br><span class="line">Transfer-Encoding: compress</span><br><span class="line">Transfer-Encoding: deflate</span><br><span class="line">Transfer-Encoding: gzip</span><br><span class="line">Transfer-Encoding: identity</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>逐跳消息头  这类消息头仅对单次传输连接有意义，不能通过代理或缓存进行重新转发</p>
+</li>
+<li><p>git merge –squash develop</p>
+</li>
+<li><p>mime  <a href="https://github.com/sindresorhus/file-type" target="_blank" rel="noopener">https://github.com/sindresorhus/file-type</a>  根据文件内容判断类型</p>
+</li>
+<li><p>语义化版本控制(SemVer)<br>先简单了解下什么是语义化的版本控制，其是由GitHub发起的一份用于规范版本号递增的规则，</p>
+</li>
+<li><p>deeplinks.js allows people to easily link directly to any text selection on your website.</p>
+</li>
+<li>Vue DevUI 开源的UI</li>
+<li><p>standard-version<br>standard-version 会根据提交的信息类型来自动更改对应的版本号,如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">feat: 次版本(minor)+1</span><br><span class="line">fix: 修订号(patch) +1</span><br><span class="line">BREAK CHANGE: 主板号(marjor) +1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>outline 能告诉用户那一个可以激发事件的html元素获取了焦点，对钟爱键盘操作的用户尤其有意义。一个清晰悦目的outline设计能提高使用表单的用户体验。</p>
+</li>
+<li>CSS属性 columns 用来设置元素的列宽和列数。<br>重点，设置了display: contents的元素本身不会被渲染，但是其子元素能够正常被渲染。</li>
+<li><p>为了使我们的盒子居中，通过align-items属性，可以将交叉轴上的item对齐，此时使用的是垂直方向的块轴。而使用justify-content则可以对齐主轴上的项目，主轴是水平方向的。<br>align conent  用来控制多行布局   控制“多条主轴”的 flex 项目在交叉轴的对齐。</p>
+</li>
+<li><p>CSS 中的 place-items 是一个简写属性 ，它允许你在相关的布局（如 Grid 或 Flexbox）中可以同时沿着块级和内联方向对齐元素 (例如：align-items 和 justify-items 属性) 。如果未提供第二个值，则第一个值作为第二个值的默认值</p>
+</li>
+<li><p>filter CSS属性将模糊或颜色偏移等图形效果应用于元素。滤镜通常用于调整图像，背景和边框的渲染。</p>
+</li>
+<li><p>monaco 自定义language</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">register monaco.languages.register(&#123; id: &apos;mySpecialLanguage&apos; &#125;);</span><br><span class="line">setMonarchTokensProvider base language 里面有3 </span><br><span class="line">defineTheme  设置样式</span><br><span class="line">monaco.editor.defineTheme(&apos;myCoolTheme&apos;, &#123;</span><br><span class="line">                    colors: &#123;&#125;,</span><br><span class="line">                    base: &apos;vs&apos;,</span><br><span class="line">                    inherit: false,</span><br><span class="line">                    rules: [</span><br><span class="line">                        &#123; token: &apos;custom-info&apos;, foreground: &apos;808080&apos; &#125;,</span><br><span class="line">                        &#123; token: &apos;custom-error&apos;, foreground: &apos;ff0000&apos;, fontStyle: &apos;bold&apos; &#125;,</span><br><span class="line">                        &#123; token: &apos;custom-notice&apos;, foreground: &apos;FFA500&apos; &#125;,</span><br><span class="line">                        &#123; token: &apos;custom-date&apos;, foreground: &apos;008800&apos; &#125;</span><br><span class="line">                    ]</span><br><span class="line">                &#125;);</span><br><span class="line">registerCompletionItemProvider  智能提示，遇到对应的关键词</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Monarch  用来实现代码高亮   <a href="https://juejin.cn/post/6844903736867831822" target="_blank" rel="noopener">https://juejin.cn/post/6844903736867831822</a></p>
+</li>
+</ol>
+<p><a href="https://microsoft.github.io/monaco-editor/monarch.html" target="_blank" rel="noopener">https://microsoft.github.io/monaco-editor/monarch.html</a></p>
+<ol>
+<li>xe-utils 提供工具类</li>
+<li>Mitt  Tiny (~200b) functional event emitter / pubsub.</li>
+<li>element-resize-detector  </li>
+<li>memoize-one 记录最近的返回结果 </li>
+<li>钱其实是“保健因子”，而不是“激励因子”，是多了没用、少了不行的东西</li>
+<li>可以看到整个医改的核心就是放供给、促竞争和扶创新的过程</li>
+<li>破船能过河</li>
+<li>Comlink Comlink makes WebWorkers enjoyable. 多线程</li>
+<li><code>Rails-style</code>: 按照文件的类型划分为不同的目录</li>
+</ol>
+<p><code>Domain-style</code>: 按照一个功能特性或业务创建单独的目录</p>
+<p><code>Ducks-style</code>: 优点类似于Domain-style，不过更彻底, 它通常将相关联的元素定义在一个文件下</p>
+<ol>
+<li><p> 强约定，体现团队的规范。首先它应该避免团队成员去关心或更改构建的配置细节，暴露最小化的配置接口。 另外构建工具不仅仅是构建，通常它还会集成代码检查、测试等功能。</p>
+<p> 方便升级。尤其是团队需要维护多个项目场景, 这一点很有意义</p>
+</li>
+<li><p>BEM</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">元素（Element），即 price 、text ，代表从属于某个块，是这个块的子元素，跟在块后面，以双下划线为间隔，使用 .btn__price 、.btn__text 表示</span><br><span class="line"></span><br><span class="line">修饰符（Modifier），即 orange 、big ，用于修改块的状态，为块添加特定的主题或样式，跟在块后面，以双连字符为间隔，使用 .btn--orange 、.btn--big 表示</span><br><span class="line"></span><br><span class="line">```   </span><br><span class="line">1.  npm-run-all</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Before: npm run clean &amp;&amp; npm run build:css &amp;&amp; npm run build:js &amp;&amp; npm run build:html<br>After: npm-run-all clean build:*<br><code>`</code></p>
+<ol>
+<li><p>display:flow-root可以让元素块状化，同时包含格式化上下文BFC，可以用来清除浮动，去除margin合并，实现两栏自适应布局等。</p>
+</li>
+<li><p>stroke-dash 是一个定义虚线和间距图形的图像工具类, 被用于轮廓描边;</p>
+</li>
+<li><p>npx degit</p>
+</li>
+<li><p>有一些环境变量，比如HOME、PATH、SHELL、UID、USER等，在用户登录之前就已经被/bin/login程序设置好了。通常环境变量被定义并保存在用户家目录下的．bash_profile文件或全局的配置文件/etc/profile中</p>
+</li>
+<li><p>env命令只显示全局变量；declare命令输出所有的变量、函数、整数和已经导出的变量</p>
+</li>
+<li><p>http upgrade 通常来说这一机制总是由客户端发起的 （不过也有例外，比如说可以由服务端发起升级到传输层安全协议（TLS））， 服务端可以选择是否要升级到新协议。借助这一技术，连接可以以常用的协议启动（如HTTP/1.1），随后再升级到HTTP2甚至是WebSockets.</p>
+</li>
+<li><p>因为 CommonJS 在运行时进行加载方式的动态解析，在运行时阶段才能确定的导入导出关系，因此无法进行静态编译优化和类型检查。​</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/12/13/overview/" data-id="ckzf5erps0017ez8kabyephg5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/overview/">overview</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-k8s" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/11/18/k8s/" class="article-date">
+  <time datetime="2021-11-18T09:10:24.000Z" itemprop="datePublished">2021-11-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/18/k8s/">k8s</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="helm"><a href="#helm" class="headerlink" title="helm"></a>helm</h3><ol>
+<li><p>helm pull itg/rds-console —version=XXXX —untar</p>
+</li>
+<li><p>helm uninstall $rds_console_chart_name -n $</p>
+</li>
+<li><p>helm add repo</p>
+</li>
+</ol>
+<p><code>helm repo add itg $ --username $   --password $</code></p>
+<p><code>helm repo update</code></p>
+<ol>
+<li>由 helm install -f 或 helm upgrade -f 提供的 value 文件</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 安装本地 chart</span><br><span class="line">helm install -f myvalues.yaml myredis ./redis</span><br><span class="line"># 指定变量</span><br><span class="line">helm install --set name=prod myredis ./redis</span><br></pre></td></tr></table></figure>
+<h3 id="k8s"><a href="#k8s" class="headerlink" title="k8s"></a>k8s</h3><ol>
+<li><p>Service的IP地址，此为虚拟IP地址。外部网络无法ping通，只有kubernetes集群内部访问使用。</p>
+</li>
+<li><p>由于 Kubernetes 集群中每个 Pod（容器组）都有一个唯一的 IP 地址（即使是同一个 Node 上的不同 Pod），我们需要一种机制，为前端系统屏蔽后端系统的 Pod（容器组）在销毁、创建过程中所带来的 IP 地址的变化。</p>
+</li>
+</ol>
+<ol>
+<li><p>可以通过 set-context 命令改变当前 kubectl 上下文 的名称空间，后续所有命令都默认在此名称空间下执行。</p>
+</li>
+<li><p>port表示Service对外提供的端口，可以通过“ClusterIP:端口”访问服务。●targetPort表示对应的后端应用（即Pod）的端口。</p>
+</li>
+<li><p>Sh  -c string：命令从-c后的字符串读取。</p>
+</li>
+<li><p>helm list是区分命名空间的。默认情况下，Helm将Kubernetes配置文件设置的命名空间作为默认命名空间（通常名为default）。</p>
+</li>
+<li><p>helm get notes mysite  用来打印发布说明</p>
+</li>
+<li><p>helm get values <release-name>  </release-name></p>
+</li>
+<li><p>heml install </p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">使用--generate name标志，我们不再需要提供名称作为helm install的第一个参数。Helm根据chart名称和时间戳的组合生成名称。在前面的输出中，我们可以看到生成的名称：wordpress-1597689085。</span><br><span class="line"></span><br><span class="line">通过添加--create-namespace，我们已经向Helm表明，我们知道可能还没有具有该名称的命名空间，只希望创建一个。当然，请确保如果在生产实例上使用此标志，会有其他机制来强制执行此新命名空间的安全性。</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>apiVersion告诉Helm此chart使用的是什么结构。apiVerison v2是为Helm v3设计的。</p>
+</li>
+<li><p>appVersion属性是唯一的。它既是描述性的，也是模板中经常使用的。appVersion属性表示主应用程序或组合应用程序的版本。例如，如果被打包的应用程序是WordPress，那么它就是WordPress的版本。</p>
+</li>
+<li><p>重启Pod  </p>
+</li>
+</ol>
+<p>kubectl get pod {podname} -n {namespace} -o yaml | kubectl replace -f -</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/11/18/k8s/" data-id="ckzf5erpo000xez8km60ffy3u" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/k8s/">k8s</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-stock" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/07/09/stock/" class="article-date">
+  <time datetime="2021-07-09T02:05:05.000Z" itemprop="datePublished">2021-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/09/stock/">stock</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>格力<br>48.5<br>47.5 1w<br>46.5 1w<br>45.5 1W<br>44.5 1W<br>43.5 1.5W<br>42.5 1.5W </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/07/09/stock/" data-id="ckzf5erpy001mez8kkplho48h" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-manage" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/04/30/manage/" class="article-date">
+  <time datetime="2021-04-30T10:54:37.000Z" itemprop="datePublished">2021-04-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/30/manage/">manage</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>P8 提升技术能力的关键是什么呢？答案是技术深度和技术宽度齐头并进。而 P7 升 P8 的时候，在公司和业界的技术影响力恰恰是评委考察的一个重要方面。</li>
+<li>为能够自主规划一些有利于晋升的工作。但是反过来说，Team Leader 也充满了挑战性，因为大部分人并没有系统地学习和练习过管理技能，所以在实际管理工作中很容易走极端。</li>
+<li>P8 来说，能不能拿到好的业务结果，这一点在考核中所占的比重要大得多，基本上和技术能力是平起平坐的地位。这就是 P7 很难晋升 P8 的第二个原因。</li>
+<li>P8 需要负责指挥多个团队，提升自己管理技能的核心是学会抓住三个管理重点：搭建团队梯队，参与目标制定，关注技术演进。好的业务机会本身就非常稀缺，毕竟行业的风口并不是经常有的，业务上大的发展和突破也不是年年都有。而如果业务本身没有大的发展或者突破，相关的各种机会就会比较少</li>
+<li>5W 指的是 5 个不同的英文单词：When（何时）、Where（何地）、Who（何人）、What（何事）、Why（何因），代表需求产生的背景和功能上线后的运行环境，类似于操作系统上下文（Context）的概念。</li>
+<li>一类是核心人员流失，它导致很多重要工作无法开展，所以你需要提前培养核心人员的备份人员，搭建合理的团队梯度。</li>
+<li>深度：理解vue、react 等源码、面向对象对象的学习，ts 设计模式，走技术专家的路线。在业务上也要懂，客户有啥需求，都能给出解决方案；在需求评审试，给出相应的意见。<br>广度：前端各种技术平台、electron、flutter </li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/04/30/manage/" data-id="ckzf5erpr0013ez8kc5tm5o2j" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-investment" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/01/08/investment/" class="article-date">
+  <time datetime="2021-01-08T02:01:56.000Z" itemprop="datePublished">2021-01-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/08/investment/">investment</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>不要缺乏耐心，当做T时严格遵守纪律</li>
+<li>眼光长远一点儿，至少看一年后的利润</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/01/08/investment/" data-id="ckzf5erpm000uez8ksw7ythk9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stock/">stock</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-cloud" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/10/cloud/" class="article-date">
+  <time datetime="2020-11-10T03:06:58.000Z" itemprop="datePublished">2020-11-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/10/cloud/">cloud</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>增量数据迁移</li>
+</ol>
+<p>数据复制：由于业务原因，需要将数据从一个空间迁移至另一个空间。</p>
+<p>合规性要求：合规性要求所规定的数据需要跨一定距离保存一份副本。</p>
+<p>数据备份与容灾：如果您对所有写入的数据都希望在异地存储区域维护一份副本，以备发生如海啸、地震等特大灾难导致存储区域损毁时，还能启用异地存储区域的备份数据。</p>
+<p>最大限度减少延迟：用户处于两个地理位置。为了最大限度缩短访问对象时的延迟，可以在地理位置与用户较近的存储区域维护对象副本。</p>
+<ol start="2">
+<li><p>增量数据同步是跨不同的Bucket自动、异步复制文件，它会将对源Bucket中的对象的改动（除删除操作）同步到目标Bucket。</p>
+</li>
+<li><p>对象锁定</p>
+</li>
+</ol>
+<p>对象锁定功能可以禁止文件的删除和覆盖，以保障数据可靠性和满足某些行业的合规性要求，实现一次写入，多次读取（WORM）模式。<br>部分行业规定要求重要数据必须保存一定的时间后才可以被删除，如金融服务，医疗、政务部门等；为了满足该场景，对象存储需要支持WORM(对象锁定)模式，即一次写入，多次读取。</p>
+<p>除特殊行业的强制需求外，如有其他需求需要在一定时间或永久禁止某些文件的删除和覆盖，也可以使用对象锁定功能。</p>
+<ol start="4">
+<li>动态加速：通过路由优化、传输优化等动态加速技术解决跨运营商、网络不稳定等因素导致的响应慢、丢包、服务不稳定等问题，适用于较差网络环境下上传下载的场景。</li>
+</ol>
+<p>大文件下载加速：通过CDN边缘节点缓存源站内容来实现文件加速分发，提供低成本、高性能、可扩展的互联网内容分发服务，适用于相同内容反复下载的使用场景</p>
+<p>5.<br>管理元数据<br>管理元数据功能可以修改文件的HTTP响应头，实现控制客户端缓存时间、文件强制下载等策略。除一些通用响应头外，还支持配置自定义元数据。</p>
+<p>Content-Disposition 响应头指示回复的内容该以何种形式展示，是以内联的形式（即网页或者页面的一部分），还是以附件的形式下载并保存到本地。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/11/10/cloud/" data-id="ckzf5erp70004ez8k5xqmcpj7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-node" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/13/node/" class="article-date">
+  <time datetime="2020-08-13T08:18:08.000Z" itemprop="datePublished">2020-08-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/13/node/">node</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>V8 浏览器会自动执行垃圾回收，但由于 JavaScript 也是运行在主线程上的，一旦执行垃圾回收，就要打断 JavaScript 的运行，可能会或多或少的造成页面的卡顿，影响用户体验，所以 V8 决定采用增量 标记算法回收：<br>即把垃圾回收拆成一个个小任务，穿插在 JavaScript 中执行。</li>
+<li>Node 高消耗任务：1. Regex 2. 加密、压缩、fs 同步操作 3.json.stringfy</li>
+<li>epoll是event poll的简写，是Linux内核提供的一种由事件驱动的I/O通知机制。</li>
+<li>对第三方包和库做检测：NSP(Node Security Platform)</li>
+<li>V8 机器码的体积要比字节码大的多，执行频率高的为热点代码，启动编译器进行编译，其它的解释器执行</li>
+<li>Resovle 的任务进入微任务队列，暂停当前的协程，回到父协程</li>
+<li>Npm ^ 限定minor 版本 ~限定patch 版本</li>
+<li>Stream cork uncork</li>
+<li>escape-html  This function will escape the following characters: “, ‘, &amp;, &lt;, and &gt;.</li>
+<li>domain模块，把处理多个不同的IO的操作作为一个组。注册事件和回调到domain，当发生一个错误事件或抛出一个错误时，domain对象会被通知，不会丢失上下文环境，也不导致程序错误立即退出，与process.on(‘uncaughtException’)不同。</li>
+<li><p>stream tranform</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const &#123; Transform &#125; = require(&apos;stream&apos;);</span><br><span class="line"></span><br><span class="line">const myTransform = new Transform(&#123;</span><br><span class="line">  transform(chunk, encoding, callback) &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以引入corejs实现feature</p>
+</li>
+<li><p>性能分析<br>Node 性能分析，抓取火焰图 node –inspect app.js<br>Node  –prof-process  <a href="https://github.com/nswbmw/node-in-debugging/blob/master/1.3%20Tick%20Processor.md" target="_blank" rel="noopener">https://github.com/nswbmw/node-in-debugging/blob/master/1.3%20Tick%20Processor.md</a></p>
+</li>
+<li><p>一个promise类 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sleep</span> </span>&#123;</span><br><span class="line">then(resolve, reject)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Node 内置了pipeline  const { pipeline } = require(‘stream’);</p>
+</li>
+<li>Elastic APM 是 Elastic 公司开源的一款 APM 工具</li>
+<li>Error.prepareStackTrace:定制化堆栈信息    Error.captureStackTrace:隐藏内部的实现细节，优化错误栈。</li>
+<li>const { EventEmitter } = require(‘events’);  EventEmitter 的继承</li>
+<li>Require.resovle() 获取模块的绝对路径  </li>
+<li>peerDependencies 相关模块安装</li>
+<li>websocket </li>
+<li>cors 新浏览器<br>SameSite=Strict: The cookie is only sent if you are currently on the site that the cookie is set for. If you are on a different site and you click a link to a site that the cookie is set for, the cookie is not sent with the first request.</li>
+<li><p>主垃圾回收器：</p>
+<p>主垃圾回收器主要负责老生区中的垃圾回收。</p>
+<p>除了新生区中晋升的对象，一些大的对象会直接被分配到老生区。</p>
+<p>因此老生区中的对象有两个特点，一个是对象占用空间大，另一个是对象存活时间长。</p>
+</li>
+<li><p>V8 中会把堆分为新生代和老生代两个区域，</p>
+<p>新生代中存放的是生存时间短的对象，</p>
+<p>老生代中存放的生存时间久的对象。</p>
+<p>垃圾回收重要术语：</p>
+<p>代际假说<br>大部分对象在内存中存在的时间很短<br>不死的对象，会活得更久<br>分代收集<br>副垃圾回收器：</p>
+<p>主要负责新生代的垃圾回收。</p>
+<p>这个区域不大，但是垃圾回收比较频繁。</p>
+<p>新生代的垃圾回收算法是 Scavenge 算法。</p>
+<p>主要把新生代空间对半划分为两个区域：对象区域，空闲区域。</p>
+<p>当对象区域快被写满时，则会进行一次垃圾清理。</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">WebSocket 使用了自定义的二进制分帧格式，把每个应用消息切分成一或多个帧，发送到目的地之后再组装起来，等到接收到完整的消息后再通知接收端。基本的成帧协议定义了帧类型有操作码、有效载荷的长度，指定位置的Extension data和Application data，统称为Payload data，保留了一些特殊位和操作码供后期扩展。在打开握手完成后，终端发送一个关闭帧之前的任何时间里，数据帧可能由客户端或服务器的任何一方发送。</span><br><span class="line"></span><br><span class="line">• 帧：最小的通信单位，包含可变长度的帧首部和净荷部分，净荷可能包含完整或部分应用消息。</span><br><span class="line">• 消息：一系列帧，与应用消息对等。</span><br></pre></td></tr></table></figure>
+<ol>
+<li>jwt 签名算法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HS256 使用密钥生成固定的签名，RS256 使用成非对称进行签名。简单地说，HS256 必须与任何想要验证 JWT的 客户端或 API 共享秘密。</span><br><span class="line">RS256 生成非对称签名，这意味着必须使用私钥来签签名 JWT，并且必须使用对应的公钥来验证签名。与对称算法不同，使用 RS256 可以保证服务端是 JWT 的签名者，因为服务端是唯一拥有私钥的一方。这样做将不再需要在许多应用程序之间共享私钥</span><br><span class="line"></span><br><span class="line">这种方法可以让我们分离开签发与验证，签发时需要用一个密钥，验证时使用公钥，也就是有公钥的地方只能做验证，但不能签发 JWT。</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="egg"><a href="#egg" class="headerlink" title="egg"></a>egg</h3><ol>
+<li>启动顺序<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Master 启动后先 fork Agent 进程</span><br><span class="line">Agent 初始化成功后，通过 IPC 通道通知 Master</span><br><span class="line">Master 再 fork 多个 App Worker</span><br><span class="line">App Worker 初始化成功，通知 Master</span><br><span class="line">所有的进程初始化成功后，Master 通知 Agent 和 Worker 应用启动成功</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/13/node/" data-id="ckzf5erpr0015ez8ky7cu9gh7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node、egg/">node、egg</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-html" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/13/html/" class="article-date">
+  <time datetime="2020-08-13T08:17:07.000Z" itemprop="datePublished">2020-08-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/13/html/">html</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li></li>
+<li><p>当用户输入关键字并键入回车之后，这意味着当前页面即将要被替换成新的页面，不过在这个流程继续之前，浏览器还给了当前页面一次执行 <code>beforeunload</code> 事件的机会，<code>beforeunload</code> 事件允许页面在退出之前执行一些数据清理操作，还可以询问用户是否要离开当前页面。</p>
+</li>
+<li><p>对HTML5有什么了解？</p>
+<p>良好的移动性，以移动设备为主；<br>响应式设计，以适应自动变化的屏幕尺寸；<br>支持离线缓存技术，webStorage本地缓存；<br>新增了canvas，video，audio等新标签元素；以及特殊内容元素：article，footer，header，nav，section等；以及表单控件：calendar，date，time，email，url，search等；<br>新增webSocket/webWork技术；<br>还有新增的地理位置等。</p>
+</li>
+<li>label 标签来定义表单控制间的关系，当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。    </li>
+<li><p>最新的HTML5标准中的API是什么</p>
+<p>Canvas ：Canvas由HTML代码中定义的具有高度和宽度属性的可绘制区域组成。JavaScript代码可以通过一组完整的绘图函数访问该区域，这与其他常见的2D API类似，因此允许动态生成图形。Canvas 的一些预期用途包括构建图形、动画、游戏和图像合成。<br>媒体定时回放；<br>离线存储数据库；<br>文档编辑；<br>拖放；<br>跨文档消息传递；<br>浏览器历史管理；<br>MIME类型和协议处理程序注册；</p>
+</li>
+<li>对布局属性进行动画，浏览器需要为每一帧进行重绘并上传到 GPU 中<br>对合成属性进行动画，浏览器会为元素创建一个独立的复合层，当元素内容没有发生改变，该层就不会被重绘，浏览器会通过重新复合来创建动画帧</li>
+<li>HTML5文档类型：&lt;!doctype html&gt;    HTML5使用的编码 <meta charset="”UTF-8”"></li>
+<li>Service Worker 是运行在浏览器背后的独立线程，一般可以用来实现缓存功能。使用 Service Worker的话，传输协议必须为 HTTPS。</li>
+<li>visibilitychange,可以用来判断浏览器页签是否显示。</li>
+<li>WebP是一种新的图片格式，目标是减少文件大小但达到和JPEG格式相同的图片质量，能够减少网络上的请求时间。</li>
+<li><p>DOMContentLoaded事件触发时：仅当DOM解析完成后，不包括样式表，图片等资源。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">CSS不会阻塞DOM解析，但会阻塞DOM渲染。</span><br><span class="line">CSS会阻塞JS执行，并不会阻塞JS文件下载</span><br><span class="line">``` </span><br><span class="line">1. `&lt;datalist&gt;`标签，用来定义选项列表，与input元素配合使用钙元素，来定义input可能的值。</span><br><span class="line">  datalist及其选项不会被显示出来，他仅仅是合法的输入列表值。</span><br><span class="line">  `&lt;input id=&quot;fruits&quot; list=&quot;fruit&quot; /&gt;&lt;datalist id=&quot;fruit&quot;&gt;  &lt;option value=&quot;apple&quot;&gt;  &lt;option value=&quot;orange&quot;&gt;  &lt;option value=&quot;banana&quot;&gt;&lt;/datalist&gt;`</span><br><span class="line">1. 首屏加载时间</span><br><span class="line">    performance.timing.domContentLoadedEventStart-performance.timing.navigationStart</span><br><span class="line">2.  preload 是声明式的 fetch，可以强制浏览器请求资源，同时不阻塞文档 onload 事件。Prefetch 提示浏览器这个资源将来可能需要，但是把决定是否和什么时间加载这个资源的决定权交给浏览器。</span><br><span class="line">3. 优雅降级 graceful degradation： 一开始就构建完整的功能，然后再针对低版本的浏览器进行兼容。</span><br><span class="line">4. aside  定义页面的侧边栏内容。</span><br><span class="line">   progress 原生的进度条</span><br><span class="line"></span><br><span class="line">5.  HTML `&lt;sup&gt;` 元素定义了一个文本区域，出于排版的原因，与主要的文本相比，应该展示得更高并且更小。</span><br><span class="line">6. domPropsInnerHTML  domPropsInnerText</span><br><span class="line">7. 根据 canvas 可以获取浏览器指纹信息</span><br><span class="line">```text</span><br><span class="line"></span><br><span class="line">绘制 canvas，获取 base64 的 dataurl</span><br><span class="line">对 dataurl 这个字符串进行 md5 摘要计算，得到指纹信息</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一些性能要求极高的应用中虚拟 DOM 无法进行针对性的极致优化。比如VScode采用直接手动操作DOM的方式进行极端的性</p>
+</li>
+<li><p>事件传播有三个阶段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">捕获阶段–事件从 window 开始，然后向下到每个元素，直到到达目标元素事件或event.target。</span><br><span class="line">目标阶段–事件已达到目标元素。</span><br><span class="line">冒泡阶段–事件从目标元素冒泡，然后上升到每个元素，直到到达 window。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将图片等未处理的文件放在assets中，打包减少体积。而对于第三方引入的一些资源文件如iconfont.css等可以放在static中，因为这些文件已经经过处理了</p>
+</li>
+<li>浏览器 Context Group 是一组共享相同上下文的 tab、window或iframe。例如，如果网站（<a href="https://a.example）打开弹出窗口（https://b.example），则打开器窗口和弹出窗口共享相同的浏览上下文，并且它们可以通过" target="_blank" rel="noopener">https://a.example）打开弹出窗口（https://b.example），则打开器窗口和弹出窗口共享相同的浏览上下文，并且它们可以通过</a> DOM API相互访问，例如 window.opener。</li>
+<li>影响dom解析以及渲染都会出现白屏的问题</li>
+<li>V8 内存空间越大，执行时间越长，为了性能，限制了</li>
+<li><p>1.当 onload 事件触发时，页面上所有的DOM，样式表，脚本，图片，flash都已经加载完成了。</p>
+<p>2.当 DOMContentLoaded 事件触发时，仅当DOM加载完成，不包括样式表，图片，flash。</p>
+</li>
+<li>Host 支持虚拟站点</li>
+<li></li>
+<li>如果有js 在header 中，js会等待css 加载完毕。</li>
+<li>Object.prototype 是浏览器底层根据 ECMAScript 规范创造的一个对象。</li>
+<li>重绘 只是影响元素的外观和风格，不影响布局的  回流：元素的布局、隐藏等改变需要重新构建</li>
+<li>data-为前端开发者提供自定义属性，这些属性集可以通过对象的dataset属性获取，</li>
+<li>因为 DOM 是属于渲染引擎中的东西，而 JS 又是 JS 引擎中的东西。当我们通过 JS 操作 DOM 的时候，其实这个操作涉及到了两个线程之间的通信，那么势必会带来一些性能上的损耗。</li>
+<li>link属于HTML标签，而@import是CSS提供的页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载。</li>
+<li>Web quality  : alt</li>
+<li><p>该WindowEventHandlers.onstorage属性包含一个在storage事件触发时运行的事件处理程序。当更改存储区域时会发生这种情况（例如，存储新项目）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onstorage = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'The '</span> + e.key + <span class="string">' key has been changed from '</span> + e.oldValue + <span class="string">' to '</span> + e.newValue + <span class="string">'.'</span>); &#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>navigator.sendBeacon() 方法可用于通过HTTP将少量数据异步传输到Web服务器。</p>
+</li>
+<li><p>preload：  直接请求<br>prefetch： 空闲时间请求</p>
+</li>
+<li><p>&lt;link rel=”dns-prefetch” href=”//baidu.com”&gt;<br>比较小的图片例如icon，使用base64编码，可以减少一次图片的网络请求；</p>
+</li>
+<li>cache control<br><code>`</code>text<br>private：客户端可以缓存–打开新的窗口会重新访问、地址栏回车时第一次访问、后退不访问<br>public：客户端和代理服务器都可以缓存<br>max-age=t：缓存内容将在t秒后失效<br>no-cache：需要使用协商缓存来验证缓存数据<br>no-store：所有内容都不会缓存</li>
+</ol>
+<p><code>`</code>   </p>
+<ol>
+<li><p>我们可以使用 requestIdleCallback() 在浏览器空闲时运行高耗时、低优先级的任务。</p>
+</li>
+<li><p>由于GUI渲染线程与JavaScript执行线程是互斥的关系，当浏览器在执行JavaScript程序的时候，GUI渲染线程会被保存在一个队列中，直到JS程序执行完成，才会接着执行。因此如果JS执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞的感觉。</p>
+</li>
+<li>浏览器定时计数器并不是由JavaScript引擎计数的, 因为JavaScript引擎是单线程的, 如果处于阻塞线程状态就会影响记计时的准确, 因此通过单独线程来计时并触发定时是更为合理的方案。</li>
+<li><p>当一个事件被触发时该线程会把事件添加到待处理队列的队尾，等待JS引擎的处理。这些事件可以是当前执行的代码块如定时任务、也可来自浏览器内核的其他线程如鼠标点击、AJAX异步请求等，但由于JS的单线程关系所有这些事件都得排队等待JS引擎处理。</p>
+</li>
+<li><p>在XMLHttpRequest在连接后是通过浏览器新开一个线程请求， 将检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件放到 JavaScript引擎的处理队列中等待处理。</p>
+</li>
+<li>dom树构建完成后document对象会派发事件DOMContentLoaded来通知dom树已构建完成。<br>DOMContentLoaded事件用来标识dom树构建完成，那如何判断另外这些非阻塞型的资源加载完成呢？答案是window.onload。由于该事件派发的过晚，因此一般情况下我们用不着，而更多的是用DOMContentLoaded来尽早的的操作dom。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/13/html/" data-id="ckzf5erpi000nez8kbopitj20" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/13/js/" class="article-date">
+  <time datetime="2020-08-13T07:17:58.000Z" itemprop="datePublished">2020-08-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/13/js/">js</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>管道符放到尾部：Hello(?:World|China|) 可以匹配 HelloWorld、HelloChina，也可以只匹配 Hello。<blockquote>
+<p>console.log(‘子君’ instanceof String)  </p>
+</blockquote>
+</li>
+<li><p>prototype</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   function f() &#123;&#125;</span><br><span class="line">var a = f.prototype, b = Object.getPrototypeOf(f);</span><br><span class="line">a === b    </span><br><span class="line">解析：a是构造函数f的原型 ： &#123;constructor: ƒ&#125;</span><br><span class="line">b是实例f的原型对象 ： ƒ () &#123; [native code] &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>webpack hmr</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.当修改了一个或多个文件；</span><br><span class="line">2.文件系统接收更改并通知webpack；</span><br><span class="line">3.webpack重新编译构建一个或多个模块，并通知HMR服务器进行更新；</span><br><span class="line">4.HMR Server 使用webSocket通知HMR runtime 需要更新，HMR运行时通过HTTP请求更新jsonp；</span><br><span class="line">5.HMR运行时替换更新中的模块，如果确定这些模块无法更新，则触发整个页面刷新。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Git submodule </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule init</span><br><span class="line">Submodule &apos;assets&apos; (https://github.com/maonx/vimwiki-assets.git) registered for path &apos;assets&apos;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule add https://github.com/maonx/vimwiki-assets.git assets</span><br><span class="line"></span><br><span class="line">$ git submodule update —remote</span><br></pre></td></tr></table></figure>
+<ol>
+<li>所以函数防抖适用的场景：监听窗口的滚动，缩放。高频发生的一些事件；函数节流适用的场景：涉及与后端交互的按钮，由于网络原因或者其他原因，导致接口没有返回值，用户一直点点点的问题。 </li>
+<li>最优子结构、边界、动态转移方程。动态规划的核心—》从低向上，从而不会像递归那样保留调用栈。</li>
+<li><p>十进制转为 2 进制，除 2 取余，然后余数反向</p>
+<p>十进制转为 2 进制小时，<strong>乘 2 取整</strong></p>
+</li>
+<li><p>in操作符:检测指定对象(右边)原型链上是否有对应的属性值。<br> hasOwnProperty方法:检测指定对象自身上是否有对应的属性值。两者的区别在于in会查找原型链,而hasOwnProperty不会。</p>
+<p>for…in…遍历对象上除了Symbol以外的可枚举属性,包括原型链上的属性。</p>
+<p>Object.keys &amp; Object.assign &amp; JSON.stringify: excluding non-enumerable &amp; <strong>proto</strong></p>
+</li>
+<li><p>堆<br>堆的底层实际上是一棵完全二叉树，可以用数组实现<br>每个的节点元素值不小于其子节点 - 最大堆<br>每个的节点元素值不大于其子节点 - 最小堆</p>
+</li>
+<li><p>浏览器中 customevent</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> event = <span class="keyword">new</span> CustomEvent(<span class="string">"cat"</span>, &#123;  <span class="attr">detail</span>: &#123;    <span class="attr">hazcheeseburger</span>: <span class="literal">true</span>  &#125;&#125;);obj.dispatchEvent(event);</span><br></pre></td></tr></table></figure>
+<ol>
+<li>window.requestAnimationFrame() 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行</li>
+<li>Element.getBoundingClientRect() 方法返回元素的大小及其相对于视口的位置。</li>
+<li>regex  y stick 粘连修饰符 </li>
+</ol>
+<p>1.普通函数在被调用时，JS引擎会创建一个栈帧，在里面准备好局部变量、函数参数、临时值、代码执行的位置（也就是说这个函数的第一行对应到代码区里的第几行机器码），在当前栈帧里设置好返回位置，然后将新帧压入栈顶。待函数执行结束后，这个栈帧将被弹出栈然后销毁，返回值会被传给上一个栈帧。</p>
+<p>   当执行到yield语句时，Generator的栈帧同样会被弹出栈外，但Generator在这里耍了个花招——它在堆里保存了栈帧的引用（或拷贝）！这样当iter.next方法被调用时，JS引擎便不会重新创建一个栈帧，而是把堆里的栈帧直接入栈。因为栈帧里保存了函数执行所需的全部上下文以及当前执行的位置，所以当这一切都被恢复如初之时，就好像程序从原本暂停的地方继续向前执行了。</p>
+<pre><code>而因为每次yield和iter.next都对应一次出栈和入栈，所以可以直接利用已有的栈机制，实现值的传出和传入。
+</code></pre><ol>
+<li>Array(10)  稀疏矩阵</li>
+<li><p>clone</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">function initData(target) &#123;</span><br><span class="line">  return new target.constructor()</span><br><span class="line">&#125;</span><br><span class="line">return Object(Symbol.prototype.valueOf.call(targe));</span><br><span class="line"></span><br><span class="line">function cloneReg(targe) &#123;</span><br><span class="line">    const reFlags = /\w*$/;</span><br><span class="line">    const result = new targe.constructor(targe.source, reFlags.exec(targe));</span><br><span class="line">    result.lastIndex = targe.lastIndex;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line">```     </span><br><span class="line"></span><br><span class="line">1. js 在底层存储变量的时候，会在变量的机器码的低位1-3位存储其类型信息👉</span><br><span class="line">   </span><br><span class="line">   000：对象</span><br><span class="line">   010：浮点数</span><br><span class="line">   100：字符串</span><br><span class="line">   110：布尔</span><br><span class="line">   1：整数</span><br><span class="line">   </span><br><span class="line">   but, 对于 undefined 和 null 来说，这两个值的信息存储是有点特殊的。</span><br><span class="line">   </span><br><span class="line">   null：所有机器码均为0</span><br><span class="line">   </span><br><span class="line">   undefined：用 −2^30 整数来表示</span><br><span class="line"></span><br><span class="line">1. console 分组</span><br><span class="line">```javascript</span><br><span class="line">console.group(&apos;action&apos;, &apos;A&apos;);</span><br><span class="line"></span><br><span class="line">console.log(&apos;%c prev state&apos;, &quot;color: #dddddd&quot;, &apos;\n&apos;, &#123;</span><br><span class="line">    name: &apos;a&apos;</span><br><span class="line">&#125;);</span><br><span class="line">console.log(&apos;%c next state&apos;, &quot;color: #dddddd&quot;, &apos;\n&apos;,  &#123;</span><br><span class="line">    name: &apos;b&apos;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">console.groupCollapsed();</span><br><span class="line">console.log(&apos;我是group折叠内容&apos;);</span><br><span class="line">console.groupEnd();</span><br><span class="line">console.groupEnd();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Object.create(null) 和 {}</p>
+</li>
+<li><p>每次JavaScript对DOM的操作都会改变当前页面的呈现，并重新刷新整个页面，从而消耗了大量的时间。而createDocumentFragment()的作用，就是可以创建一个文档碎片，<br>把所有的新节点附加其上，然后把文档碎片的内容一次性添加到document中。</p>
+</li>
+<li><p>indexedDB 的特点：存储空间大：存储空间可以达到几百兆甚至更多；</p>
+<pre><code>&gt;&gt; 支持二进制存储：它不仅可以存储字符串，而且还可以存储二进制数据；
+&gt;&gt; IndexedDB 有同源限制，每一个数据库只能在自身域名下能访问，不能跨域名访问；
+&gt;&gt; 支持事务型：IndexedDB 执行的操作会按照事务来分组的，在一个事务中，要么所有的操作都成功，要么所有的操作都失败；
+&gt;&gt; 键值对存储：IndexedDB 内部采用对象仓库（object store）存放数据。所有类型的数据都可以直接存入，包括 JavaScript 对象。对象仓库中，数据以 “键值对” 的形式保存，每一个数据记录都有对应的主键，主键是独一无二的，不能有重复，否则会抛出一个错误。
+&gt;&gt; 数据操作是异步的：使用 IndexedDB 执行的操作是异步执行的，以免阻塞应用程序。
+</code></pre></li>
+<li>Usecapture:<br>true - 事件句柄在捕获阶段执行。事件捕获从父到子。<br>false- false- 默认。事件句柄在冒泡阶段执行</li>
+<li>浏览器标签页被隐藏或显示的时候会触发visibilitychange事件. document.addEventListener(‘visibilitychange’)</li>
+<li>Object.assign 继承的否Object.keys &amp; Object.assign &amp; JSON.stringify: excluding non-enumerable &amp; <strong>proto</strong></li>
+<li>let is not global while var is.</li>
+<li><p>download</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">download</span> (<span class="params">url, name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> a = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>)</span><br><span class="line">  a.download = name</span><br><span class="line">  a.rel = <span class="string">'noopener'</span></span><br><span class="line">  a.href = url</span><br><span class="line">  <span class="comment">// 触发模拟点击</span></span><br><span class="line">  a.dispatchEvent(<span class="keyword">new</span> MouseEvent(<span class="string">'click'</span>))</span><br><span class="line">  <span class="comment">// 或者 a.click()</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方案一：Text -&gt; DataURL</span></span><br><span class="line"><span class="keyword">const</span> dataUrl = <span class="string">`data:,<span class="subst">$&#123;str&#125;</span>`</span></span><br><span class="line">download(dataUrl, <span class="string">'demo.json'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方案二：Text -&gt; Blob -&gt; ObjectURL</span></span><br><span class="line"><span class="keyword">const</span> url = URL.createObjectURL(<span class="keyword">new</span> Blob(str.split(<span class="string">''</span>)))</span><br><span class="line">download(url, <span class="string">'demo1.json'</span>)</span><br><span class="line"></span><br><span class="line"><span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string">1. stringfy 格式化</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> json = &#123;</span><br><span class="line">  a: <span class="number">3</span>,</span><br><span class="line">  b: <span class="number">4</span>,</span><br><span class="line">  c: <span class="number">5</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> str = <span class="built_in">JSON</span>.stringify(json, <span class="literal">null</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">1. proxy </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"><span class="keyword">const</span> negativeArray = <span class="function"><span class="params">els</span> =&gt;</span></span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Proxy</span>(els, &#123;</span><br><span class="line">        <span class="keyword">get</span>: (target, propKey, receiver) =&gt;</span><br><span class="line">            Reflect.<span class="keyword">get</span>(</span><br><span class="line">                target,</span><br><span class="line">                +propKey &lt; 0 ? String(target.length + +propKey) : propKey,</span><br><span class="line">                receiver</span><br><span class="line">            )</span><br><span class="line">    &#125;);</span><br><span class="line">const unicorn = negativeArray(["京", "程", "一", "灯"]);</span><br><span class="line">unicorn[-1]; </span><br><span class="line">``` </span><br><span class="line">  </span><br><span class="line">1.  对于 undeclared 变量的引用，浏览器会报引用错误，如 ReferenceError: b is not defined 。</span><br><span class="line">1. Es6-&gt;babel paser-&gt;babel traverse-&gt;babel core</span><br><span class="line">1.  类数组向数组转换 Array.from slice 。 aguments 就是arrarylike   </span><br><span class="line">1.  xhr  </span><br><span class="line">```js</span><br><span class="line"> </span><br><span class="line">var request = new XMLHttpRequest()</span><br><span class="line"> request.open('GET', 'index/a/b/c?name=TianTian', true);</span><br><span class="line"> request.onreadystatechange = function () &#123;</span><br><span class="line">   <span class="keyword">if</span>(request.readyState === <span class="number">4</span> &amp;&amp; request.status === <span class="number">200</span>) &#123;</span><br><span class="line">     <span class="built_in">console</span>.log(request.responseText);</span><br><span class="line">   &#125;&#125;;</span><br><span class="line"> request.send();</span><br><span class="line"><span class="string">``</span><span class="string">`   </span></span><br><span class="line"><span class="string">1. V8 对重复的js代码有优化 即时编译技术，如果发现一段代码经常使用，则不用转字节码 直接执行机器码</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">1. 随机字符串 Math.random().toString(36).substr(2));</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">2. Babel pollyfy 的作用 ：https://zhuanlan.zhihu.com/p/29058936</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">3. Babel stag2 的功能  https://github.com/babel/babel/tree/master/packages/babel-preset-stage-2</span></span><br><span class="line"><span class="string">1. 所有的babel 包  https://github.com/babel/babel/tree/master/packages</span></span><br><span class="line"><span class="string">1. npx babel-upgrade</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">2. ES2019 中为Symbol对象添加了只读属性 description ，该对象返回包含Symbol描述的字符串。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">3. 如果你传的 context 就 null 或者 undefined，那么 window 对象就是默认的 context（严格模式下默认 context 是 undefined）</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">4. ES6 模块功能是它的导入模块是导出时模块的实时只读视图。（相比起 CommonJS，导入的是导出模块的拷贝副本，因此也不是实时的）。只读视图和内存拷贝的区别。</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">5. Broadcast Channel API 允许同一原始域和用户代理下的所有窗口,iFrames 等进行交互。也就是说，如果用户打开了同一个网站的的两个标签窗口，如果网站内容发生了变化，那么两个窗口会同时得到更新通知。</span></span><br><span class="line"><span class="string">6. escape 在处理 0xff 之外字符的时候，是直接使用字符的 unicode 在前面加上一个 「%u」，而encodeURI则是先进行 UTF-8，再在 UTF-8 的每个字节码前加上一个 「%」； 所以通过encodeUrI 可以获取utf-8 字节长度</span></span><br><span class="line"><span class="string">7. js value</span></span><br><span class="line"><span class="string">8. Prototype 包含constructor 和 __proto__. 原型链存储共有的属性和方法，减少内存</span></span><br><span class="line"><span class="string">9.  基本的数据类型 </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>text</span><br><span class="line">基本的数据类型</span><br><span class="line"><span class="literal">undefined</span></span><br><span class="line"><span class="literal">null</span></span><br><span class="line">string</span><br><span class="line">boolean</span><br><span class="line">number</span><br><span class="line">symbol(ES6)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>navigator.userAgent: 返回当前浏览器的user agent字符串</p>
+</li>
+<li><p>懒加载：<br>Javascript 脚步通常要等到 DOM 加载完后才会执行，如果加载的资源过多，可能会影响网页的正常使用。<br>能够节省流量和减轻服务器压力，更近一步就是能够为公司省成本。</p>
+</li>
+<li><p>Same origin 可以使用broadcast channel 两页面间通信。</p>
+</li>
+<li>注意闭包内this的指向</li>
+<li>对于instanceof,无法判断基本类型，但可以正确判断引用类型</li>
+<li>let x = 2_3333_3333 </li>
+<li><p>哪些操作会造成内存泄漏？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.意外的全局变量</span><br><span class="line">2.被遗忘的计时器或回调函数</span><br><span class="line">3.脱离 DOM 的引用</span><br><span class="line">4.闭包</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Map 对象中的数据是根据用户set 的顺序排序的，object 先排数字开头的。</p>
+</li>
+</ol>
+<h3 id="dataStructure"><a href="#dataStructure" class="headerlink" title="dataStructure"></a>dataStructure</h3><ol>
+<li>BST 查询二叉树<br>若任意节点的左⼦子树不不空，则左⼦子树上所有结点的值均⼩小于它的 根结点的值;<br>若任意节点的右⼦子树不不空，则右⼦子树上所有结点的值均⼤大于它的 根结点的值;<br>任意节点的左、右⼦子树也分别为⼆二叉查找树。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/13/js/" data-id="ckzf5erpn000vez8ky9ndr1yh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-fresh" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/04/fresh/" class="article-date">
+  <time datetime="2020-06-04T02:33:26.000Z" itemprop="datePublished">2020-06-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/04/fresh/">fresh</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>① 不能通过 new 关键字调用, 没有原型<br>② 不可以改变 this 绑定，由外层非箭头函数决定，所以使用 call, apply, bind 也不会影响<br>③ 不支持 arguments，所以根据作用域链，会拿到外层函数的 arguments<br>④ 不支持重复命名参数<br>⑤ 隐式返回</li>
+<li>v-once v-pre</li>
+<li><p>readystate  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> 是HTTP请求的状态，当一个XMLHttpRequest初次创建时，这个属性的值从0开始，直到接收到完整的HTTP响应，这个值增加到4</span><br><span class="line"> </span><br><span class="line">4：（完成）数据接收完毕，此时可以通过responseXml和responseText获取完整的回应数据</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>babel-register 则提供了动态编译。换句话说，我们的源代码能够真正运行在生产环境下，不需要 babel 编译这一环节。坏处是动态编译，导致程序在速度、性能上有所损耗。（ npx babel-node app.js） babel-node</p>
+</li>
+<li><p>UMD先判断是否支持Node.js的模块（exports）是否存在，存在则使用Node.js模块模式。再判断是否支持AMD（define是否存在），存在则使用AMD方式加载模块。</p>
+</li>
+<li>Ztext.js 3d化文本支持中文</li>
+<li><p>Data URLs 由四个部分组成：前缀(data:)、指示数据类型的MIME类型、如果非文本则为可选的base64标记、数据本身：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">data:[&lt;mediatype&gt;][;base64],&lt;data&gt;</span><br><span class="line">mediatype 是个 MIME 类型的字符串，例如 &quot;image/jpeg&quot; 表示 JPEG 图像文件。如果被省略，则默认值为 text/plain;charset=US-ASCII</span><br><span class="line"></span><br><span class="line">如果数据是文本类型，你可以直接将文本嵌入 (根据文档类型，使用合适的实体字符或转义字符)。如果是二进制数据，你可以将数据进行base64编码之后再进行嵌入。</span><br><span class="line"></span><br><span class="line">下面是一些示例：</span><br><span class="line"></span><br><span class="line">data:,Hello%2C%20World!</span><br><span class="line">简单的 text/plain 类型数据</span><br><span class="line">data:text/plain;base64,SGVsbG8sIFdvcmxkIQ%3D%3D</span><br><span class="line">上一条示例的 base64 编码版本</span><br><span class="line">data:text/html,%3Ch1%3EHello%2C%20World!%3C%2Fh1%3E</span><br><span class="line">一个HTML文档源代码 &lt;h1&gt;Hello, World&lt;/h1&gt;</span><br><span class="line">data:text/html,&lt;script&gt;alert(&apos;hi&apos;);&lt;/script&gt;</span><br><span class="line">一个会执行 JavaScript alert 的 HTML 文档。注意 script 标签必须封闭。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Url-loader 是将资源转换为base64</p>
+</li>
+<li><p>浏览器进程 1. 插件 2. 网络 3.Gpu 4.浏览器 5.渲染进程 浏览器为每个tab创建一个渲染进程，运行在沙箱模式下。包括 gui 线程等。</p>
+</li>
+<li><p>jest.spyOn()方法同样创建一个mock函数，但是该mock函数不仅能够捕获函数的调用情况，还可以正常的执行被spy的函数。实际上，jest.spyOn()是jest.fn()的语法糖，它创建了一个和被spy的函数具有相同内部代码的mock函数。</p>
+</li>
+<li><p>Vue Test Utils 允许你通过 shallowMount 方法只挂载一个组件而不渲染其子组件 (即保留它们的存根)：</p>
+</li>
+</ol>
+<ol start="12">
+<li>而对于作用域插槽，父组件在编译和渲染阶段并不会直接生成 vnodes，而是在父节点 vnode 的 data 中保留一个 scopedSlots 对象，存储着不同名称的插槽以及它们对应的渲染函数，<br>只有在编译和渲染子组件阶段才会执行这个渲染函数生成 vnodes，由于是在子组件环境执行的，所以对应的数据作用域是子组件实例。</li>
+</ol>
+<ol>
+<li><p>红黑树<br>其实红黑树和上面的平衡二叉树类似，本质上都是为了解决排序二叉树在极端情况下退化成链表导致检索效率大大降低的问题，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.节点是红色或黑色。</span><br><span class="line"></span><br><span class="line">2.根节点是黑色。</span><br><span class="line"></span><br><span class="line">3.每个叶子节点都是黑色的空节点（NIL节点）。</span><br><span class="line"></span><br><span class="line">4 每个红色节点的两个子节点都是黑色。(从每个叶子到根的所有路径上不能有两个连续的红色节点)</span><br><span class="line"></span><br><span class="line">5.从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这种可以并行执行、交换执行权的线程（或函数），就称为协程。</p>
+<p>从实现上看，在内存中，子例程只使用一个栈（stack），而协程是同时存在多个栈，但只有一个栈是在运行状态，也就是说，协程是以多占用内存为代价，实现多任务的并行。<br>普通的线程是抢先式的，到底哪个线程优先得到资源，必须由运行环境决定，但是协程是合作式的，执行权由协程自己分配。</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/04/fresh/" data-id="ckzf5erpf000gez8kth11xurt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encode-decode/">encode decode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es/">es</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/">eslint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interview/">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s/">k8s</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/loadtest/">loadtest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node、egg/">node、egg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ops/">ops</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overview/">overview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pattern/">pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pm2/">pm2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgre/">postgre</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regex/">regex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stock/">stock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ts/">ts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/useful-package/">useful package</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-eventloop-js/">vue eventloop js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-安全/">web 安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全/">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/零碎/">零碎</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/encode-decode/" style="font-size: 10px;">encode decode</a> <a href="/tags/es/" style="font-size: 20px;">es</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/k8s/" style="font-size: 10px;">k8s</a> <a href="/tags/loadtest/" style="font-size: 10px;">loadtest</a> <a href="/tags/node、egg/" style="font-size: 10px;">node、egg</a> <a href="/tags/ops/" style="font-size: 10px;">ops</a> <a href="/tags/overview/" style="font-size: 10px;">overview</a> <a href="/tags/pattern/" style="font-size: 10px;">pattern</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/postgre/" style="font-size: 10px;">postgre</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/stock/" style="font-size: 10px;">stock</a> <a href="/tags/ts/" style="font-size: 10px;">ts</a> <a href="/tags/useful-package/" style="font-size: 10px;">useful package</a> <a href="/tags/vue-eventloop-js/" style="font-size: 10px;">vue eventloop js</a> <a href="/tags/web-安全/" style="font-size: 10px;">web 安全</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a> <a href="/tags/零碎/" style="font-size: 10px;">零碎</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/12/13/overview/">overview</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/18/k8s/">k8s</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/09/stock/">stock</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/30/manage/">manage</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/08/investment/">investment</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 ryansecreat<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
