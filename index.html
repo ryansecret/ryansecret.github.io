@@ -66,6 +66,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-vite" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/06/06/vite/" class="article-date">
+  <time datetime="2022-06-06T07:44:53.000Z" itemprop="datePublished">2022-06-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/06/06/vite/">vite</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>上面提到Vite是基于浏览器原生支持ESM的能力实现的，但要求用户的代码模块必须是ESM模块，因此必须将commonJs的文件提前处理，转化成 ESM 模块并缓存入 node_modules&#x2F;.vite</li>
+<li>减少模块和请求数量  Vite 将有许多内部模块的 ESM 依赖关系转换为单个模块，以提高后续页面加载性能。</li>
+<li>handleHotUpdate  热更新hook</li>
+<li>configureServer   是用于配置开发服务器的钩子。最常见的用例是在内部 connect 应用程序中添加自定义中间件:</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">以下钩子在服务器启动时被调用：</span><br><span class="line"></span><br><span class="line">options</span><br><span class="line">buildStart</span><br><span class="line"></span><br><span class="line">以下钩子会在每个传入模块请求时被调用：</span><br><span class="line"></span><br><span class="line">resolveId</span><br><span class="line">load</span><br><span class="line">transform</span><br><span class="line">以下钩子在服务器关闭时被调用：</span><br><span class="line"></span><br><span class="line">buildEnd</span><br><span class="line">closeBundle</span><br><span class="line">如果你的插件使用 &#x27;virtual modules&#x27;（比如帮助函数），给模块名加上 \0 前缀。这可以阻止其他插件执行它。</span><br><span class="line"></span><br><span class="line">const myPlugin = &#123;</span><br><span class="line">    name: &#x27;my-plugin&#x27;, //  必须的插件标志</span><br><span class="line">    apply: &#x27;build&#x27; | &#x27;serve&#x27;, //  表明此插件应用在何种模式</span><br><span class="line">    enforce: &#x27;post&#x27; | &#x27;pre&#x27;, //  插件排序</span><br><span class="line"></span><br><span class="line">    // rollup通用插件，ctx是一个plugins集合的上下文</span><br><span class="line">    options(ctx,pluginOptions) &#123;</span><br><span class="line">      //  返回plugin opthons ，类型：async, sequential</span><br><span class="line">      return somePluginOptions</span><br><span class="line">    &#125;,</span><br><span class="line">    buildStart(ctx,pluginOptions) &#123;</span><br><span class="line">      //  在服务启动前开始执行，类型：async, parallel</span><br><span class="line">      //  ...do something</span><br><span class="line">    &#125;,</span><br><span class="line">    resolveId(ctx,srouce, importer, pluginOptions) &#123;</span><br><span class="line">      //  srouce为资源的路径，importer为引入此资源的文件</span><br><span class="line">      //  如果有返回值，则将替换掉importer中引入的路径，同时将返回值传递给其他hook</span><br><span class="line">      //  类型 async, first</span><br><span class="line">      //  ...do something</span><br><span class="line">      return srouce</span><br><span class="line">    &#125;,</span><br><span class="line">    load(ctx,id, srr) &#123;</span><br><span class="line">      //  id为resolveId返回的值</span><br><span class="line">      //  加载资源并返回 类型 async, first</span><br><span class="line">      //  ...do something</span><br><span class="line">      return code</span><br><span class="line">    &#125;,</span><br><span class="line">    transform(ctx,code, id, ssr) &#123;</span><br><span class="line">      //  code为load返回的值，id为resolveId返回的值</span><br><span class="line">      //  转译code并返回转译结果 类型 async, first，</span><br><span class="line">      //  ...do something</span><br><span class="line">      return transformCode</span><br><span class="line">    &#125;,</span><br><span class="line">    buildEnd(err) &#123;</span><br><span class="line">      //  构建结束的回调，可以捕获错误。类型 async, parallel</span><br><span class="line">    &#125;,</span><br><span class="line">    closeBundle() &#123;</span><br><span class="line">      //  构建结束的最终回调，类型 async, parallel</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    //  vite 独有插件</span><br><span class="line">    config(config, env) &#123;</span><br><span class="line">      //  返回一个配置对象，merge到最终config中</span><br><span class="line">      //  类型 sync, sequential</span><br><span class="line">      return config</span><br><span class="line">    &#125;,</span><br><span class="line">    configResolved(config) &#123;</span><br><span class="line">      //  解析 Vite 配置后调用 类型 sync, parallel</span><br><span class="line">    &#125;,</span><br><span class="line">    configureServer(server) &#123;</span><br><span class="line">      //  服务器配置完后的hook 类型 sync, paralle</span><br><span class="line">    &#125;,</span><br><span class="line">    transformIndexHtml() &#123;</span><br><span class="line">      // 转换 index.html 的专用钩子。钩子接收当前的 HTML 字符串和转换上下文</span><br><span class="line">      // 类型 async, sequential</span><br><span class="line">    &#125;,</span><br><span class="line">    handleHotUpdate(HmrContext) &#123;</span><br><span class="line">      //  触发热更新时的hook，可以更加精确的控制hmr</span><br><span class="line">      //  类型</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>1. </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2022/06/06/vite/" data-id="cl42gnsc70000yr8kcpgf3e5p" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-overview" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/12/13/overview/" class="article-date">
@@ -90,6 +136,42 @@
       
         <p>1. </p>
 <ol>
+<li><p>POSIX stands for Portable Operating System Interface.</p>
+</li>
+<li><p>@supports CSS at-rule 相当于功能选择器</p>
+   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   @supports (display: flex) &#123;</span><br><span class="line">  body &#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    min-height: 100vh;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/cuixiaorui/mini-vue">https://github.com/cuixiaorui/mini-vue</a>  vue3 source code </p>
+</li>
+<li><p>react 被 startTransition 回调包裹的 setState 触发的渲染 被标记为不紧急渲染，这些渲染可能被其他紧急渲染所抢占。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://hyper.is/">https://hyper.is/</a> electron console</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://cmder.net/">https://cmder.net/</a> windows 端的console 模拟器</p>
+</li>
+<li><p>Access-Control-Request-Private-Network: true 在所有私有网络预检请求上设置<br>Access-Control-Allow-Private-Network: true 必须在所有私有网络预检响应上设置</p>
+</li>
+<li><p>使用 Fragments，我们不需要在DOM中添加额外的节点。我们只需要用 React.Fragment 或才简写 &lt;&gt; 来包裹内容就行了</p>
+</li>
+<li><p>vite 虚拟模块  虚拟模块是一种很实用的模式，使你可以对使用 ESM 语法的源文件传入一些编译时信息。</p>
+</li>
+<li><p>glob Match files using the patterns the shell uses, like stars and stuff.</p>
+</li>
+<li><p>click.self<br>我们知道在自定义组件上，只能监听自定义事件，一些原生事件（比如click）是没有办法直接触发的，但是使用.native修饰符可以帮我们办到这点</p>
+</li>
+<li><p>offset-path  定义动画运行路径</p>
+</li>
+<li><p>Tauri 是一个为所有主流桌面平台构建小型、快速二进制文件的框架。开发人员可以集成任何编译成 HTML、 JS 和 CSS 的前端框架来构建他们的用户界面。应用程序的后端是一个 Rust 二进制文件，具有前端可以与之交互的 API。</p>
+</li>
+<li><p>gitsecreat 使用： <a target="_blank" rel="noopener" href="https://www.mikesay.com/2020/12/16/git-encrypt-file-in-repository/#git-secret%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8">https://www.mikesay.com/2020/12/16/git-encrypt-file-in-repository/#git-secret%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8</a></p>
+</li>
+<li><p>svg2pdf.js 图片转pdf</p>
+</li>
+<li><p>stream 的另外一个模式: objectMode。它是一种对象模式，我们把一件事情、或一个文件、或一个操作，抽象成一个对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const Readable = require(&#x27;stream&#x27;).Readable</span><br><span class="line"></span><br><span class="line">const readable = Readable(&#123; objectMode: true &#125;)</span><br><span class="line"></span><br><span class="line"> readable.push(&#x27;a&#x27;)</span><br><span class="line"> readable.push(&#x27;b&#x27;)</span><br><span class="line"> readable.push(&#123;&#125;)</span><br><span class="line"> readable.push(null)</span><br><span class="line"></span><br><span class="line"> readable.on(&#x27;data&#x27;, data =&gt; console.log(data))</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>git config –global push.followTags true</p>
+</li>
+<li><p>Markraw 标记不会被reactive</p>
+</li>
 <li><p>watcheffect onInvalidate 在重新运行或者停止的时候执行</p>
 </li>
 <li><p>composedPath() 是 Event 接口的一个方法，当对象数组调用该侦听器时返回事件路径。</p>
@@ -859,76 +941,6 @@
 
 
   
-    <article id="post-fresh" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/06/04/fresh/" class="article-date">
-  <time datetime="2020-06-04T02:33:26.000Z" itemprop="datePublished">2020-06-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/04/fresh/">fresh</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>① 不能通过 new 关键字调用, 没有原型<br>② 不可以改变 this 绑定，由外层非箭头函数决定，所以使用 call, apply, bind 也不会影响<br>③ 不支持 arguments，所以根据作用域链，会拿到外层函数的 arguments<br>④ 不支持重复命名参数<br>⑤ 隐式返回</li>
-<li>v-once v-pre</li>
-<li><p>readystate  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> 是HTTP请求的状态，当一个XMLHttpRequest初次创建时，这个属性的值从0开始，直到接收到完整的HTTP响应，这个值增加到4</span><br><span class="line"> </span><br><span class="line">4：（完成）数据接收完毕，此时可以通过responseXml和responseText获取完整的回应数据</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>babel-register 则提供了动态编译。换句话说，我们的源代码能够真正运行在生产环境下，不需要 babel 编译这一环节。坏处是动态编译，导致程序在速度、性能上有所损耗。（ npx babel-node app.js） babel-node</p>
-</li>
-<li><p>UMD先判断是否支持Node.js的模块（exports）是否存在，存在则使用Node.js模块模式。再判断是否支持AMD（define是否存在），存在则使用AMD方式加载模块。</p>
-</li>
-<li>Ztext.js 3d化文本支持中文</li>
-<li><p>Data URLs 由四个部分组成：前缀(data:)、指示数据类型的MIME类型、如果非文本则为可选的base64标记、数据本身：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">data:[&lt;mediatype&gt;][;base64],&lt;data&gt;</span><br><span class="line">mediatype 是个 MIME 类型的字符串，例如 &quot;image/jpeg&quot; 表示 JPEG 图像文件。如果被省略，则默认值为 text/plain;charset=US-ASCII</span><br><span class="line"></span><br><span class="line">如果数据是文本类型，你可以直接将文本嵌入 (根据文档类型，使用合适的实体字符或转义字符)。如果是二进制数据，你可以将数据进行base64编码之后再进行嵌入。</span><br><span class="line"></span><br><span class="line">下面是一些示例：</span><br><span class="line"></span><br><span class="line">data:,Hello%2C%20World!</span><br><span class="line">简单的 text/plain 类型数据</span><br><span class="line">data:text/plain;base64,SGVsbG8sIFdvcmxkIQ%3D%3D</span><br><span class="line">上一条示例的 base64 编码版本</span><br><span class="line">data:text/html,%3Ch1%3EHello%2C%20World!%3C%2Fh1%3E</span><br><span class="line">一个HTML文档源代码 &lt;h1&gt;Hello, World&lt;/h1&gt;</span><br><span class="line">data:text/html,&lt;script&gt;alert(&apos;hi&apos;);&lt;/script&gt;</span><br><span class="line">一个会执行 JavaScript alert 的 HTML 文档。注意 script 标签必须封闭。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Url-loader 是将资源转换为base64</p>
-</li>
-<li><p>浏览器进程 1. 插件 2. 网络 3.Gpu 4.浏览器 5.渲染进程 浏览器为每个tab创建一个渲染进程，运行在沙箱模式下。包括 gui 线程等。</p>
-</li>
-<li><p>jest.spyOn()方法同样创建一个mock函数，但是该mock函数不仅能够捕获函数的调用情况，还可以正常的执行被spy的函数。实际上，jest.spyOn()是jest.fn()的语法糖，它创建了一个和被spy的函数具有相同内部代码的mock函数。</p>
-</li>
-<li><p>Vue Test Utils 允许你通过 shallowMount 方法只挂载一个组件而不渲染其子组件 (即保留它们的存根)：</p>
-</li>
-</ol>
-<ol start="12">
-<li>而对于作用域插槽，父组件在编译和渲染阶段并不会直接生成 vnodes，而是在父节点 vnode 的 data 中保留一个 scopedSlots 对象，存储着不同名称的插槽以及它们对应的渲染函数，<br>只有在编译和渲染子组件阶段才会执行这个渲染函数生成 vnodes，由于是在子组件环境执行的，所以对应的数据作用域是子组件实例。</li>
-</ol>
-<ol>
-<li><p>红黑树<br>其实红黑树和上面的平衡二叉树类似，本质上都是为了解决排序二叉树在极端情况下退化成链表导致检索效率大大降低的问题，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.节点是红色或黑色。</span><br><span class="line"></span><br><span class="line">2.根节点是黑色。</span><br><span class="line"></span><br><span class="line">3.每个叶子节点都是黑色的空节点（NIL节点）。</span><br><span class="line"></span><br><span class="line">4 每个红色节点的两个子节点都是黑色。(从每个叶子到根的所有路径上不能有两个连续的红色节点)</span><br><span class="line"></span><br><span class="line">5.从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>这种可以并行执行、交换执行权的线程（或函数），就称为协程。</p>
-<p>从实现上看，在内存中，子例程只使用一个栈（stack），而协程是同时存在多个栈，但只有一个栈是在运行状态，也就是说，协程是以多占用内存为代价，实现多任务的并行。<br>普通的线程是抢先式的，到底哪个线程优先得到资源，必须由运行环境决定，但是协程是合作式的，执行权由协程自己分配。</p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/04/fresh/" data-id="ckzf5sdzb000jyy8kz036vf77" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -964,7 +976,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
     </div>
   </div>
 
@@ -975,6 +987,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/06/06/vite/">vite</a>
+          </li>
         
           <li>
             <a href="/2021/12/13/overview/">overview</a>
@@ -990,10 +1006,6 @@
         
           <li>
             <a href="/2021/04/30/manage/">manage</a>
-          </li>
-        
-          <li>
-            <a href="/2021/01/08/investment/">investment</a>
           </li>
         
       </ul>

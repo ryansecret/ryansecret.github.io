@@ -66,6 +66,76 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-fresh" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/04/fresh/" class="article-date">
+  <time datetime="2020-06-04T02:33:26.000Z" itemprop="datePublished">2020-06-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/04/fresh/">fresh</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>① 不能通过 new 关键字调用, 没有原型<br>② 不可以改变 this 绑定，由外层非箭头函数决定，所以使用 call, apply, bind 也不会影响<br>③ 不支持 arguments，所以根据作用域链，会拿到外层函数的 arguments<br>④ 不支持重复命名参数<br>⑤ 隐式返回</li>
+<li>v-once v-pre</li>
+<li><p>readystate  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> 是HTTP请求的状态，当一个XMLHttpRequest初次创建时，这个属性的值从0开始，直到接收到完整的HTTP响应，这个值增加到4</span><br><span class="line"> </span><br><span class="line">4：（完成）数据接收完毕，此时可以通过responseXml和responseText获取完整的回应数据</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>babel-register 则提供了动态编译。换句话说，我们的源代码能够真正运行在生产环境下，不需要 babel 编译这一环节。坏处是动态编译，导致程序在速度、性能上有所损耗。（ npx babel-node app.js） babel-node</p>
+</li>
+<li><p>UMD先判断是否支持Node.js的模块（exports）是否存在，存在则使用Node.js模块模式。再判断是否支持AMD（define是否存在），存在则使用AMD方式加载模块。</p>
+</li>
+<li>Ztext.js 3d化文本支持中文</li>
+<li><p>Data URLs 由四个部分组成：前缀(data:)、指示数据类型的MIME类型、如果非文本则为可选的base64标记、数据本身：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">data:[&lt;mediatype&gt;][;base64],&lt;data&gt;</span><br><span class="line">mediatype 是个 MIME 类型的字符串，例如 &quot;image/jpeg&quot; 表示 JPEG 图像文件。如果被省略，则默认值为 text/plain;charset=US-ASCII</span><br><span class="line"></span><br><span class="line">如果数据是文本类型，你可以直接将文本嵌入 (根据文档类型，使用合适的实体字符或转义字符)。如果是二进制数据，你可以将数据进行base64编码之后再进行嵌入。</span><br><span class="line"></span><br><span class="line">下面是一些示例：</span><br><span class="line"></span><br><span class="line">data:,Hello%2C%20World!</span><br><span class="line">简单的 text/plain 类型数据</span><br><span class="line">data:text/plain;base64,SGVsbG8sIFdvcmxkIQ%3D%3D</span><br><span class="line">上一条示例的 base64 编码版本</span><br><span class="line">data:text/html,%3Ch1%3EHello%2C%20World!%3C%2Fh1%3E</span><br><span class="line">一个HTML文档源代码 &lt;h1&gt;Hello, World&lt;/h1&gt;</span><br><span class="line">data:text/html,&lt;script&gt;alert(&apos;hi&apos;);&lt;/script&gt;</span><br><span class="line">一个会执行 JavaScript alert 的 HTML 文档。注意 script 标签必须封闭。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Url-loader 是将资源转换为base64</p>
+</li>
+<li><p>浏览器进程 1. 插件 2. 网络 3.Gpu 4.浏览器 5.渲染进程 浏览器为每个tab创建一个渲染进程，运行在沙箱模式下。包括 gui 线程等。</p>
+</li>
+<li><p>jest.spyOn()方法同样创建一个mock函数，但是该mock函数不仅能够捕获函数的调用情况，还可以正常的执行被spy的函数。实际上，jest.spyOn()是jest.fn()的语法糖，它创建了一个和被spy的函数具有相同内部代码的mock函数。</p>
+</li>
+<li><p>Vue Test Utils 允许你通过 shallowMount 方法只挂载一个组件而不渲染其子组件 (即保留它们的存根)：</p>
+</li>
+</ol>
+<ol start="12">
+<li>而对于作用域插槽，父组件在编译和渲染阶段并不会直接生成 vnodes，而是在父节点 vnode 的 data 中保留一个 scopedSlots 对象，存储着不同名称的插槽以及它们对应的渲染函数，<br>只有在编译和渲染子组件阶段才会执行这个渲染函数生成 vnodes，由于是在子组件环境执行的，所以对应的数据作用域是子组件实例。</li>
+</ol>
+<ol>
+<li><p>红黑树<br>其实红黑树和上面的平衡二叉树类似，本质上都是为了解决排序二叉树在极端情况下退化成链表导致检索效率大大降低的问题，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.节点是红色或黑色。</span><br><span class="line"></span><br><span class="line">2.根节点是黑色。</span><br><span class="line"></span><br><span class="line">3.每个叶子节点都是黑色的空节点（NIL节点）。</span><br><span class="line"></span><br><span class="line">4 每个红色节点的两个子节点都是黑色。(从每个叶子到根的所有路径上不能有两个连续的红色节点)</span><br><span class="line"></span><br><span class="line">5.从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这种可以并行执行、交换执行权的线程（或函数），就称为协程。</p>
+<p>从实现上看，在内存中，子例程只使用一个栈（stack），而协程是同时存在多个栈，但只有一个栈是在运行状态，也就是说，协程是以多占用内存为代价，实现多任务的并行。<br>普通的线程是抢先式的，到底哪个线程优先得到资源，必须由运行环境决定，但是协程是合作式的，执行权由协程自己分配。</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/04/fresh/" data-id="ckzf5sdzb000jyy8kz036vf77" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-stringencode" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/12/10/stringencode/" class="article-date">
@@ -705,135 +775,6 @@
 
 
   
-    <article id="post-http" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/14/http/" class="article-date">
-  <time datetime="2019-05-14T07:17:39.000Z" itemprop="datePublished">2019-05-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/14/http/">http</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>Origin:scheme, host, and port.<br> same origin 更加严格 <h4 id="Quic"><a href="#Quic" class="headerlink" title="Quic"></a>Quic</h4></li>
-<li>多路复用，避免队头阻塞</li>
-<li>减少 RTT，请求更快速</li>
-<li>快速迭代，广泛支持</li>
-</ol>
-<p>传统的 HTTP2 + SSL + TCP 协议栈有哪些缺点？<br>1.SSL 的会话恢复依然需要一个 RTT，而且难以合并到 TCP 层</p>
-<ol>
-<li>TCP 的滑动窗口存在队头阻塞问题</li>
-<li>TCP 的重传纠错会浪费一个 RTT</li>
-</ol>
-<p>网络请求中一个常见的名词是 RTT(Round Trip Time)，表示客户端从发出一个请求数据，到接收到响应数据之间间隔的时间。</p>
-<h4 id="Dns-本地dns解析器和host-gt-本地dns服务器"><a href="#Dns-本地dns解析器和host-gt-本地dns服务器" class="headerlink" title="Dns 本地dns解析器和host-&gt;本地dns服务器"></a>Dns 本地dns解析器和host-&gt;本地dns服务器</h4><h4 id="http-请求限制"><a href="#http-请求限制" class="headerlink" title="http 请求限制"></a>http 请求限制</h4><p>默认情况下，浏览器会针对这些情况使用同一个连接：</p>
-<p>同一域名下的资源；</p>
-<p>不同域名下的资源，但是满足两个条件：1）解析到同一个 IP；2）使用同一个证书；</p>
-<p>使用多域名加上相同的 IP 和证书部署 Web 服务有特殊的意义：让支持 HTTP/2 的终端只建立一个连接，用上 HTTP/2 协议带来的各种好处；而只支持 HTTP/1.1 的终端则会建立多个连接，达到同时更多并发请求的目的。这在 HTTP/2 完全普及前也是一个不错的选择。</p>
-<p>####cors<br>简单请求 可以直接发不用预检。简单请求</p>
-<ol>
-<li>Content-Type：只限于三个值application/x-www-form-urlencoded、multipart/form-data、text/plain</li>
-<li>Method head,get,post</li>
-</ol>
-<p>####XST 的全称是 Cross-Site Tracing</p>
-<pre><code>客户端发 TRACE 请求至服务器，如果服务器按照标准实现了 TRACE 响应，则在 response body 里会返回此次请求的完整头信息。通过这种方式，客户端可以获取某些敏感的头字段，例如 httpOnly 的 Cookie。
-
-TRACE方法让客户端测试到服务器的网络通路，回路的意思如发送一个请返回一个响应，这就是一个请求响应回路
-</code></pre><p>####Set-Cookie<br>    用于设置Cookie。</p>
-<pre><code>Set-Cookie: name=value; secure; HttpOnly
-secure 只在进行HTTP通信时发送Cookie。
-HttpOnly 指定不能从JavaScript脚本代码访问Cookie值。
-</code></pre><p> ####X-Download-Options: noopen<br>    noopen 用于指定IE 8以上版本的用户不打开文件而直接保存文件。在下载对话框中不显示“打开”选项。</p>
-<p> ####keepalive </p>
-<pre><code>若connection 模式为close，则服务器主动关闭TCP连接，客户端被动关闭连接，释放TCP连接;若connection 模式为keepalive，则该连接会保持一段时间，在该时间内可以继续接收请求;   
-http 1.0中默认是关闭的，需要在http头加入&quot;Connection: Keep-Alive&quot;，才能启用Keep-Alive；http 1.1中默认启用Keep-Alive，如果加入&quot;Connection: close &quot;，才关闭。目前大部分浏览器都是用http1.1协议，也就是说默认都会发起Keep-Alive的连接请求了，所以是否能完成一个完整的Keep-Alive连接就看服务器设置情况。
-</code></pre><p> ####headers</p>
-<p> Accept-Charset： 浏览器申明自己接收的字符集<br> Accept-Encoding： 浏览器申明自己接收的编码方法，通常指定压缩方法，是否支持压缩，支持什么压缩方法（gzip，deflate） </p>
-<p>  Age：当代理服务器用自己缓存的实体去响应请求时，用该头部表明该实体从产生到现在经过多长时间了。   </p>
-<p>   http header 中使用location 进行302跳转 </p>
-<p>   URL.createObjectURL() 静态方法会创建一个 DOMString，其中包含一个表示参数中给出的对象的URL。这个 URL 的生命周期和创建它的窗口中的 document 绑定。这个新的URL 对象表示指定的 File 对象或 Blob 对象。</p>
-<p>####http<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">http 1.1 添加cache-contol </span><br><span class="line"></span><br><span class="line">长连接：HTTP1.0需要使用keep-alive参数来告知服务器建立一个长连接，而HTP1.1默认支持长连接</span><br><span class="line">节约宽带：HTTP1.1支持只发送一个header信息（不带任何body信息）</span><br><span class="line">host域（设置虚拟站点，也就是说，web server上的多个虚拟站点可以共享同一个ip端口）：HTTP1.0没有host域</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http 2.0</span><br><span class="line">采用二进制格式传输;</span><br><span class="line">多路复用，其实就是将请求数据分成帧乱序发送到 TCP 中。TCP 只能有一个 steam，所以还是会阻塞;</span><br><span class="line">报头压缩;</span><br><span class="line">服务器推送主动向 B 端发送静态资源，避免往返延迟。</span><br><span class="line">1.http2采用的二进制文本传输数据，而非http1文本格式，二进制在协议的解析和扩展更好</span><br><span class="line">2.数据压缩：对信息头采用了HPACK进行压缩传输，节省了信息头带来的网络流量</span><br><span class="line">3.多路复用：一个连接可以并发处理多个请求</span><br><span class="line">4.服务器推送：我们对支持HTTP2.0的web server请求数据的时候，服务器会顺便把一些客户端需要的资源一起推送到客户端，免得客户端再次创建连接发送请求到服务器端获取。这种方式非常合适加载静态资源</span><br><span class="line"></span><br><span class="line">http 3.0</span><br><span class="line">采用 QUIC 协议,自定义连接机制;自定义重传机制;无阻塞的多路复用</span><br><span class="line"></span><br><span class="line">2.按缓存分：强缓存和协商缓存：</span><br><span class="line">2.1强缓存：利用 cache-control 和 expires 设置，直接返回一个过期时间，所以在缓存期间不请求，If-modify-since；</span><br><span class="line">2.2协商缓存：响应头返回 etag 或 last-modified 的哈希值，第二次请求头 If-none-match 或 IF-modify-since 携带上次哈希值，一致则返回 304。</span><br><span class="line">F5 刷新会忽略强缓存不会忽略协商缓存，ctrl+f5 都失效</span><br><span class="line">```       </span><br><span class="line"></span><br><span class="line">1. Https https://zhuanlan.zhihu.com/p/27395037    https://blog.51cto.com/11883699/2160032</span><br><span class="line">1. Ca 使用证书颁发机构的证书中的公钥去解密被颁发者的指纹算法和指纹，并计算比对指纹，正确才能验证身份</span><br><span class="line"></span><br><span class="line">1. 缓存的分类：</span><br><span class="line">```text</span><br><span class="line">   强缓存：在缓存数据未失效的情况下，不需要再和服务器发生交互.cache-control :no-cache 走协商缓存</span><br><span class="line">   协商缓存：需要与服务端校验是否使用缓存。etag If-None-Match HTTP 请求头内提供 ETag</span><br></pre></td></tr></table></figure></p>
-<ol>
-<li><p>https </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">这些ＣＡ本身也有证书来证明自己的身份，并且ＣＡ的信用是像树一样分级的，高层的ＣＡ给底层的ＣＡ做信用背书，而操作系统／浏览器中会内置一些顶层的ＣＡ的证书，相当于你自动信任了他们。　</span><br><span class="line"></span><br><span class="line">公钥+个人信息+其它信息—》hash 算法 —》信息摘要-》用ca的私钥加密—》数字签名   签名+信息=数字证书 </span><br><span class="line">Ca 的公钥解密—》hash hash 算法 —》信息摘要-》对比是否一致</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>content-type</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">multipart/form-data</span><br><span class="line"></span><br><span class="line">请求消息头中, Content-Type: multipart/form-data; boundary=----WebKitFormBoundarykALcKBgBaI9xA79y</span><br><span class="line">boundary为分隔符.</span><br><span class="line"></span><br><span class="line">application/x-www-form-urlencoded</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Nat network adreess translation 网络地址转换.<br>当访问外网时自动分配一个端口，这个端口和内网的机器建立了映射关系。</p>
-</li>
-<li><p>Defer</p>
-<p>这个属性的用途是表明脚本在执行时不会影响页面的构造。也就是说，脚本会被延迟到整个页面都解析完毕后再运行。因此，在script元素中设置defer属性，相当于告诉浏览器立即下载，但延迟执行。<br>但与defer不同的是，标记为async的脚本并不保证按照它们的先后顺序执行。</p>
-</li>
-<li><p>在 http 1.1 中，在响应头中设置 keep-alive 可以在一个 TCP 连接上发送多个 http 请求</p>
-<p>避免了重开 TCP 连接的开销<br>避免了刷新时重新建立 SSL 连接的开销<br>避免了QPS过大时，服务器的连接数过大</p>
-</li>
-<li><p>缓存协商</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">我们知道协商缓存有两种方式</span><br><span class="line"></span><br><span class="line">Last-Modified/if-Modified-Since  ** Last-Modified 是由一个 unix timestamp 表示，则意味着它只能作用于秒级的改变**</span><br><span class="line">ETag/If-None-Match</span><br><span class="line">```     </span><br><span class="line">1. window.opener 表示打开当前窗体页面的的父窗体的是谁。例如，在 A 页面中，通过一个带有 target=&quot;_blank&quot; 的 a 标签打开了一个新的页面 B，那么在 B 页面里，window.opener 的值为 A 页面的 window 对象。   rel=noopener 规定禁止新页面传递源页面的地址，通过设置了此属性的链接打开的页面，其 window.opener 的值为 null。</span><br><span class="line">1. Gzip 不要使用再图片以及其它二进制文件上</span><br><span class="line"></span><br><span class="line">1. 302 临时重定向会改变method  </span><br><span class="line">502  收到了上游相应但是无法解析  </span><br><span class="line">504 上游解析超时</span><br><span class="line">1. gzip 使用了 LZ77 算法与 Huffman 编码来压缩文件，重复度越高的文件可压缩的空间就越大</span><br><span class="line">1. Etag etag = &apos;&#123;:x&#125;-&#123;:x&#125;&apos;.format(header.last_modified, header.content_lenth)</span><br><span class="line">1. Mtime 文件最近内容改变的时间</span><br><span class="line">1. https 解决三个安全问题 1. 内容隐私 2. 防篡改 3.身份认证</span><br><span class="line">1. LRU AND LFU  最久未使用 最少使用</span><br><span class="line">1. [浏览器进程](https://user-gold-cdn.xitu.io/2020/1/7/16f7ee19a85b3c8f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)</span><br><span class="line">1. </span><br><span class="line">HTTP/2引入二进制数据帧和流的概念，其中帧对数据进行顺序标识，如下图所示，这样浏览器收到数据之后，就可以按照序列对数据进行合并，而不会出现合并后数据错乱的情况。同样是因为有了序列，服务器就可以并行的传输数据，这就是流所做的事情。http2 静态资源的推送</span><br><span class="line">1. 查看network请求发现，每一个文件都有etag响应头，如果Nginx使用了已有的gz文件，那么这个请求的etag值不带有W/，反之，如果是文件是Nginx压缩的，etag值则会带有W/</span><br><span class="line"></span><br><span class="line">1. 总是设置 Vary: Origin，避免 CDN 缓存破坏 CORS 配置</span><br><span class="line">2. QUIC 基于 UDP，UDP 的数据包在接收端没有处理顺序，即使中间 丢失一个包，也不会阻塞整条连接，其他的资源会被正常处理。</span><br><span class="line">1. 30X 区分</span><br><span class="line">```text</span><br><span class="line">301，Moved Permanently。永久重定向，该操作比较危险，需要谨慎操作：如果设置了301，但是一段时间后又想取消，但是浏览器中已经有了缓存，还是会重定向。</span><br><span class="line">302，Fount。临时重定向，但是会在重定向的时候改变 method: 把 POST 改成 GET，于是有了 307</span><br><span class="line">307，Temporary Redirect。临时重定向，在重定向时不会改变 method</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Tcp 的滑动窗口增大了吞吐量，但是并没有解决队头堵塞得问题</p>
-</li>
-<li><p>http 挥手 主动关闭有个time_wait,这个标准的持续时间是4分钟</p>
-<p>  ISN(Initial Sequence Number) 是固定的么，</p>
-<p>  客户端的syn_send 状态、服务端的syn_rcvd</p>
-<p>  Tcp 报文段：tcp 首部+tcp 数据部分</p>
-<p>  半链接队列—超时重传</p>
-<p>  等待2个msl 确保服务端能收到ack,能正常关闭</p>
-<p>  关闭连接时，当收到对方的FIN报文时，仅仅表示对方不再发送数据了但是还能接收数据，己方也未必全部数据都发送给对方了，所以己方可以立即close，也可以发送一些数据给对方后，再发送FIN报文给对方来表示同意现在关闭连接，因此，己方ACK和FIN一般都会分开发送。</p>
-</li>
-<li><p>如果 300 的话会进行重定向，这里会有个重定向计数器，避免过多次的重定向，超过次数也会报错。 </p>
-</li>
-<li><p>而HTTP的204(No Content)响应, 就表示执行成功, 但是没有数据, 浏览器不用刷新页面.也不用导向新的页面.<br>  205 Reset Content, 表示执行成功, 重置页面(Form表单).</p>
-</li>
-<li><p>子网是所属VPC IP地址范围内的 IP 地址块。目前私有网络中的云资源部署在子网内，如云主机、容器、负载均衡等。子网：子网是对VPC地址空间的再一次划分，用户可以在子网中创建云主机。</p>
-</li>
-<li><p>可用区（Availability Zone）是电力及网络之间互相独立的物理区域，相同可用区内的实例之间较之同地域不同可用区内实例之间的网络延时更小。同地域内不同可用区之间提供内网互通环境，可用区之间可做到故障隔离。<br>若您的业务要求有较低网络时延，建议将实例或者Pod部署在同一可用区内。</p>
-</li>
-<li><p>VPC：VPC是用户网络在京东云上的表现形式，包含了一系列的网络功能，与其他的VPC逻辑隔离。VPC有一个网络地址空间，用户可以在其中继续划分子网。</p>
-</li>
-<li><p>NAT 地址网络转换，通过在路由器上安装 NAT 软件，它至少有一个有效的公网 IP 地址，通过 NAT 路由器将内部私有 IP 转换成公网 IP。它的问题在于 NAT 设备自动屏蔽了非内网主机主动发起的连接，也就是说，从外网发往内网的数据包将被 NAT 设备丢弃，这使得位于不同 NAT 设备之后的主机之间无法直接交换信息.</p>
-</li>
-<li><p>503 服务器资源不足问题导致的拒绝服务，比如熔断。</p>
-</li>
-<li><p>Options  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. 检测服务支持的method</span><br><span class="line">2. Cors 预检</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>HTTP HEAD 方法 请求资源的头部信息, 并且这些头部与 HTTP GET 方法请求时返回的一致. 该请求方法的一个使用场景是在下载一个大文件前先获取其大小再决定是否要下载, 以此可以节约带宽资源.</p>
-</li>
-<li>WebSocket是基于Http协议的，或者说借用了Http协议来完成一部分握手，在握手阶段与Http是相同的。我们来看一个websocket握手协议的实现，基本是2个属性，upgrade，connection。<pre><code class="text">Upgrade:webSocket
-Connection:Upgrade
-</code></pre>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/14/http/" data-id="ckzf5sdzf000pyy8ka3xwt8wg" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/" rel="tag">http</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -869,7 +810,7 @@ Connection:Upgrade
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
     </div>
   </div>
 
@@ -880,6 +821,10 @@ Connection:Upgrade
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/06/06/vite/">vite</a>
+          </li>
         
           <li>
             <a href="/2021/12/13/overview/">overview</a>
@@ -895,10 +840,6 @@ Connection:Upgrade
         
           <li>
             <a href="/2021/04/30/manage/">manage</a>
-          </li>
-        
-          <li>
-            <a href="/2021/01/08/investment/">investment</a>
           </li>
         
       </ul>
