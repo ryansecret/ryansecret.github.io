@@ -5,15 +5,15 @@
   
   <title>overview | ryansecreat blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="watchEffect 不能检测深层的变化，因此reactive 中变化无效，如果需要则 toRefs 转换  V2 $attrs   1. custom events go into a @listerner bucket  2.不能绑定class   Npm ls 查看依赖  可以看到结果reactive是递归会将每一层包装成Proxy对象的，深度监听每一层的property  effect">
+  <meta name="description" content="vscode lsp 分析工具可以用任何语言实现，只要它能够按照语言服务器协议与语言客户机通信。 由于语言分析工具通常占用大量CPU和内存，因此在单独的进程中运行它们可以避免性能开销。  Pagefind 静态文件的全文搜索  date-fns provides the most comprehensive, yet simple and consistent toolset for manip">
 <meta property="og:type" content="article">
 <meta property="og:title" content="overview">
 <meta property="og:url" content="http://yoursite.com/2021/12/13/overview/index.html">
 <meta property="og:site_name" content="ryansecreat blog">
-<meta property="og:description" content="watchEffect 不能检测深层的变化，因此reactive 中变化无效，如果需要则 toRefs 转换  V2 $attrs   1. custom events go into a @listerner bucket  2.不能绑定class   Npm ls 查看依赖  可以看到结果reactive是递归会将每一层包装成Proxy对象的，深度监听每一层的property  effect">
+<meta property="og:description" content="vscode lsp 分析工具可以用任何语言实现，只要它能够按照语言服务器协议与语言客户机通信。 由于语言分析工具通常占用大量CPU和内存，因此在单独的进程中运行它们可以避免性能开销。  Pagefind 静态文件的全文搜索  date-fns provides the most comprehensive, yet simple and consistent toolset for manip">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-12-13T09:38:48.000Z">
-<meta property="article:modified_time" content="2022-09-13T02:38:30.312Z">
+<meta property="article:modified_time" content="2022-10-20T08:10:42.363Z">
 <meta property="article:author" content="ryansecreat">
 <meta property="article:tag" content="overview">
 <meta name="twitter:card" content="summary">
@@ -90,6 +90,47 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ol>
+<li><p>vscode lsp 分析工具可以用任何语言实现，只要它能够按照语言服务器协议与语言客户机通信。</p>
+<p>由于语言分析工具通常占用大量CPU和内存，因此在单独的进程中运行它们可以避免性能开销。</p>
+</li>
+<li><p>Pagefind 静态文件的全文搜索</p>
+</li>
+<li><p>date-fns provides the most comprehensive, yet simple and consistent toolset for manipulating JavaScript dates in a browser &amp; Node.js.</p>
+</li>
+<li><p>grep “main()” . -r –include *.{php,html}   # 只在目录中所有的.php和.html文件中递归搜索字符”main()”</p>
+</li>
+<li><p>echo this is a text line | grep -e “is” -e “line” -o<br>选项 -e 制动多个匹配样式</p>
+</li>
+<li><p>grep -c “text” file_name  统计文件或者文本中包含匹配字符串的行数 -c 选项</p>
+</li>
+<li><p>使用指纹解锁sudo  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/pam.d/sudo</span><br><span class="line">别担心，这是你最后一次需要输密码获得 root 权限了。（除了进行系统更新后这个文件可能会被覆盖）</span><br><span class="line"></span><br><span class="line">然后，在打开的文件中最前面添加一行：</span><br><span class="line"></span><br><span class="line">auth       sufficient     pam_tid.so</span><br></pre></td></tr></table></figure></li>
+<li><p>kubectl edit deployment&#x2F;nginx-deployment 编辑deployment</p>
+</li>
+<li><p>kubectl get deployment   获取部署</p>
+</li>
+<li><p>npm ls -g 查看全局包</p>
+</li>
+<li><p>npm root -g  查看根路径</p>
+</li>
+<li><p><code>/bin/sh -c env</code>  查看环境变量 </p>
+</li>
+<li><p>使用卷时, 在 .spec.volumes 字段中设置为 Pod 提供的卷，并在 .spec.containers[*].volumeMounts 字段中声明卷在容器中的挂载位置。 容器中的进程看到的文件系统视图是由它们的 容器镜像 的初始内容以及挂载在容器中的卷（如果定义了的话）所组成的。</p>
+</li>
+<li><p><code>&#123;&#123;- (包括添加的横杠和空格)表示向左删除空白， 而 -&#125;&#125;</code>表示右边的空格应该被去掉。 一定注意空格就是换行</p>
+</li>
+<li><p>相较于使用template，在helm中使用include被认为是更好的方式 只是为了更好地处理YAML文档的输出格式</p>
+   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;- range $key, $val := .Values.favorite &#125;&#125;</span><br><span class="line"> &#123;&#123; $key &#125;&#125;: &#123;&#123; $val | quote &#125;&#125;</span><br><span class="line">&#123;&#123;- end &#125;&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Npm install global  <a target="_blank" rel="noopener" href="https://github.com/sindresorhus/guides/blob/main/npm-global-without-sudo.md">https://github.com/sindresorhus/guides/blob/main/npm-global-without-sudo.md</a>  </p>
+</li>
+<li><p>Monarch 是 Monaco Editor 自带的一个语法高亮库，通过它，我们可以用类似 Json 的语法来实现自定义语言的语法高亮功能。</p>
+</li>
+<li><p>memlab   Analyzes JavaScript heap and finds memory leaks in browser and node.js</p>
+</li>
+<li><p>k9s :ns namespace :deploy 部署 :ing ingress :svc service </p>
+</li>
+<li><p>Secret 是一种包含少量敏感信息例如密码、令牌或密钥的对象。 这样的信息可能会被放在 Pod 规约中或者镜像中。 使用 Secret 意味着你不需要在应用程序代码中包含机密数据。</p>
+</li>
 <li><p>watchEffect 不能检测深层的变化，因此reactive 中变化无效，如果需要则 toRefs 转换</p>
 </li>
 <li><p>V2 $attrs   1. custom events go into a @listerner bucket  2.不能绑定class </p>
