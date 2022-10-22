@@ -1,240 +1,331 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+<!DOCTYPE html><html lang="zh-CN"><head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+
+
+
+
+
   
-  <title>eslint | ryansecreat blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ESLint 一旦发现配置文件中有 “root”: true，它就会停止在父级目录中寻找。 1234567891011121314151617181920212223242526272829303132333435在整个文件中取消eslint检查：&#x2F;* eslint-disable *&#x2F;&#x2F;&#x2F; Disables all rules for the rest of the file alert(‘fo">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script>
+
+    <meta name="description" content="ESLint 一旦发现配置文件中有 “root”: true，它就会停止在父级目录中寻找。 1234567891011121314151617181920212223242526272829303132333435在整个文件中取消eslint检查：/* eslint-disable */// Disables all rules for the rest of the file alert(‘fo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="eslint">
 <meta property="og:url" content="http://yoursite.com/2016/12/25/eslint/index.html">
 <meta property="og:site_name" content="ryansecreat blog">
-<meta property="og:description" content="ESLint 一旦发现配置文件中有 “root”: true，它就会停止在父级目录中寻找。 1234567891011121314151617181920212223242526272829303132333435在整个文件中取消eslint检查：&#x2F;* eslint-disable *&#x2F;&#x2F;&#x2F; Disables all rules for the rest of the file alert(‘fo">
-<meta property="og:locale">
+<meta property="og:description" content="ESLint 一旦发现配置文件中有 “root”: true，它就会停止在父级目录中寻找。 1234567891011121314151617181920212223242526272829303132333435在整个文件中取消eslint检查：/* eslint-disable */// Disables all rules for the rest of the file alert(‘fo">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2016-12-25T05:31:39.000Z">
 <meta property="article:modified_time" content="2020-07-03T07:12:45.925Z">
 <meta property="article:author" content="ryansecreat">
 <meta property="article:tag" content="eslint">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="ryansecreat blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
+
+
+<link rel="canonical" href="http://yoursite.com/2016/12/25/eslint/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://yoursite.com/2016/12/25/eslint/","path":"2016/12/25/eslint/","title":"eslint"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>eslint | ryansecreat blog</title>
   
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
 
-  
 
-<meta name="generator" content="Hexo 6.0.0"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">ryansecreat blog</a>
-      </h1>
-      
+
+
+  <noscript>
+    
+  </noscript>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css"></noscript></head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ryansecreat blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">smile hard</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
         
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ignore-built-files-except-build-index-js"><span class="nav-number">1.</span> <span class="nav-text">Ignore built files except build/index.js</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ryansecreat</p>
+  <div class="site-description" itemprop="description">保持积极昂扬的状态，避免成为别人眼中的傻子</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
       </div>
     </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
   </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-eslint" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/25/eslint/" class="article-date">
-  <time datetime="2016-12-25T05:31:39.000Z" itemprop="datePublished">2016-12-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      eslint
-    </h1>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
   
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/25/eslint/">
+
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ryansecreat">
+    </span>
+
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ryansecreat blog">
+      <meta itemprop="description" content="保持积极昂扬的状态，避免成为别人眼中的傻子">
+    </span>
+
+    <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="eslint | ryansecreat blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          eslint
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2016-12-25 13:31:39" itemprop="dateCreated datePublished" datetime="2016-12-25T13:31:39+08:00">2016-12-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2020-07-03 15:12:45" itemprop="dateModified" datetime="2020-07-03T15:12:45+08:00">2020-07-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
       </header>
+
     
-    <div class="article-entry" itemprop="articleBody">
-      
+    
+    
+    <div class="post-body" itemprop="articleBody">
         <p>ESLint 一旦发现配置文件中有 “root”: true，它就会停止在父级目录中寻找。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在整个文件中取消eslint检查：</span><br><span class="line"></span><br><span class="line">/* eslint-disable */</span><br><span class="line"></span><br><span class="line">// Disables all rules for the rest of the file </span><br><span class="line">alert(‘foo’);</span><br><span class="line"></span><br><span class="line">在整个文件中禁用某一项eslint规则的检查：</span><br><span class="line"></span><br><span class="line">/* eslint-disable no-alert */</span><br><span class="line"></span><br><span class="line">// Disables no-alert for the rest of the file </span><br><span class="line">alert(‘foo’);</span><br><span class="line"></span><br><span class="line">针对某一行禁用eslint检查：</span><br><span class="line"></span><br><span class="line">alert(‘foo’); // eslint-disable-line</span><br><span class="line"></span><br><span class="line">// eslint-disable-next-line </span><br><span class="line">alert(‘foo’);</span><br><span class="line"></span><br><span class="line">针对某一行的某一具体规则禁用eslint检查：</span><br><span class="line"></span><br><span class="line">alert(‘foo’); // eslint-disable-line no-alert</span><br><span class="line"></span><br><span class="line">// eslint-disable-next-line no-alert </span><br><span class="line">alert(‘foo’);</span><br><span class="line"></span><br><span class="line">针对某一行禁用多项具体规则的检查：</span><br><span class="line"></span><br><span class="line">alert(‘foo’); // eslint-disable-line no-alert, quotes, semi</span><br><span class="line"></span><br><span class="line">// eslint-disable-next-line no-alert, quotes, semi </span><br><span class="line">alert(‘foo’);</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">行内配置</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/*eslint-disable*/ 和 /*eslint-enable*/</span><br><span class="line"></span><br><span class="line">/*global*/</span><br><span class="line">/*eslint*/</span><br><span class="line">/*eslint-env*/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">命令行选项：</span><br><span class="line"></span><br><span class="line">--global</span><br><span class="line">--rule</span><br><span class="line">--env</span><br><span class="line"></span><br><span class="line">-c、--config</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">项目级配置：</span><br><span class="line"></span><br><span class="line">与要检测的文件在同一目录下的 .eslintrc.* 或 package.json 文件</span><br><span class="line">继续在父级目录寻找 .eslintrc 或 package.json文件，直到根目录（包括根目录）或直到发现一个有&quot;root&quot;: true的配置。</span><br><span class="line">如果不是（1）到（3）中的任何一种情况，退回到 ~/.eslintrc 中自定义的默认配置。</span><br></pre></td></tr></table></figure>
-<p>glob 模式的配置<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"rules"</span>: &#123;</span><br><span class="line">    <span class="attr">"quotes"</span>: [ <span class="number">2</span>, <span class="string">"double"</span> ]</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="attr">"overrides"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"files"</span>: [ <span class="string">"bin/*.js"</span>, <span class="string">"lib/*.js"</span> ],</span><br><span class="line">      <span class="attr">"excludedFiles"</span>: <span class="string">"*.test.js"</span>,</span><br><span class="line">      <span class="attr">"rules"</span>: &#123;</span><br><span class="line">        <span class="attr">"quotes"</span>: [ <span class="number">2</span>, <span class="string">"single"</span> ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在整个文件中取消eslint检查：</span><br><span class="line"></span><br><span class="line">/* eslint-disable */</span><br><span class="line"></span><br><span class="line">// Disables all rules for the rest of the file </span><br><span class="line">alert(‘foo’);</span><br><span class="line"></span><br><span class="line">在整个文件中禁用某一项eslint规则的检查：</span><br><span class="line"></span><br><span class="line">/* eslint-disable no-alert */</span><br><span class="line"></span><br><span class="line">// Disables no-alert for the rest of the file </span><br><span class="line">alert(‘foo’);</span><br><span class="line"></span><br><span class="line">针对某一行禁用eslint检查：</span><br><span class="line"></span><br><span class="line">alert(‘foo’); // eslint-disable-line</span><br><span class="line"></span><br><span class="line">// eslint-disable-next-line </span><br><span class="line">alert(‘foo’);</span><br><span class="line"></span><br><span class="line">针对某一行的某一具体规则禁用eslint检查：</span><br><span class="line"></span><br><span class="line">alert(‘foo’); // eslint-disable-line no-alert</span><br><span class="line"></span><br><span class="line">// eslint-disable-next-line no-alert </span><br><span class="line">alert(‘foo’);</span><br><span class="line"></span><br><span class="line">针对某一行禁用多项具体规则的检查：</span><br><span class="line"></span><br><span class="line">alert(‘foo’); // eslint-disable-line no-alert, quotes, semi</span><br><span class="line"></span><br><span class="line">// eslint-disable-next-line no-alert, quotes, semi </span><br><span class="line">alert(‘foo’);</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">行内配置</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/*eslint-disable*/ 和 /*eslint-enable*/</span><br><span class="line"></span><br><span class="line">/*global*/</span><br><span class="line">/*eslint*/</span><br><span class="line">/*eslint-env*/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">命令行选项：</span><br><span class="line"></span><br><span class="line">--global</span><br><span class="line">--rule</span><br><span class="line">--env</span><br><span class="line"></span><br><span class="line">-c、--config</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">项目级配置：</span><br><span class="line"></span><br><span class="line">与要检测的文件在同一目录下的 .eslintrc.* 或 package.json 文件</span><br><span class="line">继续在父级目录寻找 .eslintrc 或 package.json文件，直到根目录（包括根目录）或直到发现一个有"root": true的配置。</span><br><span class="line">如果不是（1）到（3）中的任何一种情况，退回到 ~/.eslintrc 中自定义的默认配置。</span><br></pre></td></tr></tbody></table></figure>
+<p>glob 模式的配置<br></p><figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="attr">"rules"</span>: {</span><br><span class="line">    <span class="attr">"quotes"</span>: [ <span class="number">2</span>, <span class="string">"double"</span> ]</span><br><span class="line">  },</span><br><span class="line"></span><br><span class="line">  <span class="attr">"overrides"</span>: [</span><br><span class="line">    {</span><br><span class="line">      <span class="attr">"files"</span>: [ <span class="string">"bin/*.js"</span>, <span class="string">"lib/*.js"</span> ],</span><br><span class="line">      <span class="attr">"excludedFiles"</span>: <span class="string">"*.test.js"</span>,</span><br><span class="line">      <span class="attr">"rules"</span>: {</span><br><span class="line">        <span class="attr">"quotes"</span>: [ <span class="number">2</span>, <span class="string">"single"</span> ]</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">  ]</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>ignore 文件配置：</p>
 <h1 id="Ignore-built-files-except-build-index-js"><a href="#Ignore-built-files-except-build-index-js" class="headerlink" title="Ignore built files except build/index.js"></a>Ignore built files except build/index.js</h1><p>build/*<br>!build/index.js</p>
-<p>全局变量<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">globals: &#123;</span><br><span class="line">      MyGlobal: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>全局变量<br></p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">globals: {</span><br><span class="line">      MyGlobal: <span class="literal">true</span></span><br><span class="line">  }</span><br></pre></td></tr></tbody></table></figure><p></p>
 
-      
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/25/eslint/" data-id="ckzf5sdz8000dyy8k29g6ve88" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eslint/" rel="tag">eslint</a></li></ul>
 
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/eslint/" rel="tag"># eslint</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/12/21/Let's%20Encrypt%20SSL/" rel="prev" title="Let's Encrypt">
+                  <i class="fa fa-chevron-left"></i> Let's Encrypt
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/12/26/pattern/" rel="next" title="pattern">
+                  pattern <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
     </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  © 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ryansecreat</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> &amp; <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2016/12/26/pattern/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          pattern
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/12/21/Let's%20Encrypt%20SSL/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Let&#39;s Encrypt</div>
-    </a>
-  
-</nav>
 
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encode-decode/" rel="tag">encode decode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es/" rel="tag">es</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">eslint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/" rel="tag">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interview/" rel="tag">interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s/" rel="tag">k8s</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/loadtest/" rel="tag">loadtest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node%E3%80%81egg/" rel="tag">node、egg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ops/" rel="tag">ops</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overview/" rel="tag">overview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pattern/" rel="tag">pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pm2/" rel="tag">pm2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgre/" rel="tag">postgre</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regex/" rel="tag">regex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stock/" rel="tag">stock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ts/" rel="tag">ts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/useful-package/" rel="tag">useful package</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-eventloop-js/" rel="tag">vue eventloop js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-%E5%AE%89%E5%85%A8/" rel="tag">web 安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%B6%E7%A2%8E/" rel="tag">零碎</a></li></ul>
     </div>
-  </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/encode-decode/" style="font-size: 10px;">encode decode</a> <a href="/tags/es/" style="font-size: 20px;">es</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/k8s/" style="font-size: 10px;">k8s</a> <a href="/tags/loadtest/" style="font-size: 10px;">loadtest</a> <a href="/tags/node%E3%80%81egg/" style="font-size: 10px;">node、egg</a> <a href="/tags/ops/" style="font-size: 10px;">ops</a> <a href="/tags/overview/" style="font-size: 10px;">overview</a> <a href="/tags/pattern/" style="font-size: 10px;">pattern</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/postgre/" style="font-size: 10px;">postgre</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/stock/" style="font-size: 10px;">stock</a> <a href="/tags/ts/" style="font-size: 10px;">ts</a> <a href="/tags/useful-package/" style="font-size: 10px;">useful package</a> <a href="/tags/vue-eventloop-js/" style="font-size: 10px;">vue eventloop js</a> <a href="/tags/web-%E5%AE%89%E5%85%A8/" style="font-size: 10px;">web 安全</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/%E5%AE%89%E5%85%A8/" style="font-size: 10px;">安全</a> <a href="/tags/%E9%9B%B6%E7%A2%8E/" style="font-size: 10px;">零碎</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
-    </div>
-  </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2022/07/06/yanbao/">yanbao</a>
-          </li>
-        
-          <li>
-            <a href="/2022/06/06/vite/">vite</a>
-          </li>
-        
-          <li>
-            <a href="/2021/12/13/overview/">overview</a>
-          </li>
-        
-          <li>
-            <a href="/2021/11/18/k8s/">k8s</a>
-          </li>
-        
-          <li>
-            <a href="/2021/07/09/stock/">stock</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2022 ryansecreat<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
 
-<script src="/js/script.js"></script>
+  
 
 
-  </div>
-</body>
-</html>
+
+
+
+
+
+<script src="/bundle.js"></script></body></html>
