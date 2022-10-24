@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="zh-CN"><head>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
@@ -9,21 +11,21 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
+<link rel="stylesheet" href="/css/main.css">
 
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-  
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script>
-
-    <meta name="description" content="s修饰符使得 . 能够匹配任何字符/foo.bar/s.test(‘foo\nbar’) ? 非贪婪模式? 非贪婪模式，只匹配最少的数据。 对 “123abc” 应用 /\d+/ 将会返回 “123”，如果使用 /\d+?/,那么就只会匹配到 “1”。 先行断言x(?=y)  匹配’x’仅仅当’x’后面跟着’y’.这种叫做先行断言。例如，/Jack(?=Sprat)/会匹配到’Jack’仅仅当它后">
+    <meta name="description" content="s修饰符使得 . 能够匹配任何字符&#x2F;foo.bar&#x2F;s.test(‘foo\nbar’) ? 非贪婪模式? 非贪婪模式，只匹配最少的数据。 对 “123abc” 应用 &#x2F;\d+&#x2F; 将会返回 “123”，如果使用 &#x2F;\d+?&#x2F;,那么就只会匹配到 “1”。 先行断言x(?&#x3D;y)  匹配’x’仅仅当’x’后面跟着’y’.这种叫做先行断言。例如，&#x2F;Jack(?&#x3D;Sprat)&#x2F;会匹配到’Jack’仅仅当它后">
 <meta property="og:type" content="article">
 <meta property="og:title" content="regex">
 <meta property="og:url" content="http://yoursite.com/2019/06/24/regex/index.html">
 <meta property="og:site_name" content="ryansecreat blog">
-<meta property="og:description" content="s修饰符使得 . 能够匹配任何字符/foo.bar/s.test(‘foo\nbar’) ? 非贪婪模式? 非贪婪模式，只匹配最少的数据。 对 “123abc” 应用 /\d+/ 将会返回 “123”，如果使用 /\d+?/,那么就只会匹配到 “1”。 先行断言x(?=y)  匹配’x’仅仅当’x’后面跟着’y’.这种叫做先行断言。例如，/Jack(?=Sprat)/会匹配到’Jack’仅仅当它后">
+<meta property="og:description" content="s修饰符使得 . 能够匹配任何字符&#x2F;foo.bar&#x2F;s.test(‘foo\nbar’) ? 非贪婪模式? 非贪婪模式，只匹配最少的数据。 对 “123abc” 应用 &#x2F;\d+&#x2F; 将会返回 “123”，如果使用 &#x2F;\d+?&#x2F;,那么就只会匹配到 “1”。 先行断言x(?&#x3D;y)  匹配’x’仅仅当’x’后面跟着’y’.这种叫做先行断言。例如，&#x2F;Jack(?&#x3D;Sprat)&#x2F;会匹配到’Jack’仅仅当它后">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-06-24T05:56:32.000Z">
 <meta property="article:modified_time" content="2021-12-23T06:37:40.458Z">
@@ -48,15 +50,15 @@
 
 
   <noscript>
-    
+    <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css"></noscript></head>
+</head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" class="use-motion">
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
@@ -99,7 +101,9 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
@@ -143,7 +147,7 @@
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">ryansecreat</p>
   <div class="site-description" itemprop="description">保持积极昂扬的状态，避免成为别人眼中的傻子</div>
 </div>
@@ -195,20 +199,20 @@
   
   
 
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/24/regex/">
 
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="ryansecreat">
     </span>
 
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="ryansecreat blog">
       <meta itemprop="description" content="保持积极昂扬的状态，避免成为别人眼中的傻子">
     </span>
 
-    <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="regex | ryansecreat blog">
       <meta itemprop="description" content="">
     </span>
@@ -257,11 +261,11 @@
 <p>\W 匹配一个非单字字符。</p>
 <p>等价于[^A-Za-z0-9_]。</p>
 <p>例如, /\W/ 或者 /[^A-Za-z0-9_]/ 匹配 “50%.” 中的 ‘%’。</p>
-<h3 id="子字符串匹配"><a href="#子字符串匹配" class="headerlink" title="子字符串匹配"></a>子字符串匹配</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var re = /(\w+)\s(\w+)/;</span><br><span class="line">var str = "John Smith";</span><br><span class="line">var newstr = str.replace(re, "$2, $1");</span><br><span class="line">console.log(newstr);</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="子字符串匹配"><a href="#子字符串匹配" class="headerlink" title="子字符串匹配"></a>子字符串匹配</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var re = /(\w+)\s(\w+)/;</span><br><span class="line">var str = &quot;John Smith&quot;;</span><br><span class="line">var newstr = str.replace(re, &quot;$2, $1&quot;);</span><br><span class="line">console.log(newstr);</span><br></pre></td></tr></table></figure>
 <h4 id="非捕获组"><a href="#非捕获组" class="headerlink" title="非捕获组"></a>非捕获组</h4><p>?: 用非捕获组 提升匹配效率。</p>
 <p>y修饰符的一个应用，是从字符串提取 token（词元），y修饰符确保了匹配之间不会有漏掉的字符。可以修改regex的 lastIndex 。</p>
-<h3 id="具名匹配"><a href="#具名匹配" class="headerlink" title="具名匹配"></a>具名匹配</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">const RE_DATE = /(\d{4})-(\d{2})-(\d{2})/;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const matchObj = RE_DATE.exec('1999-12-31');</span><br><span class="line"></span><br><span class="line">const year = matchObj[1]; // 1999</span><br><span class="line"></span><br><span class="line">const month = matchObj[2]; // 12</span><br><span class="line"></span><br><span class="line">const day = matchObj[3]; // 31</span><br><span class="line"></span><br><span class="line">Replace 函数形式：</span><br><span class="line"></span><br><span class="line">'2015-01-02'.replace(re, (</span><br><span class="line"></span><br><span class="line">   matched, // 整个匹配结果 2015-01-02</span><br><span class="line"></span><br><span class="line">   capture1, // 第一个组匹配 2015</span><br><span class="line"></span><br><span class="line">   capture2, // 第二个组匹配 01</span><br><span class="line"></span><br><span class="line">   capture3, // 第三个组匹配 02</span><br><span class="line"></span><br><span class="line">   position, // 匹配开始的位置 0</span><br><span class="line"></span><br><span class="line">   S, // 原字符串 2015-01-02</span><br><span class="line"></span><br><span class="line">   groups // 具名组构成的一个对象 {year, month, day}</span><br><span class="line"></span><br><span class="line"> ) =&gt; {</span><br><span class="line"></span><br><span class="line"> let {day, month, year} = groups;</span><br><span class="line"></span><br><span class="line"> return `${day}/${month}/${year}`;</span><br><span class="line"></span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可以直接赋值</span></span><br><span class="line"><span class="keyword">let</span> {<span class="attr">groups</span>: {one, two}} = <span class="regexp">/^(?&lt;one&gt;.*):(?&lt;two&gt;.*)$/u</span>.exec(<span class="string">'foo:bar'</span>);</span><br><span class="line">one  <span class="comment">// foo</span></span><br><span class="line">two  <span class="comment">// bar</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 直接replace</span></span><br><span class="line"><span class="keyword">let</span> re = <span class="regexp">/(?&lt;year&gt;\d{4})-(?&lt;month&gt;\d{2})-(?&lt;day&gt;\d{2})/u</span>;</span><br><span class="line"></span><br><span class="line"><span class="string">'2015-01-02'</span>.replace(re, <span class="string">'$&lt;day&gt;/$&lt;month&gt;/$&lt;year&gt;'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="具名匹配"><a href="#具名匹配" class="headerlink" title="具名匹配"></a>具名匹配</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">const RE_DATE = /(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const matchObj = RE_DATE.exec(&apos;1999-12-31&apos;);</span><br><span class="line"></span><br><span class="line">const year = matchObj[1]; // 1999</span><br><span class="line"></span><br><span class="line">const month = matchObj[2]; // 12</span><br><span class="line"></span><br><span class="line">const day = matchObj[3]; // 31</span><br><span class="line"></span><br><span class="line">Replace 函数形式：</span><br><span class="line"></span><br><span class="line">&apos;2015-01-02&apos;.replace(re, (</span><br><span class="line"></span><br><span class="line">   matched, // 整个匹配结果 2015-01-02</span><br><span class="line"></span><br><span class="line">   capture1, // 第一个组匹配 2015</span><br><span class="line"></span><br><span class="line">   capture2, // 第二个组匹配 01</span><br><span class="line"></span><br><span class="line">   capture3, // 第三个组匹配 02</span><br><span class="line"></span><br><span class="line">   position, // 匹配开始的位置 0</span><br><span class="line"></span><br><span class="line">   S, // 原字符串 2015-01-02</span><br><span class="line"></span><br><span class="line">   groups // 具名组构成的一个对象 &#123;year, month, day&#125;</span><br><span class="line"></span><br><span class="line"> ) =&gt; &#123;</span><br><span class="line"></span><br><span class="line"> let &#123;day, month, year&#125; = groups;</span><br><span class="line"></span><br><span class="line"> return `$&#123;day&#125;/$&#123;month&#125;/$&#123;year&#125;`;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可以直接赋值</span></span><br><span class="line"><span class="keyword">let</span> &#123;<span class="attr">groups</span>: &#123;one, two&#125;&#125; = <span class="regexp">/^(?&lt;one&gt;.*):(?&lt;two&gt;.*)$/u</span>.exec(<span class="string">'foo:bar'</span>);</span><br><span class="line">one  <span class="comment">// foo</span></span><br><span class="line">two  <span class="comment">// bar</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 直接replace</span></span><br><span class="line"><span class="keyword">let</span> re = <span class="regexp">/(?&lt;year&gt;\d&#123;4&#125;)-(?&lt;month&gt;\d&#123;2&#125;)-(?&lt;day&gt;\d&#123;2&#125;)/u</span>;</span><br><span class="line"></span><br><span class="line"><span class="string">'2015-01-02'</span>.replace(re, <span class="string">'$&lt;day&gt;/$&lt;month&gt;/$&lt;year&gt;'</span>)</span><br></pre></td></tr></table></figure>
 <h3 id="使用引用-具名"><a href="#使用引用-具名" class="headerlink" title="使用引用(具名)"></a>使用引用(具名)</h3><p>使用引用：const RE_TWICE = /^(?<word>[a-z]+)!\k<word>$/;</word></word></p>
 <p>RE_TWICE.test(‘abc!abc’) // true<br>RE_TWICE.test(‘abc!ab’) // false</p>
 <h3 id="捕获组的使用"><a href="#捕获组的使用" class="headerlink" title="捕获组的使用"></a>捕获组的使用</h3><p>Regex 中捕获组的使用：<br>对于普通捕获组和命名捕获组的引用，语法如下：<br>普通捕获组反向引用：\k<number>，通常简写为\number</number></p>
@@ -311,14 +315,14 @@
 
 
 <div class="copyright">
-  © 
+  &copy; 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ryansecreat</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> &amp; <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
     </div>
@@ -326,11 +330,11 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
 
   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
-
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
@@ -342,6 +346,5 @@
 
 
 
-
-
-<script src="/bundle.js"></script></body></html>
+</body>
+</html>

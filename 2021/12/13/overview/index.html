@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="zh-CN"><head>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
@@ -9,14 +11,14 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
+<link rel="stylesheet" href="/css/main.css">
 
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-
-  
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="watchEffect 不能检测深层的变化，因此reactive 中变化无效，如果需要则 toRefs 转换  V2 $attrs   1. custom events go into a @listerner bucket  2.不能绑定class   Npm ls 查看依赖  可以看到结果reactive是递归会将每一层包装成Proxy对象的，深度监听每一层的property  effect">
 <meta property="og:type" content="article">
@@ -48,15 +50,15 @@
 
 
   <noscript>
-    
+    <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css"></noscript></head>
+</head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" class="use-motion">
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
@@ -99,7 +101,9 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
@@ -142,7 +146,7 @@
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">ryansecreat</p>
   <div class="site-description" itemprop="description">保持积极昂扬的状态，避免成为别人眼中的傻子</div>
 </div>
@@ -194,20 +198,20 @@
   
   
 
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/12/13/overview/">
 
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="ryansecreat">
     </span>
 
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="ryansecreat blog">
       <meta itemprop="description" content="保持积极昂扬的状态，避免成为别人眼中的傻子">
     </span>
 
-    <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="overview | ryansecreat blog">
       <meta itemprop="description" content="">
     </span>
@@ -276,7 +280,7 @@
 <li><p>POSIX stands for Portable Operating System Interface.</p>
 </li>
 <li><p>@supports CSS at-rule 相当于功能选择器</p>
-   <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   @supports (display: flex) {</span><br><span class="line">  body {</span><br><span class="line">    display: flex;</span><br><span class="line">    min-height: 100vh;</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   @supports (display: flex) &#123;</span><br><span class="line">  body &#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    min-height: 100vh;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p><a target="_blank" rel="noopener" href="https://github.com/cuixiaorui/mini-vue">https://github.com/cuixiaorui/mini-vue</a>  vue3 source code </p>
 </li>
 <li><p>react 被 startTransition 回调包裹的 setState 触发的渲染 被标记为不紧急渲染，这些渲染可能被其他紧急渲染所抢占。</p>
@@ -304,7 +308,7 @@
 <li><p>svg2pdf.js 图片转pdf</p>
 </li>
 <li><p>stream 的另外一个模式: objectMode。它是一种对象模式，我们把一件事情、或一个文件、或一个操作，抽象成一个对象。</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const Readable = require('stream').Readable</span><br><span class="line"></span><br><span class="line">const readable = Readable({ objectMode: true })</span><br><span class="line"></span><br><span class="line"> readable.push('a')</span><br><span class="line"> readable.push('b')</span><br><span class="line"> readable.push({})</span><br><span class="line"> readable.push(null)</span><br><span class="line"></span><br><span class="line"> readable.on('data', data =&gt; console.log(data))</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const Readable = require(&#x27;stream&#x27;).Readable</span><br><span class="line"></span><br><span class="line">const readable = Readable(&#123; objectMode: true &#125;)</span><br><span class="line"></span><br><span class="line"> readable.push(&#x27;a&#x27;)</span><br><span class="line"> readable.push(&#x27;b&#x27;)</span><br><span class="line"> readable.push(&#123;&#125;)</span><br><span class="line"> readable.push(null)</span><br><span class="line"></span><br><span class="line"> readable.on(&#x27;data&#x27;, data =&gt; console.log(data))</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 <li><p>git config –global push.followTags true</p>
 </li>
 <li><p>Markraw 标记不会被reactive</p>
@@ -351,28 +355,28 @@
 </li>
 <li><p>vuedraggable 处理拖动数据</p>
 </li>
-<li><p>path-to-regexp   Turn a path string such as /user/:name into a regular expression. The compile function will return a function for transforming parameters into a valid path:</p>
+<li><p>path-to-regexp   Turn a path string such as &#x2F;user&#x2F;:name into a regular expression. The compile function will return a function for transforming parameters into a valid path:</p>
 </li>
 <li><p>vue router 重新render,redirect+fullpath.通过添加一个中转页实现。</p>
 </li>
 <li><p>import { storeToRefs } from “pinia”;</p>
 </li>
 <li><p>html5 input number</p>
- <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.no-arrow::-webkit-outer-spin-button,</span><br><span class="line">.no-arrow::-webkit-inner-spin-button {</span><br><span class="line">  -webkit-appearance: none;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.no-arrow::-webkit-outer-spin-button,</span><br><span class="line">.no-arrow::-webkit-inner-spin-button &#123;</span><br><span class="line">  -webkit-appearance: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>vue3 类型 MayBeRef</p>
 </li>
 <li><p>暂停watch后更新，</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ignoreUpdates(() =&gt; {</span><br><span class="line">  source.value = 'ignored'</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ignoreUpdates(() =&gt; &#123;</span><br><span class="line">  source.value = &#x27;ignored&#x27;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>dsp 读取json,csv,xlxs 数据</p>
 </li>
 <li><p>limu 创建imutable 对象</p>
 </li>
 <li><p>controlledRef set peek,控制数据的更新</p>
- <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> const num = controlledRef(0, {</span><br><span class="line">  onBeforeChange(value, oldValue) {</span><br><span class="line">    // disallow changes larger then ±5 in one operation</span><br><span class="line">    if (Math.abs(value - oldValue) &gt; 5)</span><br><span class="line">      return false // returning `false` to dismiss the change</span><br><span class="line">  },</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> const num = controlledRef(0, &#123;</span><br><span class="line">  onBeforeChange(value, oldValue) &#123;</span><br><span class="line">    // disallow changes larger then ±5 in one operation</span><br><span class="line">    if (Math.abs(value - oldValue) &gt; 5)</span><br><span class="line">      return false // returning `false` to dismiss the change</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>flush: post 推迟副作用的初始运行，直到组件的首次渲染完成。<br>watch 通过更改设置 flush: ‘sync’，我们可以为每个更改都强制触发侦听器，尽管这通常是不推荐的</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- `'pre'`: buffers invalidated effects in the same 'tick' and flushes them before rendering</span><br><span class="line">- `'post'`: async like 'pre' but fires after component updates so you can access the updated DOM</span><br><span class="line">- `'sync'`: forces the effect to always trigger synchronously</span><br><span class="line"></span><br><span class="line"> { flush: 'post' }</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- `&#x27;pre&#x27;`: buffers invalidated effects in the same &#x27;tick&#x27; and flushes them before rendering</span><br><span class="line">- `&#x27;post&#x27;`: async like &#x27;pre&#x27; but fires after component updates so you can access the updated DOM</span><br><span class="line">- `&#x27;sync&#x27;`: forces the effect to always trigger synchronously</span><br><span class="line"></span><br><span class="line"> &#123; flush: &#x27;post&#x27; &#125;</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 <li><p>transx vue 动画组件   一个小巧玲珑的 vue 组件切换动画库</p>
 </li>
 <li><p>ts-morph 修改ts 代码，封装后的ts compiler api</p>
@@ -396,7 +400,7 @@
 <li><p>*** 获取文本px宽度* @param font{String}: 字体样式**</p>
 </li>
 </ol>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">String.prototype.pxWidth = function(font) {</span><br><span class="line">  // re-use canvas object for better performance</span><br><span class="line">  var canvas = String.prototype.pxWidth.canvas || (String.prototype.pxWidth.canvas = document.createElement("canvas")),</span><br><span class="line">      context = canvas.getContext("2d"); 3</span><br><span class="line"></span><br><span class="line">  font &amp;&amp; (context.font = font);</span><br><span class="line">  var metrics = context.measureText(this);</span><br><span class="line"></span><br><span class="line">  return metrics.width;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">String.prototype.pxWidth = function(font) &#123;</span><br><span class="line">  // re-use canvas object for better performance</span><br><span class="line">  var canvas = String.prototype.pxWidth.canvas || (String.prototype.pxWidth.canvas = document.createElement(&quot;canvas&quot;)),</span><br><span class="line">      context = canvas.getContext(&quot;2d&quot;); 3</span><br><span class="line"></span><br><span class="line">  font &amp;&amp; (context.font = font);</span><br><span class="line">  var metrics = context.measureText(this);</span><br><span class="line"></span><br><span class="line">  return metrics.width;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ol>
 <li><p>先保存各个实例的values信息， helm get values [release] &gt; xxx.yaml</p>
@@ -404,7 +408,7 @@
 <li><p>HTTP协议中用头部字段Accept-Encoding 和 Content-Encoding对「采用何种编码格式传输正文」进行了协定，请求头的Accept-Encoding会列出客户端支持的编码格式。当响应头的 Content-Encoding指定了gzip时，浏览器则会进行对应解压</p>
 </li>
 <li><p>Transfer-Encoding，是一个 HTTP 头部字段，字面意思是「传输编码」。实际上，HTTP 协议中还有另外一个头部与编码有关：Content-Encoding（内容编码）。Content-Encoding 通常用于对实体内容进行压缩编码，目的是优化传输，</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Transfer-Encoding: chunked</span><br><span class="line">Transfer-Encoding: compress</span><br><span class="line">Transfer-Encoding: deflate</span><br><span class="line">Transfer-Encoding: gzip</span><br><span class="line">Transfer-Encoding: identity</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Transfer-Encoding: chunked</span><br><span class="line">Transfer-Encoding: compress</span><br><span class="line">Transfer-Encoding: deflate</span><br><span class="line">Transfer-Encoding: gzip</span><br><span class="line">Transfer-Encoding: identity</span><br></pre></td></tr></table></figure>
 
 </li>
 <li><p>逐跳消息头  这类消息头仅对单次传输连接有意义，不能通过代理或缓存进行重新转发</p>
@@ -420,7 +424,7 @@
 <li><p>Vue DevUI 开源的UI</p>
 </li>
 <li><p>standard-version<br>standard-version 会根据提交的信息类型来自动更改对应的版本号,如下:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">feat: 次版本(minor)+1</span><br><span class="line">fix: 修订号(patch) +1</span><br><span class="line">BREAK CHANGE: 主板号(marjor) +1</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">feat: 次版本(minor)+1</span><br><span class="line">fix: 修订号(patch) +1</span><br><span class="line">BREAK CHANGE: 主板号(marjor) +1</span><br></pre></td></tr></table></figure></li>
 <li><p>outline 能告诉用户那一个可以激发事件的html元素获取了焦点，对钟爱键盘操作的用户尤其有意义。一个清晰悦目的outline设计能提高使用表单的用户体验。</p>
 </li>
 <li><p>CSS属性 columns 用来设置元素的列宽和列数。<br>重点，设置了display: contents的元素本身不会被渲染，但是其子元素能够正常被渲染。</p>
@@ -432,7 +436,7 @@
 <li><p>filter CSS属性将模糊或颜色偏移等图形效果应用于元素。滤镜通常用于调整图像，背景和边框的渲染。</p>
 </li>
 <li><p>monaco 自定义language</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">register monaco.languages.register({ id: 'mySpecialLanguage' });</span><br><span class="line">setMonarchTokensProvider base language 里面有3 </span><br><span class="line">defineTheme  设置样式</span><br><span class="line">monaco.editor.defineTheme('myCoolTheme', {</span><br><span class="line">                    colors: {},</span><br><span class="line">                    base: 'vs',</span><br><span class="line">                    inherit: false,</span><br><span class="line">                    rules: [</span><br><span class="line">                        { token: 'custom-info', foreground: '808080' },</span><br><span class="line">                        { token: 'custom-error', foreground: 'ff0000', fontStyle: 'bold' },</span><br><span class="line">                        { token: 'custom-notice', foreground: 'FFA500' },</span><br><span class="line">                        { token: 'custom-date', foreground: '008800' }</span><br><span class="line">                    ]</span><br><span class="line">                });</span><br><span class="line">registerCompletionItemProvider  智能提示，遇到对应的关键词</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">register monaco.languages.register(&#123; id: &#x27;mySpecialLanguage&#x27; &#125;);</span><br><span class="line">setMonarchTokensProvider base language 里面有3 </span><br><span class="line">defineTheme  设置样式</span><br><span class="line">monaco.editor.defineTheme(&#x27;myCoolTheme&#x27;, &#123;</span><br><span class="line">                    colors: &#123;&#125;,</span><br><span class="line">                    base: &#x27;vs&#x27;,</span><br><span class="line">                    inherit: false,</span><br><span class="line">                    rules: [</span><br><span class="line">                        &#123; token: &#x27;custom-info&#x27;, foreground: &#x27;808080&#x27; &#125;,</span><br><span class="line">                        &#123; token: &#x27;custom-error&#x27;, foreground: &#x27;ff0000&#x27;, fontStyle: &#x27;bold&#x27; &#125;,</span><br><span class="line">                        &#123; token: &#x27;custom-notice&#x27;, foreground: &#x27;FFA500&#x27; &#125;,</span><br><span class="line">                        &#123; token: &#x27;custom-date&#x27;, foreground: &#x27;008800&#x27; &#125;</span><br><span class="line">                    ]</span><br><span class="line">                &#125;);</span><br><span class="line">registerCompletionItemProvider  智能提示，遇到对应的关键词</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Monarch  用来实现代码高亮   <a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903736867831822">https://juejin.cn/post/6844903736867831822</a></p>
 </li>
@@ -440,7 +444,7 @@
 <p><a target="_blank" rel="noopener" href="https://microsoft.github.io/monaco-editor/monarch.html">https://microsoft.github.io/monaco-editor/monarch.html</a></p>
 <ol>
 <li>xe-utils 提供工具类</li>
-<li>Mitt  Tiny (~200b) functional event emitter / pubsub.</li>
+<li>Mitt  Tiny (~200b) functional event emitter &#x2F; pubsub.</li>
 <li>element-resize-detector  </li>
 <li>memoize-one 记录最近的返回结果 </li>
 <li>钱其实是“保健因子”，而不是“激励因子”，是多了没用、少了不行的东西</li>
@@ -456,7 +460,7 @@
 </code></pre>
 <ol start="2">
 <li><p>BEM</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">元素（Element），即 price 、text ，代表从属于某个块，是这个块的子元素，跟在块后面，以双下划线为间隔，使用 .btn__price 、.btn__text 表示</span><br><span class="line"></span><br><span class="line">修饰符（Modifier），即 orange 、big ，用于修改块的状态，为块添加特定的主题或样式，跟在块后面，以双连字符为间隔，使用 .btn--orange 、.btn--big 表示</span><br><span class="line"></span><br><span class="line">```   </span><br><span class="line">1.  npm-run-all</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">元素（Element），即 price 、text ，代表从属于某个块，是这个块的子元素，跟在块后面，以双下划线为间隔，使用 .btn__price 、.btn__text 表示</span><br><span class="line"></span><br><span class="line">修饰符（Modifier），即 orange 、big ，用于修改块的状态，为块添加特定的主题或样式，跟在块后面，以双连字符为间隔，使用 .btn--orange 、.btn--big 表示</span><br><span class="line"></span><br><span class="line">```   </span><br><span class="line">1.  npm-run-all</span><br></pre></td></tr></table></figure>
 <p>Before: npm run clean &amp;&amp; npm run build:css &amp;&amp; npm run build:js &amp;&amp; npm run build:html<br>After: npm-run-all clean build:*</p>
 <pre><code>
 </code></pre>
@@ -467,17 +471,17 @@
 </li>
 <li><p>npx degit</p>
 </li>
-<li><p>有一些环境变量，比如HOME、PATH、SHELL、UID、USER等，在用户登录之前就已经被/bin/login程序设置好了。通常环境变量被定义并保存在用户家目录下的．bash_profile文件或全局的配置文件/etc/profile中</p>
+<li><p>有一些环境变量，比如HOME、PATH、SHELL、UID、USER等，在用户登录之前就已经被&#x2F;bin&#x2F;login程序设置好了。通常环境变量被定义并保存在用户家目录下的．bash_profile文件或全局的配置文件&#x2F;etc&#x2F;profile中</p>
 </li>
 <li><p>env命令只显示全局变量；declare命令输出所有的变量、函数、整数和已经导出的变量</p>
 </li>
-<li><p>http upgrade 通常来说这一机制总是由客户端发起的 （不过也有例外，比如说可以由服务端发起升级到传输层安全协议（TLS））， 服务端可以选择是否要升级到新协议。借助这一技术，连接可以以常用的协议启动（如HTTP/1.1），随后再升级到HTTP2甚至是WebSockets.</p>
+<li><p>http upgrade 通常来说这一机制总是由客户端发起的 （不过也有例外，比如说可以由服务端发起升级到传输层安全协议（TLS））， 服务端可以选择是否要升级到新协议。借助这一技术，连接可以以常用的协议启动（如HTTP&#x2F;1.1），随后再升级到HTTP2甚至是WebSockets.</p>
 </li>
 <li><p>因为 CommonJS 在运行时进行加载方式的动态解析，在运行时阶段才能确定的导入导出关系，因此无法进行静态编译优化和类型检查。​</p>
 </li>
 <li><p>JSZip  JSZip is a javascript library for creating, reading and editing .zip files, with a lovely and simple AP</p>
 </li>
-<li><p>spy-debugger  一站式页面调试、抓包工具。远程调试任何手机浏览器页面，任何手机移动端webview（如：微信，HybridApp等）。支持HTTP/HTTPS，无需USB连接设备</p>
+<li><p>spy-debugger  一站式页面调试、抓包工具。远程调试任何手机浏览器页面，任何手机移动端webview（如：微信，HybridApp等）。支持HTTP&#x2F;HTTPS，无需USB连接设备</p>
 </li>
 <li><p>viteshot 基于vite 的快照</p>
 </li>
@@ -527,14 +531,14 @@
 
 
 <div class="copyright">
-  © 
+  &copy; 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ryansecreat</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> &amp; <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
     </div>
@@ -542,11 +546,11 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
 
   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
-
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
@@ -558,6 +562,5 @@
 
 
 
-
-
-<script src="/bundle.js"></script></body></html>
+</body>
+</html>

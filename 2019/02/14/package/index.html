@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="zh-CN"><head>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
@@ -9,14 +11,14 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
+<link rel="stylesheet" href="/css/main.css">
 
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-
-  
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="Vue-intro  新功能引导    zebra-editor-core  富文本编辑器  lucky sheet 在线的excel编辑  generic-pool  资源池，可以reuse 和限制一些比较贵的资源比如数据库链接。  Mind elixir 浏览器思维导图js module  cp-cli  copy 跨平台  markdown-it :  markdown parser  w">
 <meta property="og:type" content="article">
@@ -48,15 +50,15 @@
 
 
   <noscript>
-    
+    <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css"></noscript></head>
+</head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" class="use-motion">
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
@@ -99,7 +101,9 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
@@ -142,7 +146,7 @@
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">ryansecreat</p>
   <div class="site-description" itemprop="description">保持积极昂扬的状态，避免成为别人眼中的傻子</div>
 </div>
@@ -194,20 +198,20 @@
   
   
 
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/14/package/">
 
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="ryansecreat">
     </span>
 
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="ryansecreat blog">
       <meta itemprop="description" content="保持积极昂扬的状态，避免成为别人眼中的傻子">
     </span>
 
-    <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="package | ryansecreat blog">
       <meta itemprop="description" content="">
     </span>
@@ -291,7 +295,7 @@
 </li>
 <li><p>Resovel:解析包的安装路径</p>
 </li>
-<li><p>slash:Convert Windows backslash paths to slash paths: foo\bar ➔ foo/bar</p>
+<li><p>slash:Convert Windows backslash paths to slash paths: foo\bar ➔ foo&#x2F;bar</p>
 </li>
 <li><p>klaw-sync:回遍历出所有文件，并返回文件路径和文件夹</p>
 </li>
@@ -299,7 +303,7 @@
 </li>
 <li><p>CodeMirror是一个运行在浏览器中的在线代码编辑器，支持100多种语言，高度可定制。</p>
 </li>
-<li><p>@typescript-eslint/eslint-plugin.  eslint 检测typescript </p>
+<li><p>@typescript-eslint&#x2F;eslint-plugin.  eslint 检测typescript </p>
 </li>
 <li><p>nanoid  A tiny, secure, URL-friendly, unique string ID generator for JavaScript.</p>
 </li>
@@ -316,7 +320,7 @@
 <li><p>await-event  封装了promise</p>
 </li>
 </ol>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title class_">PassThrough</span> = <span class="built_in">require</span>(<span class="string">'stream'</span>).<span class="property">PassThrough</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> stream = <span class="keyword">new</span> <span class="title class_">PassThrough</span>()</span><br><span class="line"><span class="comment">// you attach it directly on an event emitter</span></span><br><span class="line">stream.<span class="property">await</span> = <span class="built_in">require</span>(<span class="string">'await-event'</span>)</span><br><span class="line"> </span><br><span class="line"><span class="title function_">co</span>(<span class="keyword">function</span>* () {</span><br><span class="line">  <span class="keyword">var</span> chunk = <span class="keyword">yield</span> stream.<span class="title function_">await</span>(<span class="string">'data'</span>)</span><br><span class="line">  <span class="keyword">var</span> chunk = <span class="keyword">yield</span> stream.<span class="title function_">await</span>(<span class="string">'data'</span>)</span><br><span class="line">  <span class="keyword">var</span> chunk = <span class="keyword">yield</span> stream.<span class="title function_">await</span>(<span class="string">'data'</span>)</span><br><span class="line">}).<span class="title function_">catch</span>(noop)</span><br><span class="line"> </span><br><span class="line">stream.<span class="title function_">write</span>(<span class="string">'some chunk’) </span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title class_">PassThrough</span> = <span class="built_in">require</span>(<span class="string">&#x27;stream&#x27;</span>).<span class="property">PassThrough</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> stream = <span class="keyword">new</span> <span class="title class_">PassThrough</span>()</span><br><span class="line"><span class="comment">// you attach it directly on an event emitter</span></span><br><span class="line">stream.<span class="property">await</span> = <span class="built_in">require</span>(<span class="string">&#x27;await-event&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="title function_">co</span>(<span class="keyword">function</span>* () &#123;</span><br><span class="line">  <span class="keyword">var</span> chunk = <span class="keyword">yield</span> stream.<span class="title function_">await</span>(<span class="string">&#x27;data&#x27;</span>)</span><br><span class="line">  <span class="keyword">var</span> chunk = <span class="keyword">yield</span> stream.<span class="title function_">await</span>(<span class="string">&#x27;data&#x27;</span>)</span><br><span class="line">  <span class="keyword">var</span> chunk = <span class="keyword">yield</span> stream.<span class="title function_">await</span>(<span class="string">&#x27;data&#x27;</span>)</span><br><span class="line">&#125;).<span class="title function_">catch</span>(noop)</span><br><span class="line"> </span><br><span class="line">stream.<span class="title function_">write</span>(<span class="string">&#x27;some chunk’) </span></span><br></pre></td></tr></table></figure>
 <ol>
 <li>get-ready  NodeJS mixin to add one-time ready event</li>
 <li>ShellJS 是Unix shell命令在Node.js API上的可移植实现</li>
@@ -326,12 +330,12 @@
 <li>depd  标注方法deprecating </li>
 <li>http-errors   http错误  </li>
 <li>Global-tunnel  http请求的全局代理  </li>
-<li>humanize-ms  转义为ms  <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transform humanize time to ms  ms('1s') // 1000</span><br><span class="line">ms(1000) // 1000</span><br></pre></td></tr></tbody></table></figure></li>
+<li>humanize-ms  转义为ms  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transform humanize time to ms  ms(&#x27;1s&#x27;) // 1000</span><br><span class="line">ms(1000) // 1000</span><br></pre></td></tr></table></figure></li>
 <li>Exceljs 一个功能强大的excel 处理包</li>
 <li>ready-callback 所有注册的事件完成后，才执行ready中方法</li>
 <li>Get-ready  NodeJS mixin to add one-time ready event，ready 后执行相关方法</li>
 <li>xml2js  将xml 转换为json </li>
-<li>debug  调试状态输出  debug=*  debug=work:*   </li>
+<li>debug  调试状态输出  debug&#x3D;*  debug&#x3D;work:*   </li>
 <li>delegates  node模块中代理proto中属性的方法、setter和getter</li>
 <li>chokidar filewatch </li>
 <li>Puppeteer  headless browser</li>
@@ -340,7 +344,7 @@
 <li>serialize-javascript  Serialize JavaScript to a superset of JSON that includes regular expressions and functions.</li>
 </ol>
 <p>1.route-cache  express router cache</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> routeCache = <span class="built_in">require</span>(<span class="string">'route-cache'</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// cache route for 20 seconds</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">'/index'</span>, routeCache.<span class="title function_">cacheSeconds</span>(<span class="number">20</span>), <span class="keyword">function</span>(<span class="params">req, res</span>){</span><br><span class="line">  <span class="comment">// do your dirty work here...</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'you will only see this every 20 seconds.'</span>);</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">'this response will be cached'</span>);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> routeCache = <span class="built_in">require</span>(<span class="string">&#x27;route-cache&#x27;</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// cache route for 20 seconds</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/index&#x27;</span>, routeCache.<span class="title function_">cacheSeconds</span>(<span class="number">20</span>), <span class="keyword">function</span>(<span class="params">req, res</span>)&#123;</span><br><span class="line">  <span class="comment">// do your dirty work here...</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;you will only see this every 20 seconds.&#x27;</span>);</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&#x27;this response will be cached&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <ol>
 <li><p>Ws server 端的websoket </p>
 </li>
@@ -438,7 +442,7 @@
 </li>
 <li><p>hash-sum  blazing fast unique hash generator</p>
 </li>
-<li><p>micromatch  Glob matching for javascript/node.js. A replacement and faster alternative to minimatch and multimatch.</p>
+<li><p>micromatch  Glob matching for javascript&#x2F;node.js. A replacement and faster alternative to minimatch and multimatch.</p>
 </li>
 <li><p>xterm-addon-attach  An addon for xterm.js that enables attaching to a web socket. This addon requires xterm.js v4+.</p>
 </li>
@@ -490,14 +494,14 @@
 
 
 <div class="copyright">
-  © 
+  &copy; 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ryansecreat</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> &amp; <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
     </div>
@@ -505,11 +509,11 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
 
   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
-
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
@@ -521,6 +525,5 @@
 
 
 
-
-
-<script src="/bundle.js"></script></body></html>
+</body>
+</html>

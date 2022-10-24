@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="zh-CN"><head>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
@@ -9,14 +11,14 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
+<link rel="stylesheet" href="/css/main.css">
 
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-
-  
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content=":smile: 发版 发布阶段：更新chagelog ,打 git tag 。  react useMemo是将父组件传递给子组件的值缓存起来,useMemo 是在DOM渲染之前执行的 usecallback是将父组件传给子组件的方法给缓存下来 dva   connect Model 的组件通过 props 可以访问到 dispatch，可以调用 Model 中的 Reducer 或者 Effec">
 <meta property="og:type" content="article">
@@ -48,15 +50,15 @@
 
 
   <noscript>
-    
+    <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css"></noscript></head>
+</head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" class="use-motion">
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
@@ -99,7 +101,9 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
@@ -138,12 +142,12 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%91%E7%89%88"><span class="nav-number">1.</span> <span class="nav-text">发版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#react"><span class="nav-number">2.</span> <span class="nav-text">react</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#word"><span class="nav-number">3.</span> <span class="nav-text">word</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#opentracing"><span class="nav-number"></span> <span class="nav-text">opentracing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mac"><span class="nav-number"></span> <span class="nav-text">mac</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm"><span class="nav-number"></span> <span class="nav-text">npm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vim"><span class="nav-number">1.</span> <span class="nav-text">vim</span></a></li></ol></li></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%91%E7%89%88"><span class="nav-number">1.</span> <span class="nav-text">发版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#react"><span class="nav-number">2.</span> <span class="nav-text">react</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#word"><span class="nav-number">3.</span> <span class="nav-text">word</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#opentracing"><span class="nav-number"></span> <span class="nav-text">opentracing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mac"><span class="nav-number"></span> <span class="nav-text">mac</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm"><span class="nav-number"></span> <span class="nav-text">npm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vim"><span class="nav-number">1.</span> <span class="nav-text">vim</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">ryansecreat</p>
   <div class="site-description" itemprop="description">保持积极昂扬的状态，避免成为别人眼中的傻子</div>
 </div>
@@ -195,20 +199,20 @@
   
   
 
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/24/cookies/">
 
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="ryansecreat">
     </span>
 
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="ryansecreat blog">
       <meta itemprop="description" content="保持积极昂扬的状态，避免成为别人眼中的傻子">
     </span>
 
-    <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="cookies | ryansecreat blog">
       <meta itemprop="description" content="">
     </span>
@@ -293,7 +297,7 @@
 <h2 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h2><ol>
 <li>Mac 设置path  export PATH=$PATH:</li>
 <li>查看端口占用：lsof -i:3001</li>
-<li>export http_proxy=”<a href="http://localhost:8899&quot;" target="_blank" rel="noopener">http://localhost:8899"</a></li>
+<li>export http_proxy=”<a href="http://localhost:8899&quot;" target="_blank" rel="noopener">http://localhost:8899&quot;</a></li>
 <li>Grep -A 5 显示后面5行信息</li>
 <li><p>Mac 配置：<br>Oh my zsh<br>brew install autojump  </p>
 <p>git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</p>
@@ -304,7 +308,7 @@
 <h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><ol>
 <li>npm config edit</li>
 <li>npm config set init.author.name “ryansecreat”</li>
-<li>npm config set <a href="mailto:init.email='chenjingnan@jd.com" target="_blank" rel="noopener">init.email='chenjingnan@jd.com</a>’</li>
+<li>npm config set <a href="mailto:init.email=&#39;chenjingnan@jd.com" target="_blank" rel="noopener">init.email=&#39;chenjingnan@jd.com</a>’</li>
 <li>npm config set init.license “MIT”</li>
 <li>npm start –prefix path/to/your/folder   //指定目录下运行</li>
 <li>npm repo   浏览器中打开repo</li>
@@ -373,14 +377,14 @@
 
 
 <div class="copyright">
-  © 
+  &copy; 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ryansecreat</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> &amp; <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
     </div>
@@ -388,11 +392,11 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
 
   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
-
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
@@ -404,6 +408,5 @@
 
 
 
-
-
-<script src="/bundle.js"></script></body></html>
+</body>
+</html>

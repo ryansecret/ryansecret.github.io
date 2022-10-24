@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="zh-CN"><head>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
@@ -9,14 +11,14 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
+<link rel="stylesheet" href="/css/main.css">
 
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-
-  
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="当用户输入关键字并键入回车之后，这意味着当前页面即将要被替换成新的页面，不过在这个流程继续之前，浏览器还给了当前页面一次执行 beforeunload 事件的机会，beforeunload 事件允许页面在退出之前执行一些数据清理操作，还可以询问用户是否要离开当前页面。  对HTML5有什么了解？ 良好的移动性，以移动设备为主；响应式设计，以适应自动变化的屏幕尺寸；支持离线缓存技术，webSto">
 <meta property="og:type" content="article">
@@ -48,15 +50,15 @@
 
 
   <noscript>
-    
+    <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css"></noscript></head>
+</head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" class="use-motion">
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
@@ -99,7 +101,9 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
@@ -142,7 +146,7 @@
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">ryansecreat</p>
   <div class="site-description" itemprop="description">保持积极昂扬的状态，避免成为别人眼中的傻子</div>
 </div>
@@ -194,20 +198,20 @@
   
   
 
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/13/html/">
 
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="ryansecreat">
     </span>
 
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="ryansecreat blog">
       <meta itemprop="description" content="保持积极昂扬的状态，避免成为别人眼中的傻子">
     </span>
 
-    <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="html | ryansecreat blog">
       <meta itemprop="description" content="">
     </span>
@@ -261,12 +265,12 @@
 <li>visibilitychange,可以用来判断浏览器页签是否显示。</li>
 <li>WebP是一种新的图片格式，目标是减少文件大小但达到和JPEG格式相同的图片质量，能够减少网络上的请求时间。</li>
 <li><p>DOMContentLoaded事件触发时：仅当DOM解析完成后，不包括样式表，图片等资源。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">CSS不会阻塞DOM解析，但会阻塞DOM渲染。</span><br><span class="line">CSS会阻塞JS执行，并不会阻塞JS文件下载</span><br><span class="line">``` </span><br><span class="line">1. `&lt;datalist&gt;`标签，用来定义选项列表，与input元素配合使用钙元素，来定义input可能的值。</span><br><span class="line">  datalist及其选项不会被显示出来，他仅仅是合法的输入列表值。</span><br><span class="line">  `&lt;input id="fruits" list="fruit" /&gt;&lt;datalist id="fruit"&gt;  &lt;option value="apple"&gt;  &lt;option value="orange"&gt;  &lt;option value="banana"&gt;&lt;/datalist&gt;`</span><br><span class="line">1. 首屏加载时间</span><br><span class="line">    performance.timing.domContentLoadedEventStart-performance.timing.navigationStart</span><br><span class="line">2.  preload 是声明式的 fetch，可以强制浏览器请求资源，同时不阻塞文档 onload 事件。Prefetch 提示浏览器这个资源将来可能需要，但是把决定是否和什么时间加载这个资源的决定权交给浏览器。</span><br><span class="line">3. 优雅降级 graceful degradation： 一开始就构建完整的功能，然后再针对低版本的浏览器进行兼容。</span><br><span class="line">4. aside  定义页面的侧边栏内容。</span><br><span class="line">   progress 原生的进度条</span><br><span class="line"></span><br><span class="line">5.  HTML `&lt;sup&gt;` 元素定义了一个文本区域，出于排版的原因，与主要的文本相比，应该展示得更高并且更小。</span><br><span class="line">6. domPropsInnerHTML  domPropsInnerText</span><br><span class="line">7. 根据 canvas 可以获取浏览器指纹信息</span><br><span class="line">```text</span><br><span class="line"></span><br><span class="line">绘制 canvas，获取 base64 的 dataurl</span><br><span class="line">对 dataurl 这个字符串进行 md5 摘要计算，得到指纹信息</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">CSS不会阻塞DOM解析，但会阻塞DOM渲染。</span><br><span class="line">CSS会阻塞JS执行，并不会阻塞JS文件下载</span><br><span class="line">``` </span><br><span class="line">1. `&lt;datalist&gt;`标签，用来定义选项列表，与input元素配合使用钙元素，来定义input可能的值。</span><br><span class="line">  datalist及其选项不会被显示出来，他仅仅是合法的输入列表值。</span><br><span class="line">  `&lt;input id=&quot;fruits&quot; list=&quot;fruit&quot; /&gt;&lt;datalist id=&quot;fruit&quot;&gt;  &lt;option value=&quot;apple&quot;&gt;  &lt;option value=&quot;orange&quot;&gt;  &lt;option value=&quot;banana&quot;&gt;&lt;/datalist&gt;`</span><br><span class="line">1. 首屏加载时间</span><br><span class="line">    performance.timing.domContentLoadedEventStart-performance.timing.navigationStart</span><br><span class="line">2.  preload 是声明式的 fetch，可以强制浏览器请求资源，同时不阻塞文档 onload 事件。Prefetch 提示浏览器这个资源将来可能需要，但是把决定是否和什么时间加载这个资源的决定权交给浏览器。</span><br><span class="line">3. 优雅降级 graceful degradation： 一开始就构建完整的功能，然后再针对低版本的浏览器进行兼容。</span><br><span class="line">4. aside  定义页面的侧边栏内容。</span><br><span class="line">   progress 原生的进度条</span><br><span class="line"></span><br><span class="line">5.  HTML `&lt;sup&gt;` 元素定义了一个文本区域，出于排版的原因，与主要的文本相比，应该展示得更高并且更小。</span><br><span class="line">6. domPropsInnerHTML  domPropsInnerText</span><br><span class="line">7. 根据 canvas 可以获取浏览器指纹信息</span><br><span class="line">```text</span><br><span class="line"></span><br><span class="line">绘制 canvas，获取 base64 的 dataurl</span><br><span class="line">对 dataurl 这个字符串进行 md5 摘要计算，得到指纹信息</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>一些性能要求极高的应用中虚拟 DOM 无法进行针对性的极致优化。比如VScode采用直接手动操作DOM的方式进行极端的性</p>
 </li>
 <li><p>事件传播有三个阶段：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">捕获阶段–事件从 window 开始，然后向下到每个元素，直到到达目标元素事件或event.target。</span><br><span class="line">目标阶段–事件已达到目标元素。</span><br><span class="line">冒泡阶段–事件从目标元素冒泡，然后上升到每个元素，直到到达 window。</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">捕获阶段–事件从 window 开始，然后向下到每个元素，直到到达目标元素事件或event.target。</span><br><span class="line">目标阶段–事件已达到目标元素。</span><br><span class="line">冒泡阶段–事件从目标元素冒泡，然后上升到每个元素，直到到达 window。</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>将图片等未处理的文件放在assets中，打包减少体积。而对于第三方引入的一些资源文件如iconfont.css等可以放在static中，因为这些文件已经经过处理了</p>
 </li>
@@ -286,7 +290,7 @@
 <li>link属于HTML标签，而@import是CSS提供的页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载。</li>
 <li>Web quality  : alt</li>
 <li><p>该WindowEventHandlers.onstorage属性包含一个在storage事件触发时运行的事件处理程序。当更改存储区域时会发生这种情况（例如，存储新项目）。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onstorage = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>{ <span class="built_in">console</span>.log(<span class="string">'The '</span> + e.key + <span class="string">' key has been changed from '</span> + e.oldValue + <span class="string">' to '</span> + e.newValue + <span class="string">'.'</span>); };</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onstorage = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'The '</span> + e.key + <span class="string">' key has been changed from '</span> + e.oldValue + <span class="string">' to '</span> + e.newValue + <span class="string">'.'</span>); &#125;;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>navigator.sendBeacon() 方法可用于通过HTTP将少量数据异步传输到Web服务器。</p>
 </li>
@@ -352,14 +356,14 @@
 
 
 <div class="copyright">
-  © 
+  &copy; 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ryansecreat</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> &amp; <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
     </div>
@@ -367,11 +371,11 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
 
   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
-
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
@@ -383,6 +387,5 @@
 
 
 
-
-
-<script src="/bundle.js"></script></body></html>
+</body>
+</html>

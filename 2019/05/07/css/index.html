@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="zh-CN"><head>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
@@ -9,14 +11,14 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
+<link rel="stylesheet" href="/css/main.css">
 
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-
-  
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="它的定位效果完全受限于父级元素们。如果父元素的overflow属性设置了scroll，auto,overlay值，那么，粘性定位将会失效 当粘性约束矩形在可视范围内为relative，反之，则为fixed  Webpack会先用css-loader去解析这个文件，遇到@import等语句就将相应样式文件引入，最后所有的CSS将使用style-loader生成一个内容为最终解析完的CSS代码的St">
 <meta property="og:type" content="article">
@@ -48,15 +50,15 @@
 
 
   <noscript>
-    
+    <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css"></noscript></head>
+</head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" class="use-motion">
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
@@ -99,7 +101,9 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
@@ -143,7 +147,7 @@
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">ryansecreat</p>
   <div class="site-description" itemprop="description">保持积极昂扬的状态，避免成为别人眼中的傻子</div>
 </div>
@@ -195,20 +199,20 @@
   
   
 
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/07/css/">
 
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="ryansecreat">
     </span>
 
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="ryansecreat blog">
       <meta itemprop="description" content="保持积极昂扬的状态，避免成为别人眼中的傻子">
     </span>
 
-    <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="css | ryansecreat blog">
       <meta itemprop="description" content="">
     </span>
@@ -257,7 +261,7 @@
 <li>transform 属于合成属性（composite property），对合成属性进行 transition/animation 动画将会创建一个合成层（composite layer），这使得被动画元素在一个独立的层中进行动画。通常情况下，浏览器会将一个层的内容先绘制进一个位图中，然后再作为纹理（texture）上传到 GPU，只要该层的内容不发生改变，就没必要进行重绘（repaint），浏览器会通过重新复合（recomposite）来形成一个新的帧。</li>
 <li>CSS3中，伪类与伪元素在语法上也有所区别，伪元素修改为以::开头。</li>
 </ol>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">伪元素控制的内容和元素是没有差别的，但是它本身只是基于元素的抽象，并不存在于⽂档中，所以称为伪元素。⽤于将特殊的效果添加到某些选择器</span><br><span class="line">伪类：其核⼼就是⽤来选择DOM树之外的信息,不能够被普通选择器选择的⽂档之外的元素，⽤来添加⼀些选择器的特殊效果。</span><br><span class="line">⽐如:hover :active :visited :link :visited :first-child :focus :lang等</span><br><span class="line"></span><br><span class="line">伪类和伪元素都不出现在源⽂件和DOM树中。也就是说在html源⽂件中是看不到伪类和伪元素的。</span><br><span class="line">不同之处：</span><br><span class="line">伪类其实就是基于普通DOM元素⽽产⽣的不同状态，他是DOM元素的某⼀特征。</span><br><span class="line">伪元素能够创建在DOM树中不存在的抽象对象，⽽且这些抽象对象是能够访问到的。</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">伪元素控制的内容和元素是没有差别的，但是它本身只是基于元素的抽象，并不存在于⽂档中，所以称为伪元素。⽤于将特殊的效果添加到某些选择器</span><br><span class="line">伪类：其核⼼就是⽤来选择DOM树之外的信息,不能够被普通选择器选择的⽂档之外的元素，⽤来添加⼀些选择器的特殊效果。</span><br><span class="line">⽐如:hover :active :visited :link :visited :first-child :focus :lang等</span><br><span class="line"></span><br><span class="line">伪类和伪元素都不出现在源⽂件和DOM树中。也就是说在html源⽂件中是看不到伪类和伪元素的。</span><br><span class="line">不同之处：</span><br><span class="line">伪类其实就是基于普通DOM元素⽽产⽣的不同状态，他是DOM元素的某⼀特征。</span><br><span class="line">伪元素能够创建在DOM树中不存在的抽象对象，⽽且这些抽象对象是能够访问到的。</span><br></pre></td></tr></table></figure>
 <ol>
 <li><p>Bem 是块（block）、元素（element）、修饰符（modifier）的简写，由 Yandex 团队提出的一种前端 CSS 命名方法论。</p>
 <p><code>-</code> 中划线 ：仅作为连字符使用，表示某个块或者某个子元素的多单词之间的连接记号。</p>
@@ -278,7 +282,7 @@ line-clamp: 3;
 <li>!important，作用是提高指定样式规则的应用优先权</li>
 <li>$border-color:#ccc !default; //声明变量 !default只能使用与变量中</li>
 <li><p>sass 的控制指令</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.el-col-0 {</span><br><span class="line">   display: none;</span><br><span class="line"> }</span><br><span class="line"></span><br><span class="line"> @for $i from 0 through 24 {</span><br><span class="line">   .el-col-#{$i} {</span><br><span class="line">     width: (1 / 24 * $i * 100) * 1%;</span><br><span class="line">   }</span><br><span class="line"> }</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.el-col-0 &#123;</span><br><span class="line">   display: none;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> @for $i from 0 through 24 &#123;</span><br><span class="line">   .el-col-#&#123;$i&#125; &#123;</span><br><span class="line">     width: (1 / 24 * $i * 100) * 1%;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用%定义一个被继承的样式，类似静态语言中的抽象类，他本身不起作用，只用于被其他人继承。</p>
 </li>
@@ -290,7 +294,7 @@ line-clamp: 3;
 <li>object-fit CSS 属性指定可替换元素的内容应该如何适应到其使用的高度和宽度确定的框。</li>
 <li>transform-origin CSS属性让你更改一个元素变形的原点。</li>
 <li><p>响应式图像 srcSet </p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">return &lt;img</span><br><span class="line">     src={src}</span><br><span class="line">     onError={this.handleError}</span><br><span class="line">     alt={alt}</span><br><span class="line">     srcSet={srcSet}</span><br><span class="line">     style={{ 'object-fit': fit }}/&gt;;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">return &lt;img</span><br><span class="line">     src=&#123;src&#125;</span><br><span class="line">     onError=&#123;this.handleError&#125;</span><br><span class="line">     alt=&#123;alt&#125;</span><br><span class="line">     srcSet=&#123;srcSet&#125;</span><br><span class="line">     style=&#123;&#123; &apos;object-fit&apos;: fit &#125;&#125;/&gt;;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>CSS 的 outline 属性是在一条声明中设置多个轮廓属性的简写属性 ， 例如 outline-style, outline-width 和 outline-color。</p>
 </li>
@@ -299,27 +303,27 @@ line-clamp: 3;
 <li>inline-block的默认对齐方式是vertical-block：baseline，  vertical-align :middle</li>
 <li>!default 声明赋值的变量赋值，此时，如果变量已经被赋值，不会再被重新赋值，但是如果变量还没有被赋值，则会被赋予新的值。</li>
 <li><p>属性嵌套：</p>
-<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> {  </span><br><span class="line"></span><br><span class="line">  <span class="attribute">font</span>: {  </span><br><span class="line"></span><br><span class="line">    size: <span class="number">10px</span>;  </span><br><span class="line"></span><br><span class="line">    <span class="attribute">weight</span>: bold;  </span><br><span class="line"></span><br><span class="line">  }  }</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;  </span><br><span class="line"></span><br><span class="line">  <span class="attribute">font</span>: &#123;  </span><br><span class="line"></span><br><span class="line">    size: <span class="number">10px</span>;  </span><br><span class="line"></span><br><span class="line">    <span class="attribute">weight</span>: bold;  </span><br><span class="line"></span><br><span class="line">  &#125;  &#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>@minxin @include  @extend </p>
-<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">@for</span> $i from <span class="number">1</span> through <span class="number">1000</span> {</span><br><span class="line">    .#{unique-id()}-#{$i} {</span><br><span class="line">        ...</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">@for</span> $i from <span class="number">1</span> through <span class="number">1000</span> &#123;</span><br><span class="line">    .#&#123;unique-id()&#125;-#&#123;$i&#125; &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>支持布尔型的 and or 以及 not 运算。  @if  or or </p>
-<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">$i: 6;</span><br><span class="line"><span class="keyword">@while</span> $i &gt; <span class="number">0</span> {</span><br><span class="line">  .item-#{$i} { width: 2em * $i; }</span><br><span class="line">  $i: $i - 2;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">@for</span> $i from <span class="number">1</span> through <span class="number">3</span> {</span><br><span class="line">  .item-#{$i} { width: 2em * $i; }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">@each</span> $animal in puma, sea-slug, egret, salamander {</span><br><span class="line">  .#{$animal}-icon {</span><br><span class="line">    background-image: url('/images/#{$animal}.png');</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">@each</span> $animal, $color, $cursor in (puma, black, default),</span><br><span class="line">                                  (sea-slug, blue, pointer),</span><br><span class="line">                                  (egret, white, move) {</span><br><span class="line">  .#{$animal}-icon {</span><br><span class="line">    background-image: url('/images/#{$animal}.png');</span><br><span class="line">    border: 2px solid $color;</span><br><span class="line">    cursor: $cursor;</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">$i: 6;</span><br><span class="line"><span class="keyword">@while</span> $i &gt; <span class="number">0</span> &#123;</span><br><span class="line">  .item-#&#123;$i&#125; &#123; width: 2em * $i; &#125;</span><br><span class="line">  $i: $i - 2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@for</span> $i from <span class="number">1</span> through <span class="number">3</span> &#123;</span><br><span class="line">  .item-#&#123;$i&#125; &#123; width: 2em * $i; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@each</span> $animal in puma, sea-slug, egret, salamander &#123;</span><br><span class="line">  .#&#123;$animal&#125;-icon &#123;</span><br><span class="line">    background-image: url('/images/#&#123;$animal&#125;.png');</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@each</span> $animal, $color, $cursor in (puma, black, default),</span><br><span class="line">                                  (sea-slug, blue, pointer),</span><br><span class="line">                                  (egret, white, move) &#123;</span><br><span class="line">  .#&#123;$animal&#125;-icon &#123;</span><br><span class="line">    background-image: url('/images/#&#123;$animal&#125;.png');</span><br><span class="line">    border: 2px solid $color;</span><br><span class="line">    cursor: $cursor;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>css3 选择器</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">:first-of-type	p:first-of-type	选择属于其父元素的首个 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。</span><br><span class="line">:last-of-type	p:last-of-type	选择属于其父元素的最后 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。</span><br><span class="line"></span><br><span class="line">element element	div p	选择 &lt;div&gt; 元素内部的所有 &lt;p&gt; 元素。	</span><br><span class="line">element&gt;element	div&gt;p	选择父元素为 &lt;div&gt; 元素的所有 &lt;p&gt; 元素。	</span><br><span class="line">element+element	div+p	选择紧接在 &lt;div&gt; 元素之后的所有 &lt;p&gt; 元素。</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">:first-of-type	p:first-of-type	选择属于其父元素的首个 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。</span><br><span class="line">:last-of-type	p:last-of-type	选择属于其父元素的最后 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。</span><br><span class="line"></span><br><span class="line">element element	div p	选择 &lt;div&gt; 元素内部的所有 &lt;p&gt; 元素。	</span><br><span class="line">element&gt;element	div&gt;p	选择父元素为 &lt;div&gt; 元素的所有 &lt;p&gt; 元素。	</span><br><span class="line">element+element	div+p	选择紧接在 &lt;div&gt; 元素之后的所有 &lt;p&gt; 元素。</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>scss </p>
 <blockquote>
 <p>@content</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   @mixin colors($color: blue) {</span><br><span class="line">  background-color: $color;</span><br><span class="line">  @content;</span><br><span class="line">  border-color: $color;</span><br><span class="line">}</span><br><span class="line">.colors {</span><br><span class="line">  @include colors { color: $color; }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   @mixin colors($color: blue) &#123;</span><br><span class="line">  background-color: $color;</span><br><span class="line">  @content;</span><br><span class="line">  border-color: $color;</span><br><span class="line">&#125;</span><br><span class="line">.colors &#123;</span><br><span class="line">  @include colors &#123; color: $color; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 <li><p>async 会打乱html解析，defer 总是在html解析完成后执行。</p>
 </li>
 <li><p>伪元素(Pseudo-elements)<br>DOM树没有定义的虚拟元素</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">核⼼就是需要创建通常不存在于⽂档中的元素，</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">核⼼就是需要创建通常不存在于⽂档中的元素，</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>fr 关键字：Grid 布局还引入了一个另外的长度单位来帮助我们创建灵活的网格轨道。fr 单位代表网格容器中可用空间的一等份。grid-template-columns: 200px 1fr 2fr 表示第一个列宽设置为 200px，后面剩余的宽度分为两部分，宽度分别为剩余宽度的 1/3 和 2/3。</p>
 </li>
@@ -333,7 +337,7 @@ line-clamp: 3;
 <li><p>触发BFC条件  BFC（Block Formatting Context）格式化上下文，把它理解成是一个独立的容器，并且这个容器里box的布局与这个容器外的box毫不相干。</p>
 </li>
 <li><p>递归 o(2**n)-》带备忘录 o(n),自顶向下-》动态规划（自底向上）</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">根元素</span><br><span class="line">float的值不为none</span><br><span class="line">overflow的值不为visible</span><br><span class="line">display的值为inline-block、table-cell、table-caption</span><br><span class="line">position的值为absolute、fixed</span><br><span class="line">弹性盒（flex或inline-flex）</span><br><span class="line">display: flow-root</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">根元素</span><br><span class="line">float的值不为none</span><br><span class="line">overflow的值不为visible</span><br><span class="line">display的值为inline-block、table-cell、table-caption</span><br><span class="line">position的值为absolute、fixed</span><br><span class="line">弹性盒（flex或inline-flex）</span><br><span class="line">display: flow-root</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Stylelint css 的lint  </p>
 </li>
@@ -348,7 +352,7 @@ line-clamp: 3;
 </li>
 <li><p>writing-mode: vertical-rl;  设置文字方向</p>
 </li>
-<li>text-align-last  描述的是一段文本中最后一行在被强制换行之前的对齐规则<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">justify</span><br><span class="line"></span><br><span class="line">最后一行文字的开头与内容盒子的左侧对齐，末尾与右侧对齐</span><br></pre></td></tr></tbody></table></figure>
+<li>text-align-last  描述的是一段文本中最后一行在被强制换行之前的对齐规则<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">justify</span><br><span class="line"></span><br><span class="line">最后一行文字的开头与内容盒子的左侧对齐，末尾与右侧对齐</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>1.设置打印样式</p>
@@ -463,14 +467,14 @@ line-clamp: 3;
 
 
 <div class="copyright">
-  © 
+  &copy; 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ryansecreat</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> &amp; <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
     </div>
@@ -478,11 +482,11 @@ line-clamp: 3;
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
 
   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
-
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
@@ -494,6 +498,5 @@ line-clamp: 3;
 
 
 
-
-
-<script src="/bundle.js"></script></body></html>
+</body>
+</html>
