@@ -151,7 +151,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -186,6 +186,130 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/13/node/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ryansecreat">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ryansecreat blog">
+      <meta itemprop="description" content="保持积极昂扬的状态，避免成为别人眼中的傻子">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ryansecreat blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/08/13/node/" class="post-title-link" itemprop="url">node</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-08-13 16:18:08 / 修改时间：17:48:53" itemprop="dateCreated datePublished" datetime="2020-08-13T16:18:08+08:00">2020-08-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ol>
+<li>V8 浏览器会自动执行垃圾回收，但由于 JavaScript 也是运行在主线程上的，一旦执行垃圾回收，就要打断 JavaScript 的运行，可能会或多或少的造成页面的卡顿，影响用户体验，所以 V8 决定采用增量 标记算法回收：<br>即把垃圾回收拆成一个个小任务，穿插在 JavaScript 中执行。</li>
+<li>Node 高消耗任务：1. Regex 2. 加密、压缩、fs 同步操作 3.json.stringfy</li>
+<li>epoll是event poll的简写，是Linux内核提供的一种由事件驱动的I/O通知机制。</li>
+<li>对第三方包和库做检测：NSP(Node Security Platform)</li>
+<li>V8 机器码的体积要比字节码大的多，执行频率高的为热点代码，启动编译器进行编译，其它的解释器执行</li>
+<li>Resovle 的任务进入微任务队列，暂停当前的协程，回到父协程</li>
+<li>Npm ^ 限定minor 版本 ~限定patch 版本</li>
+<li>Stream cork uncork</li>
+<li>escape-html  This function will escape the following characters: “, ‘, &amp;, &lt;, and &gt;.</li>
+<li>domain模块，把处理多个不同的IO的操作作为一个组。注册事件和回调到domain，当发生一个错误事件或抛出一个错误时，domain对象会被通知，不会丢失上下文环境，也不导致程序错误立即退出，与process.on(‘uncaughtException’)不同。</li>
+<li><p>stream tranform</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const &#123; Transform &#125; = require(&apos;stream&apos;);</span><br><span class="line"></span><br><span class="line">const myTransform = new Transform(&#123;</span><br><span class="line">  transform(chunk, encoding, callback) &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以引入corejs实现feature</p>
+</li>
+<li><p>性能分析<br>Node 性能分析，抓取火焰图 node –inspect app.js<br>Node  –prof-process  <a href="https://github.com/nswbmw/node-in-debugging/blob/master/1.3%20Tick%20Processor.md" target="_blank" rel="noopener">https://github.com/nswbmw/node-in-debugging/blob/master/1.3%20Tick%20Processor.md</a></p>
+</li>
+<li><p>一个promise类 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sleep</span> </span>&#123;</span><br><span class="line">then(resolve, reject)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Node 内置了pipeline  const { pipeline } = require(‘stream’);</p>
+</li>
+<li>Elastic APM 是 Elastic 公司开源的一款 APM 工具</li>
+<li>Error.prepareStackTrace:定制化堆栈信息    Error.captureStackTrace:隐藏内部的实现细节，优化错误栈。</li>
+<li>const { EventEmitter } = require(‘events’);  EventEmitter 的继承</li>
+<li>Require.resovle() 获取模块的绝对路径  </li>
+<li>peerDependencies 相关模块安装</li>
+<li>websocket </li>
+<li>cors 新浏览器<br>SameSite=Strict: The cookie is only sent if you are currently on the site that the cookie is set for. If you are on a different site and you click a link to a site that the cookie is set for, the cookie is not sent with the first request.</li>
+<li><p>主垃圾回收器：</p>
+<p>主垃圾回收器主要负责老生区中的垃圾回收。</p>
+<p>除了新生区中晋升的对象，一些大的对象会直接被分配到老生区。</p>
+<p>因此老生区中的对象有两个特点，一个是对象占用空间大，另一个是对象存活时间长。</p>
+</li>
+<li><p>V8 中会把堆分为新生代和老生代两个区域，</p>
+<p>新生代中存放的是生存时间短的对象，</p>
+<p>老生代中存放的生存时间久的对象。</p>
+<p>垃圾回收重要术语：</p>
+<p>代际假说<br>大部分对象在内存中存在的时间很短<br>不死的对象，会活得更久<br>分代收集<br>副垃圾回收器：</p>
+<p>主要负责新生代的垃圾回收。</p>
+<p>这个区域不大，但是垃圾回收比较频繁。</p>
+<p>新生代的垃圾回收算法是 Scavenge 算法。</p>
+<p>主要把新生代空间对半划分为两个区域：对象区域，空闲区域。</p>
+<p>当对象区域快被写满时，则会进行一次垃圾清理。</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">WebSocket 使用了自定义的二进制分帧格式，把每个应用消息切分成一或多个帧，发送到目的地之后再组装起来，等到接收到完整的消息后再通知接收端。基本的成帧协议定义了帧类型有操作码、有效载荷的长度，指定位置的Extension data和Application data，统称为Payload data，保留了一些特殊位和操作码供后期扩展。在打开握手完成后，终端发送一个关闭帧之前的任何时间里，数据帧可能由客户端或服务器的任何一方发送。</span><br><span class="line"></span><br><span class="line">• 帧：最小的通信单位，包含可变长度的帧首部和净荷部分，净荷可能包含完整或部分应用消息。</span><br><span class="line">• 消息：一系列帧，与应用消息对等。</span><br></pre></td></tr></table></figure>
+<ol>
+<li>jwt 签名算法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HS256 使用密钥生成固定的签名，RS256 使用成非对称进行签名。简单地说，HS256 必须与任何想要验证 JWT的 客户端或 API 共享秘密。</span><br><span class="line">RS256 生成非对称签名，这意味着必须使用私钥来签签名 JWT，并且必须使用对应的公钥来验证签名。与对称算法不同，使用 RS256 可以保证服务端是 JWT 的签名者，因为服务端是唯一拥有私钥的一方。这样做将不再需要在许多应用程序之间共享私钥</span><br><span class="line"></span><br><span class="line">这种方法可以让我们分离开签发与验证，签发时需要用一个密钥，验证时使用公钥，也就是有公钥的地方只能做验证，但不能签发 JWT。</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="egg"><a href="#egg" class="headerlink" title="egg"></a>egg</h3><ol>
+<li>启动顺序<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Master 启动后先 fork Agent 进程</span><br><span class="line">Agent 初始化成功后，通过 IPC 通道通知 Master</span><br><span class="line">Master 再 fork 多个 App Worker</span><br><span class="line">App Worker 初始化成功，通知 Master</span><br><span class="line">所有的进程初始化成功后，Master 通知 Agent 和 Worker 应用启动成功</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1212,104 +1336,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/28/es6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ryansecreat">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ryansecreat blog">
-      <meta itemprop="description" content="保持积极昂扬的状态，避免成为别人眼中的傻子">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | ryansecreat blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/06/28/es6/" class="post-title-link" itemprop="url">es6</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-06-28 11:58:20" itemprop="dateCreated datePublished" datetime="2019-06-28T11:58:20+08:00">2019-06-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2020-08-18 16:37:18" itemprop="dateModified" datetime="2020-08-18T16:37:18+08:00">2020-08-18</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="reflect"><a href="#reflect" class="headerlink" title="reflect"></a>reflect</h3><ol>
-<li><p>修改某些Object方法的返回结果，让其变得更合理</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 老写法</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(target, property, attributes);</span><br><span class="line">  <span class="comment">// success</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="comment">// failure</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 新写法</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">Reflect</span>.defineProperty(target, property, attributes)) &#123;</span><br><span class="line">  <span class="comment">// success</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// failure</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Reflect对象的方法与Proxy对象的方法一一对应</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Proxy</span>(target, &#123;</span><br><span class="line">  <span class="keyword">set</span>: function(target, name, value, receiver) &#123;</span><br><span class="line">    <span class="keyword">var</span> success = <span class="built_in">Reflect</span>.set(target, name, value, receiver);</span><br><span class="line">    <span class="keyword">if</span> (success) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'property '</span> + name + <span class="string">' on '</span> + target + <span class="string">' set to '</span> + value);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> success;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="lit"><a href="#lit" class="headerlink" title="lit"></a>lit</h3><ol>
-<li><p>数组的空位 [,,,]</p>
-</li>
-<li><p>parentheses to be omitted, as in</p>
-</li>
-</ol>
-<p>try {<br>  // …<br>} catch {<br>  // …<br>}</p>
-<h3 id="proxy"><a href="#proxy" class="headerlink" title="proxy"></a>proxy</h3><ol>
-<li><p>Proxy 的 construct 用于拦截 new()<br>isExtensible方法拦截Object.isExtensible操作。<br>ownKeys方法用来拦截对象自身属性的读取操作。具体来说，拦截以下操作。</p>
-<p>Object.getOwnPropertyNames()<br>Object.getOwnPropertySymbols()<br>Object.keys()<br>for…in循环</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Proxy</span>(&#123;&#125;, &#123;</span><br><span class="line">     <span class="keyword">get</span>: function (target, key, receiver) &#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">`getting <span class="subst">$&#123;key&#125;</span>!`</span>);</span><br><span class="line">       <span class="keyword">return</span> <span class="built_in">Reflect</span>.get(target, key, receiver);</span><br><span class="line">     &#125;,</span><br><span class="line">     <span class="keyword">set</span>: function (target, key, value, receiver) &#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">`setting <span class="subst">$&#123;key&#125;</span>!`</span>);</span><br><span class="line">       <span class="keyword">return</span> <span class="built_in">Reflect</span>.set(target, key, value, receiver);</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>绑定上下文</p>
-</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selfish</span> (<span class="params">target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> cache = <span class="keyword">new</span> <span class="built_in">WeakMap</span>();</span><br><span class="line">  <span class="keyword">const</span> handler = &#123;</span><br><span class="line">    <span class="keyword">get</span> (target, key) &#123;</span><br><span class="line">      <span class="keyword">const</span> value = <span class="built_in">Reflect</span>.get(target, key);</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> value !== <span class="string">'function'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (!cache.has(value)) &#123;</span><br><span class="line">        cache.set(value, value.bind(target));</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> cache.get(value);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler);</span><br><span class="line">  <span class="keyword">return</span> proxy;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> logger = selfish(<span class="keyword">new</span> Logger());</span><br><span class="line"><span class="string">``</span><span class="string">`   </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#### console </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.table()</span><br><span class="line"><span class="built_in">console</span>.dir()</span><br><span class="line"><span class="built_in">console</span>.count()</span><br><span class="line">Console.time() </span><br><span class="line">consoel.timeLog()</span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">"answer time"</span>);</span><br><span class="line">alert(<span class="string">"Click to continue"</span>);</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">"answer time”);</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1323,7 +1349,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
