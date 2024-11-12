@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="总结一下常用命令: 其中&lt;&gt;阔起来的参数为必选，[]阔起来为可选 docker version 查看docker的版本号，包括客户端、服务端、依赖的Go等docker info 查看系统(docker)层面信息，包括管理的images, containers数等docker search  在docker index中搜索imagedocker pull  从docker regist">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker 常用命令">
+<meta property="og:url" content="http://yoursite.com/2016/12/14/docker/index.html">
+<meta property="og:site_name" content="ryansecreat blog">
+<meta property="og:description" content="总结一下常用命令: 其中&lt;&gt;阔起来的参数为必选，[]阔起来为可选 docker version 查看docker的版本号，包括客户端、服务端、依赖的Go等docker info 查看系统(docker)层面信息，包括管理的images, containers数等docker search  在docker index中搜索imagedocker pull  从docker regist">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-12-14T09:56:03.000Z">
+<meta property="article:modified_time" content="2020-06-29T06:22:24.360Z">
+<meta property="article:author" content="ryansecreat">
+<meta property="article:tag" content="docker">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://yoursite.com/2016/12/14/docker/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://yoursite.com/2016/12/14/docker/","path":"2016/12/14/docker/","title":"docker 常用命令"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>docker 常用命令 | ryansecreat blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ryansecreat blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">smile hard</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85docker"><span class="nav-number">1.</span> <span class="nav-text">安装docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">删除操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%89%80%E6%9C%89%E5%B7%B2%E7%BB%8F%E5%81%9C%E6%AD%A2%E7%9A%84continer-q-%E5%88%97%E5%87%BA%E6%89%80%E6%9C%89id"><span class="nav-number">2.0.1.</span> <span class="nav-text">删除所有已经停止的continer  -q 列出所有id</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%89%80%E6%9C%89%E9%95%9C%E5%83%8F"><span class="nav-number">2.0.2.</span> <span class="nav-text">删除所有镜像</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E8%AF%B4%E6%98%8E"><span class="nav-number">3.</span> <span class="nav-text">命令说明</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">环境变量的配置</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8C%BF%E5%90%8D%E5%8D%B7"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">匿名卷</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8C%82%E8%BD%BDhost%E7%9B%AE%E5%BD%95"><span class="nav-number">3.0.0.3.</span> <span class="nav-text">挂载host目录</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ryansecreat</p>
+  <div class="site-description" itemprop="description">保持积极昂扬的状态，避免成为别人眼中的傻子</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/14/docker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ryansecreat">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ryansecreat blog">
+      <meta itemprop="description" content="保持积极昂扬的状态，避免成为别人眼中的傻子">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="docker 常用命令 | ryansecreat blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          docker 常用命令
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2016-12-14 17:56:03" itemprop="dateCreated datePublished" datetime="2016-12-14T17:56:03+08:00">2016-12-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2020-06-29 14:22:24" itemprop="dateModified" datetime="2020-06-29T14:22:24+08:00">2020-06-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>总结一下常用命令:</p>
+<p>其中&lt;&gt;阔起来的参数为必选，[]阔起来为可选</p>
+<p>docker version 查看docker的版本号，包括客户端、服务端、依赖的Go等<br>docker info 查看系统(docker)层面信息，包括管理的images, containers数等<br>docker search <image> 在docker index中搜索image<br>docker pull <image> 从docker registry server 中下拉image<br>docker push &lt;image|repository&gt; 推送一个image或repository到registry<br>docker push &lt;image|repository&gt;:TAG 同上，指定tag<br>docker inspect &lt;image|container&gt; 查看image或container的底层信息<br>docker images TODO filter out the intermediate image layers (intermediate image layers 是什么)<br>docker images -a 列出所有的images<br>docker ps 默认显示正在运行中的container<br>docker ps -l 显示最后一次创建的container，包括未运行的<br>docker ps -a 显示所有的container，包括未运行的<br>docker logs <container> 查看container的日志，也就是执行命令的一些输出<br>docker rm &lt;container…&gt; 删除一个或多个container<br>docker rm <code>docker ps -a -q</code> 删除所有的container<br>docker ps -a -q | xargs docker rm 同上, 删除所有的container<br>docker rmi &lt;image…&gt; 删除一个或多个image<br>docker start/stop/restart <container> 开启/停止/重启container<br>docker start -i <container> 启动一个container并进入交互模式<br>docker attach <container> attach一个运行中的container<br>docker run <image> <command> 使用image创建container并执行相应命令，然后停止<br>docker run -i -t <image> /bin/bash 使用image创建container并进入交互模式, login shell是/bin/bash<br>docker run -i -t -p &lt;host_port:contain_port&gt; 将container的端口映射到宿主机的端口<br>docker commit <container> [repo:tag] 将一个container固化为一个新的image，后面的repo:tag可选<br>docker build <path> 寻找path路径下名为的Dockerfile的配置文件，使用此配置生成新的image<br>docker build -t repo[:tag] 同上，可以指定repo和可选的tag<br>docker build - &lt; <dockerfile> 使用指定的dockerfile配置文件，docker以stdin方式获取内容，使用此配置生成新的image<br>docker port <container> <container port> 查看本地哪个端口映射到container的指定端口，其实用docker ps 也可以看到</container></container></dockerfile></path></container></image></image></container></container></container></container></image></image></p>
+<h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><ol>
+<li>利用官方脚本：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum update</span><br><span class="line">$ sudo curl -sSL https://get.docker.com/ | sh</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>用黄狗安装：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum update</span><br><span class="line">$ sudo yum -y install docker</span><br><span class="line">$ sudo systemctl start docker</span><br></pre></td></tr></table></figure>
+<h3 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h3><h5 id="删除所有已经停止的continer-q-列出所有id"><a href="#删除所有已经停止的continer-q-列出所有id" class="headerlink" title="删除所有已经停止的continer  -q 列出所有id"></a>删除所有已经停止的continer  -q 列出所有id</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm $(docker ps -a -q)</span><br></pre></td></tr></table></figure>
+<h5 id="删除所有镜像"><a href="#删除所有镜像" class="headerlink" title="删除所有镜像"></a>删除所有镜像</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi $(docker images | grep none | awk &apos;&#123;print $3&#125;&apos; | sort -r)</span><br></pre></td></tr></table></figure>
+<h3 id="命令说明"><a href="#命令说明" class="headerlink" title="命令说明"></a>命令说明</h3><ol>
+<li>其中go的语法模板</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker images --format &quot;&#123;&#123;.ID&#125;&#125;: &#123;&#123;.Repository&#125;&#125;&quot;</span><br><span class="line">docker images --format &quot;table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Repository&#125;&#125;\t&#123;&#123;.Tag&#125;&#125;&quot;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>filter 过滤参数</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images -f since=mongo:3.2</span><br></pre></td></tr></table></figure>
+<p> 表示自从3.2 版本以来所有的镜像。</p>
+<ol start="3">
+<li><p>docker run -it –rm –name ryanserver ubuntu:14.04 bash </p>
+<p>it 表示交互终端<br>rm 推出后删除<br>ubuntu  镜像名称<br>bash bash命令<br>naem 指定container名称</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name webserver -d -p 85:80 nginx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]</p>
+</li>
+</ol>
+<ul>
+<li>-a :提交的镜像作者；</li>
+<li>-c :使用Dockerfile指令来创建镜像；</li>
+<li>-m :提交时的说明文字；</li>
+<li>-p :在commit时，将容器暂停。<br>如：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ docker commit \</span><br><span class="line">    --author &quot;Tao Wang &lt;twang2218@gmail.com&gt;&quot; \</span><br><span class="line">    --message &quot;修改了默认网页&quot; \</span><br><span class="line">    webserver \</span><br><span class="line">    nginx:v2</span><br></pre></td></tr></table></figure>
+<p>5.通过dockfile制作镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FROM nginx</span><br><span class="line">RUN echo &apos;&lt;h1&gt;Hello, Docker!&lt;/h1&gt;&apos; &gt; /usr/share/nginx/html/index.html</span><br></pre></td></tr></table></figure>
+<p>from 指定基础镜像 </p>
+<p>Dockerfile中每次运行run 都执行了一层。&amp;&amp; 将各个所需命令串联起来</p>
+<p>Dockerfile 支持 Shell 类的行尾添加 \ 的命令换行方式，以及行首# 进行注释的格式<br>一定要确保每一层只添加真正需要添加的东西，任何无关的东西都应该清理掉。</p>
+<p>copy 文件时可使用通配符，其通配符规则要满足 Go 的 filepath.Match 规则，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">COPY hom* /mydir/</span><br><span class="line">COPY hom?.txt /mydir/</span><br></pre></td></tr></table></figure>
+<p>Add 功能和copy 类似，不过自带解压功能：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FROM scratch</span><br><span class="line">ADD ubuntu-xenial-core-cloudimg-amd64-root.tar.gz /</span><br></pre></td></tr></table></figure>
+<h6 id="环境变量的配置"><a href="#环境变量的配置" class="headerlink" title="环境变量的配置"></a>环境变量的配置</h6><p>格式有两种：<br>  ● ENV <key> <value><br>  ● ENV <key1>=<value1> <key2>=<value2>…<br>例如 ENV VERSION=1.0 DEBUG=on \<br>     NAME=”Happy Feet</value2></key2></value1></key1></value></key></p>
+<h6 id="匿名卷"><a href="#匿名卷" class="headerlink" title="匿名卷"></a>匿名卷</h6><p>在 Dockerfile 中，我们可以事先指定某些目录挂载为匿名卷，<br>任何向 /data 中写入的信息都不会记录进容器存储层，从而保证了容器存储层的无状态化。当然，运行时可以覆盖这个挂载设置。比如：<br>docker run -d -v mydata:/data xxxx</p>
+<h6 id="挂载host目录"><a href="#挂载host目录" class="headerlink" title="挂载host目录"></a>挂载host目录</h6><p>将host机中的文件挂载到container中：<br>docker可以支持把一个宿主机上的目录挂载到镜像里。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -v /home/dock/Downloads:/usr/Downloads ubuntu64 /bin/bash</span><br></pre></td></tr></table></figure>
+<p>通过-v参数，冒号前为宿主机目录，必须为绝对路径，冒号后为镜像内挂载的路径。</p>
+<p>一个dockfile:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">MAINTAINER Anna Doe &lt;anna@example.com&gt;</span><br><span class="line">nodejs pm2:</span><br><span class="line">FROM node:0.11.13</span><br><span class="line"># or just node, without tag</span><br><span class="line"></span><br><span class="line">RUN npm install -g pm2</span><br><span class="line">RUN pm2 dump</span><br><span class="line"># dump will start pm2 daemon and create everything needed</span><br><span class="line"></span><br><span class="line">VOLUME [&quot;/srv/apps&quot;, &quot;/srv/logs&quot;, &quot;/srv/server.json&quot;]</span><br><span class="line"># don&apos;t put the files in docker container, user -v</span><br><span class="line"></span><br><span class="line">EXPOSE 3000</span><br><span class="line"></span><br><span class="line">CMD [&quot;pm2&quot;, &quot;start&quot;, &quot;/srv/server.json&quot;, &quot;--no-daemon&quot;]</span><br><span class="line"># no daemon mode for docker</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>docker build -t repo[:tag] . </li>
+</ol>
+<p>可以指定repo和可选的tag<br>如果注意，会看到 docker build 命令最后有一个 .。. 表示当前目录<br>copy命令只有在当前上下文有有效</p>
+<ol start="7">
+<li>从container中导出<br>导出(Export)<br>Export命令用于持久化容器（不是镜像）<br>接着执行导出：<br>sudo docker export <container id> &gt; /home/export.tar</container></li>
+</ol>
+<p>导出后，可以通过docker import   导入，如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat busy.tar | sudo docker import - busy:v1.0</span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li>保存镜像<br>sudo docker save busybox-1 &gt; /home/save.tar</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户既可以使用 docker load 来导入镜像存储文件到本地镜像库，也可以使用 docker import 来导入一个容器快照到本地镜像库。这两者的区别在于容器快照文件将丢弃所有的历史记录和元数据信息（即仅保存容器当时的快照状态），而镜像存储文件将保存完整记录，体积也要大。此外，从容器快照文件导入时可以重新指定标签等元数据信息。</span><br></pre></td></tr></table></figure>
+<ol start="9">
+<li>docker 自启动配置</li>
+</ol>
+<p>自动启动container 如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -ti --restart=on-failure:3   </span><br><span class="line">失败后会启动三次</span><br></pre></td></tr></table></figure>
+<ol start="10">
+<li>用非root用户操作docker<br>下面是使用非root用户操作的步骤</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">创建docker组</span><br><span class="line">sudo groupadd docker</span><br><span class="line">将当前用户加入docker组</span><br><span class="line">sudo gpasswd -a $&#123;USER&#125; docker</span><br><span class="line">重新启动docker服务（下面是CentOS7的命令）</span><br><span class="line">sudo systemctl restart docker</span><br><span class="line">当前用户退出系统重新登陆</span><br><span class="line">运行docker命令</span><br><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+<p>11.用docker 启动zookeeper </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -aux | grep docker</span><br><span class="line">docker run  --name alizookeeper --restart always -d -P zookeeper</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/docker/" rel="tag"># docker</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/12/21/hexo/" rel="next" title="hexo">
+                  hexo <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ryansecreat</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

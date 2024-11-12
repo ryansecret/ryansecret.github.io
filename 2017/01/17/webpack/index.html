@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="babel相关 DefinePlugin  需要字段是json,stringfy &lt;!doctype html&gt; 的作用就是让浏览器进入标准模式，使用最新的 HTML5标准来解析渲染页面；如果不写，浏览器就会进入混杂模式，我们需要避免此类情况发生。     转义的过程： 123456编写ES6代码babylon 进行解析解析得到 ASTplugin 用 babel-traverse 对">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack">
+<meta property="og:url" content="http://yoursite.com/2017/01/17/webpack/index.html">
+<meta property="og:site_name" content="ryansecreat blog">
+<meta property="og:description" content="babel相关 DefinePlugin  需要字段是json,stringfy &lt;!doctype html&gt; 的作用就是让浏览器进入标准模式，使用最新的 HTML5标准来解析渲染页面；如果不写，浏览器就会进入混杂模式，我们需要避免此类情况发生。     转义的过程： 123456编写ES6代码babylon 进行解析解析得到 ASTplugin 用 babel-traverse 对">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-01-17T06:58:02.000Z">
+<meta property="article:modified_time" content="2020-08-18T02:14:14.754Z">
+<meta property="article:author" content="ryansecreat">
+<meta property="article:tag" content="webpack">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://yoursite.com/2017/01/17/webpack/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://yoursite.com/2017/01/17/webpack/","path":"2017/01/17/webpack/","title":"webpack"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>webpack | ryansecreat blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ryansecreat blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">smile hard</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#babel%E7%9B%B8%E5%85%B3"><span class="nav-number">1.</span> <span class="nav-text">babel相关</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ryansecreat</p>
+  <div class="site-description" itemprop="description">保持积极昂扬的状态，避免成为别人眼中的傻子</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/17/webpack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ryansecreat">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ryansecreat blog">
+      <meta itemprop="description" content="保持积极昂扬的状态，避免成为别人眼中的傻子">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="webpack | ryansecreat blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          webpack
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-01-17 14:58:02" itemprop="dateCreated datePublished" datetime="2017-01-17T14:58:02+08:00">2017-01-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2020-08-18 10:14:14" itemprop="dateModified" datetime="2020-08-18T10:14:14+08:00">2020-08-18</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="babel相关"><a href="#babel相关" class="headerlink" title="babel相关"></a>babel相关</h3><ol>
+<li>DefinePlugin  需要字段是json,stringfy</li>
+<li><p>&lt;!doctype html&gt; 的作用就是让浏览器进入标准模式，使用最新的 HTML5标准来解析渲染页面；如果不写，浏览器就会进入混杂模式，我们需要避免此类情况发生。   </p>
+</li>
+<li><p>转义的过程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">编写ES6代码</span><br><span class="line">babylon 进行解析</span><br><span class="line">解析得到 AST</span><br><span class="line">plugin 用 babel-traverse 对 AST 树进行遍历转译</span><br><span class="line">得到新的 AST树</span><br><span class="line">用 babel-generator 通过 AST 树生成 ES5 代码</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>use(new webpack.IgnorePlugin(/^.\/locale$/, /moment$/)) </p>
+</li>
+<li><p>require.context 参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">文件夹路径</span><br><span class="line">是否递归查找子文件夹下的模块</span><br><span class="line">模块匹配规则，一般匹配文件后缀名</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>虽然@babel/polyfill提供了我们想要的所有新方法新类，但是这里依然存在一些问题：</p>
+<p>体积太大：比如我只用了String的新特性，但是我把整个包都引进来了，，这不是徒增了很多无用的代码。<br>污染全局环境：如果你引用了 @babel/polyfill，那么像Promise这样的新类就是挂载在全局上的，这样就会污染了全局命名空间。可能在一个团建建立的项目问题不太大，但是如果你是一个工具的开发者，你把全局环境污染了，别人用你的工具，就有可能把别人给坑了</p>
+</li>
+<li><p>@babel/plugin-transform-runtime会为代码创建一个沙盒环境，为core-js这里内建的实例提供假名，你可以无缝的使用这些新特性，而不需要使用require polyfill。</p>
+<p>一个解决方案就是引入transform runtime 来替代 @babel/polyfill。<br>幸运的是，我们有env这个preset，它又一个useBuiltIns选项，如果设置成”usage”，那么将会自动检测语法帮你require你代码中使用到的功能。  </p>
+</li>
+<li><p>@babel/core<br>其中最核心的包就是@babel/core，它主要的作用就是编译.</p>
+<p>Babel-cli<br>光有core是无法在命令行使用这些功能的，@babel/cli支持你直接在命令行中编译代码。<br>这句话会编译你src目录下的所有js代码，并编译成你想要的那样（babel.config.js配置的），并输出到lib目录下。 </p>
+</li>
+<li><p>@babel/preset-env<br>如果useBuiltIns为true，项目中必须引入babel-polyfill。</p>
+</li>
+<li><p>我们可以配置webpack的特殊注释(需要 Webpack &gt; 2.4)，将一些按需加载的路由打包到同一个js文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">const</span> Foo = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "group-foo" */</span> <span class="string">'./Foo.vue'</span>)</span><br><span class="line">   <span class="keyword">const</span> Bar = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "group-foo" */</span> <span class="string">'./Bar.vue'</span>)</span><br><span class="line">   <span class="keyword">const</span> Baz = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "group-foo" */</span> <span class="string">'./Baz.vue'</span>)</span><br><span class="line"><span class="string">``</span><span class="string">`   </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">1. babel的转译过程分为三个阶段：parsing、transforming、generating，以ES6代码转译为ES5代码为例，babel转译的具体过程如下：</span></span><br><span class="line"><span class="string">   </span></span><br><span class="line"><span class="string">   ES6代码输入</span></span><br><span class="line"><span class="string">   </span></span><br><span class="line"><span class="string">   babylon 进行解析得到 AST</span></span><br><span class="line"><span class="string">   </span></span><br><span class="line"><span class="string">   plugin 用 babel-traverse 对 AST 树进行遍历转译,得到新的AST树</span></span><br><span class="line"><span class="string">   </span></span><br><span class="line"><span class="string">   用 babel-generator 通过 AST 树生成 ES5 代码</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">1. UglifyJS: vue-cli 默认使用的压缩代码方式，它使用的是单线程压缩代码，打包时间较慢</span></span><br><span class="line"><span class="string">   ParallelUglifyPlugin: 开启多个子进程，把对多个文件压缩的工作分别给多个子进程去完成</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">1. Vue Loader 是一个 webpack 的 loader，它允许你以一种名为单文件组件 (SFCs)的格式撰写 Vue 组件.   </span></span><br><span class="line"><span class="string">1. autoprefixer 自动补充前缀</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">2.  webpack-dev-server 修改了webpack 配置中的 entry 属性，在里面添加了 webpack-dev-client 的代码，这样在最后的 bundle.js 文件中就会有接收 websocket 消息的代码了。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">3.  WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其打包为合适的格式以供浏览器使用。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">4. Webpack splitchunk 将各个模块的交集部分抽离出来 </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">5. Webpack ProvidePlugin 自动加载js，不必import。</span></span><br><span class="line"><span class="string">   new webpack.ProvidePlugin(&#123;</span></span><br><span class="line"><span class="string">     _map: ['lodash', 'map']</span></span><br><span class="line"><span class="string">   &#125;)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">6. Webpack在打包时可以为我们生成的source maps，这为我们提供了一种对应编译文件和源文件的方法，使得编译后的代码可读性更高，也更容易调试</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">具体配置参考：http://www.jianshu.com/p/42e11515c10f</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">感叹号的作用在于使同一文件能够使用不同类型的loader</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">对css 分模块：</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>{<br>        test: /.css$/,<br>        loader: ‘style!css?modules’//跟前面相比就在后面加上了?modules<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Loaders和Plugins常常被弄混，但是他们其实是完全不同的东西，可以这么来说，loaders是在打包构建过程中用来处理源文件的（JSX，Scss，Less..），一次处理一个，插件并不直接操作单个文件，它直接对整个构建过程其作用。</span><br><span class="line"></span><br><span class="line">####  常用命令</span><br></pre></td></tr></table></figure></p>
+<p>$ webpack –config webpack.min.js //另一份配置文件</p>
+<p>$ webpack –display-error-details //显示异常信息</p>
+<p>$ webpack –watch   //监听变动并自动打包</p>
+<p>$ webpack -p    //压缩混淆脚本，这个非常非常重要！</p>
+<p>$ webpack -d    //生成map映射文件，告知哪些模块被最终打包到哪里了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">对公共库的封装：</span><br></pre></td></tr></table></figure></p>
+<p>entry: {<br>  vendor: [“jquery”, “other-lib”],<br>  app: “./entry”<br>}<br>new CommonsChunkPlugin({<br>  name: “vendor”,</p>
+<p>  // filename: “vendor.js”<br>  // (Give the chunk a different name)</p>
+<p>  minChunks: Infinity,<br>  // (with more entries, this ensures that no other module<br>  //  goes into the vendor chunk)<br>})<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">关于express webpack middleware 的配置</span><br><span class="line"></span><br><span class="line">http://www.cnblogs.com/linfangshuhellowored/p/5657285.html</span><br><span class="line"></span><br><span class="line">给文件自动添加hash后缀</span><br><span class="line"></span><br><span class="line">根据chunkhash的定义知道，chunkhash是根据具体模块文件的内容计算所得的hash值，所以某个文件的改动只会影响它本身的hash指纹，不会影响其他文件。配置webpack的output如下：</span><br></pre></td></tr></table></figure></p>
+<p>output: {<br>    filename: ‘[name].[chunkhash:8].js’,<br>    path: <strong>dirname + ‘/built’<br>}<br>output: {<br>    filename: ‘[name].[hash:8].js’,<br>    path: </strong>dirname + ‘/built’<br>}<br><code>`</code></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/webpack/" rel="tag"># webpack</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/01/17/loadtest/" rel="prev" title="loadtest">
+                  <i class="fa fa-chevron-left"></i> loadtest
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/01/19/vue/" rel="next" title="vue">
+                  vue <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ryansecreat</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

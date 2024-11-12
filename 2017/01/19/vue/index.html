@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="js 这里对该vm注册一个Watcher实例，Watcher的getter为updateComponent函数，用于触发所有渲染所需要用到的数据的getter，进行依赖收集，就是在mounted的时候进行依赖收集。  用户的自定义 watcher 要优先于渲染 watcher 执行；因为用户自定义 watcher 是在渲染 watcher 之前创建的。Vm._watcher.update()  对">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue">
+<meta property="og:url" content="http://yoursite.com/2017/01/19/vue/index.html">
+<meta property="og:site_name" content="ryansecreat blog">
+<meta property="og:description" content="js 这里对该vm注册一个Watcher实例，Watcher的getter为updateComponent函数，用于触发所有渲染所需要用到的数据的getter，进行依赖收集，就是在mounted的时候进行依赖收集。  用户的自定义 watcher 要优先于渲染 watcher 执行；因为用户自定义 watcher 是在渲染 watcher 之前创建的。Vm._watcher.update()  对">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2017/01/19/vue/foo.png">
+<meta property="og:image" content="https://github.com/ryansecret/blog/blob/master/source/asset/eventloop.jpg">
+<meta property="og:image" content="https://ustbhuangyi.github.io/vue-analysis/assets/new-vue.png">
+<meta property="article:published_time" content="2017-01-19T07:19:03.000Z">
+<meta property="article:modified_time" content="2021-12-22T13:08:52.757Z">
+<meta property="article:author" content="ryansecreat">
+<meta property="article:tag" content="vue eventloop js">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2017/01/19/vue/foo.png">
+
+
+<link rel="canonical" href="http://yoursite.com/2017/01/19/vue/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://yoursite.com/2017/01/19/vue/","path":"2017/01/19/vue/","title":"vue"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>vue | ryansecreat blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ryansecreat blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">smile hard</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#js"><span class="nav-number">1.</span> <span class="nav-text">js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E6%9C%BA%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text">内部机制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BF%AE%E9%A5%B0%E7%AC%A6%EF%BC%88Modifiers%EF%BC%89%E6%98%AF%E4%BB%A5%E5%8D%8A%E8%A7%92%E5%8F%A5%E5%8F%B7-%E6%8C%87%E6%98%8E%E7%9A%84%E7%89%B9%E6%AE%8A%E5%90%8E%E7%BC%80%EF%BC%8C%E7%94%A8%E4%BA%8E%E6%8C%87%E5%87%BA%E4%B8%80%E4%B8%AA%E6%8C%87%E5%AE%9A%E5%BA%94%E8%AF%A5%E4%BB%A5%E7%89%B9%E6%AE%8A%E6%96%B9%E5%BC%8F%E7%BB%91%E5%AE%9A%E3%80%82%E4%BE%8B%E5%A6%82%EF%BC%8C-prevent-%E4%BF%AE%E9%A5%B0%E7%AC%A6%E5%91%8A%E8%AF%89-v-on-%E6%8C%87%E4%BB%A4%E5%AF%B9%E4%BA%8E%E8%A7%A6%E5%8F%91%E7%9A%84%E4%BA%8B%E4%BB%B6%E8%B0%83%E7%94%A8-event-preventDefault"><span class="nav-number">2.0.1.</span> <span class="nav-text">修饰符（Modifiers）是以半角句号 . 指明的特殊后缀，用于指出一个指定应该以特殊方式绑定。例如，.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%89%E9%94%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="nav-number">2.0.2.</span> <span class="nav-text">按键修饰符</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mock-vuex"><span class="nav-number">2.1.</span> <span class="nav-text">mock vuex</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ryansecreat</p>
+  <div class="site-description" itemprop="description">保持积极昂扬的状态，避免成为别人眼中的傻子</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/19/vue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ryansecreat">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ryansecreat blog">
+      <meta itemprop="description" content="保持积极昂扬的状态，避免成为别人眼中的傻子">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="vue | ryansecreat blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          vue
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-01-19 15:19:03" itemprop="dateCreated datePublished" datetime="2017-01-19T15:19:03+08:00">2017-01-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-12-22 21:08:52" itemprop="dateModified" datetime="2021-12-22T21:08:52+08:00">2021-12-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><ol>
+<li>这里对该vm注册一个Watcher实例，Watcher的getter为updateComponent函数，用于触发所有渲染所需要用到的数据的getter，进行依赖收集，就是在mounted的时候进行依赖收集。</li>
+</ol>
+<p>用户的自定义 watcher 要优先于渲染 watcher 执行；因为用户自定义 watcher 是在渲染 watcher 之前创建的。Vm._watcher.update()</p>
+<ol>
+<li>对于渲染 watcher 而言，它在执行 this.get() 方法求值的时候，会执行 getter 方法： updateComponent = () =&gt; {<br>updateComponent = () =&gt; { vm._update(vm._render(), hydrating)</li>
+<li><p>vue diff 算法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//相同的话进行patch</span><br><span class="line">patchVnode (oldVnode, vnode) &#123;</span><br><span class="line">    const el = vnode.el = oldVnode.el</span><br><span class="line">    let i, oldCh = oldVnode.children, ch = vnode.children</span><br><span class="line">    if (oldVnode === vnode) return</span><br><span class="line">    if (oldVnode.text !== null &amp;&amp; vnode.text !== null &amp;&amp; oldVnode.text !== vnode.text) &#123;</span><br><span class="line">        api.setTextContent(el, vnode.text)</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        updateEle(el, vnode, oldVnode)</span><br><span class="line">    	if (oldCh &amp;&amp; ch &amp;&amp; oldCh !== ch) &#123;</span><br><span class="line">            updateChildren(el, oldCh, ch)</span><br><span class="line">    	&#125;else if (ch)&#123;</span><br><span class="line">            createEle(vnode) //create el&apos;s children dom</span><br><span class="line">    	&#125;else if (oldCh)&#123;</span><br><span class="line">            api.removeChildren(el)</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提高性能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">压缩代码</span><br><span class="line">提取页面公共资源 基础包cdn\splitchunks</span><br><span class="line">Tree shaking </span><br><span class="line">scope hoisting</span><br><span class="line">图片压缩 </span><br><span class="line">动态polyfill</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>事件代理：1. 减少事件注册，节省内存。 2. 简化了dom更新时，上面的事件off与on 操作。focus，blur之类的，本身就没用冒泡的特性</p>
+</li>
+<li><p>函数式组件与普通组件的区别</p>
+<p>函数式组件需要在声明组件是指定functional<br>函数式组件不需要实例化，所以没有this,this通过render函数的第二个参数来代替<br>函数式组件没有生命周期钩子函数，不能使用计算属性，watch等等<br>函数式组件不能通过$emit对外暴露事件，调用事件只能通过context.listeners.click的方式调用外部传入的事件<br>因为函数式组件是没有实例化的，所以在外部通过ref去引用组件时，实际引用的是HTMLElement<br>函数式组件的props可以不用显示声明，所以没有在props里面声明的属性都会被自动隐式解析为prop,而普通组件所有未声明的属性都被解析到$attrs里面，并自动挂载到组件根元素上面(可以通过inheritAttrs属性禁止)</p>
+</li>
+<li><p>「适合引入自动化测试的场景：」</p>
+</li>
+</ol>
+<p>公共库类的开发维护<br>中长期项目的迭代/重构<br>引用了不可控的第三方依赖</p>
+<ol>
+<li>Observer 是一个类，它的作用是给对象的属性添加 getter 和 setter，用于依赖收集和派发更新。Render 时通过getter 进行依赖收集。</li>
+<li>Dep 是一个 Class，它定义了一些属性和方法，这里需要特别注意的是它有一个静态属性 target，这是一个全局唯一 Watcher，这是一个非常巧妙的设计，<br>因为在同一时间只能有一个全局的 Watcher 被计算，另外它的自身属性 subs 也是 Watcher 的数组。</li>
+<li><p>vue array 拦截</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/*取得原生数组的原型*/</span></span><br><span class="line"><span class="keyword">const</span> arrayProto = <span class="built_in">Array</span>.prototype</span><br><span class="line"><span class="comment">/*创建一个新的数组对象，修改该对象上的数组的七个方法，防止污染原生数组方法*/</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> arrayMethods = <span class="built_in">Object</span>.create(arrayProto)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>首先通过 Vue.options = Object.create(null) 创建一个空对象，然后遍历 ASSET_TYPES:<br> Vue.options.components = {}<br> Vue.options.directives = {}<br> Vue.options.filters = {}</p>
+</li>
+<li><p>vue 父子组件：<br>加载渲染过程<br>父beforeCreate-&gt;父created-&gt;父beforeMount-&gt;子beforeCreate-&gt;子created-&gt;子beforeMount-&gt;子mounted-&gt;父mounted<br>父beforeUpdate-&gt;子beforeUpdate-&gt;子updated-&gt;父updated<br>父组件更新过程<br>父beforeUpdate-&gt;父updated<br>销毁过程<br>父beforeDestroy-&gt;子beforeDestroy-&gt;子destroyed-&gt;父destroyed</p>
+</li>
+<li><p>for await…of循环，则是用于遍历异步的 Iterator 接口。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params">inputFilePath</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> readStream = fs.createReadStream(</span><br><span class="line">    inputFilePath,</span><br><span class="line">    &#123; <span class="attr">encoding</span>: <span class="string">'utf8'</span>, <span class="attr">highWaterMark</span>: <span class="number">1024</span> &#125;</span><br><span class="line">  );</span><br><span class="line">  readStream.on(<span class="string">'data'</span>, (chunk) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'&gt;&gt;&gt; '</span>+chunk);</span><br><span class="line">  &#125;);</span><br><span class="line">  readStream.on(<span class="string">'end'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'### DONE ###'</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 异步遍历器写法</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params">inputFilePath</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> readStream = fs.createReadStream(</span><br><span class="line">    inputFilePath,</span><br><span class="line">    &#123; <span class="attr">encoding</span>: <span class="string">'utf8'</span>, <span class="attr">highWaterMark</span>: <span class="number">1024</span> &#125;</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> <span class="keyword">await</span> (<span class="keyword">const</span> chunk <span class="keyword">of</span> readStream) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'&gt;&gt;&gt; '</span>+chunk);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'### DONE ###'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string">1. Vm.$watch this._data.$$state 的值，/* 检测store中的_committing的值，如果是true代表不是通过mutation的方法修改的 */</span></span><br><span class="line"><span class="string">2. /* 这里new了一个Vue对象，运用Vue内部的响应式实现注册state以及computed*/</span></span><br><span class="line"><span class="string">    store._vm = new Vue(&#123; data: &#123;$$state: state &#125;, computed &#125;)</span></span><br><span class="line"><span class="string">3. this.$on('hook:updated', () =&gt; &#123;&#125;)</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">1. Vue.config.optionMergeStrategies  </span></span><br><span class="line"><span class="string">1.  在Vue2.5之前，使用函数式组件只能通过JSX的方式，在之后，可以通过模板语法来生命函数式组件</span></span><br><span class="line"><span class="string"> `</span><span class="string">``</span>html</span><br><span class="line"> &lt;!--在template 上面添加 functional属性--&gt;</span><br><span class="line">&lt;template functional&gt;</span><br><span class="line">  &lt;img :src=<span class="string">"avatar ? avatar : 'default-avatar.png'"</span> /&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp">&lt;!--根据上一节第六条，可以省略声明props--&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Vue beforecreated:data vue 实例化、init events</p>
+</li>
+<li><p>作用域插槽 this.$scopedSlots.header({ text: this.headerText })</p>
+</li>
+<li><p>全局的components ，通过vue 的options merge 到组件上。 最后通过 extend(Vue.options.components, builtInComponents) 把一些内置组件扩展到 Vue.options.components 上，<br>Vue 的内置组件目前有 <keep-alive>、<transition> 和 <transition-group> 组件，这也就是为什么我们在其它组件中使用 <keep-alive> 组件不需要注册的原因</keep-alive></transition-group></transition></keep-alive></p>
+</li>
+<li><p>components，filters，directives<br>两个对象合并的时候，不会相互覆盖，而是 权重小的 被放到 权重大 的 的原型上</p>
+</li>
+<li>数组叠加   包括生命周期函数和watch</li>
+<li>函数合并叠加   包括选项：data，provide，权重大的优先 </li>
+<li>最主要最关键的原因是函数式组件不需要实例化，无状态，没有生命周期，所以渲染性能要好于普通组件<br>函数式组件结构比较简单，代码结构更清晰</li>
+<li>inject 用法：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">inject: &#123;</span><br><span class="line">// 注入的属性名称 parentForm: &#123;</span><br><span class="line">// 通过 from 指定从哪个属性注入</span><br><span class="line">from: &apos;customForm&apos;,</span><br><span class="line"> default: () =&gt; (&#123; size: &apos;default&apos; &#125;) &#125; &#125;,</span><br></pre></td></tr></table></figure>
+<ol>
+<li>redirective  </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">binding：一个对象，包含以下 property：</span><br><span class="line">name：指令名，不包括 v- 前缀。</span><br><span class="line">value：指令的绑定值，例如：v-my-directive=&quot;1 + 1&quot; 中，绑定值为 2。</span><br><span class="line">oldValue：指令绑定的前一个值，仅在 update 和 componentUpdated 钩子中可用。无论值是否改变都可用。</span><br><span class="line">expression：字符串形式的指令表达式。例如 v-my-directive=&quot;1 + 1&quot; 中，表达式为 &quot;1 + 1&quot;。</span><br><span class="line">arg：传给指令的参数，可选。例如 v-my-directive:foo 中，参数为 &quot;foo&quot;。</span><br><span class="line">modifiers：一个包含修饰符的对象。例如：v-my-directive.foo.bar 中，修饰符对象为 &#123; foo: true, bar: true &#125;。</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>Async validator</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">asyncValidator: <span class="function">(<span class="params">rule, value</span>) =&gt;</span> &#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">         <span class="keyword">if</span> (value &lt; <span class="number">18</span>) &#123;</span><br><span class="line">           reject(<span class="string">"too young"</span>);  <span class="comment">// reject with error message</span></span><br><span class="line">         &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           resolve();</span><br><span class="line">         &#125;</span><br><span class="line">       &#125;);</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ref用创建一个包装对象，只具备一个响应式属性value，如果将对象指定为ref的值，该对象将被reactive方法深度遍历。如果传入 ref 的是一个对象，将调用 reactive 方法进行深层响应转换。所以ref 可以解构</p>
+</li>
+<li><p>history 模式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">通过 history.pushState() 方法改变地址栏</span><br><span class="line">监听 popstate 事件</span><br><span class="line">根据当前路由地址找到对应组件重新渲染</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>&lt;input type=&quot;text&quot; v-on=&quot;{ input:onInput,focus:onFocus,blur:onBlur, }&quot;&gt;</code>   同样 v-bind </p>
+</li>
+<li><p>keepalive mouted 只会执行一次，vnode上关联的component intance,在patch 阶段会转换为真实的dom.<br>1.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*parse解析得到ast树*/</span></span><br><span class="line">  </span><br><span class="line">    <span class="keyword">const</span> ast = parse(template.trim(), options)</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">      将AST树进行优化</span></span><br><span class="line"><span class="comment">      优化的目标：生成模板AST树，检测不需要进行DOM改变的静态子树。</span></span><br><span class="line"><span class="comment">      一旦检测到这些静态树，我们就能做以下这些事情：</span></span><br><span class="line"><span class="comment">      1.把它们变成常数，这样我们就再也不需要每次重新渲染时创建新的节点了。</span></span><br><span class="line"><span class="comment">      2.在patch的过程中直接跳过。</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">    optimize(ast, options)</span><br></pre></td></tr></table></figure>
+<p>optimize的主要作用是标记static静态节点，这是Vue在编译过程中的一处优化，后面当update更新界面时，会有一个patch的过程，diff算法会直接跳过静态节点，从而减少了比较的过程，优化了patch的性能。</p>
+</li>
+<li><p>Render<br>// resolve template/el and convert to render function 。mounted 方法中<br>在此方法中调用 vm._render 方法先生成虚拟 Node(render 函数返回的就是vnode)，最终调用 vm._update 更新 DOM。</p>
+</li>
+</ol>
+<p>Update 调用的时机：1.首次渲染 2.数据更新 </p>
+<ol>
+<li></li>
+<li>Vue 通过在内存中实现文档结构的虚拟表示来解决此问题，其中虚拟节点（VNode）表示 DOM 树中的节点。当需要操纵时，可以在虚拟 DOM的 内存中执行计算和操作，而不是在真实 DOM 上进行操纵。这自然会更快，并且允许虚拟 DOM 算法计算出最优化的方式来更新实际 DOM 结构。</li>
+<li>Vue 不会对 provide 中的变量进行响应式处理。所以，要想 inject 接受的变量是响应式的，provide 提供的变量本身就需要是响应式的。单项数据流</li>
+</ol>
+<p>inheritAttrs: false, // 可以关闭自动挂载到组件根元素上的没有在props声明的属性</p>
+<ol>
+<li>子组件不需要任何处理，只需要在父组件引用的时候通过@hook来监听即可，代码重写如下：&lt;Child @hook:mounted=”doSomething”/&gt;</li>
+<li>数据动态变化：<br>export const store = Vue.observable({ count: 0 });</li>
+<li><p>vue life cycle</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">parse阶段：使用正在表达式将template进行字符串解析，得到指令、class、style等数据，生成抽象语法树 AST。</span><br><span class="line">optimize阶段：寻找 AST 中的静态节点进行标记，为后面 VNode 的 patch 过程中对比做优化。被标记为 static 的节点在后面的 diff 算法中会被直接忽略，不做详细的比较。</span><br><span class="line"></span><br><span class="line">generate阶段：根据 AST 结构拼接生成 render 函数的字符串。</span><br></pre></td></tr></table></figure>
+<p><a href="https://user-gold-cdn.xitu.io/2019/12/26/16f40a08cac6d3cb?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" target="_blank" rel="noopener">life cycle</a></p>
+</li>
+<li><p>每个逻辑关注点的代码现在都在复合函数中并置在一起。 这大大减少了在处理大型组件时需要不断“跳转”的情况。 组合函数也可以在编辑器中折叠，使组件更容易扫描:</p>
+</li>
+<li><p>js 链接 defer 和 async</p>
+</li>
+<li>keep-alive 的实现正是用到了 LRU 策略,将最近访问的组件 push 到 this.keys 最后面,this.keys[0]也就是最久没被访问的组件,当缓存实例超过 max 设置值,删除 this.keys[0]</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">defer 和 async 都是并行加载的，主要区别在于下载后何时执行。</span><br><span class="line">每一个 async 属性的脚本都在它下载结束之后立刻执行，所以就有可能出现脚本执行顺序被打乱的情况</span><br><span class="line">每一个 defer 属性的脚本会在 HTML 解析完成后, DOMContentLoaded 之前，按照 DOM 中的顺序执行（ie&gt;=10）</span><br><span class="line">defer 和 async 都只适用于外部脚本文件，对与内联的 script 标签是不起作用</span><br></pre></td></tr></table></figure>
+<ol>
+<li>preload 用 “as” 或者用 “type” 属性来表示他们请求资源的优先级（比如说 preload 使用 as=”style” 属性将获得最高的优先级）。没有 “as” 属性的将被看作异步请求，“Early”意味着在所有未被预加载的图片请求之前被请求（“late”意味着之后）</li>
+</ol>
+<ol start="2">
+<li>Vue.config.errorHandler   </li>
+<li>v-pre  场景:vue 是响应式系统,但是有些静态的标签不需要多次编译,这样可以节省性能</li>
+<li><p>v-loader transformAssetUrls<br>在模板编译过程中，编译器可以将某些特性转换为 require 调用，例如 src 中的 URL。因此这些目标资源可以被 webpack 处理。例如 <img src="./foo.png"> 会找到你文件系统中的 ./foo.png 并将其作为一个依赖包含在你的包里</p>
+</li>
+<li><p>view router加key  场景:由于 Vue 会复用相同组件, 即 /page/1 =&gt; /page/2 或者 /page?id=1 =&gt; /page?id=2 这类链接跳转时, 将不在执行created, mounted之类的钩子</p>
+</li>
+</ol>
+<p>1.<img src="https://github.com/ryansecret/blog/blob/master/source/asset/eventloop.jpg" alt="事件循环"></p>
+<ol>
+<li>生命周期<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">beforeCreate阶段：vue实例的挂载元素el和数据对象data都是undefined，还没有初始化。</span><br><span class="line">created阶段：vue实例的数据对象data有了，可以访问里面的数据和方法，未挂载到DOM，el还没有</span><br><span class="line">beforeMount阶段：vue实例的el和data都初始化了，但是挂载之前为虚拟的dom节点</span><br><span class="line">mounted阶段：vue实例挂载到真实DOM上，就可以通过DOM获取DOM节点</span><br><span class="line">beforeUpdate阶段：响应式数据更新时调用，发生在虚拟DOM打补丁之前，适合在更新之前访问现有的DOM，比如手动移除已添加的事件监听器</span><br><span class="line">updated阶段：虚拟DOM重新渲染和打补丁之后调用，组成新的DOM已经更新，避免在这个钩子函数中操作数据，防止死循环</span><br><span class="line">beforeDestroy阶段：实例销毁前调用，实例还可以用，this能获取到实例，常用于销毁定时器，解绑事件</span><br><span class="line">destroyed阶段：实例销毁后调用，调用后所有事件监听器会被移除，所有的子实例都会被销毁  </span><br><span class="line">```         </span><br><span class="line">1. __proto__ 属性，这是历史遗留的非标准的语法，但在现代浏览器中广泛实现。获得原型的更可靠方法是使用 Object.getPrototypeOf(new Object())；例如：</span><br><span class="line"> ```javascript</span><br><span class="line">const car = &#123;&#125;</span><br><span class="line">const list = []</span><br><span class="line"> </span><br><span class="line">console.log(Object.getPrototypeOf(car));</span><br><span class="line">console.log(Object.getPrototypeOf(list));</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="内部机制"><a href="#内部机制" class="headerlink" title="内部机制"></a>内部机制</h3><p>vue-loader </p>
+<p>compiler 目录包含 Vue.js 所有编译相关的代码。它包括把模板解析成 ast 语法树，ast 语法树优化，代码生成等功能。</p>
+<p>微任务的例子：micortask</p>
+<p>process.nextTick<br>promise<br>Object.observe</p>
+<p>宏任务的例子：</p>
+<p>setTimeout<br>setInterval<br>setImmediate<br>I/O</p>
+<p>需要注意的是node 和 浏览器的 event loop 是有区别的(需要注意的是node v12.0 之后和浏览器处理事一致的)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">浏览器的事件循环：</span><br><span class="line"></span><br><span class="line">执行全局Script同步代码，这些同步代码有一些是同步语句，有一些是异步语句（比如setTimeout等）；</span><br><span class="line">全局Script代码执行完毕后，调用栈Stack会清空；</span><br><span class="line">从微队列microtask queue中取出位于队首的回调任务，放入调用栈Stack中执行，执行完后microtask queue长度减1；</span><br><span class="line">继续取出位于队首的任务，放入调用栈Stack中执行，以此类推，直到直到把microtask queue中的所有任务都执行完毕。注意，如果在执行microtask的过程中，又产生了microtask，那么会加入到队列的末尾，也会在这个周期被调用执行；</span><br><span class="line">microtask queue中的所有任务都执行完毕，此时microtask queue为空队列，调用栈Stack也为空；</span><br><span class="line">取出宏队列macrotask queue中位于队首的任务，放入Stack中执行；</span><br><span class="line">执行完毕后，调用栈Stack为空；</span><br><span class="line">重复第3-7个步骤；</span><br><span class="line">重复第3-7个步骤；</span><br><span class="line">……</span><br><span class="line"></span><br><span class="line">NodeJS中微队列主要有2个：</span><br><span class="line">Next Tick Queue：是放置process.nextTick(callback)的回调任务的</span><br><span class="line">Other Micro Queue：放置其他microtask，比如Promise等</span><br><span class="line"></span><br><span class="line">具体参见： https://segmentfault.com/a/1190000016278115</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">timers 阶段：这个阶段执行timer（setTimeout、setInterval）的回调</span><br><span class="line">I/O callbacks 阶段：执行一些系统调用错误，比如网络通信的错误回调</span><br><span class="line">idle, prepare 阶段：仅node内部使用</span><br><span class="line">poll 阶段：获取新的I/O事件, 适当的条件下node将阻塞在这里</span><br><span class="line">check 阶段：执行 setImmediate() 的回调</span><br><span class="line">close callbacks 阶段：执行 socket 的 close 事件回调</span><br><span class="line"></span><br><span class="line">timers 是事件循环的第一个阶段，Node 会去检查有无已过期的timer，如果有则把它的回调压入timer的任务队列中等待执行，事实上，Node 并不能保证timer在预设时间到了就会立即执行，因为Node对timer的过期检查不一定靠谱，它会受机器上其它运行程序影响，或者那个时间点主线程不空闲。比如下面的代码，setTimeout() 和 setImmediate() 的执行顺序是不确定的。</span><br><span class="line"></span><br><span class="line">poll 阶段</span><br><span class="line">poll 阶段主要有2个功能：</span><br><span class="line"></span><br><span class="line">处理 poll 队列的事件</span><br><span class="line">当有已超时的 timer，执行它的回调函数</span><br><span class="line">even loop将同步执行poll队列里的回调，直到队列为空或执行的回调达到系统上限（上限具体多少未详），接下来even loop会去检查有无预设的setImmediate()，分两种情况：</span><br><span class="line"></span><br><span class="line">若有预设的setImmediate(), event loop将结束poll阶段进入check阶段，并执行check阶段的任务队列</span><br><span class="line">若没有预设的setImmediate()，event loop将阻塞在该阶段等待</span><br><span class="line">注意一个细节，没有setImmediate()会导致event loop阻塞在poll阶段，这样之前设置的timer岂不是执行不了了？所以咧，在poll阶段event loop会有一个检查机制，检查timer队列是否为空，如果timer队列非空，event loop就开始下一轮事件循环，即重新进入到timer阶段。</span><br><span class="line"></span><br><span class="line">check 阶段</span><br><span class="line">setImmediate()的回调会被加入check队列中，从event loop的阶段图可以知道，check阶段的执行顺序在poll阶段之后。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">回顾上一篇，浏览器环境下，microtask的任务队列是每个macrotask执行完之后执行。而在Node.js中，microtask会在事件循环的各个阶段之间执行，也就是一个阶段执行完毕，就会去执行microtask队列的任务。详见：http://lynnelv.github.io/js-event-loop-nodejs</span><br><span class="line"></span><br><span class="line">process.nextTick() 会在各个事件阶段之间执行，一旦执行，要直到nextTick队列被清空，才会进入到下一个事件阶段，所以如果递归调用 process.nextTick()，会导致出现I/O starving（饥饿）的问题</span><br><span class="line"></span><br><span class="line">官方文档：https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/</span><br></pre></td></tr></table></figure>
+<p>###vitual dom</p>
+<p>VD 最大的特点是将页面的状态抽象为 JS 对象的形式，配合不同的渲染工具，使跨平台渲染成为可能。如 React 就借助 VD 实现了服务端渲染、浏览器渲染和移动端渲染等功能。<br>js计算-》生成渲染树-》渲染页面</p>
+<p>通过VD的比较，我们可以将多个操作合并成一个批量的操作，从而减少dom重排的次数，进而缩短了生成渲染树和绘制所花的时间。</p>
+<p>在mounted 方法中会将template 编译成为render 方法。这是一个编译过程，render中会调用createElement 创建vnode。</p>
+<p><img src="https://ustbhuangyi.github.io/vue-analysis/assets/new-vue.png" alt="流程图片"></p>
+<p>回到 mountComponent 函数的过程，我们已经知道 createElement 是如何创建了一个 VNode，接下来就是要把这个 VNode 渲染成一个真实的 DOM 并渲染出来，这个过程是通过 vm._update 完成的</p>
+<p>Vue 的 _update 是实例的一个私有方法，它被调用的时机有 2 个，一个是首次渲染，一个是数据更新的时候；由于我们这一章节只分析首次渲染部分，数据更新部分会在之后分析响应式原理的时候涉及。_update 方法的作用是把 VNode 渲染成真实的 DOM</p>
+<p>在我们之前对 setter 的分析过程知道，当响应式数据发送变化后，触发了 watcher.update()，只是把这个 watcher 推送到一个队列中，在 nextTick 后才会真正执行 watcher 的回调函数。而一旦我们设置了 sync，就可以在当前 Tick 中同步执行 watcher 的回调函数。</p>
+<h5 id="修饰符（Modifiers）是以半角句号-指明的特殊后缀，用于指出一个指定应该以特殊方式绑定。例如，-prevent-修饰符告诉-v-on-指令对于触发的事件调用-event-preventDefault"><a href="#修饰符（Modifiers）是以半角句号-指明的特殊后缀，用于指出一个指定应该以特殊方式绑定。例如，-prevent-修饰符告诉-v-on-指令对于触发的事件调用-event-preventDefault" class="headerlink" title="修饰符（Modifiers）是以半角句号 . 指明的特殊后缀，用于指出一个指定应该以特殊方式绑定。例如，.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()"></a>修饰符（Modifiers）是以半角句号 . 指明的特殊后缀，用于指出一个指定应该以特殊方式绑定。例如，.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 阻止单击事件冒泡 --&gt;</span><br><span class="line">&lt;a v-on:click.stop=&quot;doThis&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;!-- 提交事件不再重载页面 --&gt;</span><br><span class="line">&lt;form v-on:submit.prevent=&quot;onSubmit&quot;&gt;&lt;/form&gt;</span><br><span class="line">&lt;!-- 修饰符可以串联  --&gt;</span><br><span class="line">&lt;a v-on:click.stop.prevent=&quot;doThat&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;!-- 只有修饰符 --&gt;</span><br><span class="line">&lt;form v-on:submit.prevent&gt;&lt;/form&gt;</span><br><span class="line">&lt;!-- 添加事件侦听器时使用事件捕获模式 --&gt;</span><br><span class="line">&lt;div v-on:click.capture=&quot;doThis&quot;&gt;...&lt;/div&gt;</span><br><span class="line">&lt;!-- 只当事件在该元素本身（而不是子元素）触发时触发回调 --&gt;</span><br><span class="line">&lt;div v-on:click.self=&quot;doThat&quot;&gt;...&lt;/div&gt;</span><br><span class="line">&lt;a v-on:click.once=&quot;doThis&quot;&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="按键修饰符"><a href="#按键修饰符" class="headerlink" title="按键修饰符"></a>按键修饰符</h5><p>记住所有的 keyCode 比较困难，组合键 所以 Vue 为最常用的按键提供了别名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Alt + C --&gt;</span><br><span class="line">&lt;input v-on:keyup.alt.67=&quot;clear&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- Ctrl + Click --&gt;</span><br><span class="line">&lt;div v-on:click.ctrl=&quot;doSomething&quot;&gt;Do something&lt;/div&gt;</span><br><span class="line">&lt;!-- 同上 --&gt;</span><br><span class="line">&lt;input v-on:keyup.enter=&quot;submit&quot;&gt;</span><br><span class="line">&lt;!-- 缩写语法 --&gt;</span><br><span class="line">&lt;input @keyup.enter=&quot;submit&quot;&gt;</span><br><span class="line">全部的按键别名：</span><br><span class="line">.enter</span><br><span class="line">.tab</span><br><span class="line">.delete (捕获 “删除” 和 “退格” 键)</span><br><span class="line">.esc</span><br><span class="line">.space</span><br><span class="line">.up</span><br><span class="line">.down</span><br><span class="line">.left</span><br><span class="line">.right</span><br></pre></td></tr></table></figure>
+<h4 id="mock-vuex"><a href="#mock-vuex" class="headerlink" title="mock vuex"></a>mock vuex</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">setup() &#123;</span><br><span class="line">          useLoginStatusProvide()</span><br><span class="line">          return &#123;&#125;</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        import &#123; provide, inject, ref &#125; from &apos;@vue/composition-api&apos;</span><br><span class="line"></span><br><span class="line">const StatusSymbol = Symbol(&apos;status&apos;)</span><br><span class="line"></span><br><span class="line">export const useLoginStatusProvide = () =&gt; &#123;</span><br><span class="line">  const loginStatus = ref(false)</span><br><span class="line"></span><br><span class="line">  const setLoginStatus = val =&gt; (loginStatus.value = val)</span><br><span class="line">  provide(StatusSymbol, &#123; loginStatus, setLoginStatus &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export const useLoginStatusInject = () =&gt; &#123;</span><br><span class="line">  const context = inject(StatusSymbol)</span><br><span class="line">  if (!context) throw new Error(&apos;useLoginStatusInject must be used after useLoginStatusProvide&apos;)</span><br><span class="line"></span><br><span class="line">  return context</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/vue-eventloop-js/" rel="tag"># vue eventloop js</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/01/17/webpack/" rel="prev" title="webpack">
+                  <i class="fa fa-chevron-left"></i> webpack
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/01/23/interview/" rel="next" title="interview">
+                  interview <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ryansecreat</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

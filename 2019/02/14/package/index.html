@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="vue-spinners A collection of loading spinner components for Vuejs  vue-ui-preloader 可定义spinner 速度  https:&#x2F;&#x2F;github.com&#x2F;epicmaxco&#x2F;epic-spinners spinner 也可调整速度  Vue pipeline 流程展示  https:&#x2F;&#x2F;jinfang134.git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="package">
+<meta property="og:url" content="http://yoursite.com/2019/02/14/package/index.html">
+<meta property="og:site_name" content="ryansecreat blog">
+<meta property="og:description" content="vue-spinners A collection of loading spinner components for Vuejs  vue-ui-preloader 可定义spinner 速度  https:&#x2F;&#x2F;github.com&#x2F;epicmaxco&#x2F;epic-spinners spinner 也可调整速度  Vue pipeline 流程展示  https:&#x2F;&#x2F;jinfang134.git">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-02-14T09:19:12.000Z">
+<meta property="article:modified_time" content="2024-11-12T08:50:34.703Z">
+<meta property="article:author" content="ryansecreat">
+<meta property="article:tag" content="useful package">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://yoursite.com/2019/02/14/package/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://yoursite.com/2019/02/14/package/","path":"2019/02/14/package/","title":"package"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>package | ryansecreat blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ryansecreat blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">smile hard</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ryansecreat</p>
+  <div class="site-description" itemprop="description">保持积极昂扬的状态，避免成为别人眼中的傻子</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/14/package/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ryansecreat">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ryansecreat blog">
+      <meta itemprop="description" content="保持积极昂扬的状态，避免成为别人眼中的傻子">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="package | ryansecreat blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          package
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-02-14 17:19:12" itemprop="dateCreated datePublished" datetime="2019-02-14T17:19:12+08:00">2019-02-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-12 16:50:34" itemprop="dateModified" datetime="2024-11-12T16:50:34+08:00">2024-11-12</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <ol>
+<li><p>vue-spinners A collection of loading spinner components for Vuejs</p>
+</li>
+<li><p>vue-ui-preloader 可定义spinner 速度</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/epicmaxco/epic-spinners">https://github.com/epicmaxco/epic-spinners</a> spinner 也可调整速度</p>
+</li>
+<li><p>Vue pipeline 流程展示  <a target="_blank" rel="noopener" href="https://jinfang134.github.io/vue-pipeline/">https://jinfang134.github.io/vue-pipeline/</a></p>
+</li>
+<li><p>不同的进度  <a target="_blank" rel="noopener" href="https://setaman.github.io/vue-ellipse-progress-docs/guide/">https://setaman.github.io/vue-ellipse-progress-docs/guide/</a></p>
+</li>
+<li><p>vue-loading-overlay 方便添加蒙层</p>
+</li>
+<li><p>Vue-intro  新功能引导  </p>
+</li>
+<li><p>zebra-editor-core  富文本编辑器</p>
+</li>
+<li><p>lucky sheet 在线的excel编辑</p>
+</li>
+<li><p>generic-pool  资源池，可以reuse 和限制一些比较贵的资源比如数据库链接。</p>
+</li>
+<li><p>Mind elixir 浏览器思维导图js module</p>
+</li>
+<li><p>cp-cli  copy 跨平台</p>
+</li>
+<li><p>markdown-it :  markdown parser</p>
+</li>
+<li><p>web-storage-cache 对HTML5 localStorage 和sessionStorage 进行了扩展，添加了超时时间，序列化方法。可以直接存储json对象，同时可以非常简单的进行超时时间的设置。</p>
+</li>
+<li><p>ImmortalDB 是在浏览器中存储持久键值数据的最佳方法。保存到 ImmortalDB 的数据被冗余地存储在 Cookies，IndexedDB 和 localStorage 中，并且如果其中的任何数据被删除或损坏，它们将不断进行自我修复。</p>
+</li>
+<li><p>localForage 是一个快速简单的 JavaScript 存储库。 它通过使用类似于 localStorage 的简单 API 来使用异步存储（IndexedDB 或 WebSQL)），进而改善你的 Web 应用程序的离线体验。</p>
+</li>
+<li><p>webworker-threads  node 多线程模块处理计算密集任务</p>
+</li>
+<li><p>Textures.js  基于d3 生成纹理</p>
+</li>
+<li><p>robotjs 控制键盘、鼠标、屏幕</p>
+</li>
+<li><p>vue-count-to  的数字滚动组件，vue-count-to是一个无依赖，轻量级的vue组件，可以自行覆盖easingFn。你可以设置 startVal 和 endVal，它会自动判断计数或倒计时</p>
+</li>
+<li><p>fullpagejs  通过调用本库可轻易创建全屏滚动网站(也称为单页网站)。 本库可创建全屏滚动网站，同时也可在网站中添加横向滚动条。</p>
+</li>
+<li><p>Opn: A better node-open. Opens stuff like websites, files, executables. Cross-platform.</p>
+</li>
+<li><p>Ora:进度条和文字。</p>
+</li>
+<li><p>joi：数据验</p>
+</li>
+<li><p>minimist：简单的参数处理</p>
+</li>
+<li><p>read-pkg:规范化解析pkg</p>
+</li>
+<li><p>inquirer:询问时可以给出选项</p>
+</li>
+<li><p>Resovel:解析包的安装路径</p>
+</li>
+<li><p>slash:Convert Windows backslash paths to slash paths: foo\bar ➔ foo&#x2F;bar</p>
+</li>
+<li><p>klaw-sync:回遍历出所有文件，并返回文件路径和文件夹</p>
+</li>
+<li><p>mime-types content-type 工具：1. 可以根据文件后缀获取 2. 根据content-type获取charset 3. 根据content-type 获取默认的文件名</p>
+</li>
+<li><p>CodeMirror是一个运行在浏览器中的在线代码编辑器，支持100多种语言，高度可定制。</p>
+</li>
+<li><p>@typescript-eslint&#x2F;eslint-plugin.  eslint 检测typescript </p>
+</li>
+<li><p>nanoid  A tiny, secure, URL-friendly, unique string ID generator for JavaScript.</p>
+</li>
+<li><p>mm 对mudule 中的方法mock</p>
+</li>
+<li><p>numerify  用来格式化数字 </p>
+</li>
+<li><p>utils-lite  前端提供debounce、thorttling、clone、cloneDeep 等方法</p>
+</li>
+<li><p>is-type-of   node check 数据类型</p>
+</li>
+<li><p>on-finished  Execute a callback when a HTTP request closes, finishes, or errors</p>
+</li>
+<li><p>await-event  封装了promise</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title class_">PassThrough</span> = <span class="built_in">require</span>(<span class="string">&#x27;stream&#x27;</span>).<span class="property">PassThrough</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> stream = <span class="keyword">new</span> <span class="title class_">PassThrough</span>()</span><br><span class="line"><span class="comment">// you attach it directly on an event emitter</span></span><br><span class="line">stream.<span class="property">await</span> = <span class="built_in">require</span>(<span class="string">&#x27;await-event&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="title function_">co</span>(<span class="keyword">function</span>* () &#123;</span><br><span class="line">  <span class="keyword">var</span> chunk = <span class="keyword">yield</span> stream.<span class="title function_">await</span>(<span class="string">&#x27;data&#x27;</span>)</span><br><span class="line">  <span class="keyword">var</span> chunk = <span class="keyword">yield</span> stream.<span class="title function_">await</span>(<span class="string">&#x27;data&#x27;</span>)</span><br><span class="line">  <span class="keyword">var</span> chunk = <span class="keyword">yield</span> stream.<span class="title function_">await</span>(<span class="string">&#x27;data&#x27;</span>)</span><br><span class="line">&#125;).<span class="title function_">catch</span>(noop)</span><br><span class="line"> </span><br><span class="line">stream.<span class="title function_">write</span>(<span class="string">&#x27;some chunk’) </span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>get-ready  NodeJS mixin to add one-time ready event</li>
+<li>ShellJS 是Unix shell命令在Node.js API上的可移植实现</li>
+<li>graceful-process   graceful exit process even parent exit on SIGKILL.</li>
+<li>semver.gte(process.version, ‘7.0.0’)  版本的比对 </li>
+<li>pkgfiles  自动再package中添加 npm publish 文件</li>
+<li>depd  标注方法deprecating </li>
+<li>http-errors   http错误  </li>
+<li>Global-tunnel  http请求的全局代理  </li>
+<li>humanize-ms  转义为ms  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transform humanize time to ms  ms(&#x27;1s&#x27;) // 1000</span><br><span class="line">ms(1000) // 1000</span><br></pre></td></tr></table></figure></li>
+<li>Exceljs 一个功能强大的excel 处理包</li>
+<li>ready-callback 所有注册的事件完成后，才执行ready中方法</li>
+<li>Get-ready  NodeJS mixin to add one-time ready event，ready 后执行相关方法</li>
+<li>xml2js  将xml 转换为json </li>
+<li>debug  调试状态输出  debug&#x3D;*  debug&#x3D;work:*   </li>
+<li>delegates  node模块中代理proto中属性的方法、setter和getter</li>
+<li>chokidar filewatch </li>
+<li>Puppeteer  headless browser</li>
+<li>cross-env Run scripts that set and use environment variables across platforms</li>
+<li>simplemde  markdown editor </li>
+<li>serialize-javascript  Serialize JavaScript to a superset of JSON that includes regular expressions and functions.</li>
+</ol>
+<p>1.route-cache  express router cache</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> routeCache = <span class="built_in">require</span>(<span class="string">&#x27;route-cache&#x27;</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// cache route for 20 seconds</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/index&#x27;</span>, routeCache.<span class="title function_">cacheSeconds</span>(<span class="number">20</span>), <span class="keyword">function</span>(<span class="params">req, res</span>)&#123;</span><br><span class="line">  <span class="comment">// do your dirty work here...</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;you will only see this every 20 seconds.&#x27;</span>);</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&#x27;this response will be cached&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>Ws server 端的websoket </p>
+</li>
+<li><p>fastclick  解决浏览器点击的延迟</p>
+</li>
+<li><p>Qs  A querystring parsing and stringifying library with some added security.</p>
+</li>
+<li><p>lru-cache  A cache object that deletes the least-recently-used items.</p>
+</li>
+<li><p>memory-fs  A simple in-memory filesystem. Holds data in a javascript object</p>
+</li>
+<li><p>faker.js  generate massive amounts of fake data in the browser and node.js</p>
+</li>
+<li><p>parseurl 等同node url parse，加了cache</p>
+</li>
+<li><p>vue-lazy-component   Vue.js 2.x 组件级懒加载方案-Vue.js 2.x component level lazy loading solution</p>
+</li>
+<li><p>async-validator  数据验证</p>
+</li>
+<li><p>fast-safe-stringify    Safe and fast serialization alternative to JSON.stringify.</p>
+</li>
+<li><p>node-notifier   Send cross platform native notifications using Node.js.</p>
+</li>
+<li><p>dateformat   node 时间处理函数</p>
+</li>
+<li><p>agentkeepalive  defaut is keepalive</p>
+</li>
+<li><p>copy-to   copy an object’s properties to another one, include propertiy, getter and setter.</p>
+</li>
+<li><p>platform   A platform detection library that works on nearly all JavaScript platforms.</p>
+</li>
+<li><p>svg-captcha 验证码  </p>
+</li>
+<li><p>vue-virtual-scroller  加载大量数据</p>
+</li>
+<li><p>FileSaver.js  保存大于 ram的文档</p>
+</li>
+<li><p>vue-draggable-resizable  Vue2 Component for draggable and resizable elements.</p>
+</li>
+<li><p>ScrollTrigger  根据滚动位置出发事件</p>
+</li>
+<li><p>Vue Virtual Scroller   RecycleScroller 可以渲染列表中的可见项目。如果你不知道项目的大小，最好使用 DynamicScroller</p>
+</li>
+<li><p>Vuetensils  没有样式的component,可定制自己样式</p>
+</li>
+<li><p>v-calendar  日历插件</p>
+</li>
+<li><p>vue-grid-layout 可以拖拽的布局控件</p>
+</li>
+<li><p>Vue-content-loader  占位符控件</p>
+</li>
+<li><p>Sinon   node 端监控方法执行、mock、spy</p>
+</li>
+<li><p>figlet  控制台标题文字</p>
+</li>
+<li><p>Cockatiel  是一个弹性和瞬态故障处理库，如重试，断路器，超时，隔板隔离和回退之类的策略。</p>
+</li>
+<li><p>Signale  一个 Node 的日志格式库，自带16个级别，可以定制颜色和 Emoji。</p>
+</li>
+<li><p>Wiki.js  构建wiki 文档管理 </p>
+</li>
+<li><p>fast-xml-parser xml 和     json 转换</p>
+</li>
+<li><p>js-cloudimage-360-view 360度查看</p>
+</li>
+<li><p>crontab ui</p>
+</li>
+<li><p>X-spreadsheet css 实现的sheet</p>
+</li>
+<li><p>SitDown  <a target="_blank" rel="noopener" href="http://domchristie.github.io/turndown/">html to markdown</a></p>
+</li>
+<li><p>Wekan 一个开源的看板软件</p>
+</li>
+<li><p>droppy  提供web界面的可本地部署的文件管理</p>
+</li>
+<li><p>uplot 渲染大量数据，占用资源少</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/jlongster/absurd-sql">https://github.com/jlongster/absurd-sql</a>  sqllite 对indexdb的封装</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/zx">https://www.npmjs.com/package/zx</a>   zx node shell 的脚本终极方案</p>
+</li>
+<li><p>chan  A golang like channel implementation for JavaScript that works well with co.</p>
+</li>
+<li><p>pump  When using standard source.pipe(dest) source will not be destroyed if dest emits close or an error. You are also not able to provide a callback to tell when then pipe has finished.</p>
+</li>
+<li><p>npx cloc path 用来统计代码行数</p>
+</li>
+<li><p>acorn  A tiny, fast JavaScript parser written in JavaScript.</p>
+</li>
+<li><p>picocolors  The tiniest and the fastest library for terminal output formatting with ANSI colors.添加背景色的。</p>
+</li>
+<li><p>hash-sum  blazing fast unique hash generator</p>
+</li>
+<li><p>micromatch  Glob matching for javascript&#x2F;node.js. A replacement and faster alternative to minimatch and multimatch.</p>
+</li>
+<li><p>xterm-addon-attach  An addon for xterm.js that enables attaching to a web socket. This addon requires xterm.js v4+.</p>
+</li>
+<li><p>node-pty 虚拟的terminal forkpty(3) bindings for node.js. This allows you to fork processes with pseudoterminal file descriptors. It returns a terminal object which allows reads and writes.<br>  asdf</p>
+</li>
+<li><p>dom-to-image 一个可以将任意DOM节点转换为用JavaScript编写的矢量（SVG）或光栅（PNG或JPEG）图像的库</p>
+</li>
+<li><p>pako js 用来压缩和解压</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/useful-package/" rel="tag"># useful package</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/02/21/postgre/" rel="prev" title="postgre">
+                  <i class="fa fa-chevron-left"></i> postgre
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/02/20/gitInfo/" rel="next" title="gitInfo">
+                  gitInfo <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ryansecreat</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
