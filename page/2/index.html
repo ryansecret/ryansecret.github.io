@@ -151,7 +151,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -186,6 +186,96 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/10/cloud/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ryansecreat">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ryansecreat blog">
+      <meta itemprop="description" content="保持积极昂扬的状态，避免成为别人眼中的傻子">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ryansecreat blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/11/10/cloud/" class="post-title-link" itemprop="url">cloud</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-11-10 11:06:58 / 修改时间：11:34:46" itemprop="dateCreated datePublished" datetime="2020-11-10T11:06:58+08:00">2020-11-10</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ol>
+<li>增量数据迁移</li>
+</ol>
+<p>数据复制：由于业务原因，需要将数据从一个空间迁移至另一个空间。</p>
+<p>合规性要求：合规性要求所规定的数据需要跨一定距离保存一份副本。</p>
+<p>数据备份与容灾：如果您对所有写入的数据都希望在异地存储区域维护一份副本，以备发生如海啸、地震等特大灾难导致存储区域损毁时，还能启用异地存储区域的备份数据。</p>
+<p>最大限度减少延迟：用户处于两个地理位置。为了最大限度缩短访问对象时的延迟，可以在地理位置与用户较近的存储区域维护对象副本。</p>
+<ol start="2">
+<li><p>增量数据同步是跨不同的Bucket自动、异步复制文件，它会将对源Bucket中的对象的改动（除删除操作）同步到目标Bucket。</p>
+</li>
+<li><p>对象锁定</p>
+</li>
+</ol>
+<p>对象锁定功能可以禁止文件的删除和覆盖，以保障数据可靠性和满足某些行业的合规性要求，实现一次写入，多次读取（WORM）模式。<br>部分行业规定要求重要数据必须保存一定的时间后才可以被删除，如金融服务，医疗、政务部门等；为了满足该场景，对象存储需要支持WORM(对象锁定)模式，即一次写入，多次读取。</p>
+<p>除特殊行业的强制需求外，如有其他需求需要在一定时间或永久禁止某些文件的删除和覆盖，也可以使用对象锁定功能。</p>
+<ol start="4">
+<li>动态加速：通过路由优化、传输优化等动态加速技术解决跨运营商、网络不稳定等因素导致的响应慢、丢包、服务不稳定等问题，适用于较差网络环境下上传下载的场景。</li>
+</ol>
+<p>大文件下载加速：通过CDN边缘节点缓存源站内容来实现文件加速分发，提供低成本、高性能、可扩展的互联网内容分发服务，适用于相同内容反复下载的使用场景</p>
+<p>5.<br>管理元数据<br>管理元数据功能可以修改文件的HTTP响应头，实现控制客户端缓存时间、文件强制下载等策略。除一些通用响应头外，还支持配置自定义元数据。</p>
+<p>Content-Disposition 响应头指示回复的内容该以何种形式展示，是以内联的形式（即网页或者页面的一部分），还是以附件的形式下载并保存到本地。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1252,92 +1342,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/02/es8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ryansecreat">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ryansecreat blog">
-      <meta itemprop="description" content="保持积极昂扬的状态，避免成为别人眼中的傻子">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | ryansecreat blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/07/02/es8/" class="post-title-link" itemprop="url">es8</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-07-02 11:37:11" itemprop="dateCreated datePublished" datetime="2019-07-02T11:37:11+08:00">2019-07-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2020-06-29 14:22:24" itemprop="dateModified" datetime="2020-06-29T14:22:24+08:00">2020-06-29</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ol>
-<li><p>Stage 0: strawman——最初想法的提交。<br>Stage 1: proposal（提案）——由TC39至少一名成员倡导的正式提案文件，该文件包括API事例。<br>Stage 2: draft（草案）——功能规范的初始版本，该版本包含功能规范的两个实验实现。<br>Stage 3: candidate（候选）——提案规范通过审查并从厂商那里收集反馈<br>Stage 4: finished（完成）——提案准备加入ECMAScript，但是到浏览器或者Nodejs中可能需要更长的时间</p>
-</li>
-<li><p>es2018(es9)<br>promise.finally  正则表达式匹配组<br>regex 先行断言和反向断言、dotall  </p>
-</li>
-<li><p>Template Literals</p>
-</li>
-<li></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
@@ -1349,7 +1355,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

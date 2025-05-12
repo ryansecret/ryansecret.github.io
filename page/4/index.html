@@ -151,7 +151,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -186,6 +186,97 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/21/postgre/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ryansecreat">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ryansecreat blog">
+      <meta itemprop="description" content="保持积极昂扬的状态，避免成为别人眼中的傻子">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ryansecreat blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/02/21/postgre/" class="post-title-link" itemprop="url">postgre</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-02-21 11:18:37" itemprop="dateCreated datePublished" datetime="2017-02-21T11:18:37+08:00">2017-02-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2020-06-29 14:22:24" itemprop="dateModified" datetime="2020-06-29T14:22:24+08:00">2020-06-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db.many(query, values); // expects one or more rows</span><br><span class="line">db.one(query, values); // expects a single row</span><br><span class="line">db.none(query, values); // expects no rows</span><br><span class="line">db.any(query, values); // expects anything, same as `manyOrNone`</span><br><span class="line">db.oneOrNone(query, values); // expects 1 or 0 rows</span><br><span class="line">db.manyOrNone(query, values); // expects anything, same as `any`</span><br></pre></td></tr></table></figure>
+<p>The library supports named parameters in query formatting, with the syntax of $<em>propName</em>, where * is any of the following open-close pairs: {}, (), &lt;&gt;, [], //</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.query(&apos;SELECT * FROM users WHERE name=$&#123;name&#125; AND active=$/active/&apos;, &#123;</span><br><span class="line">    name: &apos;John&apos;,</span><br><span class="line">    active: true</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>this 的用法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var doc = &#123;</span><br><span class="line">    id: 123,</span><br><span class="line">    body: &quot;some text&quot;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">db.none(&quot;INSERT INTO documents(id, doc) VALUES($&#123;id&#125;, $&#123;this&#125;)&quot;, doc)</span><br><span class="line">    .then(function () &#123;</span><br><span class="line">        // success;</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(function (error) &#123;</span><br><span class="line">        // error;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>which will execute:</p>
+<p>INSERT INTO documents(id, doc) VALUES(123, ‘{“id”:123,”body”:”some text”}’)</p>
+<p>执行函数</p>
+<p>And when you are not expecting any return results, call db.proc instead. Both methods return a Promise object, but db.proc doesn’t take a qrm parameter, always assuming it is one|none.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">db.func(&apos;findAudit&apos;, [123, new Date()])</span><br><span class="line">    .then(function (data) &#123;</span><br><span class="line">        console.log(data); // printing the data returned </span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(function (error) &#123;</span><br><span class="line">        console.log(error); // printing the error </span><br><span class="line">    &#125;);</span><br><span class="line">db.proc();</span><br></pre></td></tr></table></figure></p>
+<p>公用一个连接：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">db.task(function (t) &#123;</span><br><span class="line">    // `t` and `this` here are the same;</span><br><span class="line">    // execute a chain of queries;</span><br><span class="line">&#125;)</span><br><span class="line">    .then(function (data) &#123;</span><br><span class="line">        // success;</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(function (error) &#123;</span><br><span class="line">        // failed;    </span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<p>事物：其中可以嵌套事物</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">db.tx(function (t) &#123;</span><br><span class="line">    // t = this;</span><br><span class="line">    return t.batch([</span><br><span class="line">        t.one(&quot;insert into users(name) values($1) returning id&quot;, &quot;John&quot;),</span><br><span class="line">        t.one(&quot;insert into events(code) values($1) returning id&quot;, 123)</span><br><span class="line">    ]);</span><br><span class="line">&#125;)</span><br><span class="line">    .spread(function (user, event) &#123;</span><br><span class="line">        // print new user id + new event id;</span><br><span class="line">        console.log(&quot;DATA:&quot;, user.id, event.id);</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(function (error) &#123;</span><br><span class="line">        console.log(&quot;ERROR:&quot;, error); // print the error;</span><br><span class="line">    &#125;)</span><br><span class="line">    .finally(function () &#123;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">        pgp.end(); // for immediate app exit, closing the connection pool.   关闭连接池，是的一般不需要</span><br><span class="line">        </span><br><span class="line">        If, however you normally exit your application by killing the NodeJS process, then you don&apos;t need to use it.</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<p>设置隔离级别：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var TransactionMode = pgp.txMode.TransactionMode;</span><br><span class="line">var isolationLevel = pgp.txMode.isolationLevel;</span><br><span class="line"></span><br><span class="line">// Create a reusable transaction mode (serializable + read-only + deferrable):</span><br><span class="line">var tmSRD = new TransactionMode(&#123;</span><br><span class="line">    tiLevel: isolationLevel.serializable,</span><br><span class="line">    readOnly: true,</span><br><span class="line">    deferrable: true</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">function myTransaction() &#123;</span><br><span class="line">    return this.query(&apos;SELECT * FROM table&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myTransaction.txMode = tmSRD; // assign transaction mode;</span><br><span class="line"></span><br><span class="line">db.tx(myTransaction)</span><br><span class="line">    .then(function()&#123;</span><br><span class="line">        // success;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<p>重置promise：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var promise = require(&apos;bluebird&apos;);</span><br><span class="line">var options = &#123;</span><br><span class="line">    promiseLib: promise</span><br><span class="line">&#125;;</span><br><span class="line">var pgp = require(&apos;pg-promise&apos;)(options);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1179,160 +1270,8 @@ branch: master
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/14/docker/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ryansecreat">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ryansecreat blog">
-      <meta itemprop="description" content="保持积极昂扬的状态，避免成为别人眼中的傻子">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | ryansecreat blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2016/12/14/docker/" class="post-title-link" itemprop="url">docker 常用命令</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2016-12-14 17:56:03" itemprop="dateCreated datePublished" datetime="2016-12-14T17:56:03+08:00">2016-12-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2020-06-29 14:22:24" itemprop="dateModified" datetime="2020-06-29T14:22:24+08:00">2020-06-29</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>总结一下常用命令:</p>
-<p>其中&lt;&gt;阔起来的参数为必选，[]阔起来为可选</p>
-<p>docker version 查看docker的版本号，包括客户端、服务端、依赖的Go等<br>docker info 查看系统(docker)层面信息，包括管理的images, containers数等<br>docker search <image> 在docker index中搜索image<br>docker pull <image> 从docker registry server 中下拉image<br>docker push &lt;image|repository&gt; 推送一个image或repository到registry<br>docker push &lt;image|repository&gt;:TAG 同上，指定tag<br>docker inspect &lt;image|container&gt; 查看image或container的底层信息<br>docker images TODO filter out the intermediate image layers (intermediate image layers 是什么)<br>docker images -a 列出所有的images<br>docker ps 默认显示正在运行中的container<br>docker ps -l 显示最后一次创建的container，包括未运行的<br>docker ps -a 显示所有的container，包括未运行的<br>docker logs <container> 查看container的日志，也就是执行命令的一些输出<br>docker rm &lt;container…&gt; 删除一个或多个container<br>docker rm <code>docker ps -a -q</code> 删除所有的container<br>docker ps -a -q | xargs docker rm 同上, 删除所有的container<br>docker rmi &lt;image…&gt; 删除一个或多个image<br>docker start/stop/restart <container> 开启/停止/重启container<br>docker start -i <container> 启动一个container并进入交互模式<br>docker attach <container> attach一个运行中的container<br>docker run <image> <command> 使用image创建container并执行相应命令，然后停止<br>docker run -i -t <image> /bin/bash 使用image创建container并进入交互模式, login shell是/bin/bash<br>docker run -i -t -p &lt;host_port:contain_port&gt; 将container的端口映射到宿主机的端口<br>docker commit <container> [repo:tag] 将一个container固化为一个新的image，后面的repo:tag可选<br>docker build <path> 寻找path路径下名为的Dockerfile的配置文件，使用此配置生成新的image<br>docker build -t repo[:tag] 同上，可以指定repo和可选的tag<br>docker build - &lt; <dockerfile> 使用指定的dockerfile配置文件，docker以stdin方式获取内容，使用此配置生成新的image<br>docker port <container> <container port> 查看本地哪个端口映射到container的指定端口，其实用docker ps 也可以看到</container></container></dockerfile></path></container></image></image></container></container></container></container></image></image></p>
-<h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><ol>
-<li>利用官方脚本：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum update</span><br><span class="line">$ sudo curl -sSL https://get.docker.com/ | sh</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>用黄狗安装：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum update</span><br><span class="line">$ sudo yum -y install docker</span><br><span class="line">$ sudo systemctl start docker</span><br></pre></td></tr></table></figure>
-<h3 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h3><h5 id="删除所有已经停止的continer-q-列出所有id"><a href="#删除所有已经停止的continer-q-列出所有id" class="headerlink" title="删除所有已经停止的continer  -q 列出所有id"></a>删除所有已经停止的continer  -q 列出所有id</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm $(docker ps -a -q)</span><br></pre></td></tr></table></figure>
-<h5 id="删除所有镜像"><a href="#删除所有镜像" class="headerlink" title="删除所有镜像"></a>删除所有镜像</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi $(docker images | grep none | awk &apos;&#123;print $3&#125;&apos; | sort -r)</span><br></pre></td></tr></table></figure>
-<h3 id="命令说明"><a href="#命令说明" class="headerlink" title="命令说明"></a>命令说明</h3><ol>
-<li>其中go的语法模板</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker images --format &quot;&#123;&#123;.ID&#125;&#125;: &#123;&#123;.Repository&#125;&#125;&quot;</span><br><span class="line">docker images --format &quot;table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Repository&#125;&#125;\t&#123;&#123;.Tag&#125;&#125;&quot;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>filter 过滤参数</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images -f since=mongo:3.2</span><br></pre></td></tr></table></figure>
-<p> 表示自从3.2 版本以来所有的镜像。</p>
-<ol start="3">
-<li><p>docker run -it –rm –name ryanserver ubuntu:14.04 bash </p>
-<p>it 表示交互终端<br>rm 推出后删除<br>ubuntu  镜像名称<br>bash bash命令<br>naem 指定container名称</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name webserver -d -p 85:80 nginx</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]</p>
-</li>
-</ol>
-<ul>
-<li>-a :提交的镜像作者；</li>
-<li>-c :使用Dockerfile指令来创建镜像；</li>
-<li>-m :提交时的说明文字；</li>
-<li>-p :在commit时，将容器暂停。<br>如：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ docker commit \</span><br><span class="line">    --author &quot;Tao Wang &lt;twang2218@gmail.com&gt;&quot; \</span><br><span class="line">    --message &quot;修改了默认网页&quot; \</span><br><span class="line">    webserver \</span><br><span class="line">    nginx:v2</span><br></pre></td></tr></table></figure>
-<p>5.通过dockfile制作镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FROM nginx</span><br><span class="line">RUN echo &apos;&lt;h1&gt;Hello, Docker!&lt;/h1&gt;&apos; &gt; /usr/share/nginx/html/index.html</span><br></pre></td></tr></table></figure>
-<p>from 指定基础镜像 </p>
-<p>Dockerfile中每次运行run 都执行了一层。&amp;&amp; 将各个所需命令串联起来</p>
-<p>Dockerfile 支持 Shell 类的行尾添加 \ 的命令换行方式，以及行首# 进行注释的格式<br>一定要确保每一层只添加真正需要添加的东西，任何无关的东西都应该清理掉。</p>
-<p>copy 文件时可使用通配符，其通配符规则要满足 Go 的 filepath.Match 规则，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">COPY hom* /mydir/</span><br><span class="line">COPY hom?.txt /mydir/</span><br></pre></td></tr></table></figure>
-<p>Add 功能和copy 类似，不过自带解压功能：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FROM scratch</span><br><span class="line">ADD ubuntu-xenial-core-cloudimg-amd64-root.tar.gz /</span><br></pre></td></tr></table></figure>
-<h6 id="环境变量的配置"><a href="#环境变量的配置" class="headerlink" title="环境变量的配置"></a>环境变量的配置</h6><p>格式有两种：<br>  ● ENV <key> <value><br>  ● ENV <key1>=<value1> <key2>=<value2>…<br>例如 ENV VERSION=1.0 DEBUG=on \<br>     NAME=”Happy Feet</value2></key2></value1></key1></value></key></p>
-<h6 id="匿名卷"><a href="#匿名卷" class="headerlink" title="匿名卷"></a>匿名卷</h6><p>在 Dockerfile 中，我们可以事先指定某些目录挂载为匿名卷，<br>任何向 /data 中写入的信息都不会记录进容器存储层，从而保证了容器存储层的无状态化。当然，运行时可以覆盖这个挂载设置。比如：<br>docker run -d -v mydata:/data xxxx</p>
-<h6 id="挂载host目录"><a href="#挂载host目录" class="headerlink" title="挂载host目录"></a>挂载host目录</h6><p>将host机中的文件挂载到container中：<br>docker可以支持把一个宿主机上的目录挂载到镜像里。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -v /home/dock/Downloads:/usr/Downloads ubuntu64 /bin/bash</span><br></pre></td></tr></table></figure>
-<p>通过-v参数，冒号前为宿主机目录，必须为绝对路径，冒号后为镜像内挂载的路径。</p>
-<p>一个dockfile:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">MAINTAINER Anna Doe &lt;anna@example.com&gt;</span><br><span class="line">nodejs pm2:</span><br><span class="line">FROM node:0.11.13</span><br><span class="line"># or just node, without tag</span><br><span class="line"></span><br><span class="line">RUN npm install -g pm2</span><br><span class="line">RUN pm2 dump</span><br><span class="line"># dump will start pm2 daemon and create everything needed</span><br><span class="line"></span><br><span class="line">VOLUME [&quot;/srv/apps&quot;, &quot;/srv/logs&quot;, &quot;/srv/server.json&quot;]</span><br><span class="line"># don&apos;t put the files in docker container, user -v</span><br><span class="line"></span><br><span class="line">EXPOSE 3000</span><br><span class="line"></span><br><span class="line">CMD [&quot;pm2&quot;, &quot;start&quot;, &quot;/srv/server.json&quot;, &quot;--no-daemon&quot;]</span><br><span class="line"># no daemon mode for docker</span><br></pre></td></tr></table></figure>
-<ol start="6">
-<li>docker build -t repo[:tag] . </li>
-</ol>
-<p>可以指定repo和可选的tag<br>如果注意，会看到 docker build 命令最后有一个 .。. 表示当前目录<br>copy命令只有在当前上下文有有效</p>
-<ol start="7">
-<li>从container中导出<br>导出(Export)<br>Export命令用于持久化容器（不是镜像）<br>接着执行导出：<br>sudo docker export <container id> &gt; /home/export.tar</container></li>
-</ol>
-<p>导出后，可以通过docker import   导入，如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat busy.tar | sudo docker import - busy:v1.0</span><br></pre></td></tr></table></figure>
-<ol start="8">
-<li>保存镜像<br>sudo docker save busybox-1 &gt; /home/save.tar</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户既可以使用 docker load 来导入镜像存储文件到本地镜像库，也可以使用 docker import 来导入一个容器快照到本地镜像库。这两者的区别在于容器快照文件将丢弃所有的历史记录和元数据信息（即仅保存容器当时的快照状态），而镜像存储文件将保存完整记录，体积也要大。此外，从容器快照文件导入时可以重新指定标签等元数据信息。</span><br></pre></td></tr></table></figure>
-<ol start="9">
-<li>docker 自启动配置</li>
-</ol>
-<p>自动启动container 如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -ti --restart=on-failure:3   </span><br><span class="line">失败后会启动三次</span><br></pre></td></tr></table></figure>
-<ol start="10">
-<li>用非root用户操作docker<br>下面是使用非root用户操作的步骤</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">创建docker组</span><br><span class="line">sudo groupadd docker</span><br><span class="line">将当前用户加入docker组</span><br><span class="line">sudo gpasswd -a $&#123;USER&#125; docker</span><br><span class="line">重新启动docker服务（下面是CentOS7的命令）</span><br><span class="line">sudo systemctl restart docker</span><br><span class="line">当前用户退出系统重新登陆</span><br><span class="line">运行docker命令</span><br><span class="line">docker ps</span><br></pre></td></tr></table></figure>
-<p>11.用docker 启动zookeeper </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -aux | grep docker</span><br><span class="line">docker run  --name alizookeeper --restart always -d -P zookeeper</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
@@ -1344,7 +1283,7 @@ branch: master
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
